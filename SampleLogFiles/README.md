@@ -1,4 +1,4 @@
-This page contains sample log alert information. It also intends to provide grok parsers (http://grokconstructor.appspot.com/)<br />
+This page contains sample log alert information from diffrent types of sensors. It also grok parser statements. (http://grokconstructor.appspot.com/)<br />
 http://grokconstructor.appspot.com/do/match#result<br />
 <br />
 
@@ -76,7 +76,7 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 <br />
 *GROK Parser*<br />
 <table><tr><td>
-  
+%{MONTHDAY:day}%{MONTHNUM:month}%{YEAR:year}%{SPACE}%{TIME:time}\]%{SPACE}%{WORD:event}%{SPACE}%{GREEDYDATA:filepath}:%{NUMBER:number}-%{WORD:type}:%{GREEDYDATA:payload}
 </td></tr></table>
 
 
