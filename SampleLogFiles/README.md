@@ -3,13 +3,8 @@ http://grokconstructor.appspot.com/do/match#result<br />
 <br />
 
 
-location of alert logs: <br />
-<h3>OSSEC</h3>
-/var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
-<br />
-<h3>Dionaea</h3> 
-<h4>Simple Log</h4>
-./var/log/dionaea.log (a.k.a. dionaea.log)<br />
+
+
 <br />
 <h5>SAMPLE LOG:</h5>
 <table><tr><td>
@@ -100,4 +95,46 @@ timestamp | time elapsed | remotehost | code/status | bytes | method | URL rfc93
 *GROK Parser*<br />
 <table><tr><td>
 SQUID_DELIMITED %{NUMBER:timestamp}[^0-9]*%{INT:elapsed} %{IP:ip_src_addr} %{WORD:action}/%{NUMBER:code} %{NUMBER:bytes} %{WORD:method} %{NOTSPACE:url}[^0-9]*(%{IP:ip_dst_addr})?<br />
+</td></tr></table>
+
+<h3>OSSEC</h3>
+/var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
+<br />
+<h3>Dionaea</h3> 
+<h4>Simple Log</h4>
+./var/log/dionaea.log (a.k.a. dionaea.log)<br />
+<table><tr><td>
+<h5>SAMPLE LOG:</h5>
+<br />
+** Alert 1502259963.0: - ossec,<br />
+2017 Aug 09 06:26:03 honeeepi->ossec-logcollector<br />
+Rule: 591 (level 3) -> 'Log file rotated.'<br />
+ossec: File rotated (inode changed): '/var/log/messages'.<br />
+<br />
+** Alert 1502259963.184: - ossec,<br />
+2017 Aug 09 06:26:03 honeeepi->ossec-logcollector<br />
+Rule: 591 (level 3) -> 'Log file rotated.'<br />
+ossec: File rotated (inode changed): '/var/log/auth.log'.<br />
+<br />
+** Alert 1504638699.4801: mail  - ossec,syscheck,<br />
+2017 Sep 05 19:11:39 confidential-archive-server2->syscheck<br />
+Rule: 550 (level 7) -> 'Integrity checksum changed.'<br />
+Integrity checksum changed for: '/etc/rsyslog.conf'<br />
+Size changed from '2718' to '2988'<br />
+Old md5sum was: 'dbb18c440c638f5d7eab7e3e63154f64'<br />
+New md5sum is : '8c37ddb3f64e35277eb1b59b0e15e6a3'<br />
+Old sha1sum was: '42e52417f32b80aac5b1d0dc5e4d1ef0230dadaa'<br />
+New sha1sum is : '98bd54b9170e8dcd5d42ca979961c5ec6b241c1e'<br />
+<br />
+** Alert 1504659681.607: - syslog,sshd,invalid_login,authentication_failed,<br />
+2017 Sep 06 01:01:21 ip-172-31-12-166->/var/log/auth.log<br />
+Rule: 5710 (level 5) -> 'Attempt to login using a non-existent user'<br />
+Src IP: 181.21.7.9<br />
+Sep  6 01:01:20 ip-172-31-12-166 sshd[7009]: Invalid user admin from 181.21.7.9<br />
+<br />
+** Alert 1504719298.31121: - syslog,sudo<br />
+2017 Sep 06 17:34:58 ip-172-31-12-166->/var/log/auth.log<br />
+Rule: 5402 (level 3) -> 'Successful sudo to ROOT executed'<br />
+User: ubuntu<br />
+Sep  6 17:34:58 ip-172-31-12-166 sudo:   ubuntu : TTY=pts/0 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/find -name *ossec*log<br />
 </td></tr></table>
