@@ -98,10 +98,8 @@ SQUID_DELIMITED %{NUMBER:timestamp}[^0-9]*%{INT:elapsed} %{IP:ip_src_addr} %{WOR
 
 <h3>OSSEC</h3>
 /var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
-
-<table><tr><td>
 <h5>SAMPLE LOG:</h5>
-<br />
+<table><tr><td>
 ** Alert 1502259963.0: - ossec,<br />
 2017 Aug 09 06:26:03 honeeepi->ossec-logcollector<br />
 Rule: 591 (level 3) -> 'Log file rotated.'<br />
