@@ -4,14 +4,14 @@ http://grokconstructor.appspot.com/do/match#result<br />
 
 
 location of alert logs: <br />
-<h3>OSSEC</h3><br />
+<h3>OSSEC</h3>
 /var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
 <br />
-<h3>Dionaea</h3> <br />
-*-Simple Log*<br />
+<h3>Dionaea</h3> 
+<h4>Simple Log</h4>
 ./var/log/dionaea.log (a.k.a. dionaea.log)<br />
 <br />
-*SAMPLE LOG:*<br />
+<h5>SAMPLE LOG:</h5>
 <table><tr><td>
 connection|3|accept|tcp|httpd|1501693249.72|10.2.1.83|26445|10.2.1.99|80<br />
 connection|2|accept|tcp|httpd|1501693249.62|10.2.1.83|26444|10.2.1.99|80<br />
@@ -24,7 +24,7 @@ connection|5|accept|tcp|httpd|1501693280.52|10.2.1.83|26453|10.2.1.99|80<br />
 %{WORD:connection}\|%{NUMBER:number}\|%{WORD:type}\|%{WORD:transport}\|%{WORD:protocol}\|%{NUMBER:timestamp}\|%{IP:ip_src_addr}\|%{NUMBER:src_port}\|%{IP:ip_dst_addr}\|%{NUMBER:dst_port}?
 </td></tr></table>
 
-*SAMPLE LOG(from reciving server) -> :*<br />
+<h5>SAMPLE LOG(from reciving server) -> :</h5>
 <table><tr><td>
 Jul 27 23:47:41 honeeepi dionaealog.py: connection|5286|accept|tcp|httpd|1501199252.78|10.2.1.83|1762|10.2.1.99|80<br />
 Jul 28 00:13:24 honeeepi dionaealog.py: connection|5287|accept|tcp|httpd|1501200799.33|10.2.1.83|1084|10.2.1.99|80<br />
@@ -38,7 +38,7 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 </td></tr></table>
 
 
-*-Detailed Log*<br />
+<h4>Detailed Log</h4>
 ./opt/dionaea/var/log/dionaea.log (a.k.a. dionaea-opt3.log)<br />
 <br />
 
@@ -80,10 +80,10 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 </td></tr></table>
 
 
-<h3>glastopf.log</h3><br />
+<h3>glastopf.log</h3>
 glastopf.log<br />
 <br />
-<h3>squid</h3><br />
+<h3>squid</h3>
 
 *SAMPLE LOG:*<br />
 <table><tr><td>
