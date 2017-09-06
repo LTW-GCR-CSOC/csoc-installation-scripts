@@ -44,7 +44,7 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 
 *SAMPLE LOG:*<br />
 <table><tr><td>
-''[08082017 15:41:39] scapy dionaea/smb/include/packet.py:666-debug: ###[ SMB Negociate Response sizeof(53) ]### 
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:666-debug: ###[ SMB Negociate Response sizeof(53) ]### 
 [08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         WordCount           = 17              sizeof(  1) off=  0 goff= 36
 [08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         DialectIndex        = 9               sizeof(  2) off=  1 goff= 37
 [08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SecurityMode        = 0x3             sizeof(  1) off=  3 goff= 39
@@ -69,7 +69,7 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 [08082017 20:48:50] processor processor.c:90-debug: skip filter
 [08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x16ea6c0 node 0xdfce60
 [08082017 20:48:50] processor processor.c:94-debug: creating filter
-[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x1694528 node 0xdfce78''
+[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x1694528 node 0xdfce78
 
 </td></tr></table>
 <br />
