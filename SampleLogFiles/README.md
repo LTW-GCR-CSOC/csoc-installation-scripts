@@ -11,7 +11,7 @@ location of alert logs: <br />
 *-Simple Log*<br />
 ./var/log/dionaea.log (a.k.a. dionaea.log)<br />
 <br />
-*REAL LOG INFO:*<br />
+*SAMPLE LOG INFO:*<br />
 <table><tr><td>
 connection|3|accept|tcp|httpd|1501693249.72|10.2.1.83|26445|10.2.1.99|80<br />
 connection|2|accept|tcp|httpd|1501693249.62|10.2.1.83|26444|10.2.1.99|80<br />
@@ -32,7 +32,7 @@ glastopf.log<br />
 <br />
 **squid**<br />
 
-*REAL LOG INFO:*<br />
+*SAMPLE LOG INFO:*<br />
 <table><tr><td>
 1467011166.543    401 127.0.0.1 TCP_MISS/200 41846 GET http://www.help.1and1.co.uk/domains-c40986/transfer-domains-c79878 - DIRECT/212.227.34.3 text/html<br />
 1467011168.519    445 127.0.0.1 TCP_MISS/200 336155 GET http://www.aliexpress.com/af/shoes.html? - DIRECT/207.109.73.154 text/html<br />
