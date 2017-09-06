@@ -4,10 +4,10 @@ http://grokconstructor.appspot.com/do/match#result<br />
 
 
 location of alert logs: <br />
-**OSSEC**<br />
+<h3>OSSEC</h3><br />
 /var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
 <br />
-**Dionaea** <br />
+<h3>Dionaea</h3> <br />
 *-Simple Log*<br />
 ./var/log/dionaea.log (a.k.a. dionaea.log)<br />
 <br />
@@ -80,10 +80,10 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 </td></tr></table>
 
 
-**glastopf.log**<br />
+<h3>glastopf.log</h3><br />
 glastopf.log<br />
 <br />
-**squid**<br />
+<h3>squid</h3><br />
 
 *SAMPLE LOG:*<br />
 <table><tr><td>
