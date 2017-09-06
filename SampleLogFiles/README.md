@@ -1,10 +1,9 @@
 This page contains sample log alert information from diffrent types of sensors. It also grok parser statements. (http://grokconstructor.appspot.com/)<br />
 http://grokconstructor.appspot.com/do/match#result<br />
 <br />
-
-
-
-
+<h3>Dionaea</h3>
+<h4>Simple Log</h4>
+./var/log/dionaea.log (a.k.a. dionaea.log)<br />
 <br />
 <h5>SAMPLE LOG:</h5>
 <table><tr><td>
@@ -99,10 +98,7 @@ SQUID_DELIMITED %{NUMBER:timestamp}[^0-9]*%{INT:elapsed} %{IP:ip_src_addr} %{WOR
 
 <h3>OSSEC</h3>
 /var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
-<br />
-<h3>Dionaea</h3> 
-<h4>Simple Log</h4>
-./var/log/dionaea.log (a.k.a. dionaea.log)<br />
+
 <table><tr><td>
 <h5>SAMPLE LOG:</h5>
 <br />
