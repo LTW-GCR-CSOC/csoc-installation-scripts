@@ -44,32 +44,33 @@ Jul 28 00:59:49 honeeepi dionaealog.py: connection|5296|accept|tcp|httpd|1501203
 
 *SAMPLE LOG:*<br />
 <table><tr><td>
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:666-debug: ###[ SMB Negociate Response sizeof(53) ]### 
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         WordCount           = 17              sizeof(  1) off=  0 goff= 36
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         DialectIndex        = 9               sizeof(  2) off=  1 goff= 37
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SecurityMode        = 0x3             sizeof(  1) off=  3 goff= 39
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxMPXCount         = 1               sizeof(  2) off=  4 goff= 40
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxVCs              = 1               sizeof(  2) off=  6 goff= 42
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxBufferS          = 4096            sizeof(  4) off=  8 goff= 44
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxRawBuffer        = 65536           sizeof(  4) off= 12 goff= 48
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SessionKey          = 0               sizeof(  4) off= 16 goff= 52
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         Capabilities        = RAW_MODE+UNICODE+LARGE_FILES+NT_SMBS+RPC_REMOTE_APIS+STATUS32+LEVEL_II_OPLOCKS+LOCK_AND_READ+NT_FIND+INFOLEVEL_PASSTHRU+LARGE_READX+LARGE_WRITEX+EXTENDED_SECURITY sizeof(  4) off= 20 goff= 56
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SystemTime          = datetime.datetime(2017, 8, 8, 14, 15, 27, 82303) sizeof(  8) off= 24 goff= 60
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SystemTimeZone      = 50431           sizeof(  2) off= 32 goff= 68
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         KeyLength           = 0               sizeof(  1) off= 34 goff= 70
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         ByteCount           = None            sizeof(  2) off= 35 goff= 71
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         ServerGUID          = b'\x0b\xffe8T~lB\xa4>\x12\xd2\x11\x97\x16D' sizeof( 16) off= 37 goff= 73
-[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SecurityBlob        = b''             sizeof(  0) off= 53 goff= 89
-[08082017 15:41:39] connection connection.c:1219-debug: connection_send con 0x1f3edb0 data 0x1cb9e30 size 89
-[08082017 15:41:39] connection connection.c:2116-debug: connection_tcp_io_out_cb con 0x1f3edb0
-[08082017 15:41:39] connection connection.c:1848-debug: connection_throttle_update con 0x1f3edb0 thr 0x1f3f1a0 bytes 89
-[08082017 15:41:39] bistream bistream.c:86-debug: bistream_data_add bs 0x1ebd720 dir 1 data 0x1f125c8 size 89
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:666-debug: ###[ SMB Negociate Response sizeof(53) ]###  <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         WordCount           = 17              sizeof(  1) off=  0 goff= 36 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         DialectIndex        = 9               sizeof(  2) off=  1 goff= 37 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SecurityMode        = 0x3             sizeof(  1) off=  3 goff= 39 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxMPXCount         = 1               sizeof(  2) off=  4 goff= 40 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxVCs              = 1               sizeof(  2) off=  6 goff= 42 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxBufferS          = 4096            sizeof(  4) off=  8 goff= 44 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         MaxRawBuffer        = 65536           sizeof(  4) off= 12 goff= 48 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SessionKey          = 0               sizeof(  4) off= 16 goff= 52 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         Capabilities        = RAW_MODE+UNICODE+LARGE_FILES+NT_SMBS+RPC_REMOTE_APIS+STATUS32+LEVEL_II_OPLOCKS+LOCK_AND_READ+NT_FIND +INFOLEVEL_PASSTHRU+LARGE_READX+LARGE_WRITEX+EXTENDED_SECURITY sizeof(  4) off= 20 goff= 56 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SystemTime          = datetime.datetime(2017, 8, 8, 14, 15, 27, 82303) sizeof(  8) off= 24 goff= 60 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SystemTimeZone      = 50431           sizeof(  2) off= 32 goff= 68 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         KeyLength           = 0               sizeof(  1) off= 34 goff= 70 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         ByteCount           = None            sizeof(  2) off= 35 goff= 71 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         ServerGUID          = b'\x0b\xffe8T~lB\xa4>\x12\xd2\x11\x97\x16D' sizeof( 16) off= 37 goff= 73 <br />
+[08082017 15:41:39] scapy dionaea/smb/include/packet.py:687-debug:         SecurityBlob        = b''             sizeof(  0) off= 53 goff= 89 <br />
+[08082017 15:41:39] connection connection.c:1219-debug: connection_send con 0x1f3edb0 data 0x1cb9e30 size 89 <br />
+[08082017 15:41:39] connection connection.c:2116-debug: connection_tcp_io_out_cb con 0x1f3edb0 <br />
+[08082017 15:41:39] connection connection.c:1848-debug: connection_throttle_update con 0x1f3edb0 thr 0x1f3f1a0 bytes 89 <br />
+[08082017 15:41:39] bistream bistream.c:86-debug: bistream_data_add bs 0x1ebd720 dir 1 data 0x1f125c8 size 89 <br />
+ <br />
+[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x16ea6c0 node 0xdfce30 <br />
+[08082017 20:48:50] processor processor.c:90-debug: skip filter <br />
+[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x16ea6c0 node 0xdfce60 <br />
+[08082017 20:48:50] processor processor.c:94-debug: creating filter <br />
+[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x1694528 node 0xdfce78 <br />
 
-[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x16ea6c0 node 0xdfce30
-[08082017 20:48:50] processor processor.c:90-debug: skip filter
-[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x16ea6c0 node 0xdfce60
-[08082017 20:48:50] processor processor.c:94-debug: creating filter
-[08082017 20:48:50] processor processor.c:85-debug: processor_data_creation con 0x1a53e30 pd 0x1694528 node 0xdfce78
 
 </td></tr></table>
 <br />
