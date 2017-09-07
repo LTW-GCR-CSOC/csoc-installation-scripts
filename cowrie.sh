@@ -7,7 +7,7 @@ touch /etc/authbind/byport/22
 chown cowrie /etc/authbind/byport/22
 chmod 777 /etc/authbind/byport/22
 #install cowrie
-git clone https://github.com/micheloosterhof/cowrie.git
+git clone https://github.com/cowrie/cowrie.git
 cd cowrie
 #script to create script
 touch start.sh
