@@ -89,6 +89,7 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 # install ossec
 # https://ossec.github.io/index.html
 #
+echo "-----@ INSTALL OSSEC -----" >>~/SETUP-RUN.TXT
 cd ~
 sudo apt-get -y install build-essential
 sudo apt-get -y install mysql-server
@@ -96,6 +97,8 @@ wget -U ossec https://bintray.com/artifact/download/ossec/ossec-hids/ossec-hids-
 tar -zxvf ossec-hids-2.8.3.tar.gz
 cd ossec-hids-2.8.3
 ./install.sh
+
+echo "-----@ OSSEC SETUP DONE -----" >>~/SETUP-RUN.TXT
 #
 #  need to add script to configure dionaea .cfg file - https://dionaea.readthedocs.io/en/latest/configuration.html
 #
@@ -148,6 +151,7 @@ echo "-----@ UFW DONE -----" >>~/SETUP-RUN.TXT
 #
 # start OSSEC
 #
+echo "-----@ START OSSEC -----" >>~/SETUP-RUN.TXT
 /var/ossec/bin/ossec-control start
 #
 # provide IP info of configured server
