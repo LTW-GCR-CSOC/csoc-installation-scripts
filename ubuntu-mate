@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Installs dionaea on ubuntu mate
 #
@@ -80,7 +81,7 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 #
 /opt/dionaea/bin/dionaea -H
 # 
-# uncomment this line to automatically launch the app
+# uncomment the following line to automatically launch the app
 #
 # sudo /opt/dionaea/bin/dionaea -p /opt/dionaea/var/dionaea.pid -D
 #
@@ -100,7 +101,7 @@ cd ossec-hids-2.8.3
 #
 #---------------
 #
-# setup watchdog timer support for raspberry pi device
+# TODO: setup watchdog timer support for raspberry pi device
 #
 #echo "-----@ WATCHDOG -----"
 #sudo modprobe bcm2708_wdog
@@ -112,17 +113,12 @@ cd ossec-hids-2.8.3
 # Uncomment the line that starts with #watchdog-device by removing the hash (#) to enable the  watchdog daemon to use the watchdog device.
 # Uncomment the line that says #max-load-1 = 24 by removing the hash symbol to reboot the device if the load goes over 24 over 1 minute. A load of 25 of one minute means that you would have needed 25 Raspberry Pis to complete that task in 1 minute. You may tweak this value to your liking.
 #
-#  install IBM IoT code
-#
-#cd /home/pi
-#curl -LO https://github.com/ibm-messaging/iot-raspberrypi/releases/download/1.0.2/iot_1.0-1_armhf.deb
-#sudo dpkg -i iot_1.0-1_armhf.deb
-#sudo service iot status
 #------
 #
 # install AWS IoT SW
 # 
-# TBD
+# TODO: install AWS IoT SW 
+# TODO: configure AWS IoT SW 
 #
 #------
 #
@@ -144,13 +140,13 @@ sudo ufw status >>~/SETUP-RUN.TXT
 echo "-----@ UFW DONE -----" >>~/SETUP-RUN.TXT
 #--------
 #
-# configure ossec
+# Configure OSSEC
 #
-# TBD
+# TODO: configure OSSEC
 #
 #--------
 #
-# start ossec
+# start OSSEC
 #
 /var/ossec/bin/ossec-control start
 #
@@ -161,6 +157,11 @@ ip addr show | awk '/inet/ {print $2}' >>~/SETUP-RUN.TXT
 #echo "IP address of " $HOSTNAME " is " `ifconfig wlan0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`
 #echo "http://"`ifconfig wlan0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`"/index.html"
 # 
+#---------------------------
+#
+# TODO: need to add commands to remove all software not needed after the install, e.g. git, pip
+#
+#---------------------------
 echo "Ended setup script on" `date`  >>~/SETUP-RUN.TXT
 
 
