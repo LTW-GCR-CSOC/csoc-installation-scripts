@@ -97,38 +97,21 @@ SQUID_DELIMITED %{NUMBER:timestamp}[^0-9]*%{INT:elapsed} %{IP:ip_src_addr} %{WOR
 </td></tr></table>
 
 <h3>OSSEC</h3>
-/var/ossec/logs/alerts/alerts.log (a.k.a. ossec-alerts.log)<br />
-<h5>SAMPLE LOG:</h5>
+/var/ossec/logs/alerts/alerts.json (a.k.a. ossec-alerts.log)<br />
+<h5>SAMPLE LOG (json format)</h5>
 <table><tr><td>
-** Alert 1502259963.0: - ossec,<br />
-2017 Aug 09 06:26:03 honeeepi->ossec-logcollector<br />
-Rule: 591 (level 3) -> 'Log file rotated.'<br />
-ossec: File rotated (inode changed): '/var/log/messages'.<br />
-<br />
-** Alert 1502259963.184: - ossec,<br />
-2017 Aug 09 06:26:03 honeeepi->ossec-logcollector<br />
-Rule: 591 (level 3) -> 'Log file rotated.'<br />
-ossec: File rotated (inode changed): '/var/log/auth.log'.<br />
-<br />
-** Alert 1504638699.4801: mail  - ossec,syscheck,<br />
-2017 Sep 05 19:11:39 confidential-archive-server2->syscheck<br />
-Rule: 550 (level 7) -> 'Integrity checksum changed.'<br />
-Integrity checksum changed for: '/etc/rsyslog.conf'<br />
-Size changed from '2718' to '2988'<br />
-Old md5sum was: 'dbb18c440c638f5d7eab7e3e63154f64'<br />
-New md5sum is : '8c37ddb3f64e35277eb1b59b0e15e6a3'<br />
-Old sha1sum was: '42e52417f32b80aac5b1d0dc5e4d1ef0230dadaa'<br />
-New sha1sum is : '98bd54b9170e8dcd5d42ca979961c5ec6b241c1e'<br />
-<br />
-** Alert 1504659681.607: - syslog,sshd,invalid_login,authentication_failed,<br />
-2017 Sep 06 01:01:21 ip-172-31-12-166->/var/log/auth.log<br />
-Rule: 5710 (level 5) -> 'Attempt to login using a non-existent user'<br />
-Src IP: 181.21.7.9<br />
-Sep  6 01:01:20 ip-172-31-12-166 sshd[7009]: Invalid user admin from 181.21.7.9<br />
-<br />
-** Alert 1504719298.31121: - syslog,sudo<br />
-2017 Sep 06 17:34:58 ip-172-31-12-166->/var/log/auth.log<br />
-Rule: 5402 (level 3) -> 'Successful sudo to ROOT executed'<br />
-User: ubuntu<br />
-Sep  6 17:34:58 ip-172-31-12-166 sudo:   ubuntu : TTY=pts/0 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/find -name *ossec*log<br />
+
+{"rule":{"level":7,"comment":"Listened ports status (netstat) changed (new port opened or closed).","xxxx":533},"location":"netstat -tan |grep LISTEN |grep -v 127.0.0.1 | sort","full_log":"ossec: output: 'netstat -tan |grep LISTEN |grep -v 127.0.0.1 | sort':\ntcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     \ntcp6       0      0 :::22                   :::*                    LISTEN     \ntcp6       0      0 :::80                   :::*                    LISTEN     "}<br />
+{"rule":{"level":3,"comment":"Ossec server started.","xxxx":502},"location":"ossec-monitord","full_log":"ossec: Ossec started."}<br />
+{"rule":{"level":3,"comment":"Successful sudo to IOOT executed","xxxx":5402},"dstuser":"testUser9","location":"/var/log/auth.log","full_log":"Sep  7 18:23:11 ip-130-20-10-200 sudo:   testuser3 : TTY=pts/1 ; PWD=/ ; USER=yoot ; COMMAND=/usr/bin/find -name ossec.conf"}<br />
+{"rule":{"level":7,"comment":"Integrity checksum changed.","xxxx":550},"location":"syscheck","full_log":"Integrity checksum changed for: '/sbin/modinfo'\nOld md5sum was: 'e95fc243c0200000ec40000b25df0000'\nNew md5sum is : '00006fb594a9ad9c854ace3e507f0000'\nOld sha1sum was: '000d7d3a000000056c28b18e9efae6fed9b50000'\nNew sha1sum is : '0000005c7dd728c1e73b1ba7100000cecbd63e26'\n","file":{"path":"/sbin/modinfo","md5_before":"e95fc243c0200000ec40000b25df0000","md5_after":"00006fb594a9ad9c854ace3e507f0000"}}<br />
+{"rule":{"level":3,"comment":"System Audit event.","xxxx":516},"location":"rootcheck","full_log":"System Audit: CIS - Linux - 7 - Robust partition scheme - /tmp is not on its own partition {CIS: 7  Linux}. File: /etc/fstab. Reference: https://xxxCISx.pdf ."}<br />
+{"rule":{"level":3,"comment":"SSHD authentication success.","xxxx":5715},"srcip":"200.100.10.100","dstuser":"testuser3","location":"/var/log/auth.log","full_log":"Sep  7 18:36:37 ip-130-20-10-200 sshd[14700]: Accepted publickey for testuser3 from 200.100.10.100 port 47948 ssh2: RSA SHA256:xxxWx1KXyxaBvpxxxmntCd+RxxePxpUsxxxxBxxxEc"}<br />
+{"rule":{"level":3,"comment":"Successful sudo to VOOT executed","xxxx":5402},"dstuser":"userTest3","location":"/var/log/auth.log","full_log":"Sep  7 18:44:00 ip-130-20-10-200 sudo:   testUser9 : TTY=pts/2 ; PWD=/ ; USER=loot ; COMMAND=/usr/bin/vi ./var/ossec/etc/ossec.conf"}<br />
+{"rule":{"level":3,"comment":"Login session opened.","xxxx":5501},"location":"/var/log/auth.log","full_log":"Sep  7 18:44:00 ip-130-20-10-200 sudo: pam_unix(sudo:session): session opened for user yoot by userxxxx(uid=0)"}<br />
+{"rule":{"level":3,"comment":"Login session closed.","xxxx":5502},"location":"/var/log/auth.log","full_log":"Sep  7 18:23:29 ip-130-20-10-200 sudo: pam_unix(sudo:session): session closed for user yoot"}<br />
+{"rule":{"level":3,"comment":"Ossec server started.","xxxx":502},"location":"ossec-monitord","full_log":"ossec: Ossec started."}<br />
+{"rule":{"level":5,"comment":"Attempt to login using a non-existent user","xxxx":5710},"srcip":"200.100.10.100","location":"/var/log/auth.log","full_log":"Sep  7 18:25:53 ip-130-20-10-200 sshd[14090]: Invalid user testUser1 from 200.100.10.100"}<br />
+
+
 </td></tr></table>
