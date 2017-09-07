@@ -10,10 +10,10 @@
 #
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
 chmod 0660 SETUP-RUN.TXT
-echo "-----@ SET TIMEZONE -----"
+echo "-----@ SET TIMEZONE -----" >>~/SETUP-RUN.TXT
 sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 #
-echo "-----@ LATEST SOFTWARE UPDATES -----"
+echo "-----@ LATEST SOFTWARE UPDATES -----" >>~/SETUP-RUN.TXT
 sudo apt-get -y update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y update --fix-missing 
