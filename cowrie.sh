@@ -28,10 +28,10 @@ wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
 gunzip GeoLite2-Country.mmdb.gz
 cd ..
 cd ..
-cd ..
-cd log
+cd cowrie/log
 touch cowrie.json
 touch cowrie.log
+cd ..
 cd ..
 cd cowrie-logviewer
 python cowrie-logviewer.py
