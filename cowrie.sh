@@ -1,3 +1,8 @@
+echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
+chmod 0660 SETUP-RUN.TXT
+echo "-----@ SET TIMEZONE -----"
+sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+#
 #update&upgrade
 sudo apt-get update -y && apt-get upgrade
 #install dependencies
@@ -36,11 +41,6 @@ cd ..
 cd cowrie-logviewer
 python cowrie-logviewer.py
 cd ..
-echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
-chmod 0660 SETUP-RUN.TXT
-echo "-----@ SET TIMEZONE -----"
-sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
-#
 echo "-----@ LATEST SOFTWARE UPDATES -----"
 sudo apt-get -y update
 sudo apt-get -y dist-upgrade
