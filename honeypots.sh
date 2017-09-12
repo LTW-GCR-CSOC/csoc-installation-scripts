@@ -50,7 +50,7 @@ pip install -r requirements.txt
 #install IPGeolocator
 mkdir maxmind
 cd maxmind
-wget -O http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
+wget -N http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
 gunzip GeoLite2-Country.mmdb.gz
 cd ..
 cd ..
