@@ -1,3 +1,13 @@
+#!/bin/bash
+#
+# TODO: 
+# - add pre-install checks for baseline versions required, e.g. Ubuntu version supported 
+# - add in CLI options to specify "development" or "production" installations, with tools such as DionaeaFR, VNC being for development use only
+# - add IPTABLES configuration for "development" and "production" installations
+# - configure remote syslog software
+# - add in OSSEC installation script
+# - add post-install sanity check to ensure all core functions are operating
+# 
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
 chmod 0660 SETUP-RUN.TXT
 echo "-----@ SET TIMEZONE -----"
