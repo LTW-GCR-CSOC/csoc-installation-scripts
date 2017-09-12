@@ -50,7 +50,7 @@ touch cowrie.log
 cd ..
 cd ..
 cd cowrie-logviewer
-python cowrie-logviewer.py
+python cowrie-logviewer.py &
 cd ..
 echo "-----@ LATEST SOFTWARE UPDATES -----"
 sudo apt-get -y update
@@ -123,7 +123,7 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 #
 /opt/dionaea/bin/dionaea -H
 # start service
-sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.conf -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
+sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.cfg -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
 # check operation
 echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
