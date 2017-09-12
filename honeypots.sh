@@ -97,13 +97,9 @@ if [ -d "/opt/dionaea" ]; then
   echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
   sudo rm -rf /opt/dionaea
 fi
-# setup user and group to run dionaea under
-sudo useradd dionaea
-sudo groupadd dionaea
-sudo usermod dionaea -G dionaea
-sudo chown -R dionaea:dionaea /opt/dionaea/var/dionaea
-sudo chown -R dionaea:dionaea /opt/dionaea/var/log
 sudo git clone git://github.com/DinoTools/dionaea.git /opt/dionaea
+sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
+sudo chown -R nobody:nogroup /opt/dionaea/var/log
 cd /opt/dionaea
 sudo autoreconf -vi
 sudo ./configure \
