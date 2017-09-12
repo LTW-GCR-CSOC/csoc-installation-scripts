@@ -127,3 +127,4 @@ sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/d
 # check operation
 echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
+ls -l /opt/dionaea/var/log/dionaea-errors.log >>~/SETUP-RUN.TXT
