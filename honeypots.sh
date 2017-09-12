@@ -7,6 +7,7 @@
 # - configure remote syslog software
 # - add in OSSEC installation script
 # - add post-install sanity check to ensure all core functions are operating
+# - add in watchdog timer configuration for Raspberry Pi deployments
 # 
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
 chmod 0660 SETUP-RUN.TXT
