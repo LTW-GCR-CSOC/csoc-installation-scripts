@@ -98,8 +98,6 @@ if [ -d "/opt/dionaea" ]; then
   sudo rm -rf /opt/dionaea
 fi
 sudo git clone git://github.com/DinoTools/dionaea.git /opt/dionaea
-sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
-sudo chown -R nobody:nogroup /opt/dionaea/var/log
 cd /opt/dionaea
 sudo autoreconf -vi
 sudo ./configure \
@@ -117,6 +115,8 @@ sudo ./configure \
 sudo make
 sudo make install
 sudo ldconfig
+sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
+sudo chown -R nobody:nogroup /opt/dionaea/var/log
 echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 #
 # the following command should run and display dionaea help 
