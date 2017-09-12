@@ -16,6 +16,15 @@ sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 #
 #update&upgrade
 sudo apt-get update -y && apt-get upgrade
+# remove old directories to do a clean install
+if [ -d "cowrie" ]; then
+  echo "Removing old cowrie directory" >>~/SETUP-RUN.TXT
+  sudo rm -rf cowrie
+fi
+if [ -d "/opt/dionaea" ]; then
+  echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
+  sudo rm -rf /opt/dionaea
+fi
 #install dependencies
 sudo apt-get install -y git python-dev python-openssl openssh-server python-pyasn1 python-twisted authbind
 #set cowrie to listen to port22
@@ -23,6 +32,7 @@ sudo touch /etc/authbind/byport/22
 sudo chown cowrie /etc/authbind/byport/22
 sudo chmod 777 /etc/authbind/byport/22
 #install cowrie
+# TODO - should change install to be /opt/cowrie
 git clone https://github.com/cowrie/cowrie.git
 cd cowrie
 #script to create script
@@ -92,11 +102,6 @@ sudo apt-get install -y \
     python3 \
     python3-dev \
     python3-yaml 
-# remove old directory to do a clean install
-if [ -d "/opt/dionaea" ]; then
-  echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
-  sudo rm -rf /opt/dionaea
-fi
 sudo git clone git://github.com/DinoTools/dionaea.git /opt/dionaea
 cd /opt/dionaea
 sudo autoreconf -vi
