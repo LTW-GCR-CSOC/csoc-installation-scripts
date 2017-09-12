@@ -121,3 +121,6 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 # the following command should run and display dionaea help 
 #
 /opt/dionaea/bin/dionaea -H
+# start service
+sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.conf -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
+
