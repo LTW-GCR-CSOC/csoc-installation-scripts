@@ -33,6 +33,8 @@ sudo chown cowrie /etc/authbind/byport/22
 sudo chmod 777 /etc/authbind/byport/22
 #install cowrie
 # TODO - should change install to be /opt/cowrie
+sudo adduser --disabled-password cowrie
+sudo su - cowrie
 git clone https://github.com/cowrie/cowrie.git
 cd cowrie
 #script to create script
