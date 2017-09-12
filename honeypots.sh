@@ -124,4 +124,6 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 /opt/dionaea/bin/dionaea -H
 # start service
 sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.conf -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
-
+# check operation
+echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
+sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
