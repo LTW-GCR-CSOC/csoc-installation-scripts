@@ -116,6 +116,7 @@ sudo ./configure \
  --with-curl-dir=/usr/bin/curl 
 sudo make
 sudo make install
+sudo ldconfig
 echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 #
 # the following command should run and display dionaea help 
