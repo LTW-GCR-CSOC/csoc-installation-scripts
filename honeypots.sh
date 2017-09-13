@@ -132,25 +132,26 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 # start service
 sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.cfg -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
 
-#logging
-cd /etc/logrotate.d
-touch dionaea
-#add this script using vi or nano
-#/opt/dionaea/var/log/dionaea.log {
-        notifempty
-        missingok
-        rotate 28
-        daily
-        delaycompress
-        compress
-        create 660 root root
-        dateext
-        postrotate
-                kill -HUP `cat /opt/dionaea/var/run/dionaea.pid`
-        endscript
+# dionaea log rotation configuration
+cd /etc/logrotate.d/
+cat > dionaea << EOF
+/opt/dionaea/var/log/dionaea*.log {
+       notifempty
+       missingok
+       rotate 28
+       daily
+       delaycompress
+       compress
+       create 660 root root
+       dateext
+       postrotate
+               kill -HUP `cat /opt/dionaea/var/run/dionaea.pid`
+       endscript
 }
+EOF
 
 # check operation
 echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
-ls -l /opt/dionaea/var/log/dionaea-errors.log >>~/SETUP-RUN.TXT
+# ensure seeing dionaea logs
+ls -l /opt/dionaea/var/log/dionaea.log >>~/SETUP-RUN.TXT
