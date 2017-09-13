@@ -157,7 +157,7 @@ EOF
 echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
 # ensure seeing dionaea logs
-ls -l /opt/dionaea/var/log/dionaea.log >>~/SETUP-RUN.TXT
+ls -l /opt/dionaea/var/dionaea.log >>~/SETUP-RUN.TXT
 
 # ---------------
 # install ossec
