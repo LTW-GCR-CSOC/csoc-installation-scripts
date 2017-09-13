@@ -15,6 +15,11 @@
 #
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
 chmod 0660 SETUP-RUN.TXT
+# check Ubuntu version
+if [[ `lsb_release -rs` != "16.04.3" ]] 
+then
+ echo "**** WARNING: this script has not been tested on this version of Ubuntu ****"
+fi
 echo "-----@ SET TIMEZONE -----"
 sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 #
