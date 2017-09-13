@@ -9,8 +9,9 @@
 # - add post-install sanity check to ensure all core functions are operating
 # - add in watchdog timer configuration for Raspberry Pi deployments
 # - add in scheduled therapudic reset?
-#
-#
+# - add in AWS IoT libraries and configuration
+# - add in scripts to remove all files not required in production environment (e.g. source files)
+# 
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
 chmod 0660 SETUP-RUN.TXT
 echo "-----@ SET TIMEZONE -----"
