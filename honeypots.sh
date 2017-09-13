@@ -66,7 +66,8 @@ touch cowrie.log
 cd ..
 cd ..
 cd cowrie-logviewer
-nohup python cowrie-logviewer.py &
+python cowrie-logviewer.py 
+su root
 cd ..
 echo "-----@ LATEST SOFTWARE UPDATES -----"
 sudo apt-get -y update
