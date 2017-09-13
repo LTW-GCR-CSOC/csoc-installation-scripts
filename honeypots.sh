@@ -11,7 +11,8 @@
 # - add in scheduled therapudic reset?
 # - add in AWS IoT libraries and configuration
 # - add in scripts to remove all files not required in production environment (e.g. source files)
-# 
+# - add in checks to ensure all services start-up on reboot/restart as expected
+#
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
 chmod 0660 SETUP-RUN.TXT
 echo "-----@ SET TIMEZONE -----"
