@@ -157,3 +157,65 @@ echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
 # ensure seeing dionaea logs
 ls -l /opt/dionaea/var/log/dionaea.log >>~/SETUP-RUN.TXT
+
+# ---------------
+# install ossec
+# https://ossec.github.io/index.html
+#
+echo "-----@ INSTALL OSSEC -----" >>~/SETUP-RUN.TXT
+cd ~
+sudo apt-get -y install build-essential
+sudo apt-get -y install mysql-server
+wget -U ossec https://bintray.com/artifact/download/ossec/ossec-hids/ossec-hids-2.8.3.tar.gz
+tar -zxf ossec-hids-2.8.3.tar.gz
+cd ossec-hids-2.8.3
+./install.sh
+
+echo "-----@ OSSEC SETUP DONE -----" >>~/SETUP-RUN.TXT
+#
+#  need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
+#
+#---------------
+#
+# TODO: setup watchdog timer support for raspberry pi device
+#
+#echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
+#sudo modprobe bcm2708_wdog
+#echo "bcm2708_wdog" | sudo tee -a /etc/modules
+#sudo apt-get install watchdog
+#
+# - need to add configuration for watchdog sudo nano /etc/watchdog.conf
+#
+# Uncomment the line that starts with #watchdog-device by removing the hash (#) to enable the  watchdog daemon to use the watchdog device.
+# Uncomment the line that says #max-load-1 = 24 by removing the hash symbol to reboot the device if the load goes over 24 over 1 minute. A load of 25 of one minute means that you would have needed 25 Raspberry Pis to complete that task in 1 minute. You may tweak this value to your liking.
+#
+#------
+#
+# install AWS IoT SW
+# 
+# TODO: install AWS IoT SW 
+# TODO: configure AWS IoT SW 
+#
+#------
+#
+# CONFIGURE IPTABLES  
+#
+#------
+echo "-----@ IPTABLES CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+# TODO - Ahmed
+echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
+#--------
+#
+# Configure OSSEC
+#
+# TODO: configure OSSEC
+#
+#--------
+#
+# start OSSEC
+#
+echo "-----@ START OSSEC -----" >>~/SETUP-RUN.TXT
+/var/ossec/bin/ossec-control start
+#
+# TODO: clean-up remove all files (e.g. source downloads) that not required for production operation
+#
