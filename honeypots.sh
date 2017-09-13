@@ -139,7 +139,7 @@ sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/d
 
 # dionaea log rotation configuration
 cd /etc/logrotate.d/
-cat > dionaea << EOF
+sudo cat > dionaea << EOF
 /opt/dionaea/var/log/dionaea*.log {
        notifempty
        missingok
@@ -218,7 +218,7 @@ echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
 # start OSSEC
 #
 echo "-----@ START OSSEC -----" >>~/SETUP-RUN.TXT
-/var/ossec/bin/ossec-control start
+sudo /var/ossec/bin/ossec-control start
 #
 # TODO: clean-up remove all files (e.g. source downloads) that not required for production operation
 #
