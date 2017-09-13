@@ -56,7 +56,7 @@ pip install -r requirements.txt
 mkdir maxmind
 cd maxmind
 wget -N http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
-gunzip GeoLite2-Country.mmdb.gz
+unzip -o GeoLite2-Country.mmdb.gz
 cd ..
 cd ..
 cd cowrie/log
