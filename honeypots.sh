@@ -43,13 +43,13 @@ sudo chmod 777 /etc/authbind/byport/22
 #install cowrie
 # TODO - should change install to be /opt/cowrie
 sudo adduser --disabled-password cowrie
-sudo su - cowrie
-git clone https://github.com/cowrie/cowrie.git
+#
+sudo su - cowrie -H bash -c "git clone https://github.com/cowrie/cowrie.git; cd cowrie"
 cd cowrie
 #script to create script
-touch start.sh
-{ printf %s authbind --deep; cat <./start.sh; } >/tmp/output_file
-mv -- /tmp/output_file ./start.sh
+sudo su - cowrie -H bash -c "touch start.sh"
+sudo su - cowrie -H bash -c "{ printf %s authbind --deep; cat <./start.sh; } >/tmp/output_file"
+sudo su - cowrie -H bash -c "mv -- /tmp/output_file ./start.sh"
 rm -rf /tmp/output_file
 #restart ssh
 service ssh restart
@@ -71,8 +71,8 @@ touch cowrie.log
 cd ..
 cd ..
 cd cowrie-logviewer
+chown cowrie:cowrie cowrie-logviewer.py
 python cowrie-logviewer.py 
-sudo su - root
 cd ..
 echo "-----@ LATEST SOFTWARE UPDATES -----"
 sudo apt-get -y update
