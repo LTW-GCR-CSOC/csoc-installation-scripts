@@ -26,10 +26,6 @@ sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 #update&upgrade
 sudo apt-get update -y && apt-get upgrade
 # remove old directories to do a clean install
-if [ -d "cowrie" ]; then
-  echo "Removing old cowrie directory" >>~/SETUP-RUN.TXT
-  sudo rm -rf cowrie
-fi
 if [ -d "/opt/dionaea" ]; then
   echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
   sudo rm -rf /opt/dionaea
@@ -43,37 +39,7 @@ sudo chmod 777 /etc/authbind/byport/22
 #install cowrie
 # TODO - should change install to be /opt/cowrie
 sudo adduser --disabled-password cowrie
-#
-sudo su - cowrie -H bash -c "git clone https://github.com/cowrie/cowrie.git; cd cowrie"
-cd cowrie
-#script to create script
-sudo su - cowrie -H bash -c "touch start.sh"
-sudo su - cowrie -H bash -c "{ printf %s authbind --deep; cat <./start.sh; } >/tmp/output_file"
-sudo su - cowrie -H bash -c "mv -- /tmp/output_file ./start.sh"
-rm -rf /tmp/output_file
-#restart ssh
-service ssh restart
-#install Cowrie-log-viewer
-cd ..
-git clone https://github.com/mindphluxnet/cowrie-logviewer
-cd cowrie-logviewer
-pip install -r requirements.txt
-#install IPGeolocator
-mkdir maxmind
-cd maxmind
-wget -N http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
-unzip -o GeoLite2-Country.mmdb.gz
-cd ..
-cd ..
-cd cowrie/log
-touch cowrie.json
-touch cowrie.log
-cd ..
-cd ..
-cd cowrie-logviewer
-chown cowrie:cowrie cowrie-logviewer.py
-python cowrie-logviewer.py 
-cd ..
+sudo -u cowrie cowrieinstall.sh
 echo "-----@ LATEST SOFTWARE UPDATES -----"
 sudo apt-get -y update
 sudo apt-get -y dist-upgrade
