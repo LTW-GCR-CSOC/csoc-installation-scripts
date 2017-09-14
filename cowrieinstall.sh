@@ -13,15 +13,18 @@ sudo chown cowrie /etc/authbind/byport/22
 sudo chmod 777 /etc/authbind/byport/22
 #install cowrie
 # TODO - should change install to be /opt/cowrie
-git clone https://github.com/cowrie/cowrie.git
+git clone http://github.com/micheloosterhof/cowrie
 cd cowrie
-#script to create script
-touch start.sh
-{ printf %s authbind --deep; cat <./start.sh; } >/tmp/output_file
-mv -- /tmp/output_file ./start.sh
-rm -rf /tmp/output_file
-#restart ssh
-service ssh restart
+virtualenv cowrie-env
+source cowrie-env/bin/activate
+export PYTHONPATH=/home/cowrie/cowrie
+bin/cowrie start
+sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222
+apt-get install authbind
+touch /etc/authbind/byport/22
+chown cowrie:cowrie /etc/authbind/byport/22
+chmod 770 /etc/authbind/byport/22
+
 #install Cowrie-log-viewer
 cd ..
 git clone https://github.com/mindphluxnet/cowrie-logviewer
