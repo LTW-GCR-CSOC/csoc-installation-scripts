@@ -39,6 +39,8 @@ sudo chmod 777 /etc/authbind/byport/22
 #install cowrie
 # TODO - should change install to be /opt/cowrie
 sudo adduser --disabled-password cowrie
+sudo groupadd cowrie
+sudo usermod -a -G cowrie corwie
 sudo -u cowrie cowrieinstall.sh
 echo "-----@ LATEST SOFTWARE UPDATES -----"
 sudo apt-get -y update
