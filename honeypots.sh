@@ -151,7 +151,7 @@ sudo cat > dionaea << EOF
        create 660 root root
        dateext
        postrotate
-               kill -HUP `cat /opt/dionaea/var/run/dionaea.pid`
+               kill -HUP `cat /opt/dionaea/var/dionaea.pid`
        endscript
 }
 EOF
@@ -207,3 +207,4 @@ echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
 #---------------
 sudo apt-get remove git 
 sudo apt-get remove make
+sudo apt autoremove
