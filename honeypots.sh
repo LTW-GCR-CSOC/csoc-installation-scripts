@@ -56,6 +56,7 @@ echo "-----@ COWRIE CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 #
 #----------------
 echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+cd ~
 sudo cowrielogviewerinstall.sh
 echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
@@ -168,6 +169,7 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
 #
 #----------------
 echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+cd ~
 sudo dionaealogviewer.sh
 echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
@@ -178,6 +180,7 @@ echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 #
 #----------------
 echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+cd ~
 #sudo ossecinstall.sh
 echo "-----@ OSSEC CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
@@ -187,6 +190,7 @@ echo "-----@ OSSEC CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 #
 #---------------
 echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+cd ~
 # TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
 echo "-----@ DIONAEA CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
@@ -196,6 +200,7 @@ echo "-----@ DIONAEA CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 #
 #---------------
 echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+cd ~
 # sudo rpinstall.sh
 echo "-----@ Raspberry Pi DONE -----" >>~/SETUP-RUN.TXT
 
@@ -205,6 +210,7 @@ echo "-----@ Raspberry Pi DONE -----" >>~/SETUP-RUN.TXT
 #
 #---------------
 echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+cd ~
 # sudo awsiotinstall.sh
 echo "-----@ AWS IoT DONE -----" >>~/SETUP-RUN.TXT
 
