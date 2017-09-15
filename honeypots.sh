@@ -36,7 +36,6 @@ sudo apt-get -y update --fix-missing
 # ---------------
 #
 # Install Cowrie
-# https://github.com/micheloosterhof/cowrie/blob/master/INSTALL.md
 #
 #----------------
 
