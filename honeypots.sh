@@ -200,6 +200,8 @@ echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
 
 #---------------
 #
-# TODO: clean-up remove all files (e.g. source downloads) that not required for production operation
+# TODO: clean-up remove all files (e.g. applications, source downloads) that not required for production operation
 #
 #---------------
+sudo apt-get remove git 
+sudo apt-get remove make
