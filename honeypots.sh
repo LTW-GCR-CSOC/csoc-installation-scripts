@@ -38,7 +38,7 @@ sudo apt-get -y update --fix-missing
 # Install Cowrie
 #
 #----------------
-
+echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
 # change default port to Port 8742 (to be tested with the pi)
 #    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
 
@@ -48,14 +48,17 @@ sudo groupadd cowrie
 sudo usermod -a -G cowrie corwie
 
 sudo -u cowrie cowrieinstall.sh
+echo "-----@ COWRIE CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
 # ---------------
 #
 # Install Cowrie Log Viewer (for development)
 #
 #----------------
-
+echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
 sudo cowrielogviewerinstall.sh
+echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
+
 
 # ---------------
 #
@@ -133,7 +136,7 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 # start service
 sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.cfg -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
 
-# dionaea log rotation configuration
+# Dionaea log rotation configuration
 sudo chmod 0777 /etc/logrotate.d
 cd /etc/logrotate.d/
 sudo cat > dionaea << EOF
@@ -153,10 +156,10 @@ sudo cat > dionaea << EOF
 EOF
 sudo chmod 0755 /etc/logrotate.d
 
-# check operation
+# Check Dionaea processes 
 echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
-# ensure seeing dionaea logs
+# Check Dionaea logs exist
 ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
 
 # ---------------
@@ -164,8 +167,9 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
 # Install Dionaea Log Viewer (for development)
 #
 #----------------
-
+echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
 sudo dionaealogviewerinstall.sh
+echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
 # ---------------
 #
@@ -173,27 +177,36 @@ sudo dionaealogviewerinstall.sh
 # https://ossec.github.io/index.html
 #
 #----------------
+echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
 #sudo ossecinstall.sh
+echo "-----@ OSSEC CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
 #---------------
 #
-#  TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
+#  Configure Dionaea for desired services
 #
 #---------------
+echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+# TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
+echo "-----@ DIONAEA CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
 #---------------
 #
-# Setup Raspberry Pi components, uncomment following line
+# Setup Raspberry Pi components
+#
+#---------------
+echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
 # sudo rpinstall.sh
-#
-#---------------
+echo "-----@ Raspberry Pi DONE -----" >>~/SETUP-RUN.TXT
 
 #---------------
 #
-# Setup AWS IoT components, uncomment following line
-# sudo awsiotinstall.sh
+# Setup AWS IoT components
 #
 #---------------
+echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+# sudo awsiotinstall.sh
+echo "-----@ AWS IoT DONE -----" >>~/SETUP-RUN.TXT
 
 #---------------
 #
@@ -219,6 +232,6 @@ pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>~/SETUP-RUN.TXT
 # TODO: clean-up remove all files (e.g. applications, source downloads) that not required for production operation
 #
 #---------------
-sudo apt-get remove git 
-sudo apt-get remove make
-sudo apt autoremove
+sudo apt-get -y remove git 
+sudo apt-get -y remove make
+sudo apt -y autoremove
