@@ -22,15 +22,24 @@ then
 fi
 echo "-----@ SET TIMEZONE -----"
 sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+
+# ---------------
 #
-#update&upgrade
-sudo apt-get update -y && apt-get upgrade
-# remove old directories to do a clean install
-if [ -d "/opt/dionaea" ]; then
-  echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
-  sudo rm -rf /opt/dionaea
-fi
-#install dependencies
+# Update systems
+#
+#---------------
+
+sudo apt-get -y update
+sudo apt-get -y dist-upgrade
+sudo apt-get -y update --fix-missing 
+
+# ---------------
+#
+# Install Cowrie
+# https://github.com/micheloosterhof/cowrie/blob/master/INSTALL.md
+#
+#----------------
+
 sudo apt-get install -y git python-dev python-openssl openssh-server python-pyasn1 python-twisted authbind
 #set cowrie to listen to port22
 sudo touch /etc/authbind/byport/22
@@ -42,10 +51,19 @@ sudo adduser --disabled-password cowrie
 sudo groupadd cowrie
 sudo usermod -a -G cowrie corwie
 sudo -u cowrie cowrieinstall.sh
+
+# ---------------
+#
+# Install Dionaea 
+#
+#----------------
+
+# remove old directories to do a clean install
+if [ -d "/opt/dionaea" ]; then
+  echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
+  sudo rm -rf /opt/dionaea
+fi
 echo "-----@ LATEST SOFTWARE UPDATES -----"
-sudo apt-get -y update
-sudo apt-get -y dist-upgrade
-sudo apt-get -y update --fix-missing 
 sudo apt-get install -y git
 sudo apt-get install -y autogen autoconf libtool
 sudo apt-get install -y make
@@ -139,7 +157,7 @@ ls -l /opt/dionaea/var/dionaea.log >>~/SETUP-RUN.TXT
 # Install OSSEC (used
 # https://ossec.github.io/index.html
 #
-#---------------
+#----------------
 sudo ossecinstall.sh
 
 #---------------
