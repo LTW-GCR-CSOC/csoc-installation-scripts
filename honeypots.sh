@@ -13,8 +13,9 @@
 # - add in scripts to remove all files not required in production environment (e.g. source files)
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
-echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
-chmod 0660 ~/SETUP-RUN.TXT
+SCRIPTSDIR=echo `$HOME`
+echo "Started setup script on" `date`  >$SCRIPTSDIR/SETUP-RUN.TXT
+chmod 0660 $SCRIPTSDIR/SETUP-RUN.TXT
 # check Ubuntu version
 if [[ `lsb_release -rs` != "16.04" ]] 
 then
@@ -38,7 +39,7 @@ sudo apt-get -y update --fix-missing
 # Install Cowrie
 #
 #----------------
-echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # change default port to Port 8742 (to be tested with the pi)
 #    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
 
@@ -47,18 +48,17 @@ sudo adduser --disabled-password cowrie
 sudo groupadd cowrie
 sudo usermod -a -G cowrie corwie
 
-sudo -u cowrie cowrieinstall.sh
-echo "-----@ COWRIE CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
+sudo -u cowrie $SCRIPTSDIR/cowrieinstall.sh
+echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # ---------------
 #
 # Install Cowrie Log Viewer (for development)
 #
 #----------------
-echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-cd ~
-sudo cowrielogviewerinstall.sh
-echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo $SCRIPTSDIR/cowrielogviewerinstall.sh
+echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 
 # ---------------
@@ -69,7 +69,7 @@ echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
 # remove old directories to do a clean install
 if [ -d "/opt/dionaea" ]; then
-  echo "Removing old /opt/dionaea directory" >>~/SETUP-RUN.TXT
+  echo "Removing old /opt/dionaea directory" >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo rm -rf /opt/dionaea
 fi
 echo "-----@ LATEST SOFTWARE UPDATES -----"
@@ -129,7 +129,7 @@ sudo make install
 sudo ldconfig
 sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
 sudo chown -R nobody:nogroup /opt/dionaea/var/log
-echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ DIONAEA SETUP DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
 # the following command should run and display dionaea help 
 #
@@ -158,20 +158,19 @@ EOF
 sudo chmod 0755 /etc/logrotate.d
 
 # Check Dionaea processes 
-echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
-sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
+echo "-----@ DIONAEA RUNNING CHECK -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo ps -ef | grep dionaea >>$SCRIPTSDIR/SETUP-RUN.TXT
 # Check Dionaea logs exist
-ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
+ls -l /opt/dionaea/var/dionaea/dionaea.log >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # ---------------
 #
 # Install Dionaea Log Viewer (for development)
 #
 #----------------
-echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-cd ~
-sudo dionaealogviewer.sh
-echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo $SCRIPTSDIR/dionaealogviewer.sh
+echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # ---------------
 #
@@ -179,49 +178,48 @@ echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 # https://ossec.github.io/index.html
 #
 #----------------
-echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-cd ~
-#sudo ossecinstall.sh
-echo "-----@ OSSEC CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+#sudo $SCRIPTSDIR/ossecinstall.sh
+echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 #---------------
 #
 #  Configure Dionaea for desired services
 #
 #---------------
-echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-cd ~
+echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+cd $SCRIPTSDIR
 # TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
-echo "-----@ DIONAEA CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ DIONAEA CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 #---------------
 #
 # Setup Raspberry Pi components
 #
 #---------------
-echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-cd ~
+echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+cd $SCRIPTSDIR
 # sudo rpinstall.sh
-echo "-----@ Raspberry Pi DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ Raspberry Pi DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 #---------------
 #
 # Setup AWS IoT components
 #
 #---------------
-echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-cd ~
+echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+cd $SCRIPTSDIR
 # sudo awsiotinstall.sh
-echo "-----@ AWS IoT DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ AWS IoT DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 #---------------
 #
 # CONFIGURE IPTABLES for all services and lockdown instance
 #
 #---------------
-echo "-----@ IPTABLES CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
+echo "-----@ IPTABLES CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # TODO - Ahmed
-echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
+echo "-----@ IPTABLES DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 
 #---------------
@@ -229,9 +227,9 @@ echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
 # Check that expected processes are active
 #
 #---------------
-pgrep dionaea > /dev/null && echo "Dionaea tasks are running" >>~/SETUP-RUN.TXT
-pgrep ossec > /dev/null && echo "OSSEC tasks are running" >>~/SETUP-RUN.TXT
-pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>~/SETUP-RUN.TXT
+pgrep dionaea > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
+pgrep ossec > /dev/null && echo "OSSEC tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
+pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 #---------------
 #
