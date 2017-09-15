@@ -138,6 +138,7 @@ echo "-----@ DIONAEA SETUP DONE -----" >>~/SETUP-RUN.TXT
 sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.cfg -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
 
 # dionaea log rotation configuration
+sudo chmod 0777 /etc/logrotate.d
 cd /etc/logrotate.d/
 sudo cat > dionaea << EOF
 /opt/dionaea/var/dionaea/dionaea.log {
@@ -154,6 +155,7 @@ sudo cat > dionaea << EOF
        endscript
 }
 EOF
+sudo chmod 0755 /etc/logrotate.d
 
 # check operation
 echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
