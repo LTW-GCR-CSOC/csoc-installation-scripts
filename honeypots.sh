@@ -48,11 +48,11 @@ sudo chmod 777 /etc/authbind/byport/22
 #change default port to Port 8742(to be tested with the pi)
 #sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
 
-#install cowrie
-# TODO - should change install to be /opt/cowrie
+# Dedicated user and group for Cowrie
 sudo adduser --disabled-password cowrie
 sudo groupadd cowrie
 sudo usermod -a -G cowrie corwie
+
 sudo -u cowrie cowrieinstall.sh
 
 # ---------------
@@ -103,7 +103,7 @@ sudo apt-get install -y \
     python3 \
     python3-dev \
     python3-yaml 
-sudo git clone git://github.com/DinoTools/dionaea.git /opt/dionaea
+sudo git clone https://github.com/LTW-GCR-CSOC/dionaea.git /opt/dionaea
 cd /opt/dionaea
 sudo autoreconf -vi
 sudo ./configure \
