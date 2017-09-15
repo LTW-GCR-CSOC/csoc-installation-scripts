@@ -1,19 +1,29 @@
 #!/bin/bash
+# ---------------
 #
+# Install Cowrie
+# https://github.com/micheloosterhof/cowrie/blob/master/INSTALL.md
+#
+#----------------
+
 # remove old directories to do a clean install
 if [ -d "cowrie" ]; then
   echo "Removing old cowrie directory" >>~/SETUP-RUN.TXT
   sudo rm -rf cowrie
 fi
 #install dependencies
-sudo apt-get install -y git python-dev python-openssl openssh-server python-pyasn1 python-twisted authbind
-#set cowrie to listen to port22
-sudo touch /etc/authbind/byport/22
-sudo chown cowrie /etc/authbind/byport/22
-sudo chmod 777 /etc/authbind/byport/22
-#install cowrie
-# TODO - should change install to be /opt/cowrie
-git clone http://github.com/micheloosterhof/cowrie
+sudo apt-get install -y git 
+sudo apt-get install -y python-dev 
+sudo apt-get install -y python-openssl
+sudo apt-get install -y openssh-server
+sudo apt-get install -y python-pyasn1 
+sudo apt-get install -y python-twisted 
+sudo apt-get install -y authbind
+
+#change default port to Port 8742(to be tested with the pi)
+#sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
+
+git clone https://github.com/LTW-GCR-CSOC/cowrie.git
 cd cowrie
 virtualenv cowrie-env
 source cowrie-env/bin/activate
@@ -25,22 +35,3 @@ touch /etc/authbind/byport/22
 chown cowrie:cowrie /etc/authbind/byport/22
 chmod 770 /etc/authbind/byport/22
 
-#install Cowrie-log-viewer
-cd ..
-git clone https://github.com/mindphluxnet/cowrie-logviewer
-cd cowrie-logviewer
-pip install -r requirements.txt
-#install IPGeolocator
-mkdir maxmind
-cd maxmind
-wget -N http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
-unzip -o GeoLite2-Country.mmdb.gz
-cd ..
-cd ..
-cd cowrie/log
-touch cowrie.json
-touch cowrie.log
-cd ..
-cd ..
-cd cowrie-logviewer
-python cowrie-logviewer.py 
