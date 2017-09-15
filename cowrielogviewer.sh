@@ -4,8 +4,9 @@
 # Install Cowrie Log Viewer
 #
 #----------------
-
-cd ..
+cd /opt/
+mkdir cowrie
+cd cowrie
 git clone https://github.com/LTW-GCR-CSOC/cowrie-logviewer.git
 cd cowrie-logviewer
 pip install -r requirements.txt
