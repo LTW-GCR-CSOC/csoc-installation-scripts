@@ -168,7 +168,7 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
 #
 #----------------
 echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
-sudo dionaealogviewerinstall.sh
+sudo dionaealogviewer.sh
 echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>~/SETUP-RUN.TXT
 
 # ---------------
