@@ -200,6 +200,16 @@ echo "-----@ IPTABLES CONFIGURATION STARTS -----"  >>~/SETUP-RUN.TXT
 # TODO - Ahmed
 echo "-----@ IPTABLES DONE -----" >>~/SETUP-RUN.TXT
 
+
+#---------------
+#
+# Check that expected processes are active
+#
+#---------------
+pgrep dionaea > /dev/null && echo "Dionaea tasks are running" >>~/SETUP-RUN.TXT
+pgrep ossec > /dev/null && echo "OSSEC tasks are running" >>~/SETUP-RUN.TXT
+pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>~/SETUP-RUN.TXT
+
 #---------------
 #
 # TODO: clean-up remove all files (e.g. applications, source downloads) that not required for production operation
