@@ -6,11 +6,6 @@
 #
 #----------------
 
-# remove old directories to do a clean install
-if [ -d "cowrie" ]; then
-  echo "Removing old cowrie directory" >>~/SETUP-RUN.TXT
-  sudo rm -rf cowrie
-fi
 #install dependencies
 sudo apt-get install -y git 
 sudo apt-get install -y python-dev 
