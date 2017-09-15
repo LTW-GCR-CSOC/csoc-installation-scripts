@@ -14,7 +14,7 @@
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
 echo "Started setup script on" `date`  >~/SETUP-RUN.TXT
-chmod 0660 SETUP-RUN.TXT
+chmod 0660 ~/SETUP-RUN.TXT
 # check Ubuntu version
 if [[ `lsb_release -rs` != "16.04" ]] 
 then
@@ -165,7 +165,7 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
 #
 #----------------
 
-sudo dionaeaviewerinstall.sh
+sudo dionaealogviewerinstall.sh
 
 # ---------------
 #
