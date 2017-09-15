@@ -25,7 +25,7 @@ sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 
 # ---------------
 #
-# Update systems
+# Update System
 #
 #---------------
 
