@@ -9,8 +9,7 @@ sudo apt-get -y install mysql-server
 wget -U ossec https://bintray.com/artifact/download/ossec/ossec-hids/ossec-hids-2.8.3.tar.gz
 tar -zxf ossec-hids-2.8.3.tar.gz
 cd ossec-hids-2.8.3
-./install.sh
-
+sudo ./install.sh
 echo "-----@ OSSEC SETUP DONE -----" >>~/SETUP-RUN.TXT
 #
 # Configure OSSEC
