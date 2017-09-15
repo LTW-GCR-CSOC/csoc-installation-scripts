@@ -6,7 +6,7 @@
 #----------------
 
 cd ..
-git clone https://github.com/mindphluxnet/cowrie-logviewer
+git clone https://github.com/LTW-GCR-CSOC/cowrie-logviewer.git
 cd cowrie-logviewer
 pip install -r requirements.txt
 #install IPGeolocator
