@@ -4,6 +4,12 @@
 # Install Cowrie Log Viewer
 #
 #----------------
+# remove old directories to do a clean install
+if [ -d "/opt/cowrie" ]; then
+  echo "Removing old /opt/cowrie directory" >>~/SETUP-RUN.TXT
+  sudo rm -rf /opt/cowrie
+fi
+sudo mkdir /opt/cowrie
 cd /opt/cowrie
 git clone https://github.com/LTW-GCR-CSOC/cowrie-logviewer.git
 cd cowrie-logviewer
