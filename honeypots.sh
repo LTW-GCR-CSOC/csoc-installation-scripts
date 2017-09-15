@@ -140,7 +140,7 @@ sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/d
 # dionaea log rotation configuration
 cd /etc/logrotate.d/
 sudo cat > dionaea << EOF
-/opt/dionaea/var/log/dionaea.log {
+/opt/dionaea/var/log/dionaea/dionaea.log {
        notifempty
        missingok
        rotate 28
