@@ -39,19 +39,8 @@ sudo apt-get -y update --fix-missing
 #
 #----------------
 
-sudo apt-get install -y git 
-sudo apt-get install -y python-dev 
-sudo apt-get install -y python-openssl
-sudo apt-get install -y openssh-server
-sudo apt-get install -y python-pyasn1 
-sudo apt-get install -y python-twisted 
-sudo apt-get install -y authbind
-#set cowrie to listen to port22
-sudo touch /etc/authbind/byport/22
-sudo chown:cowrie /etc/authbind/byport/22
-sudo chmod 777 /etc/authbind/byport/22
-#change default port to Port 8742(to be tested with the pi)
-#sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
+# change default port to Port 8742 (to be tested with the pi)
+#    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
 
 # Dedicated user and group for Cowrie
 sudo adduser --disabled-password cowrie
@@ -59,6 +48,14 @@ sudo groupadd cowrie
 sudo usermod -a -G cowrie corwie
 
 sudo -u cowrie cowrieinstall.sh
+
+# ---------------
+#
+# Install Cowrie Log Viewer (for development)
+#
+#----------------
+
+sudo cowrielogviewerinstall.sh
 
 # ---------------
 #
@@ -161,6 +158,14 @@ echo "-----@ DIONAEA RUNNING CHECK -----" >>~/SETUP-RUN.TXT
 sudo ps -ef | grep dionaea >>~/SETUP-RUN.TXT
 # ensure seeing dionaea logs
 ls -l /opt/dionaea/var/dionaea/dionaea.log >>~/SETUP-RUN.TXT
+
+# ---------------
+#
+# Install Dionaea Log Viewer (for development)
+#
+#----------------
+
+sudo dionaeaviewerinstall.sh
 
 # ---------------
 #
