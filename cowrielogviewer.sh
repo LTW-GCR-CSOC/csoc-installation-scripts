@@ -1,5 +1,10 @@
 #!/bin/bash
-#install Cowrie-log-viewer
+# ---------------
+#
+# Install Cowrie Log Viewer
+#
+#----------------
+
 cd ..
 git clone https://github.com/mindphluxnet/cowrie-logviewer
 cd cowrie-logviewer
