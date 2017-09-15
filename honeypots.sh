@@ -45,6 +45,9 @@ sudo apt-get install -y git python-dev python-openssl openssh-server python-pyas
 sudo touch /etc/authbind/byport/22
 sudo chown cowrie /etc/authbind/byport/22
 sudo chmod 777 /etc/authbind/byport/22
+#change default port to Port 8742(to be tested with the pi)
+#sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
+
 #install cowrie
 # TODO - should change install to be /opt/cowrie
 sudo adduser --disabled-password cowrie
