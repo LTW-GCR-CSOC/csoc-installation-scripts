@@ -40,10 +40,16 @@ sudo apt-get -y update --fix-missing
 #
 #----------------
 
-sudo apt-get install -y git python-dev python-openssl openssh-server python-pyasn1 python-twisted authbind
+sudo apt-get install -y git 
+sudo apt-get install -y python-dev 
+sudo apt-get install -y python-openssl
+sudo apt-get install -y openssh-server
+sudo apt-get install -y python-pyasn1 
+sudo apt-get install -y python-twisted 
+sudo apt-get install -y authbind
 #set cowrie to listen to port22
 sudo touch /etc/authbind/byport/22
-sudo chown cowrie /etc/authbind/byport/22
+sudo chown:cowrie /etc/authbind/byport/22
 sudo chmod 777 /etc/authbind/byport/22
 #change default port to Port 8742(to be tested with the pi)
 #sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
