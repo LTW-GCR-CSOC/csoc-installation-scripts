@@ -247,3 +247,11 @@ sudo apt -y autoremove
 #
 #---------------
 pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-server|pwd|setup-tools|telnet|urlib3|urllib)'
+
+#---------------
+#
+# Collect status data that may be used for other configuration activities
+#
+#---------------
+echo "-----@ STATUS SNAPSHOT -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo ifconfig -a >>$SCRIPTSDIR/SETUP-RUN.TXT
