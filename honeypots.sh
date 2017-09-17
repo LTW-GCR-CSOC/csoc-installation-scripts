@@ -239,3 +239,11 @@ pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP
 sudo apt-get -y remove git 
 sudo apt-get -y remove make
 sudo apt -y autoremove
+
+#---------------
+#
+# Check for pretend python packages
+# http://www.nbu.gov.sk/skcsirt-sa-20170909-pypi/
+#
+#---------------
+pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-server|pwd|setup-tools|telnet|urlib3|urllib)'
