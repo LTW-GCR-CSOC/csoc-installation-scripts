@@ -27,7 +27,6 @@ source cowrie-env/bin/activate
 export PYTHONPATH=/home/cowrie/cowrie
 /home/cowrie/cowrie/bin/cowrie start
 #sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222
-apt-get install authbind
 touch /etc/authbind/byport/22
 chown cowrie:cowrie /etc/authbind/byport/22
 chmod 770 /etc/authbind/byport/22
