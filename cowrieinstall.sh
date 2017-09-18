@@ -16,7 +16,6 @@ sudo apt-get install -y python-twisted
 sudo apt-get install -y authbind
 
 su - cowrie <<!
-cowrie
 /usr/bin/easy_install virtualenv
 
 #change default port to Port 8742(to be tested with the pi)
@@ -36,4 +35,3 @@ touch /etc/authbind/byport/22
 chown cowrie:cowrie /etc/authbind/byport/22
 chmod 770 /etc/authbind/byport/22
 !
-echo 'CHANGE cowrie password to no password'
