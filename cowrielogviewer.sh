@@ -4,26 +4,22 @@
 # Install Cowrie Log Viewer
 #
 #----------------
-# remove old directories to do a clean install
-if [ -d "/opt/cowrie" ]; then
-  echo "Removing old /opt/cowrie directory" >>~/SETUP-RUN.TXT
-  sudo rm -rf /opt/cowrie
-fi
+# TODO remove old directories to do a clean install
 sudo mkdir /opt/cowrie
 cd /opt/cowrie
-git clone https://github.com/LTW-GCR-CSOC/cowrie-logviewer.git
+sudo git clone https://github.com/LTW-GCR-CSOC/cowrie-logviewer.git
 cd cowrie-logviewer
 pip install -r requirements.txt
 #install IPGeolocator
-mkdir maxmind
+sudo mkdir maxmind
 cd maxmind
-wget -N http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
-unzip -o GeoLite2-Country.mmdb.gz
+sudo wget -N http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
+sudo unzip -o GeoLite2-Country.mmdb.gz
 cd ..
 cd ..
 cd cowrie/log
-touch cowrie.json
-touch cowrie.log
+sudo touch cowrie.json
+sudo touch cowrie.log
 cd ..
 cd ..
 cd cowrie-logviewer
