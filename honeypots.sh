@@ -48,7 +48,7 @@ sudo adduser --disabled-password cowrie
 sudo groupadd cowrie
 sudo usermod -a -G cowrie corwie
 
-sudo -u cowrie $SCRIPTSDIR/cowrieinstall.sh
+sudo $SCRIPTSDIR/cowrieinstall.sh - cowrie
 echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # ---------------
