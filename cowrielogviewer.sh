@@ -18,4 +18,4 @@ gunzip GeoLite2-Country.mmdb.gz
 rm GeoLite2-Country.mmdb.gz
 
 cd /home/cowrie/cowrie-logviewer
-python cowrie-logviewer.py 
+nohup python cowrie-logviewer.py & 
