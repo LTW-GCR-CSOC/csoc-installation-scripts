@@ -2,6 +2,9 @@
 # install ossec
 # https://ossec.github.io/index.html
 #
+SCRIPTSDIR=$HOME
+echo "SCRIPTSDIR = " $HOME  >>$SCRIPTSDIR/SETUP-RUN.TXT
+
 echo "-----@ INSTALL OSSEC -----" >>~/SETUP-RUN.TXT
 cd ~
 sudo apt-get -y install build-essential
