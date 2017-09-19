@@ -13,7 +13,7 @@
 # - add in scripts to remove all files not required in production environment (e.g. source files)
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
-SCRIPTSDIR=echo `$HOME`
+SCRIPTSDIR=$HOME
 echo "Started setup script on" `date`  >$SCRIPTSDIR/SETUP-RUN.TXT
 chmod 0660 $SCRIPTSDIR/SETUP-RUN.TXT
 # check Ubuntu version
