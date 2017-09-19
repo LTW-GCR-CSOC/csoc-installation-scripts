@@ -111,12 +111,3 @@ sudo mv $SCRIPTSDIR/dionaea /etc/init.d/
 sudo update-rc.d dionaea defaults
 sudo /etc/init.d/dionaea start
 echo "-----@ DIONAEA REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-
-# ---------------
-#
-# Install Dionaea Log Viewer (for development)
-#
-#----------------
-echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo $SCRIPTSDIR/dionaealogviewer.sh
-echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
