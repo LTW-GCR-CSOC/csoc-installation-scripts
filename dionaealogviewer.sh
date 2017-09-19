@@ -40,7 +40,24 @@ gunzip GeoIP.dat.gz
 mv GeoIP.dat DionaeaFR/DionaeaFR/static
 mv GeoLiteCity.dat DionaeaFR/DionaeaFR/static
 cp /opt/DionaeaFR/DionaeaFR/settings.py.dist /opt/DionaeaFR/DionaeaFR/settings.py
-nano /opt/DionaeaFR/DionaeaFR/settings.py
+
+# Dionaea log rotation configuration
+sudo chmod 0777 /etc/logrotate.d
+cd /etc/logrotate.d/
+sudo cat > dionaeafr << EOF
+/var/log/dionaeafr/dionaeafr.log {
+        notifempty
+        missingok
+        rotate 7
+        daily
+        delaycompress
+        compress
+        create 660 root root
+        dateext
+}
+EOF
+sudo chmod 0755 /etc/logrotate.d
+
 mkdir /var/run/dionaeafr #for DionaeaFR's pid file
 # ---------------
 #
