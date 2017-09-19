@@ -1,6 +1,15 @@
 This page contains sample log alert information from diffrent types of sensors. It also grok parser statements. (http://grokconstructor.appspot.com/)<br />
 http://grokconstructor.appspot.com/do/match#result<br />
+
 <br />
+<h3>GCRdionaeaAlerts.py</h3>
+./var/log/GCRDionaea.log (a.k.a. dionaea.log)<br />
+<br />
+<h5>SAMPLE LOG:</h5>
+<table><tr><td>
+1505408808|GCRCanary-DionaeaDevice|blackthread|Connection(accept,tcp,smbd)-Alert(connections)|25753|10.2.1.118|445|10.2.1.107|1424|[CONNECTIONS:(connection     connection_type connection_transport    connection_protocol     connection_timestamp    connection_root    connection_parent       local_host      local_port      remote_host     remote_hostname remote_port     )(25753 accept  tcp     smbd    1505408808.93   25753   None    10.2.1.118      445     10.2.1.107              1424)]  
+</td></tr></table>
+
 <h3>Dionaea</h3>
 <h4>Simple Log</h4>
 ./var/log/dionaea.log (a.k.a. dionaea.log)<br />
