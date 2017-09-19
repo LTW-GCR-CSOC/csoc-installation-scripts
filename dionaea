@@ -42,9 +42,15 @@ case "$1" in
 	--background --make-pidfile --exec $DAEMON -- $DAEMON_OPTS
 	echo "$NAME."
 	;;
+  status)
+    	if [ -e $PIDFILE ]; then
+        	status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
+    	else
+        	echo "$DAEMON is not running ..."
+    	fi
   *)
 	N=/etc/init.d/$NAME
-	echo "Usage: $N {start|stop|restart|force-reload}" >@2
+	echo "Usage: $N {start|stop|restart|force-reload|status}" >@2
 	exit 1
 	;;
 esac
