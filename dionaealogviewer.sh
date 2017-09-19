@@ -42,7 +42,25 @@ mv GeoLiteCity.dat DionaeaFR/DionaeaFR/static
 cp /opt/DionaeaFR/DionaeaFR/settings.py.dist /opt/DionaeaFR/DionaeaFR/settings.py
 nano /opt/DionaeaFR/DionaeaFR/settings.py
 mkdir /var/run/dionaeafr #for DionaeaFR's pid file
-cd /opt/DionaeaFR/
-python manage.py collectstatic #type yes when asked
-nohup python manage.py runserver 0.0.0.0:8000 &
+# ---------------
+#
+# Configure DionaeaFR to restart on reboot
+# https://blog.honeynet.org.my/2010/02/14/dionaea-auto-start-script-on-ubuntu/
+#
+#----------------
+echo "-----@ DIONAEAFR REBOOT CONFIGURATION -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo mv $SCRIPTSDIR/dionaeafr /etc/init.d/
+sudo update-rc.d dionaeafr defaults
+sudo /etc/init.d/dionaeafr start
+echo "-----@ DIONAEAFR REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+
+# ---------------
+#
+# Run dionaeaFR
+# https://blog.honeynet.org.my/2010/02/14/dionaea-auto-start-script-on-ubuntu/
+#
+#----------------
+#cd /opt/DionaeaFR/
+#python manage.py collectstatic #type yes when asked
+#nohup python manage.py runserver 0.0.0.0:8000 &
 # TODO: remove files and apps no longer required 
