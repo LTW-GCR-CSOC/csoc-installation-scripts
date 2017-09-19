@@ -165,6 +165,18 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # ---------------
 #
+# Configure Dionaea to restart on reboot
+# https://blog.honeynet.org.my/2010/02/14/dionaea-auto-start-script-on-ubuntu/
+#
+#----------------
+echo "-----@ DIONAEA REBOOT CONFIGURATION -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo mv $SCRIPTSDIR/dionaea /etc/init.d/
+sudo update-rc.d dionaea defaults
+sudo /etc/init.d/dionaea start
+echo "-----@ DIONAEA REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+
+# ---------------
+#
 # Install Dionaea Log Viewer (for development)
 #
 #----------------
