@@ -1,4 +1,4 @@
-#Copyright Global Cybersecurity Resource, 2017
+#Global Cybersecurity Resource, 2017 
 #
 #This will extract information from sqlite and put the information into a log file
 #
@@ -42,7 +42,7 @@ def payloadDetailsConstructor(cur,table):
 			subDetails = payloadDetailsConstructor(curx,"mysql_command_ops")
 			print "--- >"+subDetails+" < --"
 			element=element+subDetails
-			curx.close()
+			#curx.close()
 		elif table == "dcerpcbinds":
 			curx=cur
 			dcerpcbind_uuid = details[0][2]
@@ -51,7 +51,7 @@ def payloadDetailsConstructor(cur,table):
 			subDetails = payloadDetailsConstructor(curx,"dcerpcservices")
 			print "--- >"+subDetails+" < --"
 			element=element+subDetails
-			curx.close()
+			#curx.close()
 		elif table == "dcerpcrequests":
 			curx=cur
 			dcerpcrequest_uuid = details[0][2]
@@ -60,7 +60,7 @@ def payloadDetailsConstructor(cur,table):
 			subDetails = payloadDetailsConstructor(curx,"dcerpcservices")
 			print "--- >"+subDetails+" < --"
 			element=element+subDetails
-			curx.close()
+			#curx.close()
 		elif table == "sip_commands":
 			curx=cur
 			sip_command = details[0][0]
@@ -93,7 +93,7 @@ def payloadDetailsConstructor(cur,table):
 			subDetails = payloadDetailsConstructor(curx,"sip_vias")
 			print "--- >"+subDetails+"< --"
 			element=element+subDetails
-			curx.close()
+			#curx.close()
 		element=element+", "
 		
 
@@ -152,7 +152,7 @@ for table in tables:
 ###############
 ##Live Execution
 ###############
-print "Live Execution Start with "+delay+"\n"
+print "Live Execution Start with delay"+str(delay)+"\n"
 
 
 
@@ -222,4 +222,6 @@ while True:
 		#file = open("GCRDionaea.log", "a+")
 		file.write(alert)
 		file.close()
+		#curx.close()
+		cur.close()
 		time.sleep(delay)
