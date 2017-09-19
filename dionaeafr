@@ -1,6 +1,14 @@
 #!/bin/bash
+### BEGIN INIT INFO
+# Required-Start:    $network
+# Required-Stop:     $network
+# Should-Start:
+# Should-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
 # https://github.com/phage-nz/malware-hunting/blob/master/honeypot/dionaeafr.init
-# for init.d
 
 . /lib/lsb/init-functions
 
