@@ -1,9 +1,11 @@
 #!/bin/bash
 ### BEGIN INIT INFO
+# Provides:          dionaeafr
 # Required-Start:    $network
 # Required-Stop:     $network
 # Should-Start:
 # Should-Stop:
+# Description:       Run dionaeafr, access portal via http://0.0.0.0:8000
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 ### END INIT INFO
@@ -28,18 +30,15 @@ case $1 in
   start)
     cd $BASEDIR
     python manage.py runserver 0.0.0.0:$PORT > $LOGFILE 2>> $LOGFILE &
-    log_daemon_msg "$DAEMON started ..."
-    log_end_msg 0
+    echo "$DAEMON started ..."
   ;;
   stop)
     if [ -e $PIDFILE ]; then
         kill `cat $PIDFILE`
         rm $PIDFILE
-        log_daemon_msg "$DAEMON stopped ..."
-        log_end_msg 0
+        echo "$DAEMON stopped ..."
     else
-        log_daemon_msg "$DAEMON is *NOT* running"
-        log_end_msg 1
+        echo "$DAEMON is *NOT* running"
     fi
   ;;
   collectstatic)
@@ -53,8 +52,7 @@ case $1 in
     if [ -e $PIDFILE ]; then
         status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
     else
-        log_daemon_msg "$DAEMON is not running ..."
-        log_end_msg 0
+        echo "$DAEMON is not running ..."
     fi
   ;;
   *)
