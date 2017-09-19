@@ -14,8 +14,8 @@
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
 SCRIPTSDIR=$HOME
-echo "SCRIPTSDIR=" `$HOME`
-echo "Started setup script on" `date`  >$SCRIPTSDIR/SETUP-RUN.TXT
+echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
+echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
 chmod 0660 $SCRIPTSDIR/SETUP-RUN.TXT
 # check Ubuntu version
 if [[ `lsb_release -rs` != "16.04" ]] 
