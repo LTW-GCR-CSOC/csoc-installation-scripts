@@ -2,6 +2,7 @@
 # original source https://bruteforcelab.com/visualizing-dionaeas-results-with-dionaeafr.html
 apt-get install python-pip python-netaddr
 pip install Django==1.8.1
+pip install django-filter
 pip install pygeoip
 pip install django-pagination
 pip install django-tables2
