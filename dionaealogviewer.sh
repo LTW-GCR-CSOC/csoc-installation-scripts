@@ -44,5 +44,5 @@ nano /opt/DionaeaFR/DionaeaFR/settings.py
 mkdir /var/run/dionaeafr #for DionaeaFR's pid file
 cd /opt/DionaeaFR/
 python manage.py collectstatic #type yes when asked
-python manage.py runserver 0.0.0.0:8000
+nohup python manage.py runserver 0.0.0.0:8000 &
 # TODO: remove files and apps no longer required 
