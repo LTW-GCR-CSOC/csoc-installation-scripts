@@ -13,7 +13,18 @@
 # - add in scripts to remove all files not required in production environment (e.g. source files)
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
+# Variables:
+INSTALL_DIONAEA="yes" # yes or no.
+INSTALL_DIONAEAFR="yes"  
+INSTALL_COWRIE="yes"  
+INSTALL_COWRIELOGVIEWER="yes"  
+INSTALL_OSSEC="yes"  
+INSTALL_OPENVAS="no" 
+INSTALL_AWSIOT="no" 
+INSTALL_MENDER="no" 
+INSTALL_RP="no"
 SCRIPTSDIR=$HOME
+
 echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
 echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
 chmod 0660 $SCRIPTSDIR/SETUP-RUN.TXT
@@ -40,45 +51,52 @@ sudo apt-get -y update --fix-missing
 # Install Cowrie
 #
 #----------------
-echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_COWRIE" == "yes" ]; then
+  echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # change default port to Port 8742 (to be tested with the pi)
 #    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
 
 # Dedicated user and group for Cowrie
-sudo adduser --disabled-password cowrie
-sudo groupadd cowrie
-sudo usermod -a -G cowrie corwie
+  sudo adduser --disabled-password cowrie
+  sudo groupadd cowrie
+  sudo usermod -a -G cowrie corwie
 
-sudo $SCRIPTSDIR/cowrieinstall.sh - cowrie
-echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo $SCRIPTSDIR/cowrieinstall.sh - cowrie
+  echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 # ---------------
 #
 # Install Cowrie Log Viewer (for development)
 #
 #----------------
-echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo $SCRIPTSDIR/cowrielogviewerinstall.sh
-echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-
+if [ "$INSTALL_COWRIELOGVIEWER" == "yes" ]; then
+  echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo $SCRIPTSDIR/cowrielogviewerinstall.sh
+  echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 # ---------------
 #
 # Install Dionaea 
 #
 #----------------
-echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo $SCRIPTSDIR/dionaeainstall.sh
-echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_DIONAEA" == "yes" ]; then
+  echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo $SCRIPTSDIR/dionaeainstall.sh
+  echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 # ---------------
 #
 # Install Dionaea Log Viewer (for development)
 #
 #----------------
-echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo $SCRIPTSDIR/dionaealogviewer.sh
-echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
+  echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo $SCRIPTSDIR/dionaealogviewer.sh
+  echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 # ---------------
 #
@@ -86,39 +104,47 @@ echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RU
 # https://ossec.github.io/index.html
 #
 #----------------
-echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-#sudo $SCRIPTSDIR/ossecinstall.sh
-echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_OSSEC" == "yes" ]; then
+  echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  #sudo $SCRIPTSDIR/ossecinstall.sh
+  echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 #---------------
 #
 #  Configure Dionaea for desired services
 #
 #---------------
-echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-cd $SCRIPTSDIR
-# TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
-echo "-----@ DIONAEA CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_DIONAEA" == "yes" ]; then
+  echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  cd $SCRIPTSDIR
+  # TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
+  echo "-----@ DIONAEA CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 #---------------
 #
 # Setup Raspberry Pi components
 #
 #---------------
-echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-cd $SCRIPTSDIR
-# sudo rpinstall.sh
-echo "-----@ Raspberry Pi DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_RP" == "yes" ]; then
+  echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  cd $SCRIPTSDIR
+  # sudo rpinstall.sh
+  echo "-----@ Raspberry Pi DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 #---------------
 #
 # Setup AWS IoT components
 #
 #---------------
-echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-cd $SCRIPTSDIR
-# sudo awsiotinstall.sh
-echo "-----@ AWS IoT DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+if [ "$INSTALL_AWSIOT" == "yes" ]; then
+  echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  cd $SCRIPTSDIR
+  # sudo awsiotinstall.sh
+  echo "-----@ AWS IoT DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
 
 #---------------
 #
