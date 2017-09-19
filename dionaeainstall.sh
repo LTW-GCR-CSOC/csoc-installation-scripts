@@ -3,6 +3,8 @@
 # Install Dionaea 
 #
 #----------------
+SCRIPTSDIR=$HOME
+echo "SCRIPTSDIR = " $HOME  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # remove old directories to do a clean install
 if [ -d "/opt/dionaea" ]; then
