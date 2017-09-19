@@ -125,8 +125,7 @@ hostname = socket.gethostname()
 
 
 
-#dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/logsql.sqlite"
-dionaeaDatabaseFile = "C:\Users\A\Downloads\sqlite-tools-win32-x86-3200100\sqlite-tools-win32-x86-3200100\logsql.sqlite"
+dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/dionaea.sqlite"
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
 #list of all tables in database
@@ -159,34 +158,6 @@ cur.close
 ##Live Execution
 ###############
 print "Live Execution Started - Refresh Cycle: "+str(delay)+"sec \n"
-
-			##############
-			#SQL test
-			##############
-			#connectionID=8734
-
-			##############
-			#DCERPC test
-			##############
-			#connectionID=1694
-			#connectionID=7838
-			#connectionID=11833
-			#connectionID=18080
-			#connectionID=22170
-
-
-			##############
-			#SIP test
-			##############
-			#connectionID=1009
-			#connectionID=1168
-			#connectionID=7780
-			#connectionID=7840
-			#connectionID=11211
-			#connectionID=11350
-			#connectionID=18031
-			#connectionID=18083
-#pastConnectionID=25730
 
 while True: 
 	cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
@@ -229,8 +200,7 @@ while True:
 			alert =  str(connectionMetaData[4])[:-3]+"|"+"GCRCanary-DionaeaDevice|"+ hostname +"|"+ "Connection("+ connectionMetaData[1]+","+connectionMetaData[2]+","+connectionMetaData[3] +")-Alert(" + msgAlertsTriggered[:-1] + ")|"+str(connectionMetaData[0])+"|"+str(connectionMetaData[5])+"|"+str(connectionMetaData[6])+"|"+str(connectionMetaData[7])+"|"+str(connectionMetaData[8])+"|"+msgPayload +"\n"
 
 			print alert 
-			#file = open("/var/log/GCRDionaea.log", "a+")
-			file = open("GCRDionaea.log", "a+")
+			file = open("/var/log/GCRDionaea.log", "a+")
 			file.write(alert)
 			file.close()
 			
