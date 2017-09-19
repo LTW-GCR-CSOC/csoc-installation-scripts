@@ -1,4 +1,4 @@
-#Global Cybersecurity Resource, 2017 
+#Copyright Global Cybersecurity Resource, 2017
 #
 #This will extract information from sqlite and put the information into a log file
 #
@@ -125,8 +125,8 @@ hostname = socket.gethostname()
 
 
 
-dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/logsql.sqlite"
-#dionaeaDatabaseFile = "C:\Users\A\Downloads\sqlite-tools-win32-x86-3200100\sqlite-tools-win32-x86-3200100\logsql.sqlite"
+#dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/logsql.sqlite"
+dionaeaDatabaseFile = "C:\Users\A\Downloads\sqlite-tools-win32-x86-3200100\sqlite-tools-win32-x86-3200100\logsql.sqlite"
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
 #list of all tables in database
@@ -138,90 +138,101 @@ tablesWithConnection=[]
 
 #find tables that only have the connection column and create a list of tables with only connection
 for table in tables:
-    #print table[0]
     sql = "PRAGMA table_info('"+ table[0] +"');"
     cur.execute(sql)
     columns = cur.fetchall()
     for column in columns:
         if (column[1]) == 'connection':
+		
             #create new list of tables that have connections
             tablesWithConnection.append(table[0])
 
 
-
+#get last connection
+sql = "SELECT connection,connection_type,connection_transport,connection_protocol,connection_timestamp,local_host,local_port,remote_host,remote_port FROM connections ORDER BY connection DESC LIMIT 1;"
+cur.execute(sql)
+connectionMetaData = cur.fetchall()
+pastConnectionID=connectionMetaData[0][0]
+	
+cur.close
 ###############
 ##Live Execution
 ###############
-print "Live Execution Start with delay"+str(delay)+"\n"
+print "Live Execution Started - Refresh Cycle: "+str(delay)+"sec \n"
+
+			##############
+			#SQL test
+			##############
+			#connectionID=8734
+
+			##############
+			#DCERPC test
+			##############
+			#connectionID=1694
+			#connectionID=7838
+			#connectionID=11833
+			#connectionID=18080
+			#connectionID=22170
 
 
+			##############
+			#SIP test
+			##############
+			#connectionID=1009
+			#connectionID=1168
+			#connectionID=7780
+			#connectionID=7840
+			#connectionID=11211
+			#connectionID=11350
+			#connectionID=18031
+			#connectionID=18083
+#pastConnectionID=25730
 
 while True: 
-
-	#get last connection data
-	sql = "SELECT connection,connection_type,connection_transport,connection_protocol,connection_timestamp,local_host,local_port,remote_host,remote_port FROM connections ORDER BY connection DESC LIMIT 1;"
+	cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
+	#get lastest connection data
+	sql = "SELECT connection,connection_type,connection_transport,connection_protocol,connection_timestamp,local_host,local_port,remote_host,remote_port FROM connections WHERE connection > "+ str(pastConnectionID) +" ORDER BY connection ASC;"
+	
 	cur.execute(sql)
-	connectionMetaData = cur.fetchall()
-	connectionID=connectionMetaData[0][0]
+	lastAlertEntries = cur.fetchall()
+	
+	for connectionItem in lastAlertEntries:
+		connectionMetaData =  connectionItem
+		connectionID = connectionItem[0]
+		
+		if int(connectionID) > int(pastConnectionID):
+			pastConnectionID=connectionID
 
-	if int(connectionID) > int(pastConnectionID):
-		pastConnectionID=connectionID
-		##############
-		#SQL test
-		##############
-		#connectionID=8734
-
-		##############
-		#DCERPC test
-		##############
-		#connectionID=1694
-		#connectionID=7838
-		#connectionID=11833
-		#connectionID=18080
-		#connectionID=22170
-
-
-		##############
-		#SIP test
-		##############
-		#connectionID=1009
-		#connectionID=1168
-		#connectionID=7780
-		#connectionID=7840
-		#connectionID=11211
-		#connectionID=11350
-		#connectionID=18031
-		#connectionID=18083
-		msgAlertsTriggered=""
-		msgPayload = ""
-		for tableWithConnection in tablesWithConnection:
-			#for length of number of tables, check if a connection
-			sql = "SELECT EXISTS(SELECT 1 FROM "+ tableWithConnection +" WHERE connection=" + str(connectionID) + " LIMIT 1);"
-			cur.execute(sql)
-			data = cur.fetchone()
-
-			
-			connectionFlag=False 
-			if str(data[0]) == "1":
-				connectionFlag=True
-				msgAlertsTriggered=tableWithConnection+","+msgAlertsTriggered
-
-				sql = "SELECT * FROM "+ tableWithConnection + " WHERE connection=" + str(connectionID) + ";"
+			msgAlertsTriggered=""
+			msgPayload = ""
+			for tableWithConnection in tablesWithConnection:
+				#for length of number of tables, check if a connection
+				sql = "SELECT EXISTS(SELECT 1 FROM "+ tableWithConnection +" WHERE connection=" + str(connectionID) + " LIMIT 1);"
 				cur.execute(sql)
-				msgPayload=msgPayload+payloadDetailsConstructor(cur,tableWithConnection)
-				msgPayload=msgPayload.replace("|"," ")
-				msgPayload=msgPayload.replace("\n"," ")
-				msgPayload=msgPayload.replace("\r"," ")
-				
-				
-		print "\n"
-		alert =  str(connectionMetaData[0][4])[:-3]+"|"+"GCRCanary-DionaeaDevice|"+ hostname +"|"+ "Connection("+ connectionMetaData[0][1]+","+connectionMetaData[0][2]+","+connectionMetaData[0][3] +")-Alert(" + msgAlertsTriggered[:-1] + ")|"+str(connectionMetaData[0][0])+"|"+str(connectionMetaData[0][5])+"|"+str(connectionMetaData[0][6])+"|"+str(connectionMetaData[0][7])+"|"+str(connectionMetaData[0][8])+"|"+msgPayload +"\n"
+				data = cur.fetchone()
 
-		print alert 
-		file = open("/var/log/GCRDionaea.log", "a+")
-		#file = open("GCRDionaea.log", "a+")
-		file.write(alert)
-		file.close()
-		#curx.close()
-		cur.close()
-		time.sleep(delay)
+				
+				connectionFlag=False 
+				if str(data[0]) == "1":
+					connectionFlag=True
+					msgAlertsTriggered=tableWithConnection+","+msgAlertsTriggered
+
+					sql = "SELECT * FROM "+ tableWithConnection + " WHERE connection=" + str(connectionID) + ";"
+					cur.execute(sql)
+					msgPayload=msgPayload+payloadDetailsConstructor(cur,tableWithConnection)
+					msgPayload=msgPayload.replace("|"," ")
+					msgPayload=msgPayload.replace("\n"," ")
+					msgPayload=msgPayload.replace("\r"," ")
+					
+					
+			
+			alert =  str(connectionMetaData[4])[:-3]+"|"+"GCRCanary-DionaeaDevice|"+ hostname +"|"+ "Connection("+ connectionMetaData[1]+","+connectionMetaData[2]+","+connectionMetaData[3] +")-Alert(" + msgAlertsTriggered[:-1] + ")|"+str(connectionMetaData[0])+"|"+str(connectionMetaData[5])+"|"+str(connectionMetaData[6])+"|"+str(connectionMetaData[7])+"|"+str(connectionMetaData[8])+"|"+msgPayload +"\n"
+
+			print alert 
+			#file = open("/var/log/GCRDionaea.log", "a+")
+			file = open("GCRDionaea.log", "a+")
+			file.write(alert)
+			file.close()
+			
+	cur.close()
+	time.sleep(delay)
