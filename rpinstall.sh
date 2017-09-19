@@ -3,6 +3,9 @@
 #
 # TODO: setup watchdog timer support for raspberry pi device
 #
+SCRIPTSDIR=$HOME
+echo "SCRIPTSDIR = " $HOME  >>$SCRIPTSDIR/SETUP-RUN.TXT
+
 echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
 sudo modprobe bcm2708_wdog
 echo "bcm2708_wdog" | sudo tee -a /etc/modules
