@@ -2,12 +2,12 @@
 # original source https://bruteforcelab.com/visualizing-dionaeas-results-with-dionaeafr.html
 apt-get install python-pip python-netaddr
 pip install Django==1.8.1
-pip install django-filter
 pip install pygeoip
 pip install django-pagination
 pip install django-tables2
 pip install django-compressor
 pip install django-htmlmin
+pip install django-filter
 cd /opt/
 wget https://github.com/benjiec/django-tables2-simplefilter/archive/master.zip -O django-tables2-simplefilter.zip
 unzip django-tables2-simplefilter.zip
@@ -28,7 +28,8 @@ make install
 npm install -g less
 npm install -g promise
 cd /opt/
-wget https://github.com/RootingPuntoEs/DionaeaFR/archive/master.zip -O DionaeaFR.zip
+#wget https://github.com/RootingPuntoEs/DionaeaFR/archive/master.zip -O DionaeaFR.zip
+wget https://github.com/LTW-GCR-CSOC/DionaeaFR/archive/master.zip -O DionaeaFR.zip
 unzip DionaeaFR.zip
 mv DionaeaFR-master/ DionaeaFR
 cd /opt/
