@@ -50,6 +50,7 @@ mkdir /var/run/dionaeafr #for DionaeaFR's pid file
 #----------------
 echo "-----@ DIONAEAFR REBOOT CONFIGURATION -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo mv $SCRIPTSDIR/dionaeafr /etc/init.d/
+sudo chmod 0755 /etc/init.d/dionaeafr
 sudo update-rc.d dionaeafr defaults
 sudo /etc/init.d/dionaeafr start
 echo "-----@ DIONAEAFR REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
