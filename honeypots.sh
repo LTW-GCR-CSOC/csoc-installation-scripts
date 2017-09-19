@@ -67,7 +67,7 @@ echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN
 #
 #----------------
 echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo $SCRIPTSDIR/dionaea-install.sh
+sudo $SCRIPTSDIR/dionaeainstall.sh
 echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # ---------------
