@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://github.com/phage-nz/malware-hunting/blob/master/honeypot/dionaeafr.init
 # for init.d
 
 . /lib/lsb/init-functions
