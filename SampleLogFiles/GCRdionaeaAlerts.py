@@ -9,6 +9,7 @@
 from requests import get
 import socket
 import os
+import syslog
 import sqlite3
 import sys
 import time
@@ -205,6 +206,7 @@ while True:
                         alert =  str(int(connectionMetaData[4]))+"|"+"GCRCanary-DionaeaDevice|"+ hostname +"|"+ "Connection("+ connectionMetaData[1]+","+connectionMetaData[2]+","+connectionMetaData[3] +")-Alert(" + msgAlertsTriggered[:-1] + ")|"+str(connectionMetaData[0])+"|"+str(connectionMetaData[5])+"|"+str(connectionMetaData[6])+"|"+str(connectionMetaData[7])+"|"+str(connectionMetaData[8])+"|"+msgPayload +"\n"
                         print (alert)
                         file = open("/var/log/GCRDionaea.log", "a+")
+                        syslog.syslog(alert) 
                         file.write(alert)
                         file.close()
 
