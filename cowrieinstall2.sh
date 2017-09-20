@@ -1,5 +1,8 @@
-  SCRIPTSDIR = $HOME
-  SERVER = "LTW-Canary-01"
+  #!/bin/bash
+  # Install Cowrie
+  #
+  SCRIPTSDIR=$HOME
+  SERVER="LTW-Canary-01"
   
   
   echo "Installing Cowrie..." >>$SCRIPTSDIR/SETUP-RUN.TXT
