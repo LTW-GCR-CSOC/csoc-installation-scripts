@@ -97,7 +97,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_DIONAEA" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING DIONAEA ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo $SCRIPTSDIR/dionaeainstall.sh
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -109,7 +109,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING DIONAEA LOG VIEWER ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA LOG VIEWER -----${NC}\n"
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   # Dedicated user and group for Cowrie
   sudo adduser --disabled-password dionaeafr
@@ -126,7 +126,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_COWRIE" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING COWRIE ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING COWRIE -----${NC}\n"
   echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # change default port to Port 8742 (to be tested with the pi)
 #    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
@@ -140,7 +140,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_COWRIELOGVIEWER" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING COWRIE LOG VIEWER ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING COWRIE LOG VIEWER -----${NC}\n"
   echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo $SCRIPTSDIR/cowrielogviewer.sh
   echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -154,7 +154,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_OSSEC" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING OSSEC ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING OSSEC -----${NC}\n"
   echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   #sudo $SCRIPTSDIR/ossecinstall.sh
   echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -167,7 +167,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_OPENVAS" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING OPENVAS ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING OPENVAS -----${NC}\n"
   echo "-----@ OPENVAS CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   #sudo $SCRIPTSDIR/openvasinstall.sh
   echo "-----@ OPENVAS CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -179,7 +179,7 @@ fi
 #
 #---------------
 if [ "$INSTALL_RP" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING RP ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING RP -----${NC}\n"
   echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
   # sudo rpinstall.sh
@@ -192,7 +192,7 @@ fi
 #
 #---------------
 if [ "$INSTALL_AWSIOT" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING AWS IOT ----------------------------------${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING AWS IOT -----${NC}\n"
   echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
   # sudo awsiotinstall.sh
@@ -204,7 +204,7 @@ fi
 # CONFIGURE IPTABLES for all services and lockdown instance
 #
 #---------------
-printf "${BOG}---------------------------------- CONFIGURING IPTABLES ----------------------------------${NC}\n"
+printf "${BOG}---------------------------------- CONFIGURING IPTABLES -----${NC}\n"
 echo "-----@ IPTABLES CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # TODO - Ahmed
 echo "-----@ IPTABLES DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -214,7 +214,7 @@ echo "-----@ IPTABLES DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 # Install and configure syslog-ng
 #
 #----------------
-printf "${BOG}---------------------------------- CONFIGURING SYSLOG-NG ----------------------------------${NC}\n"
+printf "${BOG}---------------------------------- CONFIGURING SYSLOG-NG -----${NC}\n"
 echo "-----@ SYSLOG-NG CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # TODO 
 echo "-----@ SYSLOG-NG DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -224,7 +224,7 @@ echo "-----@ SYSLOG-NG DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 # Check that expected processes are active
 #
 #---------------
-printf "${BOG}---------------------------------- POST INSTALL CHECKING ----------------------------------${NC}\n"
+printf "${BOG}---------------------------------- POST INSTALL CHECKING -----${NC}\n"
 pgrep dionaea > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
 pgrep ossec > /dev/null && echo "OSSEC tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
 pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -235,7 +235,7 @@ pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP
 #
 #---------------
 if [ "$INSTALL_CLEANUP" == "yes" ]; then
- printf "${BOG}---------------------------------- POST INSTALL CLEANUP ----------------------------------${NC}\n"
+ printf "${BOG}---------------------------------- POST INSTALL CLEANUP -----${NC}\n"
  sudo apt-get -y remove git 
  sudo apt-get -y remove make
  sudo apt -y autoremove
@@ -246,7 +246,7 @@ fi
 # Do post-install security checks: known exposures, ports, userids, etc
 #
 #---------------
-printf "${BOG}---------------------------------- POST INSTALL SECURITY CHECKS ----------------------------------${NC}\n"
+printf "${BOG}---------------------------------- POST INSTALL SECURITY CHECKS -----${NC}\n"
 # Check for pretend python packages
 # http://www.nbu.gov.sk/skcsirt-sa-20170909-pypi/
 pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-server|pwd|setup-tools|telnet|urlib3|urllib)'
@@ -256,7 +256,7 @@ pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-se
 # Collect status data that may be used for other configuration activities
 #
 #---------------
-printf "${BOG}---------------------------------- WRAPPING UP ----------------------------------${NC}\n"
+printf "${BOG}---------------------------------- WRAPPING UP -----${NC}\n"
 echo "-----@ STATUS SNAPSHOT -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo ifconfig -a >>$SCRIPTSDIR/SETUP-RUN.TXT
 
