@@ -12,7 +12,7 @@ UnixTime | alert_type | hostname | event | connection_id | ip_dst_add | dst_port
 
 <h5>GROCK</h5>
 <table><tr><td>
-%{NUMBER:time}\|%{GREEDYDATA:alert_type}\|%{GREEDYDATA:hostname}\|%{GREEDYDATA:event}\|%{NUMBER:connection_id}\|%{IP:ip_dst_add}\|%{NUMBER:dst_port}\|%{IP:ip_src_addr}\|%{NUMBER:src_port}\|%{GREEDYDATA:payload}
+%{NUMBER:timestamp}\|%{GREEDYDATA:alert_type}\|%{GREEDYDATA:hostname}\|%{GREEDYDATA:event}\|%{NUMBER:connection_id}\|%{IP:ip_dst_add}\|%{NUMBER:dst_port}\|%{IP:ip_src_addr}\|%{NUMBER:src_port}\|%{GREEDYDATA:payload}
 </td></tr></table>
 
 <h5>SAMPLE LOG:</h5>
