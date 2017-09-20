@@ -32,10 +32,10 @@
   echo "Making the Cowrie filesystem..."
   /opt/cowrie/bin/createfs
   echo "Making logrotate script..." >>$SCRIPTSDIR/SETUP-RUN.TXT
-  sudo mv cowrie.logrotate -O /etc/logrotate.d/cowrie
+  sudo mv $SCRIPTSDIR/cowrie.logrotate -O /etc/logrotate.d/cowrie
   echo "Setting service to autostart..." >>$SCRIPTSDIR/SETUP-RUN.TXT
-  sudo mv cowrie.service -O /etc/systemd/system/cowrie.service
-  sudo mv cowrie.socket -O /etc/systemd/system/cowrie.socket
+  sudo mv $SCRIPTSDIR/cowrie.service -O /etc/systemd/system/cowrie.service
+  sudo mv $SCRIPTSDIR/cowrie.socket -O /etc/systemd/system/cowrie.socket
   sed -i 's/tcp:2222:interface=0.0.0.0/systemd:domain=INET:index=0/g' /opt/cowrie/cowrie.cfg
   sed -i 's/tcp:2223:interface=0.0.0.0/systemd:domain=INET:index=1/g' /opt/cowrie/cowrie.cfg
   systemctl daemon-reload
