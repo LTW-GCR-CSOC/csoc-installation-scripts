@@ -44,7 +44,9 @@ mv GeoIP.dat DionaeaFR/DionaeaFR/static
 mv GeoLiteCity.dat DionaeaFR/DionaeaFR/static
 cp /opt/DionaeaFR/DionaeaFR/settings.py.dist /opt/DionaeaFR/DionaeaFR/settings.py
 
+
 # Dionaea log rotation configuration
+mkdir /var/log/dionaeafr #for DionaeaFR's pid file
 sudo chmod 0777 /etc/logrotate.d
 cd /etc/logrotate.d/
 sudo cat > dionaeafr << EOF
