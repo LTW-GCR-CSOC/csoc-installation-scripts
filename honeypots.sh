@@ -16,7 +16,7 @@
 
 # Variables
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
-BOG='\e[30;48;5;82m"
+BOG='\e[30;48;5;82m'
 RED='\033[0;31m'
 NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RED}This is red text${NC}\n"
 
