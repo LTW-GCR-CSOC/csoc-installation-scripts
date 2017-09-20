@@ -38,7 +38,7 @@ INSTALL_RP="no"
 
 echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
 echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
-chmod 0660 $SCRIPTSDIR/SETUP-RUN.TXT
+chmod 0666 $SCRIPTSDIR/SETUP-RUN.TXT
 # check Ubuntu version
 if [[ `lsb_release -rs` != "16.04" ]] 
 then
@@ -203,3 +203,5 @@ pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-se
 #---------------
 echo "-----@ STATUS SNAPSHOT -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo ifconfig -a >>$SCRIPTSDIR/SETUP-RUN.TXT
+
+
