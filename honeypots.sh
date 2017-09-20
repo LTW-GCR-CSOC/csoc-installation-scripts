@@ -14,6 +14,11 @@
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
 # Variables:
+SCRIPTSDIR=$HOME
+
+INSTALL_REFRESH="no"
+INSTALL_CLEANUP="no"
+
 INSTALL_DIONAEA="yes" # yes or no.
 INSTALL_DIONAEALOGVIEWER="yes"  
 INSTALL_COWRIE="yes"  
@@ -23,7 +28,7 @@ INSTALL_OPENVAS="no"
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
 INSTALL_RP="no"
-SCRIPTSDIR=$HOME
+
 
 echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
 echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -41,10 +46,11 @@ sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 # Update System
 #
 #---------------
-
-sudo apt-get -y update
-sudo apt-get -y dist-upgrade
-sudo apt-get -y update --fix-missing 
+if [ "$INSTALL_REFRESH" == "yes" ]; then
+ sudo apt-get -y update
+ sudo apt-get -y dist-upgrade
+ sudo apt-get -y update --fix-missing 
+fi
 
 # ---------------
 #
@@ -182,9 +188,11 @@ pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP
 # TODO: clean-up remove all files (e.g. applications, source downloads) that not required for production operation
 #
 #---------------
-sudo apt-get -y remove git 
-sudo apt-get -y remove make
-sudo apt -y autoremove
+if [ "$INSTALL_CLEANUP" == "yes" ]; then
+ sudo apt-get -y remove git 
+ sudo apt-get -y remove make
+ sudo apt -y autoremove
+fi
 
 #---------------
 #
