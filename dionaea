@@ -1,5 +1,6 @@
 #! /bin/sh
 ### BEGIN INIT INFO
+# Provides:          dionaea
 # Required-Start:    $network
 # Required-Stop:     $network
 # Should-Start:
@@ -48,6 +49,7 @@ case "$1" in
     	else
         	echo "$DAEMON is not running ..."
     	fi
+	;;
   *)
 	N=/etc/init.d/$NAME
 	echo "Usage: $N {start|stop|restart|force-reload|status}" >@2
