@@ -62,31 +62,6 @@ if [ "$INSTALL_REFRESH" == "yes" ]; then
  sudo apt-get -y update --fix-missing 
 fi
 
-# ---------------
-#
-# Install Cowrie
-#
-#----------------
-if [ "$INSTALL_COWRIE" == "yes" ]; then
-  printf "${RED}---------------------------------- INSTALLING COWRIE ----------------------------------${NC}\n"
-  echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-# change default port to Port 8742 (to be tested with the pi)
-#    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
-  sudo $SCRIPTSDIR/cowrieinstall2.sh
-  echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-fi
-
-# ---------------
-#
-# Install Cowrie Log Viewer (for development)
-#
-#----------------
-if [ "$INSTALL_COWRIELOGVIEWER" == "yes" ]; then
-  printf "${RED}---------------------------------- INSTALLING COWRIE LOG VIEWER ----------------------------------${NC}\n"
-  echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  sudo $SCRIPTSDIR/cowrielogviewer.sh
-  echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-fi
 
 # ---------------
 #
@@ -115,6 +90,32 @@ if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
   
   sudo $SCRIPTSDIR/dionaealogviewer.sh
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+
+# ---------------
+#
+# Install Cowrie
+#
+#----------------
+if [ "$INSTALL_COWRIE" == "yes" ]; then
+  printf "${RED}---------------------------------- INSTALLING COWRIE ----------------------------------${NC}\n"
+  echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+# change default port to Port 8742 (to be tested with the pi)
+#    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
+  sudo $SCRIPTSDIR/cowrieinstall2.sh
+  echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+
+# ---------------
+#
+# Install Cowrie Log Viewer (for development)
+#
+#----------------
+if [ "$INSTALL_COWRIELOGVIEWER" == "yes" ]; then
+  printf "${RED}---------------------------------- INSTALLING COWRIE LOG VIEWER ----------------------------------${NC}\n"
+  echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo $SCRIPTSDIR/cowrielogviewer.sh
+  echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
 
