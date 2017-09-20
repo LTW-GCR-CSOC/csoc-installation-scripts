@@ -37,32 +37,32 @@ INSTALL_AWSIOT="no"
 INSTALL_MENDER="no" 
 INSTALL_RP="no"
 
-if [[ INSTALL_DIONAEA == "n" ]] 
+if [[ "$INSTALL_DIONAEA" == "n" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea will not be installed ****\n"
 fi
 
-if [[ INSTALL_COWRIE == "n" ]] 
+if [[ "$INSTALL_COWRIE" == "n" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Cowrie will not be installed ****\n"
 fi
 
-if [[ INSTALL_OSSEC == "n" ]] 
+if [[ "$INSTALL_OSSEC" == "n" ]] 
 then
  printf "**** ${RED}WARNING${NC}: OSSEC will not be installed ****\n"
 fi
 
-if [[ INSTALL_OPENVAS == "n" ]] 
+if [[ "$INSTALL_OPENVAS" == "n" ]] 
 then
  printf "**** ${RED}WARNING${NC}: OpenVAS will not be installed ****\n"
 fi
 
-if [[ INSTALL_AWSIOT == "n" ]] 
+if [[ "$INSTALL_AWSIOT" == "n" ]] 
 then
  printf "**** ${RED}WARNING${NC}: AWS IoT will not be installed ****\n"
 fi
 
-if [[ INSTALL_REFRESH == "n" ]] 
+if [[ "$INSTALL_REFRESH" == "n" ]] 
 then
  printf "**** ${RED}WARNING${NC}: No system refresh will not be done ****\n"
 fi
