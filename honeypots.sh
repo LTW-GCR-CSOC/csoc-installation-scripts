@@ -94,6 +94,11 @@ fi
 #----------------
 if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  # Dedicated user and group for Cowrie
+  sudo adduser --disabled-password dionaeafr
+  sudo groupadd dionaeafr
+  sudo usermod -a -G dionaeafr dionaeafr
+  
   sudo $SCRIPTSDIR/dionaealogviewer.sh
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
