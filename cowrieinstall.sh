@@ -35,3 +35,17 @@ touch /etc/authbind/byport/22
 chown cowrie:cowrie /etc/authbind/byport/22
 chmod 770 /etc/authbind/byport/22
 !
+
+# ---------------
+#
+# Configure DionaeaFR to restart on reboot
+# https://blog.honeynet.org.my/2010/02/14/dionaea-auto-start-script-on-ubuntu/
+#
+#----------------
+echo "-----@ COWRIE REBOOT CONFIGURATION -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo mv $SCRIPTSDIR/cowrie /etc/init.d/
+sudo chmod 0755 /etc/init.d/cowrie
+sudo update-rc.d cowrie defaults
+sudo /etc/init.d/cowrie start
+echo "-----@ COWRIE REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+
