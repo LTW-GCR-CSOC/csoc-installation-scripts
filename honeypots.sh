@@ -61,7 +61,7 @@ if [ "$INSTALL_COWRIE" == "yes" ]; then
   sudo groupadd cowrie
   sudo usermod -a -G cowrie corwie
 
-  sudo $SCRIPTSDIR/cowrieinstall.sh - cowrie
+  sudo $SCRIPTSDIR/cowrieinstall2.sh - cowrie
   echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
@@ -103,18 +103,6 @@ if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
-# ---------------
-#
-# Install OSSEC (used
-# https://ossec.github.io/index.html
-#
-#----------------
-if [ "$INSTALL_OSSEC" == "yes" ]; then
-  echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  #sudo $SCRIPTSDIR/ossecinstall.sh
-  echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-fi
-
 #---------------
 #
 #  Configure Dionaea for desired services
@@ -125,6 +113,31 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   cd $SCRIPTSDIR
   # TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
   echo "-----@ DIONAEA CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+
+
+# ---------------
+#
+# Install OSSEC  
+# https://ossec.github.io/index.html
+#
+#----------------
+if [ "$INSTALL_OSSEC" == "yes" ]; then
+  echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  #sudo $SCRIPTSDIR/ossecinstall.sh
+  echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+
+# ---------------
+#
+# Install OPENVAS  
+# http://www.openvas.org/
+#
+#----------------
+if [ "$INSTALL_OPENVAS" == "yes" ]; then
+  echo "-----@ OPENVAS CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  #sudo $SCRIPTSDIR/openvasinstall.sh
+  echo "-----@ OPENVAS CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
 #---------------
