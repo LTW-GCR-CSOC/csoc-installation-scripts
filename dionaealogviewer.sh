@@ -1,4 +1,7 @@
 #!/bin/bash
+
+SCRIPTSDIR=$HOME
+
 # original source https://bruteforcelab.com/visualizing-dionaeas-results-with-dionaeafr.html
 apt-get install python-pip python-netaddr
 pip install Django==1.8.1
