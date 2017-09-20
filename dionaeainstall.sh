@@ -111,6 +111,7 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>$SCRIPTSDIR/SETUP-RUN.TXT
 echo "-----@ DIONAEA REBOOT CONFIGURATION -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo mv $SCRIPTSDIR/dionaea /etc/init.d/
 sudo chmod 0755 /etc/init.d/dionaea
+sudo chown root:root /etc/init.d/dionaea
 sudo update-rc.d dionaea defaults
 sudo /etc/init.d/dionaea start
 echo "-----@ DIONAEA REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
