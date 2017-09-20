@@ -7,7 +7,7 @@
   apt remove python-openssl -y
   pip install pyopenssl
   cd /opt
-  git clone https://github.com/micheloosterhof/cowrie.git
+  git clone https://github.com/LTW-GCR-CSOC/cowrie.git
   cd cowrie
   cp cowrie.cfg.dist cowrie.cfg
   mkdir tmp
@@ -31,10 +31,10 @@
   echo "Making the Cowrie filesystem..."
   /opt/cowrie/bin/createfs
   echo "Making logrotate script..."
-  wget https://raw.githubusercontent.com/phage-nz/malware-hunting/master/honeypot/cowrie.logrotate -O /etc/logrotate.d/cowrie
+  wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/blob/master/cowrie.logrotate -O /etc/logrotate.d/cowrie
   echo "Setting service to autostart..."
-  wget https://raw.githubusercontent.com/phage-nz/malware-hunting/master/honeypot/cowrie.service -O /etc/systemd/system/cowrie.service
-  wget https://raw.githubusercontent.com/phage-nz/malware-hunting/master/honeypot/cowrie.socket -O /etc/systemd/system/cowrie.socket
+  wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/blob/master/cowrie.service -O /etc/systemd/system/cowrie.service
+  wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/blob/master/cowrie.socket -O /etc/systemd/system/cowrie.socket
   sed -i 's/tcp:2222:interface=0.0.0.0/systemd:domain=INET:index=0/g' /opt/cowrie/cowrie.cfg
   sed -i 's/tcp:2223:interface=0.0.0.0/systemd:domain=INET:index=1/g' /opt/cowrie/cowrie.cfg
   systemctl daemon-reload
