@@ -130,7 +130,7 @@ if [ "$INSTALL_COWRIE" == "yes" ]; then
   echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # change default port to Port 8742 (to be tested with the pi)
 #    sed -i '/^Port/c\Port 8742' /etc/ssh/sshd_config
-  sudo $SCRIPTSDIR/cowrieinstall2.sh
+  sudo $SCRIPTSDIR/cowrieinstall.sh
   echo "-----@ COWRIE CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
