@@ -1,5 +1,6 @@
   #!/bin/bash
   # Install Cowrie
+  # Based on https://github.com/phage-nz/malware-hunting/tree/master/honeypot
   #
   SCRIPTSDIR=$HOME
   SERVER="LTW-Canary-01"
