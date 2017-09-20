@@ -183,6 +183,15 @@ echo "-----@ IPTABLES CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # TODO - Ahmed
 echo "-----@ IPTABLES DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
+# ---------------
+#
+# Install and configure syslog-ng
+#
+#----------------
+printf "${BOG}---------------------------------- CONFIGURING SYSLOG-NG ----------------------------------${NC}\n"
+echo "-----@ SYSLOG-NG CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+# TODO 
+echo "-----@ SYSLOG-NG DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 #---------------
 #
