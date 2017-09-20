@@ -46,9 +46,9 @@ chmod 0666 $SCRIPTSDIR/SETUP-RUN.TXT
 # check Ubuntu version
 if [[ `lsb_release -rs` != "16.04" ]] 
 then
- echo "**** WARNING: this script has not been tested on this version of Ubuntu ****"
+ printf "**** ${RED}WARNING${NC}: this script has not been tested on this version of Ubuntu ****\n"
 fi
-echo "-----@ SET TIMEZONE -----"
+echo "-----@ SET TIMEZONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 
 # ---------------
