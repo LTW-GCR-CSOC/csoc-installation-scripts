@@ -1,6 +1,7 @@
   SCRIPTSDIR = $HOME
   SERVER = "LTW-Canary-01"
   
+  
   echo "Installing Cowrie..." >>$SCRIPTSDIR/SETUP-RUN.TXT
   apt install libffi-dev libgmp-dev libmpc-dev libmpfr-dev libpython-dev python-virtualenv -y
   # Cowrie requires the latest version of Python OpenSSL.
