@@ -21,12 +21,18 @@ INSTALL_CLEANUP="no"
 
 INSTALL_DIONAEA="yes" # yes or no.
 INSTALL_DIONAEALOGVIEWER="yes"  
-INSTALL_COWRIE="yes"  
-INSTALL_COWRIELOGVIEWER="yes"  
+
+INSTALL_COWRIE="no"  
+INSTALL_COWRIELOGVIEWER="no"  
+
 INSTALL_OSSEC="no"  
+
 INSTALL_OPENVAS="no" 
+
 INSTALL_AWSIOT="no" 
+
 INSTALL_MENDER="no" 
+
 INSTALL_RP="no"
 
 
@@ -72,7 +78,7 @@ fi
 #----------------
 if [ "$INSTALL_COWRIELOGVIEWER" == "yes" ]; then
   echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  sudo $SCRIPTSDIR/cowrielogviewerinstall.sh
+  sudo $SCRIPTSDIR/cowrielogviewer.sh
   echo "-----@ COWRIE LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
@@ -101,18 +107,6 @@ if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
   
   sudo $SCRIPTSDIR/dionaealogviewer.sh
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-fi
-
-#---------------
-#
-#  Configure Dionaea for desired services
-#
-#---------------
-if [ "$INSTALL_DIONAEA" == "yes" ]; then
-  echo "-----@ DIONAEA CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  cd $SCRIPTSDIR
-  # TODO: need to add script to configure dionaea .cfg file for services to be active - https://dionaea.readthedocs.io/en/latest/configuration.html
-  echo "-----@ DIONAEA CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
 
