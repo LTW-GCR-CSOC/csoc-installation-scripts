@@ -1,4 +1,7 @@
- echo "Installing Cowrie..."
+  SCRIPTSDIR = $HOME
+  SERVER = "LTW-Canary-01"
+  
+  echo "Installing Cowrie..."
   apt install libffi-dev libgmp-dev libmpc-dev libmpfr-dev libpython-dev python-virtualenv -y
   # Cowrie requires the latest version of Python OpenSSL.
   apt remove python-openssl -y
