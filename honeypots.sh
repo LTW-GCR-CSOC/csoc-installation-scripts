@@ -208,11 +208,12 @@ fi
 
 #---------------
 #
-# Check for pretend python packages
-# http://www.nbu.gov.sk/skcsirt-sa-20170909-pypi/
+# Do post-install security checks: known exposures, ports, userids, etc
 #
 #---------------
 printf "${BOG}---------------------------------- POST INSTALL SECURITY CHECKS ----------------------------------${NC}\n"
+# Check for pretend python packages
+# http://www.nbu.gov.sk/skcsirt-sa-20170909-pypi/
 pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-server|pwd|setup-tools|telnet|urlib3|urllib)'
 
 #---------------
