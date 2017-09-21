@@ -18,7 +18,6 @@ BASEDIR="/opt/dionaea"
 PIDFOLDER="/opt/dionaea/var/"
 PIDFILE=$PIDFOLDER/gcr-enhanced-log.pid
 LOGFILE="/opt/dionaea/var/log/gcr-enhanced-log.log"
-CONFIG="/opt/dionaea/etc/dionaea/gcr-enhanced-log.cfg"
 NAME="GCRdionaeaAlerts"
 DAEMON="gcr-enhanced-log"
 USER="nobody"
@@ -31,7 +30,8 @@ fi
 case $1 in
   start)
     cd $BASEDIR
-    python3 /opt/dionaea/GCRdionaeaAlerts.py> $LOGFILE 2>> $LOGFILE &
+    start-stop-daemon --start --oknodo —user nobody --name GCRdionaeaAlerts --pidfile $PIDFILE --startas $BASEDIR/bin/GCRdionaeaAlerts.py -- --daemon
+#    python3 /opt/dionaea/bin/GCRdionaeaAlerts.py & > $LOGFILE 2>> $LOGFILE &
     log_daemon_msg "$DAEMON started ..."
     log_end_msg 0
   ;;
