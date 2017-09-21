@@ -12,19 +12,19 @@
 
 # Do NOT "set -e"
 
-# PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="honeypot"
 NAME=dionaea
-DAEMON=/usr/bin/$NAME
+DAEMON=/opt/dionaea/bin/$NAME
 DAEMON_ARGS="-D"
-PIDFILE=/var/run/$NAME.pid
+PIDFILE=/opt/dionaea/var/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
-WORKING_DIR=/var/lib/dionaea
+WORKING_DIR=/opt/dionaea
 USER=nobody
 GROUP=nogroup
-CONFIG_FILE=/etc/dionaea/dionaea.cfg
+CONFIG_FILE=/opt/dionaea/etc/dionaea/dionaea.cfg
+
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
