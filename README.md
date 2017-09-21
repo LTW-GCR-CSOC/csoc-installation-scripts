@@ -7,7 +7,7 @@ This script will install Dionaea honeypot onto an Ubuntu Mate instance.
 
 It is a work in progress.
 
-
+#Procedure#
 [Download](https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip) the code and unzip it 
 ```
 sudo wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip   
