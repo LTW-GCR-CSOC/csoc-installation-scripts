@@ -99,6 +99,16 @@ fi
 if [ "$INSTALL_DIONAEA" == "yes" ]; then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo adduser --disabled-password dionaea <<!
+dionaea
+
+
+
+
+
+!
+  sudo groupadd dionaea
+  sudo usermod -a -G dionaeafr dionaea
   sudo $SCRIPTSDIR/dionaeainstall.sh
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
