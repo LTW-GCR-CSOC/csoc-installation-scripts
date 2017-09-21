@@ -1,0 +1,65 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: gcr-enhanced-log
+# Required-Start:  $syslog
+# Required-Stop:   $syslog
+# Default-Start:   
+# Default-Stop:
+# Short-Description:	Dionaea honeypot
+### END INIT INFO
+
+
+# after placing file into init.d, must run:
+#    sudo update-rc.d gcr-enhanced-log defaults
+
+. /lib/lsb/init-functions
+
+BASEDIR="/opt/dionaea"
+PIDFOLDER="/opt/dionaea/var/"
+PIDFILE=$PIDFOLDER/gcr-enhanced-log.pid
+LOGFILE="/opt/dionaea/var/log/gcr-enhanced-log.log"
+CONFIG="/opt/dionaea/etc/dionaea/gcr-enhanced-log.cfg"
+NAME="gcr-enhanced-log"
+DAEMON="gcr-enhanced-log"
+USER="nobody"
+GROUP="nobody"
+
+if [ ! -d "$PIDFOLDER" ]; then
+  mkdir $PIDFOLDER
+fi
+
+case $1 in
+  start)
+    cd $BASEDIR
+    python3 /opt/dionaea/GCRdionaeaAlerts.py> $LOGFILE 2>> $LOGFILE &
+    log_daemon_msg "$DAEMON started ..."
+    log_end_msg 0
+  ;;
+  stop)
+    if [ -e $PIDFILE ]; then
+        kill `cat $PIDFILE`
+        rm $PIDFILE
+        log_daemon_msg "$DAEMON stopped ..."
+        log_end_msg 0
+    else
+        log_daemon_msg "$DAEMON is *NOT* running"
+        log_end_msg 1
+    fi
+  ;;
+  logs)
+    cat $LOGFILE
+  ;;
+  status)
+    if [ -e $PIDFILE ]; then
+        status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
+    else
+        log_daemon_msg "$DAEMON is not running ..."
+        log_end_msg 0
+    fi
+  ;;
+  *)
+  # For invalid arguments, print the usage message.
+  echo "Usage: $0 {start|stop|logs|status}"
+  exit 2
+  ;;    
+esac
