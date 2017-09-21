@@ -1,6 +1,6 @@
 #!/bin/bash
 ### BEGIN INIT INFO
-# Provides: gcr-enhanced-log
+# Provides: GCRdionaeaAlerts
 # Required-Start:  $syslog
 # Required-Stop:   $syslog
 # Default-Start:   
@@ -19,7 +19,7 @@ PIDFOLDER="/opt/dionaea/var/"
 PIDFILE=$PIDFOLDER/gcr-enhanced-log.pid
 LOGFILE="/opt/dionaea/var/log/gcr-enhanced-log.log"
 CONFIG="/opt/dionaea/etc/dionaea/gcr-enhanced-log.cfg"
-NAME="gcr-enhanced-log"
+NAME="GCRdionaeaAlerts"
 DAEMON="gcr-enhanced-log"
 USER="nobody"
 GROUP="nobody"
