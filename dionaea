@@ -22,9 +22,9 @@ PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
 WORKING_DIR=/var/lib/dionaea
-USER=dionaea
-GROUP=dionaea
-CONFIG_FILE=/etc/dionaea/dionaea.conf
+USER=nobody
+GROUP=nogroup
+CONFIG_FILE=/etc/dionaea/dionaea.cfg
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
