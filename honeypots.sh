@@ -112,6 +112,14 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   # mv to dionaea/bin sudo $SCRIPTSDIR/dionaeainstall.sh
+  sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
+  sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
+  sudo mv $SCRIPTSDIR/GCRdionaeaAlerts /etc/init.d
+  sudo chmod 0755 /etc/init.d/GCRdionaeaAlerts
+  sudo chown root:root /etc/init.d/GCRdionaeaAlerts
+  sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
+  sudo systemctl daemon-reload
+  sudo systemctrl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
