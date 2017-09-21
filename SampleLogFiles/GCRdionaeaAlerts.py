@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-
 #Global Cybersecurity Resource, 2017
 #
-#This will extract information from dionaea.sqlite and put the information into a log file
-#
-
+#This will extract information from dionaea.sqlite and put the information into a log file.
+#This file should reside in the honeypot under the following directory. 
+#/opt/dionaea/
+#The script can be executed with the following command:
+#sudo python3 /opt/dionaea/GCRdionaeaAlerts.py
 
 from requests import get
 import socket
@@ -14,8 +15,7 @@ import sqlite3
 import sys
 import time
 
-#reload(sys)
-#sys.setdefaultencoding('utf8')
+
 #this function will extract details from tables based on the connectionID
 def payloadDetailsConstructor(cur,table):
         msgPayload = ""
@@ -23,7 +23,6 @@ def payloadDetailsConstructor(cur,table):
         colnames = cur.description
         for row in colnames:
                 header=header+row[0]+"\,"
-                #print row[0]
         element=""
         details = cur.fetchall()
         subDetails=""
@@ -39,59 +38,47 @@ def payloadDetailsConstructor(cur,table):
                         sqlx = "SELECT * FROM mysql_command_args WHERE mysql_command=" + str(mysql_command) + ";"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"mysql_command_args")
-                        #print ("--- >"+subDetails+" < --"
                         element=element+subDetails
                         sqlx = "SELECT * FROM mysql_command_ops WHERE mysql_command_cmd=" + str(mysql_command_cmd) + ";"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"mysql_command_ops")
-                        #print "--- >"+subDetails+" < --"
                         element=element+subDetails
-                        #curx.close()
                 elif table == "dcerpcbinds":
                         curx=cur
                         dcerpcbind_uuid = details[0][2]
                         sqlx = "SELECT * FROM dcerpcservices WHERE dcerpcservice_uuid='" + str(dcerpcbind_uuid) + "';"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"dcerpcservices")
-                        #print "--- >"+subDetails+" < --"
                         element=element+subDetails
-                        #curx.close()
                 elif table == "dcerpcrequests":
                         curx=cur
                         dcerpcrequest_uuid = details[0][2]
                         sqlx = "SELECT * FROM dcerpcservices WHERE dcerpcservice_uuid='" + str(dcerpcrequest_uuid) + "';"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"dcerpcservices")
-                        #print "--- >"+subDetails+" < --"
                         element=element+subDetails
-                        #curx.close()
                 elif table == "sip_commands":
                         curx=cur
                         sip_command = details[0][0]
                         sqlx = "SELECT * FROM sip_addrs WHERE sip_command=" + str(sip_command) + ";"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"sip_addrs")
-                        #print "--- >"+subDetails+"< --"
                         element=element+subDetails
                         curx=cur
                         sqlx = "SELECT * FROM sip_sdp_connectiondatas WHERE sip_command=" + str(sip_command) + ";"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"sip_sdp_connectiondatas")
-                        #print "--- >"+subDetails+"< --"
                         element=element+subDetails
                         curx=cur
                         sqlx = "SELECT * FROM sip_sdp_medias WHERE sip_command=" + str(sip_command) + ";"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"sip_sdp_medias")
-                        #print "--- >"+subDetails+"< --"
                         element=element+subDetails
                         curx=cur
                         sqlx = "SELECT * FROM sip_sdp_origins WHERE sip_command=" + str(sip_command) + ";"
                         curx.execute(sqlx)
                         subDetails = payloadDetailsConstructor(curx,"sip_vias")
-                        #print "--- >"+subDetails+"< --"
                         element=element+subDetails
-                        #curx.close()
                 element=element+", "
                 msgPayload = msgPayload + "["+table.upper()+":("+ header + ")(" +element[:-3] +")]"
         return msgPayload;
@@ -99,7 +86,6 @@ def payloadDetailsConstructor(cur,table):
 ###############
 ##Initalization
 ###############
-#print ("Copyright Global Cybersecurity Resource, 2017 \n GCRDionaea Alerts\n Initalization Started\n"
 print ("Global Cybersecurity Resource, 2017 \n GCRDionaea Alerts\n Initalization Started\n")
 
 print("_____/\\\\\\\\\\\\\\\\\\\\\\\\__________________/\\\\\\\\\\\\\\\\\\______________/\\\\\\\\\\\\\\\\\\_____        ")
@@ -160,7 +146,7 @@ cur.close
 ###############
 
 
-#print "Live Execution Started - Refresh Cycle: "+str(delay)+"sec \n"
+print ("Live Execution Started - Refresh Cycle: "+str(delay)+"sec \n")
 
 while True:
         cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
@@ -180,7 +166,7 @@ while True:
                         msgAlertsTriggered=""
                         msgPayload = ""
                         for tableWithConnection in tablesWithConnection:
-                                #for length of number of tables, check if a connection
+                                #for number of tables, check if a connectionID exists
                                 sql = "SELECT EXISTS(SELECT 1 FROM "+ tableWithConnection +" WHERE connection=" + str(connectionID) + " LIMIT 1);"
                                 while True:
                                         try:
