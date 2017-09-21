@@ -1,4 +1,14 @@
 #!/bin/bash
+### BEGIN INIT INFO
+# Provides: dionaea
+# Required-Start: $network $syslog
+# Required-Stop:  $network $syslog
+# Default-Start:  2 3 4 5
+# Default-Stop:
+# Short-Description:	Dionaea honeypot
+### END INIT INFO
+
+
 # after placing file into init.d, must run:
 #    sudo update-rc.d dionaea defaults
 
