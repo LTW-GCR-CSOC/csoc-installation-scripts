@@ -1,7 +1,7 @@
 # canary-installation-scripts
 LTW Canary Installation Scripts
 
-Tested on Ubuntu Mate LTS
+Tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3
 
 This script will install Dionaea honeypot onto an Ubuntu Mate instance.
 
