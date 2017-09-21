@@ -5,7 +5,7 @@
 # Required-Stop:   $syslog
 # Default-Start:   
 # Default-Stop:
-# Short-Description:	Dionaea honeypot
+# Short-Description:	GCR enhanced dionaea syslogs utility
 ### END INIT INFO
 
 
