@@ -114,6 +114,7 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   # mv to dionaea/bin sudo $SCRIPTSDIR/dionaeainstall.sh
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
+  sudo chown root:root /opt/dionaea/bin/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts /etc/init.d
   sudo chmod 0755 /etc/init.d/GCRdionaeaAlerts
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
