@@ -22,7 +22,7 @@ def payloadDetailsConstructor(cur,table):
         header=""
         colnames = cur.description
         for row in colnames:
-                header=header+row[0]+"\t"
+                header=header+row[0]+"\,"
                 #print row[0]
         element=""
         details = cur.fetchall()
@@ -31,7 +31,7 @@ def payloadDetailsConstructor(cur,table):
                 for de in detail:
                         dx=de
                         print (str(de))
-                        element=element+str(dx)+"\t"
+                        element=element+str(dx)+","
                 if table == "mysql_commands":
                         curx=cur
                         mysql_command = details[0][0]
