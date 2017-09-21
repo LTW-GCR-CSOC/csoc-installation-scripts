@@ -110,8 +110,7 @@ fi
 #----------------
 if [ "$INSTALL_DIONAEA" == "yes" ]; then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
-  echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  # mv to dionaea/bin sudo $SCRIPTSDIR/dionaeainstall.sh
+  echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
   sudo chown root:root /opt/dionaea/bin/GCRdionaeaAlerts.py
@@ -122,7 +121,7 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   sudo systemctl daemon-reload
   sudo /etc/init.d/GCRdionaeaAlerts start
   sudo systemctrl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
-  echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+  echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
 # ---------------
@@ -133,7 +132,7 @@ fi
 if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA LOG VIEWER -----${NC}\n"
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  # Dedicated user and group for Cowrie
+  # Dedicated user and group for dionaeafr
   sudo adduser --disabled-password dionaeafr <<!
 dionaeafr
 
