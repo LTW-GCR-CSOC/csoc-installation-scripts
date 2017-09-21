@@ -12,7 +12,7 @@ It is a work in progress.
 ```
 sudo wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip   
 sudo unzip master.zip -d gcrinstall   
-cd gcrinstall   
+cd gcrinstall/canary-installation-scripts-master/
 ```
 
 Once you download the shell script,run the script using following command,
