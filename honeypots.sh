@@ -105,6 +105,18 @@ fi
 
 # ---------------
 #
+# Install Dionaea GCR enhanced dionaea log utility
+#
+#----------------
+if [ "$INSTALL_DIONAEA" == "yes" ]; then
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
+  echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  # mv to dionaea/bin sudo $SCRIPTSDIR/dionaeainstall.sh
+  echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+
+# ---------------
+#
 # Install Dionaea Log Viewer (for development)
 #
 #----------------
