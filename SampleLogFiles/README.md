@@ -117,7 +117,7 @@ timestamp | time elapsed | remotehost | code/status | bytes | method | URL rfc93
 <br />
 *GROK Parser*<br />
 <table><tr><td>
-SQUID_DELIMITED %{NUMBER:timestamp}[^0-9]*%{INT:elapsed} %{IP:ip_src_addr} %{WORD:action}/%{NUMBER:code} %{NUMBER:bytes} %{WORD:method} %{NOTSPACE:url}[^0-9]*(%{IP:ip_dst_addr})?<br />
+SQUID_DELIMITED %{NUMBER:timestamp}.*%{INT:elapsed} %{IP:ip_src_address} %{WORD:action}/%{NUMBER:code} %{NUMBER:bytes} %{WORD:method} %{NOTSPACE:url}.*%{IP:ip_dst_addr}<br />
 </td></tr></table>
 
 <h3>OSSEC</h3>
