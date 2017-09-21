@@ -266,5 +266,6 @@ pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-se
 printf "${BOG}---------------------------------- WRAPPING UP -----${NC}\n"
 echo "-----@ STATUS SNAPSHOT -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo ifconfig -a >>$SCRIPTSDIR/SETUP-RUN.TXT
+sudo service --status-all >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 
