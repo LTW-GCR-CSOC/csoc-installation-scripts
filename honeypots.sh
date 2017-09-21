@@ -119,7 +119,7 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
   sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
   sudo systemctl daemon-reload
-  sudo /etc/init.d/dionaea start
+  sudo /etc/init.d/GCRdionaeaAlerts start
   sudo systemctrl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
