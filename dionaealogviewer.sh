@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SCRIPTSDIR=$HOME
+SCRIPTSDIR="$HOME/canary-installation-scripts-master/"
+echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # original source https://bruteforcelab.com/visualizing-dionaeas-results-with-dionaeafr.html
 apt-get install python-pip python-netaddr
