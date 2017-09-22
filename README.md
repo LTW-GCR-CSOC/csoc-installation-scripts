@@ -55,9 +55,9 @@ Tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
 
 This script will install Dionaea honeypot onto an Ubuntu Mate instance.
 
-It is currently a work in progress.
+It is currently under active development and testing.
 
-To install all of the template files, run the following script from the root of your project's directory:
+To install all of the LTW GCR Canary software, run the following script:
 
 ```
 wget https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
@@ -68,9 +68,9 @@ chmod +x *.sh && \
 ```
 Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
       
-To view the Cowrie Log Viewer,visit port 5000 of your IP address
+To view the Cowrie Logs, visit http://0.0.0.0:5000 
 
-Note : You will be prompted to enter password to execute sudo commands
+To view the Dionae Logs, visit http://0.0.0.0:8000
 
 ## Configuration
 
