@@ -11,7 +11,7 @@ It is a work in progress.
 [Download](https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip) the code and unzip it 
 ```
 wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip   
-unzip master.zip -d gcrinstall   
+unzip master.zip  
 cd canary-installation-scripts-master/
 chmod +x *.sh
 ./honeypots.sh
