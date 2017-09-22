@@ -20,7 +20,7 @@ BOG='\e[30;48;5;82m'
 RED='\e[41m'
 NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RED}This is red text${NC}\n"
 
-SCRIPTSDIR=$HOME
+SCRIPTSDIR=$HOME/canary-installation-scripts-master/
 
 INSTALL_REFRESH="no"
 INSTALL_CLEANUP="no"
