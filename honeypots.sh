@@ -127,8 +127,8 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts /etc/init.d
   sudo chmod 0755 /etc/init.d/GCRdionaeaAlerts
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
-  sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
   sudo systemctl daemon-reload
+  sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
   sudo /etc/init.d/GCRdionaeaAlerts start
   sudo systemctrl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
