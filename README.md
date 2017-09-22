@@ -15,6 +15,7 @@
   * [Open source licensing info](#open-source-licensing-info)
   * [Related open source projects](#related-open-source-projects)
   * [Credits and references](#credits-and-references)
+  * [Contributors](#contributors)
 
 ## Description 
 
