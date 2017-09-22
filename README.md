@@ -120,5 +120,11 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Carleton University TIM Program](http://http://timprogram.ca/)
 
 
+## Contributors
+ * [Ahmed Shah](mailto:ahmed.shah@carleton.ca)
+ * [Naveen Narayanasamy](mailto:naveennarayanasamy@cmail.carleton.ca) 
+ * [Frank Horsfall](mailto:frankhorsfall@cunet.carleton.ca) 
+ * [Adefemi "Femi" Debo-Omidokun](mailto:omobagrp@gmail.com)
+ * [Brian Hurley](mailto:brian@nbyen.com)
 
 
