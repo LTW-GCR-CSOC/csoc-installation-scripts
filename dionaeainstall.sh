@@ -3,7 +3,7 @@
 # Install Dionaea 
 #
 #----------------
-SCRIPTSDIR="$HOME/canary-installation-scripts-master/"
+SCRIPTSDIR="$HOME/csoc-installation-scripts-master/"
 echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # remove old directories to do a clean install
