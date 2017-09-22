@@ -2,7 +2,8 @@
 # install ossec
 # https://ossec.github.io/index.html
 #
-SCRIPTSDIR=$HOME
+SCRIPTSDIR=$HOME/canary-installation-scripts-master/
+
 echo "SCRIPTSDIR = " $HOME  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 echo "-----@ INSTALL OSSEC -----" >>~/SETUP-RUN.TXT
