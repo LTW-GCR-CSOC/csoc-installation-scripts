@@ -70,7 +70,7 @@ Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
       
 To view the Cowrie Logs, visit http://0.0.0.0:5000 
 
-To view the Dionae Logs, visit http://0.0.0.0:8000
+To view the Dionaea Logs, visit http://0.0.0.0:8000
 
 ## Configuration
 
