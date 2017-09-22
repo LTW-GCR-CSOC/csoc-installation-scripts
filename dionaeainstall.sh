@@ -66,8 +66,8 @@ sudo ./configure \
 sudo make
 sudo make install
 sudo ldconfig
-sudo chown -R dionaea:dionaea /opt/dionaea/var/dionaea
-sudo chown -R dionaea:dionaea /opt/dionaea/var/log
+sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
+sudo chown -R nobody:nogroup /opt/dionaea/var/log
 echo "-----@ DIONAEA SETUP DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
 # the following command should run and display dionaea help 
