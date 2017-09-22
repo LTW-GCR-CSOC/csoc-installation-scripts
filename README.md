@@ -1,6 +1,20 @@
 # LTW GCR Cybersecurity Operations Center Project
- [Description](#Description)
- [Screenshots](#Screenshots)
+
+- [LTW GCR Cybersecurity Operations Center Project](#ltw-gcr-cybersecurity-operations-center-project)
+  * [Description](#description)
+  * [Screenshots](#screenshots)
+  * [Dependencies](#dependencies)
+  * [Installation](#installation)
+    + [Apache Metron](#apache-metron)
+    + [LTW GCR Canary](#ltw-gcr-canary)
+  * [Configuration](#configuration)
+  * [Usage](#usage)
+  * [How to test the software](#how-to-test-the-software)
+  * [Known issues](#known-issues)
+  * [Getting help](#getting-help)
+  * [Getting involved](#getting-involved)
+  * [Open source licensing info](#open-source-licensing-info)
+  * [Credits and references](#credits-and-references)
 
 ## Description 
 
