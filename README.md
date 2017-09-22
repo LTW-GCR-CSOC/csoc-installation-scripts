@@ -9,7 +9,7 @@ It is currently a work in progress.
 To install all of the template files, run the following script from the root of your project's directory:
 
 ```
-wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip && \
+wget https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
 unzip master.zip && \
 cd canary-installation-scripts-master/ && \
 chmod +x *.sh && \
