@@ -11,7 +11,11 @@ It is a work in progress.
 
 Run the following commands to install:
 ```
-wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip && unzip master.zip && cd canary-installation-scripts-master/ && chmod +x *.sh && ./honeypots.sh
+wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip && \
+unzip master.zip && \
+cd canary-installation-scripts-master/ && \
+chmod +x *.sh && \
+./honeypots.sh
 ```
       
 Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
