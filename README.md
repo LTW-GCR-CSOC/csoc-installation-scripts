@@ -122,15 +122,16 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 
 ## Contributors
- * [Ahmed Shah](mailto:ahmed.shah@carleton.ca)
- * [Naveen Narayanasamy](mailto:naveennarayanasamy@cmail.carleton.ca) 
+ * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca) 
+ * [Brian Hurley - GCR CSOC Project Leader](mailto:brian@nbyen.com)
+ * [Ahmed Shah - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
+ * [Naveen Narayanasamy - Cybersecurity Software Developer](mailto:naveennarayanasamy@cmail.carleton.ca) 
  * [Frank Horsfall](mailto:frankhorsfall@cunet.carleton.ca) 
  * [Adefemi "Femi" Debo-Omidokun](mailto:omobagrp@gmail.com)
- * [Brian Hurley](mailto:brian@nbyen.com)
  * [Anthony Ani]
  * [Alexis Amoi]
  * [Tommy Nguyen]
- * [Daniel Craigen](mailto:danielcraigen@cunet.carleton.ca)
+
  * [Mahmoud Gad]
 
 
