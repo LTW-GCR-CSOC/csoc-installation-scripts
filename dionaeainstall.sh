@@ -4,7 +4,7 @@
 #
 #----------------
 SCRIPTSDIR="$HOME/canary-installation-scripts-master/"
-echo "SCRIPTSDIR = " $HOME  >>$SCRIPTSDIR/SETUP-RUN.TXT
+echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # remove old directories to do a clean install
 if [ -d "/opt/dionaea" ]; then
