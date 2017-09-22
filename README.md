@@ -124,9 +124,9 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Ahmed Shah - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
  * [Naveen Narayanasamy - Cybersecurity Software Developer](mailto:naveennarayanasamy@cmail.carleton.ca) 
  * [Frank Horsfall - Cybersecurity Architecture](mailto:frankhorsfall@cunet.carleton.ca) 
- * [Adefemi "Femi" Debo-Omidokun](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
- * [Anthony Ani]
- * [Alexis Amoi]
+ * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
+ * [Anthony Ani - CSOC SME Customer Engagement]
+ * [Alexis Amoi - CSOC Partner Engagement]
  * [Tommy Nguyen]
  * [Mahmoud Gad]
 
