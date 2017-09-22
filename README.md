@@ -37,8 +37,7 @@ The project is currently in progress and available at https://github.com/LTW-GCR
 
 ## Screenshots  
 
-TBC
-
+To be provided
 
 ## Dependencies
 
@@ -106,7 +105,9 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 ## Related open source projects
  * [Apache Metron]
  * [Dionaea]
+ * [Dionaea Log Viewer]
  * [Cowrie]
+ * [Cowrie Log Viewer]
  * [OSSEC]
  * [OpenVAS]
  * [Mender.io](http://mender.io)
@@ -117,7 +118,6 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Lead to Win - Cyber](http://lce.ltw-global.com)
  * [Hacker Alerting Service](http://globalcybersecurityresource.com)
  * [Carleton University TIM Program](http://http://timprogram.ca/)
-
 
 ## Contributors
  * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca) 
