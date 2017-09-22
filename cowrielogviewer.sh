@@ -6,7 +6,8 @@
 #----------------
 # TODO remove old directories to do a clean install
 # run as cowrie user su cowrie
-SCRIPTSDIR=$HOME/canary-installation-scripts-master/
+SCRIPTSDIR="$HOME/canary-installation-scripts-master/"
+echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 rm -rf /home/cowrie/cowrie-logviewer
 su - cowrie <<!
