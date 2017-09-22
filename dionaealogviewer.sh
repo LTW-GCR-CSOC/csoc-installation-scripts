@@ -32,7 +32,6 @@ make install
 npm install -g less
 npm install -g promise
 cd /opt/
-#wget https://github.com/RootingPuntoEs/DionaeaFR/archive/master.zip -O DionaeaFR.zip
 wget https://github.com/LTW-GCR-CSOC/DionaeaFR/archive/master.zip -O DionaeaFR.zip
 unzip DionaeaFR.zip
 mv DionaeaFR-master/ DionaeaFR
