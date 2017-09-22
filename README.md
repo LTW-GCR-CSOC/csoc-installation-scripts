@@ -1,8 +1,8 @@
 # LTW GCR Cybersecurity Operations Center Project
-1 [Description](#Description)
-2 [Screenshots](#Screenshots)
+[Description](#Description)
+[Screenshots](#Screenshots)
 
-##Description 
+## Description 
 
 This GCR open source project is focused on delivering an easy to deploy open source cybersecurity monitoring solution for small to medium enterprises.  The project goal is a push-button install the platform software necessary to support a professional-level Cybersecurity Operations Center (CSOC) solution suitable for use by managed service providers focused on small businesses, or medium sized enterprise IT departments.
 
@@ -18,7 +18,7 @@ Online training materials will be provided for SME employees to help address emp
 
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
 
-##Screenshots  
+## Screenshots  
 
 TBC
 
