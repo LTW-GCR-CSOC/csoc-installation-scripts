@@ -1,6 +1,5 @@
 # LTW GCR Cybersecurity Operations Center Project
 
-- [LTW GCR Cybersecurity Operations Center Project](#ltw-gcr-cybersecurity-operations-center-project)
   * [Description](#description)
   * [Screenshots](#screenshots)
   * [Dependencies](#dependencies)
