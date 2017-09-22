@@ -99,8 +99,7 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 ----
 
 ## Open source licensing info
-1. [TERMS](TERMS.md)
-2. [LICENSE](LICENSE)
+ * [LICENSE](LICENSE)
 
 ## Related open source projects
  * [Apache Metron]
