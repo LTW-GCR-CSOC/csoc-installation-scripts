@@ -123,7 +123,7 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Brian Hurley - GCR CSOC Project Leader](https://www.linkedin.com/in/brianrhurley/)
  * [Ahmed Shah - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
  * [Naveen Narayanasamy - Cybersecurity Software Developer](mailto:naveennarayanasamy@cmail.carleton.ca) 
- * [Frank Horsfall](mailto:frankhorsfall@cunet.carleton.ca) 
+ * [Frank Horsfall - Cybersecurity Architecture](mailto:frankhorsfall@cunet.carleton.ca) 
  * [Adefemi "Femi" Debo-Omidokun](mailto:omobagrp@gmail.com)
  * [Anthony Ani]
  * [Alexis Amoi]
