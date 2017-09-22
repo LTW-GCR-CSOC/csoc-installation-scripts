@@ -51,9 +51,7 @@ To be provided
 
 ### LTW GCR Canary 
 
-Tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
-
-This script will install Dionaea honeypot onto an Ubuntu Mate instance.
+The installation has been tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
 
 It is currently under active development and testing.
 
