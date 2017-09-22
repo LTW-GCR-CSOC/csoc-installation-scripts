@@ -1,6 +1,6 @@
 ## Installation
 
-### Apache Metron 0.4.0
+### Apache Metron 
 
 To be provided
 
