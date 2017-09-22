@@ -39,7 +39,7 @@ The project is currently in progress and available at https://github.com/LTW-GCR
 
 ## Screenshots  
 
-To be provided
+![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Dependencies
 
