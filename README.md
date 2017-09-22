@@ -1,6 +1,6 @@
 # LTW GCR Cybersecurity Operations Center Project
-[Description](#Description)
-[Screenshots](#Screenshots)
+ [Description](#Description)
+ [Screenshots](#Screenshots)
 
 ## Description 
 
