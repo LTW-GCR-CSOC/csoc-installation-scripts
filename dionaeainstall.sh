@@ -73,8 +73,10 @@ echo "-----@ DIONAEA SETUP DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 # the following command should run and display dionaea help 
 #
 /opt/dionaea/bin/dionaea -H
+
 # start service
-sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.cfg -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
+# sudo /opt/dionaea/bin/dionaea -u nobody -g nogroup -c /opt/dionaea/etc/dionaea/dionaea.cfg -w /opt/dionaea -p /opt/dionaea/var/dionaea.pid -D
+# changed to init.d based start 
 
 # Dionaea log rotation configuration
 sudo chmod 0777 /etc/logrotate.d
