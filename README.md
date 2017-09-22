@@ -1,3 +1,32 @@
+# LTW GCR Cybersecurity Operations Center Project
+
+**Description**:  
+
+This GCR open source project is focused on delivering an easy to deploy open source cybersecurity monitoring solution for small to medium enterprises.  The project goal is a push-button install the platform software necessary to support a professional-level Cybersecurity Operations Center (CSOC) solution suitable for use by managed service providers focused on small businesses, or medium sized enterprise IT departments.
+
+The project assets will include: software, documentation, and training materials.
+
+The software will configure, integrate and enhance existing open source software cybersecurity projects, including: Apache Metron, Dionaea, Cowrie, OSSEC and others.   
+
+Integration of cybersecurity sensors is a priority for the project to reduce labour and complexity associated with deploying open source security operations center solutions.  The project includes a remotely managed honeypot device (LTW GCR Canary) that suitable for use as a sensor for intrusion detection in SME environments.
+ 
+The project will include CSOC Operational Playbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
+
+Online training materials will be provided for SME employees to help address employee security awareness. 
+
+The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
+
+**Screenshot**:  
+
+TBC
+
+
+## Dependencies
+
+Describe any dependencies that must be installed for this software to work.
+This includes programming languages, databases or other storage mechanisms, build tools, frameworks, and so forth.
+If specific versions of other software are required, or known not to work, call that out.
+
 ## Installation
 
 ### Apache Metron 
@@ -26,43 +55,6 @@ Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
 To view the Cowrie Log Viewer,visit port 5000 of your IP address
 
 Note : You will be prompted to enter password to execute sudo commands
-
-----
-
-# LTW GCR Cybersecurity Operations Center Project
-
-**Description**:  
-
-This GCR open source project is focused on delivering an easy to deploy open source solution for cybersecurity monitoring and response for small to medium enterprises.  The project goal is a push-button install of a fully configured Cybersecurity Operations Center (CSOC) solution suitable for use by managed service providers focused on small businesses, or medium sized enterprise IT departments.  
-
-The project assets will include: software, documentation, training materials.
-
-The software will configure, integrate and enhance existing open source software cybersecurity projects, including: Apache Metron, Dionaea, Cowrie, OSSEC and others.   
-
-Integration of cybersecurity sensors is a priority for the project to reduce labour and complexity associated with deploying open source security operations center solutions.  The project includes a remotely managed honeypot device (LTW GCR Canary) that suitable for use as a sensor for intrusion detection in SME environments.
- 
-The project will include CSOC Operational Handbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
-
-Online training materials will be provided for SME employees to help address employee security awareness. 
-
-The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
-
-**Screenshot**:  
-
-TBC
-
-
-## Dependencies
-
-Describe any dependencies that must be installed for this software to work.
-This includes programming languages, databases or other storage mechanisms, build tools, frameworks, and so forth.
-If specific versions of other software are required, or known not to work, call that out.
-
-## Installation
-
-Detailed instructions on how to install, configure, and get the project running.
-This should be frequently tested to ensure reliability. Alternatively, link to
-a separate [INSTALL](INSTALL.md) document.
 
 ## Configuration
 
@@ -98,6 +90,6 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 ## Credits and references
 
-TBC
+
 
 
