@@ -108,7 +108,6 @@ dionaea
 
 !
   sudo groupadd dionaea
-  sudo usermod -a -G dionaeafr dionaea
   sudo $SCRIPTSDIR/dionaeainstall.sh
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
@@ -153,7 +152,8 @@ dionaeafr
 !
   sudo groupadd dionaeafr
   sudo usermod -a -G dionaeafr dionaeafr
-  
+  sudo usermod -a -G dionaeafr dionaea
+    
   sudo $SCRIPTSDIR/dionaealogviewer.sh
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
