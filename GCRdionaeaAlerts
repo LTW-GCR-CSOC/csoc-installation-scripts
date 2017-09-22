@@ -1,97 +1,92 @@
-#!/bin/sh
+#!/bin/bash
 ### BEGIN INIT INFO
-# Provides:          GCRdionaeaAlerts
-# Required-Start:    $local_fs $network $named $time $syslog
-# Required-Stop:     $local_fs $network $named $time $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Description:       GCR enhanced dionaea syslogs utility
+# Provides: GCRdionaeaAlerts
+# Required-Start: $network $syslog
+# Required-Stop:  $network $syslog
+# Default-Start:  2 3 4 5
+# Default-Stop:
+# Short-Description:	GCRdionaeaAlerts
 ### END INIT INFO
 
-SCRIPT="python3 /opt/dionaea/bin/GCRdionaeaAlerts.py"
-RUNAS="dionaea"
+DEBUGME="no"
 
-PIDFILE=/opt/dionaea/var/GCRdionaeaAlerts.pid
-LOGFILE=/opt/dionaea/var/log/GCRdionaeaAlerts.log
+if [[ $DEBUGME == "yes" ]]; then
 
-start() {
-  if [ -f $PIDFILE ] && [ -s $PIDFILE ] && kill -0 $(cat $PIDFILE); then
-    echo 'Service already running' >&2
-    return 1
-  fi
-  echo 'Starting service…' >&2
-  local CMD="$SCRIPT &> \"$LOGFILE\" & echo \$!"
-  su -c "$CMD" $RUNAS > "$PIDFILE"
- # Try with this command line instead of above if not workable
- # su -s /bin/sh $RUNAS -c "$CMD" > "$PIDFILE"
- 
-  sleep 2
-  PID=$(cat $PIDFILE)
-    if pgrep -u $RUNAS -f $NAME > /dev/null
-    then
-      echo "$NAME is now running, the PID is $PID"
-    else
-      echo ''
-      echo "Error! Could not start $NAME!"
-    fi
-}
+  # Close STDOUT
+  exec 1<&-
+  # Close STDERR
+  exec 2<&-
 
-stop() {
-  if [ ! -f "$PIDFILE" ] || ! kill -0 $(cat "$PIDFILE"); then
-    echo 'Service not running' >&2
-    return 1
-  fi
-  echo 'Stopping service…' >&2
-  kill -15 $(cat "$PIDFILE") && rm -f "$PIDFILE"
-  echo 'Service stopped' >&2
-}
+  LOG_FILE=/opt/dionaea/var/GCRdebug.log
 
-uninstall() {
-  echo -n "Are you really sure you want to uninstall this service? That cannot be undone. [yes|No] "
-  local SURE
-  read SURE
-  if [ "$SURE" = "yes" ]; then
-    stop
-    rm -f "$PIDFILE"
-    echo "Notice: log file was not removed: $LOGFILE" >&2
-    update-rc.d -f $NAME remove
-    rm -fv "$0"
-  fi
-}
+  # Open STDOUT as $LOG_FILE file for read and write.
+  exec 1<>$LOG_FILE
 
-status() {
-    printf "%-50s" "Checking <NAME>..."
-    if [ -f $PIDFILE ] && [ -s $PIDFILE ]; then
-        PID=$(cat $PIDFILE)
-            if [ -z "$(ps axf | grep ${PID} | grep -v grep)" ]; then
-                printf "%s\n" "The process appears to be dead but pidfile still exists"
-            else    
-                echo "Running, the PID is $PID"
-            fi
-    else
-        printf "%s\n" "Service not running"
-    fi
-}
+  # Redirect STDERR to STDOUT
+  exec 2>&1
 
+  # Display shell commands with expanded args
+  #set -x
 
-case "$1" in
+fi
+
+# after placing file into init.d, must run:
+#    sudo update-rc.d dionaea defaults
+
+. /lib/lsb/init-functions
+
+BASEDIR="/opt/dionaea"
+PIDFOLDER="/opt/dionaea/var/"
+PIDFILE="/opt/dionaea/var/GCRdionaeaAlerts.pid"
+LOGFILE="/opt/dionaea/var/log/GCRdionaeaAlerts.log"
+NAME="GCRdionaeaAlerts"
+DAEMON="/usr/bin/python3 /opt/dionaea/bin/GCRdionaeaAlerts.py"
+USER="dionaea"
+GROUP="dionaea"
+
+if [[ $DEBUGME == "yes" ]]; then
+   printf "PIDFILE =  $PIDFILE\n"
+   printf "LOGFILE =  $LOGFILE\n"
+   printf "DAEMON =  $DAEMON\n"
+fi
+
+if [ ! -d "$PIDFOLDER" ]; then
+  mkdir $PIDFOLDER
+fi
+
+case $1 in
   start)
-    start
-    ;;
+    cd $BASEDIR
+    $DAEMON > $LOGFILE 2>> $LOGFILE &
+#    start-stop-daemon --start --quiet -u $USER -g $GROUP -m $PIDFILE --exec $DAEMON  > $LOGFILE 2>> $LOGFILE &
+    log_daemon_msg "$DAEMON started ..."
+    log_end_msg 0
+  ;;
   stop)
-    stop
-    ;;
+    if [ -e $PIDFILE ]; then
+        kill `cat $PIDFILE`
+        rm $PIDFILE
+        log_daemon_msg "$DAEMON stopped ..."
+        log_end_msg 0
+    else
+        log_daemon_msg "$DAEMON is *NOT* running"
+        log_end_msg 1
+    fi
+  ;;
+  logs)
+    cat $LOGFILE
+  ;;
   status)
-    status
-    ;;
-  uninstall)
-    uninstall
-    ;;
-  restart)
-    stop
-    start
-    ;;
+    if [ -e $PIDFILE ]; then
+        status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
+    else
+        log_daemon_msg "$DAEMON is not running ..."
+        log_end_msg 0
+    fi
+  ;;
   *)
-    echo "Usage: $0 {start|stop|status|restart|uninstall}"
+  # For invalid arguments, print the usage message.
+  echo "Usage: $0 {start|stop|logs|status}"
+  exit 2
+  ;;    
 esac
-
