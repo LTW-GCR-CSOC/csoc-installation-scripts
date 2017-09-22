@@ -101,12 +101,10 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 1. [TERMS](TERMS.md)
 2. [LICENSE](LICENSE)
 
-----
-
 ## Credits and references
  * [Global Epic](http://globalepic.org)
  * [Lead to Win](http://leadtowin.ca)
- * [LCE](http://lce.ltw-global.com)
+ * [Lead to Win - Cyber](http://lce.ltw-global.com)
  * [Hacker Alerting Service](http://globalcybersecurityresource.com)
  * [Carleton University TIM Program](http://http://timprogram.ca/)
 
