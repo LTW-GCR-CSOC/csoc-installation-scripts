@@ -2,7 +2,7 @@
 # Install Cowrie
 # Based on https://github.com/phage-nz/malware-hunting/tree/master/honeypot
 #
-SCRIPTSDIR="$HOME/canary-installation-scripts-master/"
+SCRIPTSDIR="$HOME/csoc-installation-scripts-master/"
 echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 SERVER="LTW-Canary-01"
