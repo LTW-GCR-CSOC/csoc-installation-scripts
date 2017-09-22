@@ -126,5 +126,10 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Frank Horsfall](mailto:frankhorsfall@cunet.carleton.ca) 
  * [Adefemi "Femi" Debo-Omidokun](mailto:omobagrp@gmail.com)
  * [Brian Hurley](mailto:brian@nbyen.com)
+ * [Anthony Ani]
+ * [Alexis Amoi]
+ * [Tommy Nguyen]
+ * [Daniel Craigen](mailto:danielcraigen@cunet.carleton.ca)
+ * [Mahmoud Gad]
 
 
