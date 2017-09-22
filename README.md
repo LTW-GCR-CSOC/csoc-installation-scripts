@@ -6,6 +6,8 @@
 
 ![alt tag](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png "Description goes here")
 
+[![IMAGE ALT TEXT HERE](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png)](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png)
+
 # LTW GCR Cybersecurity Operations Center Project
 
   * [Description](#description)
