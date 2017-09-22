@@ -1,6 +1,6 @@
 ## Installation
 
-Tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3
+Tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
 
 This script will install Dionaea honeypot onto an Ubuntu Mate instance.
 
@@ -43,7 +43,7 @@ The project is currently in progress and available at https://github.com/LTW-GCR
 
 **Screenshot**:  
 
-TBD
+TBC
 
 
 ## Dependencies
@@ -60,7 +60,7 @@ a separate [INSTALL](INSTALL.md) document.
 
 ## Configuration
 
-If the software is configurable, describe it in detail, either here or in other documentation to which you link.
+TBC - information on configurable items related to the software.
 
 ## Usage
 
@@ -68,11 +68,11 @@ TBC - show users how to use the software.
 
 ## How to test the software
 
-TBC - if the software includes automated tests, detail how to run those tests.
+TBC - information on how to run automated tests on the software.
 
 ## Known issues
 
-Currently a work in progress
+Currently under active development, see this repository's Issue Tracker.
 
 ## Getting help
 
@@ -82,13 +82,11 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 [CONTRIBUTING](CONTRIBUTING.md)
 
-
 ----
 
 ## Open source licensing info
 1. [TERMS](TERMS.md)
 2. [LICENSE](LICENSE)
-
 
 ----
 
