@@ -48,7 +48,7 @@ sudo apt-get install -y \
     python3 \
     python3-dev \
     python3-yaml 
-sudo git clone https://github.com/LTW-GCR-CSOC/dionaea.git /opt/dionaea
+sudo -u dionaea git clone https://github.com/LTW-GCR-CSOC/dionaea.git /opt/dionaea
 cd /opt/dionaea
 sudo autoreconf -vi
 sudo ./configure \
@@ -67,7 +67,7 @@ sudo make
 sudo make install
 sudo ldconfig
 sudo chown -R dionaea:dionaea /opt/dionaea/var/dionaea
-sudo chown -R dionea:dionaea /opt/dionaea/var/log
+sudo chown -R dionaea:dionaea /opt/dionaea/var/log
 echo "-----@ DIONAEA SETUP DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
 # the following command should run and display dionaea help 
