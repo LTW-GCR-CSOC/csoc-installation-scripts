@@ -17,7 +17,9 @@
 
 ## Description 
 
-This GCR open source project is focused on delivering an easy to deploy open source cybersecurity monitoring solution for small to medium enterprises.  The project goal is a push-button install the platform software necessary to support a professional-level Cybersecurity Operations Center (CSOC) solution suitable for use by managed service providers focused on small businesses, or medium sized enterprise IT departments.
+This GCR open source project is focused on delivering an easy to deploy open source cybersecurity monitoring solution for small to medium enterprises.  
+
+The project goal is a push-button install of the platform software necessary to support a professional-level Cybersecurity Operations Center (CSOC) solution suitable for use by managed service providers focused on small businesses, or medium sized enterprise IT departments.
 
 The project assets will include: software, documentation, and training materials.
 
@@ -100,6 +102,14 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 ## Open source licensing info
 1. [TERMS](TERMS.md)
 2. [LICENSE](LICENSE)
+
+## Related Open Source Projects
+ * [Apache Metron]
+ * [Dionaea]
+ * [Cowrie]
+ * [OSSEC]
+ * [OpenVAS]
+ * [Mender.io](http://mender.io)
 
 ## Credits and references
  * [Global Epic](http://globalepic.org)
