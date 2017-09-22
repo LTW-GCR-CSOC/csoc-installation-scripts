@@ -1,5 +1,3 @@
-
-
 ![Global Cybersecurity Resource](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/githubGCRheader.png?raw=true "Global Cybersecurity Resource")   
 
 # LTW GCR Cybersecurity Operations Center Project
