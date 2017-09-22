@@ -1,7 +1,7 @@
 ![Global Cybersecurity Resource](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png "Global Cybersecurity Resource")
 ![ScreenShot](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png)
 ![alt tag](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png "Description goes here")
-<a href="https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png"></a>
+<img src="https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png"></a>
 # LTW GCR Cybersecurity Operations Center Project
 
   * [Description](#description)
