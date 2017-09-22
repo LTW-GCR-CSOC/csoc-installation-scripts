@@ -13,6 +13,7 @@
   * [Getting help](#getting-help)
   * [Getting involved](#getting-involved)
   * [Open source licensing info](#open-source-licensing-info)
+  * [Related open source projects](#related-open-source-projects)
   * [Credits and references](#credits-and-references)
 
 ## Description 
@@ -103,7 +104,7 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 1. [TERMS](TERMS.md)
 2. [LICENSE](LICENSE)
 
-## Related Open Source Projects
+## Related open source projects
  * [Apache Metron]
  * [Dionaea]
  * [Cowrie]
