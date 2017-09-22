@@ -42,9 +42,7 @@ TBC
 
 ## Dependencies
 
-Describe any dependencies that must be installed for this software to work.
-This includes programming languages, databases or other storage mechanisms, build tools, frameworks, and so forth.
-If specific versions of other software are required, or known not to work, call that out.
+To be provided
 
 ## Installation
 
@@ -77,15 +75,15 @@ Note : You will be prompted to enter password to execute sudo commands
 
 ## Configuration
 
-TBC - information on configurable items related to the software.
+To be provided - information on configurable items related to the software.
 
 ## Usage
 
-TBC - show users how to use the software.
+To be provided - show users how to use the software.
 
 ## How to test the software
 
-TBC - information on how to run automated tests on the software.
+To be provided - information on how to run automated tests on the software.
 
 ## Known issues
 
@@ -131,7 +129,6 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Anthony Ani]
  * [Alexis Amoi]
  * [Tommy Nguyen]
-
  * [Mahmoud Gad]
 
 
