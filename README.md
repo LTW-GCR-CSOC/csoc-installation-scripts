@@ -35,18 +35,11 @@ The software will configure, integrate and enhance existing open source software
 
 Integration of cybersecurity sensors is a priority for the project to reduce labour and complexity associated with deploying open source security operations center solutions.  The project includes a remotely managed honeypot device that suitable for use as a sensor for intrusion detection in SME environments.
  
-The project will include CSOC Operational Handbook templates.  
+The project will include CSOC Operational Handbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
 
 Online training materials will be provided for SME employees to help address employee security awareness. 
 
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
-
-Other things to include:
-
-  - **Technology stack**:  TBC
-  - **Status**:  Alpha [CHANGELOG](CHANGELOG.md).
-  - **Links to production or demo instances** TBC
-
 
 **Screenshot**:  
 
