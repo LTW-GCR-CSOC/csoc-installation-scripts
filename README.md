@@ -1,4 +1,6 @@
 # LTW GCR Cybersecurity Operations Center Project
+1 [Description](#Description)
+2 [Screenshots](#Screenshots)
 
 **Description**:  
 
@@ -16,7 +18,7 @@ Online training materials will be provided for SME employees to help address emp
 
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
 
-**Screenshot**:  
+**Screenshots**:  
 
 TBC
 
