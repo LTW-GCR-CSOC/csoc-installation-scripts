@@ -10,11 +10,7 @@ It is a work in progress.
 # Procedure #
 [Download](https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip) the code and unzip it 
 ```
-wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip   
-unzip master.zip  
-cd canary-installation-scripts-master/
-chmod +x *.sh
-./honeypots.sh
+wget https://github.com/LTW-GCR-CSOC/canary-installation-scripts/archive/master.zip && unzip master.zip && cd canary-installation-scripts-master/ && chmod +x *.sh && ./honeypots.sh
 ```
       
 Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
