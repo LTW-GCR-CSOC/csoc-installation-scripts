@@ -3,7 +3,7 @@
 #
 # TODO: setup watchdog timer support for raspberry pi device
 #
-SCRIPTSDIR="$HOME/canary-installation-scripts-master/"
+SCRIPTSDIR="$HOME/csoc-installation-scripts-master/"
 echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
