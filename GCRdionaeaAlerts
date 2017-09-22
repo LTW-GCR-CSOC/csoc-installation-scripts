@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 SCRIPT="python3 /opt/dionaea/bin/GCRdionaeaAlerts.py"
-RUNAS=dionaea
+RUNAS="dionaea"
 
 PIDFILE=/opt/dionaea/var/GCRdionaeaAlerts.pid
 LOGFILE=/opt/dionaea/var/log/GCRdionaeaAlerts.log
