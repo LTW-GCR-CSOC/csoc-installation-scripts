@@ -1,5 +1,11 @@
 ## Installation
 
+### Apache Metron 0.4.0
+
+To be provided
+
+### LTW GCR Canary 
+
 Tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
 
 This script will install Dionaea honeypot onto an Ubuntu Mate instance.
