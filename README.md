@@ -1,5 +1,7 @@
 <img src="https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png" />
 
+<img align="left" width="100" height="100" src="https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png">
+
 ![Global Cybersecurity Resource](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png "Global Cybersecurity Resource")   
 
 ![ScreenShot](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/edit/master/githubGCRheader.png)     
