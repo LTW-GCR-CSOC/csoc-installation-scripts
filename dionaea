@@ -21,8 +21,8 @@ LOGFILE="/opt/dionaea/var/log/dionaea.log"
 CONFIG="/opt/dionaea/etc/dionaea/dionaea.cfg"
 NAME="dionaea"
 DAEMON="dionaea"
-USER="nobody"
-GROUP="nobody"
+USER="dionaea"
+GROUP="dionaea"
 
 if [ ! -d "$PIDFOLDER" ]; then
   mkdir $PIDFOLDER
