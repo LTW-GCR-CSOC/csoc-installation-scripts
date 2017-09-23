@@ -103,7 +103,7 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 ## Related open source projects
  * [Apache Metron](http://http://metron.apache.org/)
  * [Dionaea](http://https://github.com/DinoTools/dionaea)
- * [Dionaea Log Viewer]
+ * [Dionaea Log Viewer](https://github.com/mindphluxnet/cowrie-logviewer)
  * [Cowrie](https://github.com/micheloosterhof/cowrie)
  * [Cowrie Log Viewer](https://github.com/mindphluxnet/cowrie-logviewer)
  * [OSSEC](https://ossec.github.io/)
