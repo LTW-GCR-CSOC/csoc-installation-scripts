@@ -116,7 +116,6 @@ dionaea
 
 
 !
-  sudo groupadd dionaea
   sudo $SCRIPTSDIR/dionaeainstall.sh
  # sudo $SCRIPTSDIR/dionaeainstall2.sh
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
