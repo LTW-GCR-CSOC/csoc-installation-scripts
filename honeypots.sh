@@ -90,6 +90,14 @@ if [ "$INSTALL_REFRESH" == "yes" ]; then
  sudo apt-get -y update --fix-missing 
 fi
 
+# ---------------
+#
+# Install Tools 
+#
+#----------------
+sudo apt-get install -y git
+sudo apt-get install -y autogen autoconf libtool
+sudo apt-get install -y make
 
 # ---------------
 #
