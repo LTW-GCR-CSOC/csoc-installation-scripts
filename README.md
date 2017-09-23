@@ -93,22 +93,21 @@ Currently under active development, see this repository's Issue Tracker.
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
 ## Getting involved
-
 [CONTRIBUTING](CONTRIBUTING.md)
 
 ----
 
 ## Open source licensing info
- * [LICENSE](LICENSE)
+[LICENSE](LICENSE)
 
 ## Related open source projects
- * [Apache Metron]
- * [Dionaea]
+ * [Apache Metron](http://http://metron.apache.org/)
+ * [Dionaea](http://https://github.com/DinoTools/dionaea)
  * [Dionaea Log Viewer]
- * [Cowrie]
- * [Cowrie Log Viewer]
- * [OSSEC]
- * [OpenVAS]
+ * [Cowrie](https://github.com/micheloosterhof/cowrie)
+ * [Cowrie Log Viewer](https://github.com/mindphluxnet/cowrie-logviewer)
+ * [OSSEC](https://ossec.github.io/)
+ * [OpenVAS](http://www.openvas.org/)
  * [Mender.io](http://mender.io)
 
 ## Credits and references
