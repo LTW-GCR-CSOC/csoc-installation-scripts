@@ -12,12 +12,8 @@ if [ -d "/opt/dionaea" ]; then
   sudo rm -rf /opt/dionaea
 fi
 echo "-----@ LATEST SOFTWARE UPDATES -----"
-sudo apt-get install -y git
-sudo apt-get install -y autogen autoconf libtool
-sudo apt-get install -y make
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libglib2.0-dev
-sudo apt-get install -y curl
 sudo apt-get install -y python3-pip
 sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
 sudo apt install -y python-pip
