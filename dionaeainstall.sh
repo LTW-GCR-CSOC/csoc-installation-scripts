@@ -3,6 +3,7 @@
 # Install Dionaea 
 #
 #----------------
+{
 SCRIPTSDIR="$HOME/csoc-installation-scripts-master/"
 echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
@@ -113,3 +114,5 @@ sudo chown root:root /etc/init.d/dionaea
 sudo update-rc.d dionaea defaults
 sudo /etc/init.d/dionaea start
 echo "-----@ DIONAEA REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+} 2>&1 | tee /opt/dionaea/var/dionaeainstall.log
+ 
