@@ -163,7 +163,7 @@ dionaeafr
   sudo usermod -a -G dionaeafr dionaeafr
   sudo usermod -a -G dionaeafr dionaea
     
-  sudo $SCRIPTSDIR/dionaealogviewer.sh
+  sudo $SCRIPTSDIR/dionaealogviewer2.sh
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
