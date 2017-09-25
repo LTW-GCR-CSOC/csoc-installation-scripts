@@ -12,6 +12,33 @@ pip install django-tables2
 pip install django-compressor
 pip install django-htmlmin
 pip install django-filter
+
+django-tables2-simplefilter:
+	https://github.com/benjiec/django-tables2-simplefilter
+	python setup.py install
+
+SubnetTree:
+	git clone git://git.bro-ids.org/pysubnettree.git
+	python setup.py install
+
+nodejs:
+	http://nodejs.org/dist/v0.8.16/node-v0.10.33.tar.gz
+	tar xzvf node-v0.10.33.tar.gz
+	cd node-v0.10.33
+	./configure
+	make
+	make install
+
+npm install -g less
+apt-get install python-netaddr
+
+wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+
+gunzip GeoLiteCity.dat.gz
+gunzip GeoIP.dat.gz
+
+/* 
 cd /opt/
 wget https://github.com/benjiec/django-tables2-simplefilter/archive/master.zip -O django-tables2-simplefilter.zip
 unzip django-tables2-simplefilter.zip
@@ -36,6 +63,7 @@ wget https://github.com/LTW-GCR-CSOC/DionaeaFR/archive/master.zip -O DionaeaFR.z
 unzip DionaeaFR.zip
 mv DionaeaFR-master/ DionaeaFR
 cd /opt/
+
 wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
 gunzip GeoLiteCity.dat.gz
@@ -43,7 +71,7 @@ gunzip GeoIP.dat.gz
 mv GeoIP.dat DionaeaFR/DionaeaFR/static
 mv GeoLiteCity.dat DionaeaFR/DionaeaFR/static
 cp /opt/DionaeaFR/DionaeaFR/settings.py.dist /opt/DionaeaFR/DionaeaFR/settings.py
-
+*/
 
 # Dionaea log rotation configuration
 mkdir /var/log/dionaeafr #for DionaeaFR's pid file
@@ -76,14 +104,3 @@ sudo chmod 0755 /etc/init.d/dionaeafr
 sudo update-rc.d dionaeafr defaults
 sudo /etc/init.d/dionaeafr start
 echo "-----@ DIONAEAFR REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-
-# ---------------
-#
-# Run dionaeaFR
-# https://blog.honeynet.org.my/2010/02/14/dionaea-auto-start-script-on-ubuntu/
-#
-#----------------
-#cd /opt/DionaeaFR/
-#python manage.py collectstatic #type yes when asked
-#nohup python manage.py runserver 0.0.0.0:8000 &
-# TODO: remove files and apps no longer required 
