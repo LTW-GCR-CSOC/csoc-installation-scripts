@@ -127,7 +127,7 @@ fi
 #
 #----------------
 if [ "$INSTALL_DIONAEA" == "yes" ]; then
-  printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY -----${NC}\n"
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
@@ -138,8 +138,8 @@ if [ "$INSTALL_DIONAEA" == "yes" ]; then
   sudo systemctl daemon-reload
   sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
   sudo /etc/init.d/GCRdionaeaAlerts start
-  sudo systemctrl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
-  echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo systemctl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
+  echo "-----@ DIONAEA GCR ENHANCED LOG UTILITY INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
 # ---------------
