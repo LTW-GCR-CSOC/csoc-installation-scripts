@@ -22,11 +22,11 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
-INSTALL_REFRESH="no"
+INSTALL_REFRESH="yes"
 INSTALL_CLEANUP="no"
 
 INSTALL_DIONAEA="yes" # yes or no.
-INSTALL_DIONAEALOGVIEWER="no"  
+INSTALL_DIONAEALOGVIEWER="yes"  
 
 INSTALL_COWRIE="no"  
 INSTALL_COWRIELOGVIEWER="no"  
