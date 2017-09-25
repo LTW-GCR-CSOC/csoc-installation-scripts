@@ -1,5 +1,5 @@
 apt-get install python-pip python-netaddr
-pip install Django
+pip install Django==1.8.1
 pip install pygeoip
 pip install django-pagination
 pip install django-tables2
