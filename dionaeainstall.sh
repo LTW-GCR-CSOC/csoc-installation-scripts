@@ -57,11 +57,12 @@ sudo ./configure \
  --with-ev-lib=/usr/lib \
  --with-emu-lib=/usr/lib/libemu \
  --with-emu-include=/usr/include \
- --with-nl-include=/usr/include \
+ --with-nl-include=/usr/include/libnl3 \
  --with-nl-lib=/usr/lib \
  --with-curl-dir=/usr/bin/curl 
 sudo make
 sudo make install
+
 sudo ldconfig
 sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
 sudo chown -R nobody:nogroup /opt/dionaea/var/log
