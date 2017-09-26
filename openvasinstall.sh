@@ -1,10 +1,7 @@
-# to be completed
-ssh vmuser@192.168.56.120.
-su -
-
-# Warning! When elevating privileges, use `su -` to avoid problems with the locale.
-
-# Ok, now we are ready to install OpenVAS9 on this host.
+#
+# openvas install
+# https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
+#
 
 wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
 chmod +x openvas_commander.sh
