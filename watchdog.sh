@@ -8,10 +8,7 @@ ln /lib/systemd/system/watchdog.service /etc/systemd/system/multi-user.target.wa
 echo 'watchdog-device = /dev/watchdog' >> /etc/watchdog.conf
 echo 'watchdog-timeout = 10' >> /etc/watchdog.conf 
 echo 'interval = 2' >> /etc/watchdog.conf
-#restart watchdog
-service watchdog restart
-#forkbomb - device will restart
-sudo su -
-swapoff -a
-:(){ :|:& };:
+#start watchdog
+service watchdog start
+
 
