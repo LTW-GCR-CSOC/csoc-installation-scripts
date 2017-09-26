@@ -13,6 +13,7 @@
 # - add in scripts to remove all files not required in production environment (e.g. source files)
 # - add in checks to ensure all services start-up on reboot/restart as expected
 #
+#  the OpenVAS install scripts are nicely done, need to look at how they have done their install scripts and learn ways to do this script better - particularly like their post-install checks
 
 # Variables
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
