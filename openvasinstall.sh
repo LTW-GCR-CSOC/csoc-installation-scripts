@@ -3,6 +3,7 @@
 # https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
 #
 
+apt-get install curl
 wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
 chmod +x openvas_commander.sh
 
@@ -17,14 +18,14 @@ chmod +x openvas_commander.sh
 # Available source archives for OpenVAS 9:
 
 ./openvas_commander.sh --show-sources "OpenVAS-9"
-http://wald.intevation.org/frs/download.php/2420/openvas-libraries-9.0.1.tar.gz
-http://wald.intevation.org/frs/download.php/2423/openvas-scanner-5.1.1.tar.gz
-http://wald.intevation.org/frs/download.php/2426/openvas-manager-7.0.1.tar.gz
-http://wald.intevation.org/frs/download.php/2429/greenbone-security-assistant-7.0.2.tar.gz
-http://wald.intevation.org/frs/download.php/2397/openvas-cli-1.4.5.tar.gz
-http://wald.intevation.org/frs/download.php/2377/openvas-smb-1.0.2.tar.gz
-http://wald.intevation.org/frs/download.php/2401/ospd-1.2.0.tar.gz
-http://wald.intevation.org/frs/download.php/2405/ospd-debsecan-1.2b1.tar.gz
+# http://wald.intevation.org/frs/download.php/2420/openvas-libraries-9.0.1.tar.gz
+# http://wald.intevation.org/frs/download.php/2423/openvas-scanner-5.1.1.tar.gz
+# http://wald.intevation.org/frs/download.php/2426/openvas-manager-7.0.1.tar.gz
+# http://wald.intevation.org/frs/download.php/2429/greenbone-security-assistant-7.0.2.tar.gz
+# http://wald.intevation.org/frs/download.php/2397/openvas-cli-1.4.5.tar.gz
+# http://wald.intevation.org/frs/download.php/2377/openvas-smb-1.0.2.tar.gz
+# http://wald.intevation.org/frs/download.php/2401/ospd-1.2.0.tar.gz
+# http://wald.intevation.org/frs/download.php/2405/ospd-debsecan-1.2b1.tar.gz
 
 # Download and unpack:
 
