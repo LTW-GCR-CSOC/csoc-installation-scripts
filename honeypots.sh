@@ -287,6 +287,7 @@ if [ "$INSTALL_CLEANUP" == "yes" ]; then
  sudo apt-get -y remove git 
  sudo apt-get -y remove make
  sudo apt -y autoremove
+ # force removal of all compilers and dev tools that are no longer required for production deployment
 fi
 
 #---------------
