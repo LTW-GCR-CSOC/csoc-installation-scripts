@@ -47,14 +47,14 @@ chmod +x openvas_commander.sh
 # Everything is in place and we are ready for actual installation:
 
 ls openvas
-greenbone-security-assistant-7.0.2 openvas-scanner-5.1.1
-greenbone-security-assistant-7.0.2.tar.gz openvas-scanner-5.1.1.tar.gz
-openvas-cli-1.4.5 openvas-smb-1.0.2
-openvas-cli-1.4.5.tar.gz openvas-smb-1.0.2.tar.gz
-openvas-libraries-9.0.1 ospd-1.2.0
-openvas-libraries-9.0.1.tar.gz ospd-1.2.0.tar.gz
-openvas-manager-7.0.1 ospd-debsecan-1.2b1
-openvas-manager-7.0.1.tar.gz ospd-debsecan-1.2b1.tar.gz
+# greenbone-security-assistant-7.0.2 openvas-scanner-5.1.1
+# greenbone-security-assistant-7.0.2.tar.gz openvas-scanner-5.1.1.tar.gz
+# openvas-cli-1.4.5 openvas-smb-1.0.2
+# openvas-cli-1.4.5.tar.gz openvas-smb-1.0.2.tar.gz
+# openvas-libraries-9.0.1 ospd-1.2.0
+# openvas-libraries-9.0.1.tar.gz ospd-1.2.0.tar.gz
+# openvas-manager-7.0.1 ospd-debsecan-1.2b1
+# openvas-manager-7.0.1.tar.gz ospd-debsecan-1.2b1.tar.gz
 
 # Install the components:
 
