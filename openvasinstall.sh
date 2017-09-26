@@ -8,6 +8,10 @@
 sudo apt-get install curl
 sudo apt-get install cmake
 
+sudo apt-get install redis-server
+sudo systemctl restart redis-server.service
+sudo systemctl enable redis-server.service
+
 # Reference: https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32/mingw32_4.2.1.dfsg-2ubuntu1_amd64.deb
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-binutils/mingw32-binutils_2.20-0.2ubuntu1_amd64.deb
