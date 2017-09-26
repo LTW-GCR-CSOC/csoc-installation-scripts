@@ -5,7 +5,7 @@
 
 # install dependencies
 
-apt-get install curl
+sudo apt-get install curl
 
 # https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32/mingw32_4.2.1.dfsg-2ubuntu1_amd64.deb
@@ -14,6 +14,7 @@ wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-runtime/mingw32-ru
 sudo dpkg -i *.deb
 sudo apt-get install -f
 sudo dpkg -i *.deb
+rm *.deb
 
 
 wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
