@@ -6,6 +6,9 @@
 #/opt/dionaea/
 #The script can be executed with the following command:
 #sudo python3 /opt/dionaea/GCRdionaeaAlerts.py
+#
+#or to run in the background use the following:
+#sudo python3 /opt/dionaea/GCRdionaeaAlerts.py > /dev/null &
 
 from requests import get
 import socket
