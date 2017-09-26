@@ -1,13 +1,14 @@
 #
 # openvas install
-# https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
+# Reference: https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
 #
 
 # install dependencies
 
 sudo apt-get install curl
+sudo apt-get install cmake
 
-# https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
+# Reference: https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32/mingw32_4.2.1.dfsg-2ubuntu1_amd64.deb
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-binutils/mingw32-binutils_2.20-0.2ubuntu1_amd64.deb
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-runtime/mingw32-runtime_3.15.2-0ubuntu1_all.deb
