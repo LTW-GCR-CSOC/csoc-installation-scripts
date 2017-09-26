@@ -8,9 +8,12 @@
 # Short-Description:	Dionaea honeypot
 ### END INIT INFO
 
+#If restarting the honeypot  and dionaea has not started the following command ran run dionaea in the background.
+#sudo /opt/dionaea/bin/dionaea > /dev/null &
 
 # after placing file into init.d, must run:
 #    sudo update-rc.d dionaea defaults
+
 
 . /lib/lsb/init-functions
 
