@@ -9,7 +9,7 @@ sudo apt-get install curl
 sudo apt-get install cmake
 
 sudo apt-get install redis-server
-sudo sed -i "s#^\# unixsocket .*#unixsocket /tmp/redis.sock#g" /etc/redis/redis.conf
+# sudo sed -i "s#^\# unixsocket .*#unixsocket /tmp/redis.sock#g" /etc/redis/redis.conf
 sudo systemctl restart redis-server.service
 sudo systemctl enable /lib/systemd/system/redis-server.service
 
