@@ -74,7 +74,12 @@ To view the Dionaea Logs, visit http://0.0.0.0:8000
 
 ## Configuration
 
-To be provided - information on configurable items related to the software.
+Configuration settings for Canary install (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypot.sh. 
+Within honeypot.sh configure the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
+```
+INSTALL_DIONAEA="yes"
+INSTALL_COWRIE="no"  
+```
 
 ## Usage
 
