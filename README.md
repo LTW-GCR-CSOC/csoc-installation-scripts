@@ -29,7 +29,7 @@ The project assets will include: software, documentation, and training materials
 
 The software will configure, integrate and enhance existing open source software cybersecurity projects, including: Apache Metron, Dionaea, Cowrie, OSSEC and others.   
 
-Integration of cybersecurity sensors is a priority for the project to reduce labour and complexity associated with deploying open source security operations center solutions.  The project includes a remotely managed honeypot device (LTW GCR Canary) that is suitable for use as a sensor for passive intrusion detection in SME environments.
+Integration of cybersecurity sensors is a priority for the project to reduce labour and complexity associated with deploying open source security operations center solutions.  The project includes a remotely managed honeypot device (GCR Canary) that is suitable for use as a sensor for passive intrusion detection in SME environments.
  
 The project will include CSOC Operational Playbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
 
