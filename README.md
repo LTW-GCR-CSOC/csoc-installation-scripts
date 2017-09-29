@@ -51,13 +51,13 @@ To be provided
 
 To be provided
 
-### LTW GCR Canary 
+### GCR Canary 
 
 The installation has been tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
 
 It is currently under active development and testing.
 
-To install all of the LTW GCR Canary software, run the following script:
+To install all of the GCR Canary software, run the following script:
 
 ```
 wget https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
