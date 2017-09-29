@@ -18,7 +18,7 @@
 . /lib/lsb/init-functions
 
 BASEDIR="/opt/dionaea"
-PIDFOLDER="/opt/dionaea/var/"
+PIDFOLDER="/opt/dionaea/var"
 PIDFILE=$PIDFOLDER/dionaea.pid
 LOGFILE="/opt/dionaea/var/log/dionaea.log"
 CONFIG="/opt/dionaea/etc/dionaea/dionaea.cfg"
