@@ -191,7 +191,7 @@ while True:
                                         msgPayload=msgPayload.replace("\n"," ")
                                         msgPayload=msgPayload.replace("\r"," ")
 
-                        alert =  str(int(connectionMetaData[4]))+".000|"+"GCRCanary-DionaeaDevice|"+ hostname +"|"+ "Connection("+ connectionMetaData[1]+","+connectionMetaData[2]+","+connectionMetaData[3] +")-Alert(" + msgAlertsTriggered[:-1] + ")|"+str(connectionMetaData[0])+"|"+str(connectionMetaData[5])+"|"+str(connectionMetaData[6])+"|"+str(connectionMetaData[7])+"|"+str(connectionMetaData[8])+"|"+msgPayload +"|\n"
+                        alert =  str(int(connectionMetaData[4]))+".000|"+"GCRCanary-Device|"+ hostname +"|"+ "Dionaea-Connection("+ connectionMetaData[1]+","+connectionMetaData[2]+","+connectionMetaData[3] +")-Alert(" + msgAlertsTriggered[:-1] + ")|"+str(connectionMetaData[0])+"|"+str(connectionMetaData[5])+"|"+str(connectionMetaData[6])+"|"+str(connectionMetaData[7])+"|"+str(connectionMetaData[8])+"|"+msgPayload +"|\n"
                         print (alert)
                         file = open("/var/log/GCRDionaea.log", "a+")
                         syslog.syslog(alert) 
