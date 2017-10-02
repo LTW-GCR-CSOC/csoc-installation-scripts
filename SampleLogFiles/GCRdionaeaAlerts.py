@@ -47,7 +47,7 @@ def checkSystemStatus(hostname):
                                         f = urllib.request.urlopen(req)
                                         dionaeaHTTPcheck=1
                         except:
-                                        print("ERROR: Dionaea might not be running")
+                                        print("WARNING: Dionaea might not be running")
                                         dionaeaHTTPcheck=0
         p = psutil.Process(1)
         cpuCount = psutil.cpu_count()
@@ -156,17 +156,18 @@ print("        __\\////////////_____________\\/////////_____\\///________\\///__
 
 pastConnectionID=0
 delay=10
-
+scheduledTimeToCheckStatus="09:00"
 #get hostname
 hostname = socket.gethostname()
-
+checkSystemStatus(hostname)
 
 dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/dionaea.sqlite"
-
 fileSizeCheck = os.stat(dionaeaDatabaseFile)
 if int(str(fileSizeCheck.st_size)) == 0:
         print ("ERROR: dionaea.sqlite is not populated. dionaea possibly not init. properly. Issue might be due to dionaea not givin permissions to write to file or multiple pids of .//dionaea are running. Ending program")
         sys.exit()
+
+schedule.every().day.at(scheduledTimeToCheckStatus).do(checkSystemStatus,hostname)
 
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
@@ -197,8 +198,8 @@ cur.close
 ##Live Execution
 ###############
 
-schedule.every().day.at("09:00").do(checkSystemStatus,hostname)
-print ("Live Execution Started - Refresh Cycle: "+str(delay)+"sec \n")
+
+print ("Live Execution Started - Refresh Cycle: "+str(delay)+" \n")
 
 while True:
         #when scheduled time occurs send system status
