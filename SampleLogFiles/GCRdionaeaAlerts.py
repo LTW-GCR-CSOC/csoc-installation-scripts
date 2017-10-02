@@ -107,15 +107,14 @@ delay=10
 #get hostname
 hostname = socket.gethostname()
 
-#get public IP addres
-#publicIp = get('https://api.ipify.org').text
-#TODO - create timeout
-
-#get local IP address
-#socket.gethostbyname(socket.gethostname())
-
 
 dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/dionaea.sqlite"
+
+fileSizeCheck = os.stat(dionaeaDatabaseFile)
+if int(str(fileSizeCheck.st_size)) == 0:
+        print ("ERROR: dionaea.sqlite is not populated. dionaea possibly not init. properly. Issue might be due to dionaea not givin permissions to write to file or multiple pids of .//dionaea are running. Ending program")
+        sys.exit()
+
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
 #list of all tables in database
