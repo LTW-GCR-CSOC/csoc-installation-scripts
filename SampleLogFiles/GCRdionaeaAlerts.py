@@ -56,7 +56,7 @@ def checkSystemStatus(hostname):
         machineStatusOut=machineStatusOut+"    PROCESS 1 START TIME:"+str(datetime.datetime.fromtimestamp(int(p.create_time())).strftime('%Y-%m-%d %H:%M:%S'))
         machineStatusOut=machineStatusOut+"    CPU COUNT("+str(cpuCount)+") % usage:"
         for x in range(cpuCount):
-                        machineStatusOut=machineStatusOut+"CPU"+str(x)+"("+str(psutil.cpu_percent(interval=1))+") "
+                        machineStatusOut=machineStatusOut+"CPU"+str(x+1)+"("+str(psutil.cpu_percent(interval=1))+") "
         machineStatusOut=machineStatusOut+"    VIRT_MEMORY:"+str(psutil.virtual_memory())
         machineStatusOut=machineStatusOut+"    DISK_USAGE:"+str(psutil.disk_usage('/'))
         machineStatusOut=machineStatusOut+"    PUBLIC_IP("+str(publicIP)+")    LOCAL_IP("+str(localIP)+")"
