@@ -156,7 +156,7 @@ print("        __\\////////////_____________\\/////////_____\\///________\\///__
 
 pastConnectionID=0
 delay=10
-scheduledTimeToCheckStatus="09:00"
+scheduledTimeToCheckStatus="10:00"
 #get hostname
 hostname = socket.gethostname()
 checkSystemStatus(hostname)
