@@ -1,4 +1,4 @@
-This page contains sample log alert information from diffrent types of sensors. It also grok parser statements. (http://grokconstructor.appspot.com/)<br />
+This page contains sample log alert information from diffrent types of sensors. It also includes grok parser statements for use with Apache Metron. (http://grokconstructor.appspot.com/)<br />
 http://grokconstructor.appspot.com/do/match#result<br />
 
 <br />
