@@ -8,7 +8,7 @@
 # Short-Description:	GCRdionaeaAlerts
 ### END INIT INFO
 
-DEBUGME="yes"
+DEBUGME="no"
 
 if [[ $DEBUGME == "yes" ]]; then
 
