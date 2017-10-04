@@ -64,7 +64,7 @@ sudo make
 sudo make install
 
 sudo ldconfig
-sudo chown -R nobody:nogroup /opt/dionaea/
+
 
 echo "-----@ DIONAEA SETUP DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
@@ -113,6 +113,7 @@ sudo mv $SCRIPTSDIR/dionaea /etc/init.d/
 sudo chmod 0755 /etc/init.d/dionaea
 sudo chown root:root /etc/init.d/dionaea
 sudo update-rc.d dionaea defaults
+sudo chown -R nobody:nogroup /opt/dionaea/
 sudo /etc/init.d/dionaea start
 echo "-----@ DIONAEA REBOOT CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 
