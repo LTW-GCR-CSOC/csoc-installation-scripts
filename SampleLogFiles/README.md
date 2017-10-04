@@ -1,7 +1,8 @@
-This page contains sample log alert information from diffrent types of sensors. It also includes grok parser statements for use with Apache Metron. (http://grokconstructor.appspot.com/)<br />
-http://grokconstructor.appspot.com/do/match#result<br />
+This page contains sample log alert information from different types of sensors. 
 
-<br />
+It also includes grok parser statements for use with Apache Metron.  See http://grokconstructor.appspot.com/ and 
+http://grokconstructor.appspot.com/do/match#result for grok related tools.
+
 <h3>GCRdionaeaAlerts.py</h3>
 ./var/log/GCRDionaea.log (a.k.a. dionaea.log)<br />
 <br />
