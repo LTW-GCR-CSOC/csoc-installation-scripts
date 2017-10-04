@@ -25,7 +25,8 @@ rm *.deb
 # https://www.rosehosting.com/blog/how-to-install-configure-and-use-redis-on-ubuntu-16-04/
 # to be added
 
-wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
+# wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
+wget https://raw.githubusercontent.com/LTW-GCR-CSOC/openvas-commander/master/openvas_commander.sh
 chmod +x openvas_commander.sh
 
 # Install dependencies (the longest operation):
