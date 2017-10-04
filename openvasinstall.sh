@@ -26,6 +26,7 @@ rm *.deb
 # to be added
 
 # wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
+# Use the GCR clone copy of the script, periodically check original respository for script updates
 wget https://raw.githubusercontent.com/LTW-GCR-CSOC/openvas-commander/master/openvas_commander.sh
 chmod +x openvas_commander.sh
 
