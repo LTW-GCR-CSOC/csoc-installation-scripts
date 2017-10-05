@@ -221,7 +221,7 @@ fi
 if [ "$INSTALL_OPENVAS" == "yes" ]; then
   printf "${BOG}---------------------------------- INSTALLING OPENVAS -----${NC}\n"
   echo "-----@ OPENVAS CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  #sudo $SCRIPTSDIR/openvasinstall.sh
+  sudo $SCRIPTSDIR/openvasinstall.sh
   echo "-----@ OPENVAS CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
@@ -302,6 +302,7 @@ fi
 printf "${BOG}---------------------------------- POST INSTALL SECURITY CHECKS -----${NC}\n"
 # Check for pretend python packages
 # http://www.nbu.gov.sk/skcsirt-sa-20170909-pypi/
+# TODO : need to ensure pip is installed first
 pip list –format=legacy | egrep '^(acqusition|apidev-coop|bzip|crypt|django-server|pwd|setup-tools|telnet|urlib3|urllib)'
 
 #---------------
