@@ -13,6 +13,8 @@ if [ -d "/opt/dionaea" ]; then
   sudo rm -rf /opt/dionaea
 fi
 echo "-----@ LATEST SOFTWARE UPDATES -----"
+sudo pip3 install schedule
+sudo pip3 install psutil
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libglib2.0-dev
 sudo apt-get install -y python3-pip
