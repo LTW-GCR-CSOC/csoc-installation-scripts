@@ -315,4 +315,10 @@ echo "-----@ STATUS SNAPSHOT -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo ifconfig -a >>$SCRIPTSDIR/SETUP-RUN.TXT
 sudo service --status-all >>$SCRIPTSDIR/SETUP-RUN.TXT
 
-
+#---------------
+#
+# END - Prompt user to restart the device
+#
+#---------------
+printf "${BOG}---------------------------- END -----------------------------------${NC}\n"
+printf "DEVICE NEEDS TO BE REBOOTED. EXECUTE THE FOLLOWING COMMAND: shutdown -r n \n"
