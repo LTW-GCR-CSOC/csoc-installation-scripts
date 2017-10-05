@@ -100,6 +100,9 @@ fi
 #minecraft-pi \
 #atril* \
 #libreoffice*
+#sudo apt-get clean
+#sudo apt -y autoremove
+#
 #fi
 
 
