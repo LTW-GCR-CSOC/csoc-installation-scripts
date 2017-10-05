@@ -23,6 +23,7 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
+#PREINSTALL_CLEANUP="no"
 INSTALL_REFRESH="yes"
 INSTALL_CLEANUP="no"
 
@@ -63,10 +64,43 @@ then
  printf "**** ${RED}WARNING${NC}: AWS IoT will not be installed ****\n"
 fi
 
+#if [[ "$PREINSTALL_CLEANUP" == "no" ]] 
+#then
+# printf "**** ${RED}WARNING${NC}: Unused Ubuntu Mate programs will not be uninstalled  ****\n"
+#fi
+
 if [[ "$INSTALL_REFRESH" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: No system refresh will not be done ****\n"
 fi
+
+
+
+
+
+#---------------
+#
+# Clean-up files pre-install (e.g. default Ubunut Mate applications) that not required for production operation
+#
+#---------------
+#if [ "$PREINSTALL_CLEANUP" == "yes" ]; then
+# printf "${BOG}---------------------------------- PRE INSTALL CLEANUP -----${NC}\n"
+#sudo apt-get remove --purge -y youtube-dl* \
+#libmateweather* \
+#firefox \
+#rhythmbox \
+#qjackctl \
+#brasero \
+#cheese \
+#transmission-gtk \
+#pidgin \
+#hexchat \
+#thunderbird \
+#scratch \
+#minecraft-pi \
+#atril* \
+#libreoffice*
+#fi
 
 
 echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
@@ -280,6 +314,9 @@ printf "${BOG}---------------------------------- POST INSTALL CHECKING -----${NC
 pgrep dionaea > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
 pgrep ossec > /dev/null && echo "OSSEC tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
 pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP-RUN.TXT
+
+
+
 
 #---------------
 #
