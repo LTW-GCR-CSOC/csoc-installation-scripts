@@ -90,7 +90,6 @@ sudo apt-get remove --purge -y youtube-dl* \
 libmateweather* \
 firefox \
 rhythmbox \
-qjackctl \
 brasero \
 cheese \
 transmission-gtk \
@@ -99,11 +98,11 @@ hexchat \
 thunderbird \
 scratch \
 minecraft-pi \
-atril* \
 libreoffice*
-sudo apt-get clean
-sudo apt -y autoremove
-
+#sudo apt-get clean
+#sudo apt -y autoremove
+#atril* \
+#qjackctl \
 fi
 
 
