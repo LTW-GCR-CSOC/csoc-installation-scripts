@@ -23,7 +23,7 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
-#PREINSTALL_CLEANUP="no"
+PREINSTALL_CLEANUP="no"
 INSTALL_REFRESH="yes"
 INSTALL_CLEANUP="no"
 
@@ -64,10 +64,10 @@ then
  printf "**** ${RED}WARNING${NC}: AWS IoT will not be installed ****\n"
 fi
 
-#if [[ "$PREINSTALL_CLEANUP" == "no" ]] 
-#then
-# printf "**** ${RED}WARNING${NC}: Unused Ubuntu Mate programs will not be uninstalled  ****\n"
-#fi
+if [[ "$PREINSTALL_CLEANUP" == "no" ]] 
+then
+ printf "**** ${RED}WARNING${NC}: Unused Ubuntu Mate programs will not be uninstalled  ****\n"
+fi
 
 if [[ "$INSTALL_REFRESH" == "no" ]] 
 then
@@ -83,34 +83,35 @@ fi
 # Clean-up files pre-install (e.g. default Ubunut Mate applications) that not required for production operation
 #
 #---------------
-#if [ "$PREINSTALL_CLEANUP" == "yes" ]; then
-# printf "${BOG}---------------------------------- PRE INSTALL CLEANUP -----${NC}\n"
-#sudo apt-get remove --purge -y youtube-dl* \
-#libmateweather* \
-#firefox \
-#rhythmbox \
-#qjackctl \
-#brasero \
-#cheese \
-#transmission-gtk \
-#pidgin \
-#hexchat \
-#thunderbird \
-#scratch \
-#minecraft-pi \
-#atril* \
-#libreoffice*
-#sudo apt-get clean
-#sudo apt -y autoremove
-#
-#fi
+if [[ "$PREINSTALL_CLEANUP" == "yes" ]]
+then
+printf "${BOG}---------------------------------- PRE INSTALL CLEANUP -----${NC}\n"
+sudo apt-get remove --purge -y youtube-dl* \
+libmateweather* \
+firefox \
+rhythmbox \
+qjackctl \
+brasero \
+cheese \
+transmission-gtk \
+pidgin \
+hexchat \
+thunderbird \
+scratch \
+minecraft-pi \
+atril* \
+libreoffice*
+sudo apt-get clean
+sudo apt -y autoremove
+
+fi
 
 
 echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
 echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
 chmod 0666 $SCRIPTSDIR/SETUP-RUN.TXT
 # check Ubuntu version
-if [[ `lsb_release -rs` != "16.04" ]] 
+if [[ `lsb_release -rs` != "16.04" ]]
 then
  printf "**** ${RED}WARNING${NC}: this script has not been tested on this version of Ubuntu ****\n"
 fi
@@ -122,7 +123,8 @@ sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 # Update System
 #
 #---------------
-if [ "$INSTALL_REFRESH" == "yes" ]; then
+if [[  "$INSTALL_REFRESH" == "yes" ]]
+then
  sudo apt-get -y update
  sudo apt-get -y dist-upgrade
  sudo apt-get -y update --fix-missing 
@@ -143,7 +145,8 @@ sudo apt-get install -y curl
 # Install Dionaea 
 #
 #----------------
-if [ "$INSTALL_DIONAEA" == "yes" ]; then
+if [[ "$INSTALL_DIONAEA" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo adduser --disabled-password dionaea <<!
@@ -164,7 +167,8 @@ fi
 # Install Dionaea GCR enhanced dionaea log utility
 #
 #----------------
-if [ "$INSTALL_DIONAEA" == "yes" ]; then
+if [[ "$INSTALL_DIONAEA" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY -----${NC}\n"
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
@@ -189,7 +193,8 @@ fi
 # Install Dionaea Log Viewer (for development)
 #
 #----------------
-if [ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]; then
+if [[ "$INSTALL_DIONAEALOGVIEWER" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA LOG VIEWER -----${NC}\n"
   echo "-----@ DIONAEA LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   # Dedicated user and group for dionaeafr
@@ -214,7 +219,8 @@ fi
 # Install Cowrie
 #
 #----------------
-if [ "$INSTALL_COWRIE" == "yes" ]; then
+if [[ "$INSTALL_COWRIE" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING COWRIE -----${NC}\n"
   echo "-----@ COWRIE CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
 # change default port to Port 8742 (to be tested with the pi)
@@ -228,7 +234,8 @@ fi
 # Install Cowrie Log Viewer (for development)
 #
 #----------------
-if [ "$INSTALL_COWRIELOGVIEWER" == "yes" ]; then
+if [[ "$INSTALL_COWRIELOGVIEWER" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING COWRIE LOG VIEWER -----${NC}\n"
   echo "-----@ COWRIE LOG VIEWER CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo $SCRIPTSDIR/cowrielogviewer.sh
@@ -242,7 +249,8 @@ fi
 # https://ossec.github.io/index.html
 #
 #----------------
-if [ "$INSTALL_OSSEC" == "yes" ]; then
+if [[ "$INSTALL_OSSEC" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING OSSEC -----${NC}\n"
   echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   #sudo $SCRIPTSDIR/ossecinstall.sh
@@ -255,7 +263,8 @@ fi
 # http://www.openvas.org/
 #
 #----------------
-if [ "$INSTALL_OPENVAS" == "yes" ]; then
+if [[ "$INSTALL_OPENVAS" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING OPENVAS -----${NC}\n"
   echo "-----@ OPENVAS CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   sudo $SCRIPTSDIR/openvasinstall.sh
@@ -267,7 +276,8 @@ fi
 # Setup Raspberry Pi components
 #
 #---------------
-if [ "$INSTALL_RP" == "yes" ]; then
+if [[ "$INSTALL_RP" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING RP -----${NC}\n"
   echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
@@ -280,7 +290,8 @@ fi
 # Setup AWS IoT components
 #
 #---------------
-if [ "$INSTALL_AWSIOT" == "yes" ]; then
+if [[ "$INSTALL_AWSIOT" == "yes" ]]
+then
   printf "${BOG}---------------------------------- INSTALLING AWS IOT -----${NC}\n"
   echo "-----@ AWS IoT CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
@@ -326,7 +337,8 @@ pgrep cowrie > /dev/null && echo "Dionaea tasks are running" >>$SCRIPTSDIR/SETUP
 # TODO: clean-up remove all files (e.g. applications, source downloads) that not required for production operation
 #
 #---------------
-if [ "$INSTALL_CLEANUP" == "yes" ]; then
+if [[ "$INSTALL_CLEANUP" == "yes" ]]
+then
  printf "${BOG}---------------------------------- POST INSTALL CLEANUP -----${NC}\n"
  sudo apt-get -y remove git 
  sudo apt-get -y remove make
