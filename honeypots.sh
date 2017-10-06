@@ -42,7 +42,8 @@ SETUP_SYSLOG="yes"
 
 echo "-----@ SET TIMEZONE -----"
 # sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
-
+#Change device time to UTC time
+sudo timedatectl set-timezone UTC
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
