@@ -23,23 +23,22 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
-PREINSTALL_CLEANUP="no"
-INSTALL_REFRESH="yes"
+PREINSTALL_CLEANUP="yes"
+INSTALL_REFRESH="no"
 INSTALL_CLEANUP="no"
 
-INSTALL_DIONAEA="no" # yes or no.
+INSTALL_DIONAEA="yes" # yes or no.
 INSTALL_DIONAEALOGVIEWER="no"  
 
 INSTALL_COWRIE="no"  
 INSTALL_COWRIELOGVIEWER="no"  
 
 INSTALL_OSSEC="no"  
-INSTALL_OPENVAS="yes" 
+INSTALL_OPENVAS="no" 
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
-INSTALL_RP="no"
-
-SETUP_SYSLOG="no"
+INSTALL_RP="yes"
+SETUP_SYSLOG="yes"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
