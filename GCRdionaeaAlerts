@@ -1,8 +1,8 @@
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides: GCRdionaeaAlerts
-# Required-Start: $network $syslog
-# Required-Stop:  $network $syslog
+# Required-Start: $dionaea
+# Required-Stop:  
 # Default-Start:  2 3 4 5
 # Default-Stop:
 # Short-Description:	GCRdionaeaAlerts
@@ -57,8 +57,8 @@ fi
 case $1 in
   start)
     cd $BASEDIR
-    $DAEMON > $LOGFILE 2>> $LOGFILE &
-#    start-stop-daemon --start --quiet -u $USER -g $GROUP -m $PIDFILE --exec $DAEMON  > $LOGFILE 2>> $LOGFILE &
+    # $DAEMON > $LOGFILE 2>> $LOGFILE &
+    start-stop-daemon --start --quiet -u $USER -g $GROUP -m $PIDFILE --exec $DAEMON  > $LOGFILE 2>> $LOGFILE &
     log_daemon_msg "$DAEMON started ..."
     log_end_msg 0
   ;;
