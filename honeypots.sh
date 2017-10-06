@@ -438,4 +438,4 @@ sudo service --status-all >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
 #---------------
 printf "${BOG}---------------------------- END -----------------------------------${NC}\n"
-printf "DEVICE NEEDS TO BE REBOOTED. EXECUTE THE FOLLOWING COMMAND: shutdown -r n \n"
+printf "DEVICE NEEDS TO BE REBOOTED. EXECUTE THE FOLLOWING COMMAND: shutdown -r now \n"
