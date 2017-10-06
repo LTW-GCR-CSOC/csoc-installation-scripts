@@ -18,8 +18,6 @@ sudo apt-get install watchdog
 #
 echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
 
-#Change device time to UTC time
-sudo timedatectl set-timezone UTC
 
 #Application to enable changing of mac address
 sudo apt-get install -y macchanger
