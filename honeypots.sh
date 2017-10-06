@@ -157,6 +157,7 @@ if [[ "$INSTALL_DIONAEA" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  # don't delete the spaces between "<<!" and "!" below
   sudo adduser --disabled-password dionaea <<!
 dionaea
 
