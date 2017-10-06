@@ -23,7 +23,7 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
-PREINSTALL_CLEANUP="yes"
+PREINSTALL_CLEANUP="no"
 INSTALL_REFRESH="no"
 INSTALL_CLEANUP="no"
 
