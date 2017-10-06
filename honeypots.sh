@@ -39,6 +39,8 @@ INSTALL_AWSIOT="no"
 INSTALL_MENDER="no" 
 INSTALL_RP="no"
 
+SETUP_SYSLOG="no"
+
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea will not be installed ****\n"
@@ -75,7 +77,10 @@ then
 fi
 
 
-
+if [[ "$SETUP_SYSLOG" == "no" ]] 
+then
+ printf "**** ${RED}WARNING${NC}: Syslog won't be setup ****\n"
+fi
 
 
 #---------------
@@ -148,16 +153,25 @@ if [[ "$INSTALL_DIONAEA" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  sudo adduser --disabled-password dionaea <<!
-dionaea
+#  sudo adduser --disabled-password dionaea <<!
+#dionaea
+#
+#
+#
+#
+#
+#!
+sudo $SCRIPTSDIR/dionaeainstall.sh
+# sudo $SCRIPTSDIR/dionaeainstall2.sh
+
+#populate Dionaea with content
+echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
+echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
+echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/C.xls
+echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/ftp/D.xls
+echo "[]" | sudo tee --append /opt/dionaea/var/dionaea/roots/tftp/E.xls
 
 
-
-
-
-!
-  sudo $SCRIPTSDIR/dionaeainstall.sh
- # sudo $SCRIPTSDIR/dionaeainstall2.sh
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
@@ -170,9 +184,10 @@ if [[ "$INSTALL_DIONAEA" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY -----${NC}\n"
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  cd $SCRIPTSDIR
+  #cd $SCRIPTSDIR  
   sudo pip3 install schedule
   sudo pip3 install psutil
+  cd $SCRIPTSDIR
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
@@ -344,6 +359,36 @@ then
  sudo apt -y autoremove
  # force removal of all compilers and dev tools that are no longer required for production deployment
 fi
+
+
+# ---------------
+#
+# Setup Syslog Configuration for honeypot
+#
+#----------------
+if [[ "$SETUP_SYSLOG" == "yes" ]]
+then
+  printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG -----${NC}\n"
+  
+  #cd $SCRIPTSDIR  
+  sudo pip3 install schedule
+  sudo pip3 install psutil
+  cd $SCRIPTSDIR
+  wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
+  sudo mv $SCRIPTSDIR/00-GCRdionaeaHP.conf /etc/rsyslog.d
+  sudo chmod 0755 /etc/rsyslog.d/00-GCRdionaeaHP.conf
+  sudo chown root:root /etc/rsyslog.d/00-GCRdionaeaHP.conf
+  
+  sudo mv /etc/rsyslog.conf /etc/rsyslog-BCK.conf
+  cd $SCRIPTSDIR
+  wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
+  sudo mv $SCRIPTSDIR/rsyslog.conf /etc/rsyslog.conf
+  
+  
+  printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG COMPLETE-----${NC}\n"
+  printf "${BOG}REMINDER: update <dest_ip_address>:<port> in /etc/rsyslog.d/00-GCRdionaeaHP.conf ${NC}\n"
+fi
+
 
 #---------------
 #
