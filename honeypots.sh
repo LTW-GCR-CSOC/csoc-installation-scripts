@@ -40,6 +40,10 @@ INSTALL_MENDER="no"
 INSTALL_RP="yes"
 SETUP_SYSLOG="yes"
 
+echo "-----@ SET TIMEZONE -----"
+# sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+
+
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea will not be installed ****\n"
