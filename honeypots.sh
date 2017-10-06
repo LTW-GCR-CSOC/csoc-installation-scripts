@@ -210,6 +210,7 @@ then
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
   sudo systemctl daemon-reload
   sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
+  sudo update-rc.d GCRdionaeaAlerts enable
   sudo /etc/init.d/GCRdionaeaAlerts start
   sudo systemctl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
   echo "-----@ DIONAEA GCR ENHANCED LOG UTILITY INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
