@@ -173,11 +173,11 @@ sudo $SCRIPTSDIR/dionaeainstall.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
-sudo cat >  /opt/dionaea/var/dionaea/roots/www/A.pdf
-sudo cat >  /opt/dionaea/var/dionaea/roots/www/B.pdf
-sudo cat >  /opt/dionaea/var/dionaea/roots/www/C.xls
-sudo cat >  /opt/dionaea/var/dionaea/roots/ftp/D.xls
-sudo cat > /opt/dionaea/var/dionaea/roots/tftp/E.xls
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/A.pdf'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/B.pdf'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/C.xls'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/ftp/D.xls'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/tftp/E.xls'
 
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
@@ -385,12 +385,19 @@ then
   printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG -----${NC}\n"
 
   cd $SCRIPTSDIR
+  #00-GCRdionaeaHP.conf
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
   sudo mv $SCRIPTSDIR/00-GCRdionaeaHP.conf /etc/rsyslog.d
   sudo chmod 0755 /etc/rsyslog.d/00-GCRdionaeaHP.conf
   sudo chown root:root /etc/rsyslog.d/00-GCRdionaeaHP.conf
   
-  sudo mv /etc/rsyslog.conf /etc/rsyslog-BCK.conf
+  #50-default.conf
+  sudo mv /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/50-default.backup
+  https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/50-default.conf
+  sudo mv $SCRIPTSDIR/50-default.conf /etc/rsyslog.d
+  
+  #rsyslog.conf
+  sudo mv /etc/rsyslog.conf /etc/rsyslog.backup
   cd $SCRIPTSDIR
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
   sudo mv $SCRIPTSDIR/rsyslog.conf /etc/rsyslog.conf
