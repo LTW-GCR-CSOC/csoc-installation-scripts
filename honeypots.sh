@@ -91,7 +91,6 @@ if [[ "$PREINSTALL_CLEANUP" == "yes" ]]
 then
 printf "${BOG}---------------------------------- PRE INSTALL CLEANUP -----${NC}\n"
 sudo apt-get remove --purge -y youtube-dl* \
-libmateweather* \
 firefox \
 rhythmbox \
 brasero \
@@ -107,6 +106,7 @@ libreoffice*
 #sudo apt -y autoremove
 #atril* \
 #qjackctl \
+#libmateweather* \
 fi
 
 
@@ -164,6 +164,12 @@ sudo $SCRIPTSDIR/dionaeainstall.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
+sudo touch  /opt/dionaea/var/dionaea/roots/www/A.pdf
+sudo touch  /opt/dionaea/var/dionaea/roots/www/B.pdf
+sudo touch  /opt/dionaea/var/dionaea/roots/www/C.xls
+sudo touch  /opt/dionaea/var/dionaea/roots/ftp/D.xls
+sudo touch /opt/dionaea/var/dionaea/roots/tftp/E.xls
+
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/C.xls
@@ -368,10 +374,7 @@ fi
 if [[ "$SETUP_SYSLOG" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG -----${NC}\n"
-  
-  #cd $SCRIPTSDIR  
-  sudo pip3 install schedule
-  sudo pip3 install psutil
+
   cd $SCRIPTSDIR
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
   sudo mv $SCRIPTSDIR/00-GCRdionaeaHP.conf /etc/rsyslog.d
