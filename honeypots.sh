@@ -152,23 +152,23 @@ if [[ "$INSTALL_DIONAEA" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-#  sudo adduser --disabled-password dionaea <<!
-#dionaea
-#
-#
-#
-#
-#
-#!
+  sudo adduser --disabled-password dionaea <<!
+dionaea
+
+
+
+
+
+!
 sudo $SCRIPTSDIR/dionaeainstall.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
-sudo touch  /opt/dionaea/var/dionaea/roots/www/A.pdf
-sudo touch  /opt/dionaea/var/dionaea/roots/www/B.pdf
-sudo touch  /opt/dionaea/var/dionaea/roots/www/C.xls
-sudo touch  /opt/dionaea/var/dionaea/roots/ftp/D.xls
-sudo touch /opt/dionaea/var/dionaea/roots/tftp/E.xls
+sudo cat >  /opt/dionaea/var/dionaea/roots/www/A.pdf
+sudo cat >  /opt/dionaea/var/dionaea/roots/www/B.pdf
+sudo cat >  /opt/dionaea/var/dionaea/roots/www/C.xls
+sudo cat >  /opt/dionaea/var/dionaea/roots/ftp/D.xls
+sudo cat > /opt/dionaea/var/dionaea/roots/tftp/E.xls
 
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
@@ -297,7 +297,7 @@ then
   printf "${BOG}---------------------------------- INSTALLING RP -----${NC}\n"
   echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
-  # sudo rpinstall.sh
+  sudo rpinstall.sh
   echo "-----@ Raspberry Pi DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
