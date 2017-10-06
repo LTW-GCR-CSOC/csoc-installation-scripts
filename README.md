@@ -137,7 +137,6 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
  * [Frank Horsfall - Cybersecurity Architecture](mailto:frankhorsfall@cunet.carleton.ca) 
  * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
  * [Anthony Ani - CSOC SME Customer Engagement]
- * [Alexis Amoi - CSOC Partner Engagement]
  * [Tommy Nguyen]
  * [Mahmoud Gad]
 
