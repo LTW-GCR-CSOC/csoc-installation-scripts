@@ -196,6 +196,8 @@ then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY -----${NC}\n"
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
+  sudo pip3 install schedule
+  sudo pip3 install psutil
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
