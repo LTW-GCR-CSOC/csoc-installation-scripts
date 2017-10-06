@@ -23,7 +23,7 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
-PREINSTALL_CLEANUP="no"
+PREINSTALL_CLEANUP="yes"
 INSTALL_REFRESH="yes"
 INSTALL_CLEANUP="no"
 
@@ -37,7 +37,7 @@ INSTALL_OSSEC="no"
 INSTALL_OPENVAS="no" 
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
-INSTALL_RP="no"
+INSTALL_RP="yes"
 SETUP_SYSLOG="yes"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
@@ -308,8 +308,8 @@ if [[ "$INSTALL_RP" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING RP -----${NC}\n"
   echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  cd $SCRIPTSDIR
-  sudo rpinstall.sh
+  #cd $SCRIPTSDIR
+  sudo $SCRIPTSDIR/rpinstall.sh
   echo "-----@ Raspberry Pi DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
