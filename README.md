@@ -64,7 +64,7 @@ cd ~ && \
 wget https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
 unzip master.zip && \
 cd csoc-installation-scripts-master/ && \
-chmod +x *.sh && \
+chmod +x *.sh 
 ```
 
 Open honeypots.sh and enable/disable which installs to perform.  See *Configuration* below. 
