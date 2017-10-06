@@ -60,7 +60,7 @@ It is currently under active development and testing.
 To install all of the GCR Canary software, run the following script:
 
 ```
-cd ~
+cd ~ && \
 wget https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
 unzip master.zip && \
 cd csoc-installation-scripts-master/ && \
@@ -70,7 +70,7 @@ chmod +x *.sh && \
 Open honeypots.sh and enable/disable which installs to perform.  See *Configuration* below. 
 After the updates have been made run honeypots.sh
 ```
-./honeypots.sh
+sudo ./honeypots.sh
 ```
 
 Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
