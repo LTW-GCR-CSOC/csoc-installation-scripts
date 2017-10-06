@@ -6,6 +6,8 @@
 SCRIPTSDIR="$HOME/csoc-installation-scripts-master/"
 echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
+# TODO: need to remove watchdog from here and use naveens script in honeypot.sh instead
+
 echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
 sudo modprobe bcm2708_wdog
 echo "bcm2708_wdog" | sudo tee -a /etc/modules
