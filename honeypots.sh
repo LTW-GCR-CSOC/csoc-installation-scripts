@@ -395,13 +395,16 @@ then
   sudo mv /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/50-default.backup
   https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/50-default.conf
   sudo mv $SCRIPTSDIR/50-default.conf /etc/rsyslog.d
+  sudo chmod 0755 /etc/rsyslog.d/50-default.conf
+  sudo chown root:root /etc/rsyslog.d/50-default.conf
   
   #rsyslog.conf
   sudo mv /etc/rsyslog.conf /etc/rsyslog.backup
   cd $SCRIPTSDIR
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
   sudo mv $SCRIPTSDIR/rsyslog.conf /etc/rsyslog.conf
-  
+  sudo chmod 0755 /etc/rsyslog.conf
+  sudo chown root:root /etc/rsyslog.conf
   
   printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG COMPLETE-----${NC}\n"
   printf "${BOG}REMINDER: update <dest_ip_address>:<port> in /etc/rsyslog.d/00-GCRdionaeaHP.conf ${NC}\n"
