@@ -40,11 +40,6 @@ INSTALL_MENDER="no"
 INSTALL_RP="no"
 SETUP_SYSLOG="yes"
 
-echo "-----@ SET TIMEZONE -----"
-# sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
-#Change device time to UTC time
-sudo timedatectl set-timezone UTC
-
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea will not be installed ****\n"
@@ -86,6 +81,25 @@ then
  printf "**** ${RED}WARNING${NC}: Syslog won't be setup ****\n"
 fi
 
+# ---------------
+#
+# Install Pre-Check and System Settings
+#
+#---------------
+echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
+echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
+chmod 0666 $SCRIPTSDIR/SETUP-RUN.TXT
+# check Ubuntu version
+if [[ `lsb_release -rs` != "16.04" ]]
+then
+ printf "**** ${RED}WARNING${NC}: this script has not been tested on this version of Ubuntu ****\n"
+fi
+
+echo "-----@ SET TIMEZONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+# Option to set it to local timezone
+# sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+# Change device time to UTC time as default for all Canary devices
+sudo timedatectl set-timezone UTC
 
 #---------------
 #
@@ -114,17 +128,6 @@ libreoffice*
 #libmateweather* \
 fi
 
-
-echo "SCRIPTSDIR = " $HOME  >$SCRIPTSDIR/SETUP-RUN.TXT
-echo "Started setup script on" `date`  >>$SCRIPTSDIR/SETUP-RUN.TXT
-chmod 0666 $SCRIPTSDIR/SETUP-RUN.TXT
-# check Ubuntu version
-if [[ `lsb_release -rs` != "16.04" ]]
-then
- printf "**** ${RED}WARNING${NC}: this script has not been tested on this version of Ubuntu ****\n"
-fi
-echo "-----@ SET TIMEZONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 
 # ---------------
 #
