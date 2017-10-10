@@ -150,7 +150,7 @@ sudo apt-get install -y git
 sudo apt-get install -y autogen autoconf libtool
 sudo apt-get install -y make
 sudo apt-get install -y curl
-sudo apt-get install -y ntop
+# sudo apt-get install -y ntop
 
 # ---------------
 #
