@@ -31,8 +31,8 @@ fi
 case $1 in
   start)
     cd $BASEDIR
-    start-stop-daemon --start --quiet -u $USER -g $GROUP --make-pidfile --pidfile $PIDFILE --exec ${DAEMON}  > $LOGFILE 2>> $LOGFILE &
-    #/opt/dionaea/bin/dionaea -u $USER -g $GROUP -c $CONFIG -w $BASEDIR -p $PIDFILE -D > $LOGFILE 2>> $LOGFILE &
+    #start-stop-daemon --start --quiet -u $USER -g $GROUP --make-pidfile --pidfile $PIDFILE --exec ${DAEMON}  > $LOGFILE 2>> $LOGFILE &
+    /opt/dionaea/bin/dionaea -u $USER -g $GROUP -c $CONFIG -w $BASEDIR -p $PIDFILE -D > $LOGFILE 2>> $LOGFILE &
     log_daemon_msg "$DAEMON started ..."
     log_end_msg 0
   ;;
