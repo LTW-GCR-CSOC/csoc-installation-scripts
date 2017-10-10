@@ -23,7 +23,7 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 
-PREINSTALL_CLEANUP="no"
+PREINSTALL_CLEANUP="yes"
 INSTALL_REFRESH="yes"
 INSTALL_CLEANUP="no"
 
@@ -37,7 +37,7 @@ INSTALL_OSSEC="no"
 INSTALL_OPENVAS="no" 
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
-INSTALL_RP="no"
+INSTALL_RP="yes"
 SETUP_SYSLOG="yes"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
@@ -173,11 +173,11 @@ sudo $SCRIPTSDIR/dionaeainstall.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
-sudo cat >  /opt/dionaea/var/dionaea/roots/www/A.pdf
-sudo cat >  /opt/dionaea/var/dionaea/roots/www/B.pdf
-sudo cat >  /opt/dionaea/var/dionaea/roots/www/C.xls
-sudo cat >  /opt/dionaea/var/dionaea/roots/ftp/D.xls
-sudo cat > /opt/dionaea/var/dionaea/roots/tftp/E.xls
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/A.pdf'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/B.pdf'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/C.xls'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/ftp/D.xls'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/tftp/E.xls'
 
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
 echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
@@ -204,7 +204,7 @@ then
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
-  sudo chown root:root /opt/dionaea/bin/GCRdionaeaAlerts.py
+  sudo chown nobody:nogroup /opt/dionaea/bin/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts /etc/init.d
   sudo chmod 0755 /etc/init.d/GCRdionaeaAlerts
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
@@ -308,8 +308,8 @@ if [[ "$INSTALL_RP" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING RP -----${NC}\n"
   echo "-----@ Raspberry Pi CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  cd $SCRIPTSDIR
-  sudo rpinstall.sh
+  #cd $SCRIPTSDIR
+  sudo $SCRIPTSDIR/rpinstall.sh
   echo "-----@ Raspberry Pi DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
@@ -385,16 +385,26 @@ then
   printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG -----${NC}\n"
 
   cd $SCRIPTSDIR
+  #00-GCRdionaeaHP.conf
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
   sudo mv $SCRIPTSDIR/00-GCRdionaeaHP.conf /etc/rsyslog.d
   sudo chmod 0755 /etc/rsyslog.d/00-GCRdionaeaHP.conf
   sudo chown root:root /etc/rsyslog.d/00-GCRdionaeaHP.conf
   
-  sudo mv /etc/rsyslog.conf /etc/rsyslog-BCK.conf
+  #50-default.conf
+  sudo mv /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/50-default.backup
+  https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/50-default.conf
+  sudo mv $SCRIPTSDIR/50-default.conf /etc/rsyslog.d
+  sudo chmod 0755 /etc/rsyslog.d/50-default.conf
+  sudo chown root:root /etc/rsyslog.d/50-default.conf
+  
+  #rsyslog.conf
+  sudo mv /etc/rsyslog.conf /etc/rsyslog.backup
   cd $SCRIPTSDIR
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
   sudo mv $SCRIPTSDIR/rsyslog.conf /etc/rsyslog.conf
-  
+  sudo chmod 0755 /etc/rsyslog.conf
+  sudo chown root:root /etc/rsyslog.conf
   
   printf "${BOG}---------------------------------- INITIAL CONFIGURATION OF SYSLOG COMPLETE-----${NC}\n"
   printf "${BOG}REMINDER: update <dest_ip_address>:<port> in /etc/rsyslog.d/00-GCRdionaeaHP.conf ${NC}\n"
@@ -428,4 +438,4 @@ sudo service --status-all >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
 #---------------
 printf "${BOG}---------------------------- END -----------------------------------${NC}\n"
-printf "DEVICE NEEDS TO BE REBOOTED. EXECUTE THE FOLLOWING COMMAND: shutdown -r n \n"
+printf "DEVICE NEEDS TO BE REBOOTED. EXECUTE THE FOLLOWING COMMAND: shutdown -r now \n"
