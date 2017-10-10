@@ -37,8 +37,8 @@ INSTALL_OSSEC="no"
 INSTALL_OPENVAS="no" 
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
-INSTALL_RP="yes"
-SETUP_SYSLOG="yes"
+INSTALL_RP="no"
+SETUP_SYSLOG="no"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
