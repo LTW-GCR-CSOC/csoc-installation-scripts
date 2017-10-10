@@ -20,7 +20,7 @@ PIDFILE=$PIDFOLDER/dionaea.pid
 LOGFILE="/opt/dionaea/var/log/dionaea.log"
 CONFIG="/opt/dionaea/etc/dionaea/dionaea.cfg"
 NAME="dionaea"
-DAEMON="dionaea -c $CONFIG -w $BASEDIR -D"
+DAEMON="$BASEDIR/bin/dionaea -c $CONFIG -w $BASEDIR -D"
 USER="nobody"
 GROUP="nogroup"
 
