@@ -209,7 +209,7 @@ then
   sudo chmod 0755 /etc/init.d/GCRdionaeaAlerts
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
   sudo systemctl daemon-reload
-  sudo update-rc.d /etc/init.d/GCRdionaeaAlerts defaults
+  sudo update-rc.d GCRdionaeaAlerts defaults
   sudo update-rc.d GCRdionaeaAlerts enable
   sudo /etc/init.d/GCRdionaeaAlerts start
   sudo systemctl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
