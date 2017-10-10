@@ -19,6 +19,7 @@
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
 BOG='\e[30;48;5;82m'
 RED='\e[41m'
+GRN='\e[42m'
 NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RED}This is red text${NC}\n"
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
@@ -43,42 +44,57 @@ SETUP_SYSLOG="no"
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: Dionaea  ****\n"
 fi
 
 if [[ "$INSTALL_COWRIE" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Cowrie will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: Cowrie  ****\n"
 fi
 
 if [[ "$INSTALL_OSSEC" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: OSSEC will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: OSSEC  ****\n"
 fi
 
 if [[ "$INSTALL_OPENVAS" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: OpenVAS will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: OpenVAS  ****\n"
 fi
 
 if [[ "$INSTALL_AWSIOT" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: AWS IoT will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: AWS IoT  ****\n"
 fi
 
 if [[ "$PREINSTALL_CLEANUP" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Unused Ubuntu Mate programs will not be uninstalled  ****\n"
+else
+  printf "**** ${GRN}CLEANUP${NC}: Unused Ubuntu Mate programs will be uninstalled  ****\n"
 fi
 
 if [[ "$INSTALL_REFRESH" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: No system refresh will not be done ****\n"
+else
+  printf "**** ${GRN}REFRESH${NC}: System refresh will be done  ****\n"
 fi
-
 
 if [[ "$SETUP_SYSLOG" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Syslog won't be setup ****\n"
+else
+ printf "**** ${GRN}INSTALLING${NC}: Syslog will be setup  ****\n"
 fi
 
 # ---------------
