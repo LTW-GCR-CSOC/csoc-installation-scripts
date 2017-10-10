@@ -20,7 +20,7 @@ PIDFILE=$PIDFOLDER/dionaea.pid
 LOGFILE="/opt/dionaea/var/log/dionaea.log"
 CONFIG="/opt/dionaea/etc/dionaea/dionaea.cfg"
 NAME="dionaea"
-DAEMON="dionaea"
+DAEMON="dionaea -c $CONFIG -w $BASEDIR -D"
 USER="nobody"
 GROUP="nogroup"
 
@@ -31,7 +31,8 @@ fi
 case $1 in
   start)
     cd $BASEDIR
-    /opt/dionaea/bin/dionaea -u $USER -g $GROUP -c $CONFIG -w $BASEDIR -p $PIDFILE -D > $LOGFILE 2>> $LOGFILE &
+    start-stop-daemon --start --quiet -u $USER -g $GROUP --make-pidfile --pidfile $PIDFILE --exec $DAEMON  > $LOGFILE 2>> $LOGFILE &
+    #/opt/dionaea/bin/dionaea -u $USER -g $GROUP -c $CONFIG -w $BASEDIR -p $PIDFILE -D > $LOGFILE 2>> $LOGFILE &
     log_daemon_msg "$DAEMON started ..."
     log_end_msg 0
   ;;
