@@ -150,6 +150,7 @@ sudo apt-get install -y git
 sudo apt-get install -y autogen autoconf libtool
 sudo apt-get install -y make
 sudo apt-get install -y curl
+sudo apt-get install -y ntop
 
 # ---------------
 #
@@ -370,6 +371,7 @@ then
  printf "${BOG}---------------------------------- POST INSTALL CLEANUP -----${NC}\n"
  sudo apt-get -y remove git 
  sudo apt-get -y remove make
+ sudo apt-get -y remove ntop
  sudo apt -y autoremove
  # force removal of all compilers and dev tools that are no longer required for production deployment
 fi
