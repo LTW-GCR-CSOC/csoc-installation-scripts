@@ -66,8 +66,14 @@ unzip master.zip && \
 cd csoc-installation-scripts-master/ && \
 chmod +x *.sh 
 ```
+## Configuration
 
-Open honeypots.sh and enable/disable which installs to perform.  See *Configuration* below. 
+Configuration settings for Canary install (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypots.sh. 
+Within honeypots.sh configure the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
+```
+INSTALL_DIONAEA="yes"
+INSTALL_COWRIE="no"  
+```
 After the updates have been made run honeypots.sh
 ```
 sudo ./honeypots.sh
@@ -79,14 +85,7 @@ To view the Cowrie Logs, visit http://0.0.0.0:5000
 
 To view the Dionaea Logs, visit http://0.0.0.0:8000
 
-## Configuration
 
-Configuration settings for Canary install (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypots.sh. 
-Within honeypots.sh configure the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
-```
-INSTALL_DIONAEA="yes"
-INSTALL_COWRIE="no"  
-```
 
 ## Usage
 
