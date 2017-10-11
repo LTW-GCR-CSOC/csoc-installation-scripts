@@ -159,9 +159,19 @@ delay=10
 scheduledTimeToCheckStatus="13:00"
 #get hostname
 hostname = socket.gethostname()
-checkSystemStatus(hostname)
 
 dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/dionaea.sqlite"
+
+print("Waiting for dionaea.sqlite to exist. Please wait. Dionaea might not have been initalized for the first time")
+ifFileExists = False
+while ifFileExists is False:
+        ifFileExists = os.path.exists(dionaeaDatabaseFile)
+        if ifFileExists == True:
+                break
+
+print("dionaea.sqlite exists. Checking file size")
+checkSystemStatus(hostname)
+
 fileSizeCheck = os.stat(dionaeaDatabaseFile)
 if int(str(fileSizeCheck.st_size)) == 0:
         print ("ERROR: dionaea.sqlite is not populated. dionaea possibly not init. properly. Issue might be due to dionaea not givin permissions to write to file or multiple pids of .//dionaea are running. Ending program")
