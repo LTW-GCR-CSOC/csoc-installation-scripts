@@ -162,7 +162,7 @@ hostname = socket.gethostname()
 
 dionaeaDatabaseFile = "/opt/dionaea/var/dionaea/dionaea.sqlite"
 
-print("Waiting for dionaea.sqlite to exist. Please wait. Dionaea might not have been initalized for the first time")
+print("Waiting for dionaea.sqlite to exist. Please wait. Dionaea might not have been initialized for the first time")
 ifFileExists = False
 while ifFileExists is False:
         ifFileExists = os.path.exists(dionaeaDatabaseFile)
