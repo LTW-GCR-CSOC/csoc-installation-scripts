@@ -76,7 +76,7 @@ INSTALL_COWRIE="no"
 ```
 After the updates have been made run honeypots.sh
 ```
-sudo ./honeypots.sh
+./honeypots.sh
 ```
 
 Dionaea logs and database will be in this directory /opt/dionaea/var/dionaea
