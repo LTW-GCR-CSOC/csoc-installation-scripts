@@ -3,10 +3,10 @@
 # Carleton University - GCR Cybersecurity Operations Center Project
 
   * [Description](#description)
+  * [Plans](#plans)
   * [Screenshots](#screenshots)
-  * [Dependencies](#dependencies)
   * [Installation](#installation)
-    + [Apache Metron](#apache-metron)
+    + [Apache Metron Server](#apache-metron-server)
     + [LTW GCR Canary](#ltw-gcr-canary)
   * [Configuration](#configuration)
   * [Usage](#usage)
@@ -25,31 +25,26 @@ The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC(**C**yber**s**ecurity **O
 
 The project is primarly divided into three focus areas: Open Source Software, Operation Guide, Pathway Training
 
-### Open Source Software:
+**Open Source Software:**   
 CSOC open source development seeks to configure, integrate and enhance existing open source sensor software projects (such as [Dionaea](https://github.com/LTW-GCR-CSOC/dionaea), [Cowrie](https://github.com/LTW-GCR-CSOC/cowrie), [OSSEC](https://github.com/LTW-GCR-CSOC/ossec-hids), [OpenVAS](https://github.com/LTW-GCR-CSOC/openvas-commander) and others) to report to a central information collector (such as [Apache Metron](http://metron.apache.org)) which will be used for alert aggregation and analytics. Development includes the creation of a physical and virtual deployable honeypot (GCR Canary) which includes various sensors. The honeypot can be used for intrusion detection in SME environments. 
  
-### Operation Guide
+**Operation Guide:**   
 The project will include CSOC Operational Playbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
 
-### Pathway Training
-Online training materials will be provided for SME employees to help address employee security awareness. 
-
+**Pathway Training:**   
+Online training materials will be provided for SME employees to help address employee security awareness.   
+   
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
-
-## Screenshots  
-The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), GCR Canary (a honeypot used to log hacker attempts), and screen capture of the GCR SOC User Guide. 
-![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage2.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Plans
 This project is being rolled out over three phases. We are currently focused on Phase 1. Details of our plans are available at [Current Phasing Plans](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
 
-## Installation
-### Apache Metron 
-This project uses Apache Metron to collect alerts from GCR Canary(Honeypot).
-* [Home Page](http://metron.apache.org) 
-* [Install Guide](https://cwiki.apache.org/confluence/display/METRON/Installation) 
-* [Source Code](https://github.com/apache/metron)
 
+## Screenshots  
+The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), the linux terminal of GCRDionaea within the GCR Canary Honeypot, and a screen capture of the GCR CSOC User Guide. 
+![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage2.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
+
+## Installation
 
 ### GCR Canary 
 Installation procedure below has been tested on [Ubuntu Mate](https://ubuntu-mate.org/) LTS 16.04 with [Raspberry Pi](https://www.raspberrypi.org) 3.
@@ -80,9 +75,6 @@ After the updates have been made run honeypots.sh
 ./honeypots.sh
 ```
 
-
-
-
 #### Usage
 **Dionaea Service within GCR Canary:** The following provides guidance on the GROK formatted output which is intended for use with Apache Metron:
 [GCRDionaea GROK Format](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/tree/master/SampleLogFiles)
@@ -93,6 +85,19 @@ If INSTALL_DIONAEALOGVIEWER was set to "yes", to view the Dionaea Logs visit htt
 
 **Cowrie Service within GCR Canary:** 
 If INSTALL_COWRIE and  INSTALL_COWRIELOGVIEWER were set to "yes", to view the Cowrie Logs, visit http://0.0.0.0:5000 
+
+### Apache Metron Server
+This project uses Apache Metron to collect alerts from the distribution of GCR Canary honeypots. You can use the Apache Metron [mailing list](http://metron.apache.org/community/) if any issues are encoutred during install. 
+* [Home Page](http://metron.apache.org) 
+* [Install Guide](https://cwiki.apache.org/confluence/display/METRON/Installation) 
+* [Source Code](https://github.com/apache/metron)
+
+**Syslog configuration for GCR Canary alert ingest**
+The following syslog configuration files will need to be installed on the server. (syslog config files)[https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/tree/master/SampleLogFiles/configForServer-notEnc]
+
+**Apache Metron Configuration for GCR Canary alert ingest**
+Apache Nifi will need to be installed. 
+
 
 ## How to test the software
 To be provided - (Information on how to run automated tests on the software)
