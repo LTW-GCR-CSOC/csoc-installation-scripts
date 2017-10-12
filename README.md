@@ -21,9 +21,9 @@
 
 ## Description 
 
-This GCR open source project is focused on delivering an easy to deploy open source cybersecurity monitoring solution for small to medium enterprises.  
+The GCR CSOC open source project is focused on providing easy to deploy open source cybersecurity solutions for small to medium enterprises.
 
-The project goal is a push-button install of the platform software necessary to support a professional-level Cybersecurity Operations Center (CSOC) solution suitable for use by managed service providers focused on small businesses, or medium sized enterprise IT departments.
+One of the goals for the project is to provide easy installs of software solutions and provide documentation for operation documentation guidance that can support professional-level Cybersecurity Operations Center (CSOC) suitable for small businesses, or medium sized enterprise IT departments.
 
 The project assets will include: software, documentation, and training materials.
 
@@ -38,18 +38,17 @@ Online training materials will be provided for SME employees to help address emp
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
 
 ## Screenshots  
-
+The following screenshots (from left to right) are of Apache Metron (used for alert collection), GCR Canary (a honeypot used to log hacker attemps), and screen capture of the GCR SOC User Guide. 
 ![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage2.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
-
-## Dependencies
-
-To be provided
 
 ## Installation
 
 ### Apache Metron 
+This project uses Apache Metron to collect alerts from the Canary honeypots.
+* [Home Page](http://metron.apache.org) 
+* [Install Guide](https://cwiki.apache.org/confluence/display/METRON/Installation) 
+* [Source Code](https://github.com/apache/metron)
 
-To be provided
 
 ### GCR Canary 
 
@@ -66,7 +65,7 @@ unzip master.zip && \
 cd csoc-installation-scripts-master/ && \
 chmod +x *.sh 
 ```
-## Configuration
+#### Configuration
 
 Configuration settings for Canary install (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypots.sh. 
 Within honeypots.sh configure the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
@@ -85,6 +84,8 @@ To view the Cowrie Logs, visit http://0.0.0.0:5000
 
 To view the Dionaea Logs, visit http://0.0.0.0:8000
 
+
+### GCR CSOC User Guide
 
 
 ## Usage
