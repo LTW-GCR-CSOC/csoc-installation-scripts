@@ -98,6 +98,13 @@ The following syslog configuration files will need to be installed on the server
 **Apache Metron Configuration for GCR Canary alert ingest**
 Apache Nifi will need to be installed. 
 
+![Metron Analytics UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-MetronUI.png?raw=true "Image: Metron UI showing GCRDionaea alerts")
+
+
+![Metron Management UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-ManagementUI.png?raw=true "Image: Metron Management UI showing GCRDionaea GROK settings")
+
+![Nifi UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/nifiDionaeaKafka.png?raw=true "Image: Using Nifi to create a dataflow from GCRDionaea alerts to Kafka")
+
 
 ## How to test the software
 To be provided - (Information on how to run automated tests on the software)
