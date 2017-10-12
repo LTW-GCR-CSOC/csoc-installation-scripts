@@ -1,6 +1,6 @@
 ![Global Cybersecurity Resource](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/githubGCRheader.png?raw=true "Global Cybersecurity Resource")   
 
-# Carleton University GCR Cybersecurity Operations Center Project
+# Carleton University - GCR Cybersecurity Operations Center Project
 
   * [Description](#description)
   * [Screenshots](#screenshots)
@@ -21,40 +21,39 @@
 
 ## Description 
 
-The GCR CSOC open source project is focused on providing easy to deploy open source cybersecurity solutions for small to medium enterprises.
+The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC(**C**yber**s**ecurity **O**perations **C**enter) project seeks to provide small to medium size enterprises with easy to deploy open source cybersecurity solutions and operation guides.
 
-One of the goals for the project is to provide easy installs of software solutions and provide documentation for operation documentation guidance that can support professional-level Cybersecurity Operations Center (CSOC) suitable for small businesses, or medium sized enterprise IT departments.
+The project is primarly divided into three focus areas: Open Source Software, Operation Guide, Pathway Training
 
-The project assets will include: software, documentation, and training materials.
-
-The software will configure, integrate and enhance existing open source software cybersecurity projects, including: Apache Metron, Dionaea, Cowrie, OSSEC and others.   
+* Open Source Software:
+The project seeks to configure, integrate and enhance existing open source sensor software projects (such as [Dionaea](https://github.com/LTW-GCR-CSOC/dionaea), [Cowrie](https://github.com/LTW-GCR-CSOC/cowrie), [OSSEC](https://github.com/LTW-GCR-CSOC/ossec-hids) and others) to work with an information collector (such as Apache Metron) that can be used for information aggregation and security analytics.
 
 Integration of cybersecurity sensors is a priority for the project to reduce labour and complexity associated with deploying open source security operations center solutions.  The project includes a remotely managed honeypot device (GCR Canary) that is suitable for use as a sensor for passive intrusion detection in SME environments.
  
+ * Operation Guide
 The project will include CSOC Operational Playbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
 
+* Pathway Training
 Online training materials will be provided for SME employees to help address employee security awareness. 
 
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
 
 ## Screenshots  
-The following screenshots (from left to right) are of Apache Metron (used for alert collection), GCR Canary (a honeypot used to log hacker attemps), and screen capture of the GCR SOC User Guide. 
+The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), GCR Canary (a honeypot used to log hacker attemps), and screen capture of the GCR SOC User Guide. 
 ![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage2.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Installation
-
 ### Apache Metron 
-This project uses Apache Metron to collect alerts from the Canary honeypots.
+This project uses Apache Metron to collect alerts from the GCR sensors.
 * [Home Page](http://metron.apache.org) 
 * [Install Guide](https://cwiki.apache.org/confluence/display/METRON/Installation) 
 * [Source Code](https://github.com/apache/metron)
 
 
 ### GCR Canary 
-
-The installation has been tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
-
-It is currently under active development and testing.
+* Installation has been tested on Ubuntu Mate LTS 16.04 with Raspberry Pi 3.
+* At the moment simple alerts from Dionaea (running with-in GCR Canary) can be reported to a server using syslog. Alerts are GROK formatted to be ready for ingested by Apache Metron.
+* Project is currently under active development and testing. 
 
 To install all of the GCR Canary software, run the following script:
 
@@ -86,22 +85,18 @@ To view the Dionaea Logs, visit http://0.0.0.0:8000
 
 
 ### GCR CSOC User Guide
-
+Under Development 
 
 ## Usage
-
 To be provided - show users how to use the software.
 
 ## How to test the software
-
 To be provided - information on how to run automated tests on the software.
 
 ## Known issues
-
 Currently under active development, see this repository's Issue Tracker.
 
 ## Getting help
-
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
 ## Getting involved
