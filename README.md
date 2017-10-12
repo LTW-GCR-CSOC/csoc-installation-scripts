@@ -98,6 +98,9 @@ To be provided - information on how to run automated tests on the software.
 ## Known issues
 Currently under active development, see this repository's Issue Tracker.
 
+## GCR Canary Case
+GCR is providing a custom designed case for the GCR Canary device, more details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case/README.md).
+
 ## Plans
 This project is being rolled out over three Phases, we are currently focused on Phase 1, details of our plans are available at [Current Phasing Plans](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
 
