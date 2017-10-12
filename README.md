@@ -42,7 +42,7 @@ This project is being rolled out over three phases. We are currently focused on 
 
 ## Screenshots  
 The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), the linux terminal of GCRDionaea within the GCR Canary Honeypot, and a screen capture of the GCR CSOC User Guide. 
-![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage2.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
+![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/GCRCSOC-ScreenshotCollage22.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Installation
 
