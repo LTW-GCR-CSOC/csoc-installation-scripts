@@ -39,7 +39,7 @@ Online training materials will be provided for SME employees to help address emp
 The project is currently in progress and available at https://github.com/LTW-GCR-CSOC
 
 ## Screenshots  
-The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), GCR Canary (a honeypot used to log hacker attemps), and screen capture of the GCR SOC User Guide. 
+The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), GCR Canary (a honeypot used to log hacker attempts), and screen capture of the GCR SOC User Guide. 
 ![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/GcrScreencaptureCollage2.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Installation
@@ -88,7 +88,9 @@ To view the Dionaea Logs, visit http://0.0.0.0:8000
 Under Development 
 
 ## Usage
-To be provided - show users how to use the software.
+Under Development
+
+[Configure logs and ingestion](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/SampleLogFiles/README.md)
 
 ## How to test the software
 To be provided - information on how to run automated tests on the software.
