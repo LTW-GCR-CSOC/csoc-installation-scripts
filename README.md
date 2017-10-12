@@ -98,6 +98,9 @@ To be provided - information on how to run automated tests on the software.
 ## Known issues
 Currently under active development, see this repository's Issue Tracker.
 
+## Plans
+This project is being rolled out over three Phases, we are currently focused on Phase 1, details of our plans are available at [Current Phasing Plans](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
+
 ## Getting help
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
