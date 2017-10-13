@@ -6,12 +6,12 @@
   * [Plans](#plans)
   * [Screenshots](#screenshots)
   * [Installation](#installation)
-    + [Apache Metron Server](#apache-metron-server)
-    + [LTW GCR Canary](#ltw-gcr-canary)
-  * [Configuration](#configuration)
-  * [Usage](#usage)
+    + [GCR Canary](#gcr-canary)
+    + [Alert Collection Server](#alert-collection-server)
   * [How to test the software](#how-to-test-the-software)
   * [Known issues](#known-issues)
+  * [GCR Canary Case](#gcr-canary-case)
+  * [GCR CSOC Playbook](#gcr-csoc-playbook)
   * [Getting help](#getting-help)
   * [Getting involved](#getting-involved)
   * [Open source licensing info](#open-source-licensing-info)
@@ -57,7 +57,7 @@ In the alert collection server Apache Nifi was used to channel Syslog alert info
 
 ## Installation
 
-### GCR Canary - Honeypot
+### GCR Canary
 The installation procedure below was tested on [Ubuntu Mate](https://ubuntu-mate.org/) LTS 16.04 with [Raspberry Pi](https://www.raspberrypi.org) 3.
 * UPDATE Oct, 2017: Simple alerts from Dionaea can be reported to a remote server using syslog(unencrypted). Alerts are GROK formatted with and ingested by Apache Metron.
 * Project is currently under active development and testing. 
@@ -118,7 +118,7 @@ See this repository's issue tracker.
 ## GCR Canary Case
 GCR is providing a custom designed case for the GCR Canary device, more details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case).
 
-## GCR CSOC User Guide
+## GCR CSOC Playbook
 To be provided - Under development 
 
 ## Getting help
