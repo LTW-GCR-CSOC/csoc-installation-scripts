@@ -21,18 +21,18 @@
 
 ## Description 
 
-The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC(**C**yber**s**ecurity **O**perations **C**enter) initiative seeks to provide small to medium size enterprises with openly available cybersecurity resources to self-manage their own security and enable companies to offer cybersecurity services to others.
+The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC(**C**yber**s**ecurity **O**perations **C**enter) initiative seeks to provide small to medium size enterprises with openly available cybersecurity resources to self-manage their own security or enable companies to offer cybersecurity services to others as part their business. 
 
-This project is primarily divided into three development areas: i) Developing open source software to compliment SOC services ii) Developing SOC operation guides and templates as a means to manage a SOC iii) Creating SOC "Pathway Training" material for online learning. 
+The development of this project is primarily divided into three focus areas: i) Developing open source software to compliment SOC services ii) Developing SOC operation guides and templates as a means to manage a security iii) Creating SOC "Pathway Training" material for online learning. 
 
 **Open Source Software Development:**   
-The development of open source development to compliment SOC operations seeks to configure, integrate and enhance existing open source sensor software projects (such as [Dionaea](https://github.com/LTW-GCR-CSOC/dionaea), [Cowrie](https://github.com/LTW-GCR-CSOC/cowrie), [OSSEC](https://github.com/LTW-GCR-CSOC/ossec-hids), [OpenVAS](https://github.com/LTW-GCR-CSOC/openvas-commander) and others) to report to a central information collector (such as [Apache Metron](http://metron.apache.org)) which will be used for alert aggregation and analytics. Development includes the creation of a physical and virtual deployable honeypot (GCR Canary) which includes various sensors. The honeypot can be used for intrusion detection in SME environments. 
+Open source software development seeks to configure, integrate and enhance existing open source sensor software projects (such as [Dionaea](https://github.com/LTW-GCR-CSOC/dionaea), [Cowrie](https://github.com/LTW-GCR-CSOC/cowrie), [OSSEC](https://github.com/LTW-GCR-CSOC/ossec-hids), [OpenVAS](https://github.com/LTW-GCR-CSOC/openvas-commander) and others) to report to a central information collector (such as [Apache Metron](http://metron.apache.org)). The central alert collector will be used for alert aggregation and analytics. Development also includes the creation of a physical and virtually deployable honeypots (GCR Canary) that includes the various sensors mentioned above. The GCR Canary honeypot can be used for intrusion detection in SME environments. 
  
 **CSOC Operation Guide Creation:**   
-The project will include CSOC Operational Playbook templates suitable for use by manager service providers or IT department staff responsible for operating the CSOC.  
+The creation of the CSOC Operational Playbook will include guidance and templates for managing cybersecurity in an organization.
 
 **CSOC Pathway Training Material:**   
-Online training resources will be created to allow SMEs to provide their employees with security awareness material.
+Online training resources seeks to improve the adoption of proper cybersecurity hygiene within an organization
 
 ## Plans
 This project is being rolled out over three phases. We are currently focused on Phase 1. Details of our plans are available at [Current Phasing Plans](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
