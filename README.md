@@ -42,7 +42,7 @@ This project is being rolled out over three phases. We are currently focused on 
 
 ## Screenshots  
 The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), the linux terminal of GCRDionaea within the GCR Canary Honeypot, and a screen capture of the GCR CSOC User Guide. 
-![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/GCRCSOC-ScreenshotCollage22.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
+![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/GCRCSOC-ScreenshotCollage3.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Installation
 
@@ -98,7 +98,7 @@ The following syslog configuration files will need to be installed on the server
 **Apache Metron Configuration for GCR Canary alert ingest**
 Apache Nifi will need to be installed. 
 
-![Metron Analytics UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-MetronUI.png?raw=true "Image: Metron UI showing GCRDionaea alerts")
+![Metron Analytics UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-MetronDashboard2.png?raw=true "Image: Metron UI showing GCRDionaea alerts")
 
 
 ![Metron Management UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-ManagementUI.png?raw=true "Image: Metron Management UI showing GCRDionaea GROK settings")
