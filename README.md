@@ -39,15 +39,25 @@ This project is being rolled out over three phases. We are currently focused on 
 
 
 ## Screenshots  
-The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), terminal output of a GCR Canary honeypot, and a screen capture of the GCR CSOC Playbook. 
+The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), a terminal output of a GCR Canary honeypot, and a screen capture of the GCR CSOC Playbook. 
 ![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/GCRCSOC-ScreenshotCollage3.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
+
+The following screenshot shows a customized Apache Metron dashboard that presents alert information from a GCR Canary.
+![Metron Analytics UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-MetronDashboard2.png?raw=true "Image: Metron UI showing GCRDionaea alerts")
+
+A GCR Canary honeypot was configured to send Dionaea type alerts to the Apache Metron central server. The Metron Management UI was used enter how the alert should be parsed. 
+![Metron Management UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-ManagementUI.png?raw=true "Image: Metron Management UI showing GCRDionaea GROK settings")
+
+In then central server Apache Nifi was used to channel Syslog alert information to a Kafka broker for further processing by Apache Metron.
+![Nifi UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/nifiDionaeaKafka.png?raw=true "Image: Using Nifi to create a dataflow from GCRDionaea alerts to Kafka")
+
+
 
 ## Installation
 
-### GCR Canary 
-Installation procedure below has been tested on [Ubuntu Mate](https://ubuntu-mate.org/) LTS 16.04 with [Raspberry Pi](https://www.raspberrypi.org) 3.
-* UPDATE Oct, 2017: Simple alerts from Dionaea can be reported to a remote server using syslog(unencrypted). Alerts are GROK formatted with the intent of being ingested by Apache Metron.
-* 3D printing files for the Raspberry Pi case will be made available.
+### GCR Canary - Honeypot
+The installation procedure below was tested on [Ubuntu Mate](https://ubuntu-mate.org/) LTS 16.04 with [Raspberry Pi](https://www.raspberrypi.org) 3.
+* UPDATE Oct, 2017: Simple alerts from Dionaea can be reported to a remote server using syslog(unencrypted). Alerts are GROK formatted with and ingested by Apache Metron.
 * Project is currently under active development and testing. 
 
 To install all of the GCR Canary software, run the following script on Ubuntu Mate:
@@ -61,8 +71,8 @@ chmod +x *.sh
 ```
 #### Configuration
 
-Configuration settings for Canary install (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypots.sh. 
-Within honeypots.sh configure the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
+Configuration settings (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypots.sh. 
+Within honeypots.sh change the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
 ```
 INSTALL_DIONAEA="yes"
 
@@ -73,11 +83,11 @@ After the updates have been made run honeypots.sh
 ./honeypots.sh
 ```
 
-#### Usage
-**Dionaea Service within GCR Canary:** The following provides guidance on the GROK formatted output which is intended for use with Apache Metron:
+**Dionaea Service within GCR Canary:** 
+The following provides guidance on the GROK formatted output which is intended for use with Apache Metron:
 [GCRDionaea GROK Format](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/tree/master/SampleLogFiles)
 
-The Dionaea logs and sqlite3 database is stored in this directory within GCR Canary: /opt/dionaea/var/dionaea
+The Dionaea logs and sqlite3 database is stored in /opt/dionaea/var/dionaea within GCR Canary.
 
 If INSTALL_DIONAEALOGVIEWER was set to "yes", to view the Dionaea Logs visit http://0.0.0.0:8000
 
@@ -85,24 +95,17 @@ If INSTALL_DIONAEALOGVIEWER was set to "yes", to view the Dionaea Logs visit htt
 If INSTALL_COWRIE and  INSTALL_COWRIELOGVIEWER were set to "yes", to view the Cowrie Logs, visit http://0.0.0.0:5000 
 
 ### Apache Metron Server
-This project uses Apache Metron to collect alerts from the distribution of GCR Canary honeypots. You can use the Apache Metron [mailing list](http://metron.apache.org/community/) if any issues are encoutred during install. 
+This project uses Apache Metron to collect alerts from the distribution of GCR Canary honeypots. Below are links that can provide guidance to install Apache Metron on the server that will be used for alert collection. 
 * [Home Page](http://metron.apache.org) 
 * [Install Guide](https://cwiki.apache.org/confluence/display/METRON/Installation) 
 * [Source Code](https://github.com/apache/metron)
+You can use the Apache Metron [mailing list](http://metron.apache.org/community/) if any issues are encoutred during install. 
 
 **Syslog configuration for GCR Canary alert ingest**
 The following syslog configuration files will need to be installed on the server. (syslog config files)[https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/tree/master/SampleLogFiles/configForServer-notEnc]
 
 **Apache Metron Configuration for GCR Canary alert ingest**
-Apache Nifi will need to be installed. 
-
-![Metron Analytics UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-MetronDashboard2.png?raw=true "Image: Metron UI showing GCRDionaea alerts")
-
-
-![Metron Management UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/Dionaea-ManagementUI.png?raw=true "Image: Metron Management UI showing GCRDionaea GROK settings")
-
-![Nifi UI - GCRDionaea](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/nifiDionaeaKafka.png?raw=true "Image: Using Nifi to create a dataflow from GCRDionaea alerts to Kafka")
-
+To be provided - Instructions for ingesting GCR Canary alerts are under development. The [screenshots](#screenshots) above provide a preview of what alerts look like in Apache Metron.
 
 ## How to test the software
 To be provided - (Information on how to run automated tests on the software)
@@ -114,10 +117,10 @@ See this repository's issue tracker.
 GCR is providing a custom designed case for the GCR Canary device, more details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case).
 
 ## GCR CSOC User Guide
-Under Development 
+To be provided - Under development 
 
 ## Getting help
-If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
+If you have questions, concerns, bug reports, etc, please file an issue in this repository's issue tracker.
 
 ## Getting involved
 [CONTRIBUTING](CONTRIBUTING.md)
@@ -125,7 +128,10 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 ----
 
 ## Open source licensing info
-[LICENSE](LICENSE)
+Some components in GCR Canary are under GPL license [LICENSE](LICENSE)
+
+
+
 
 ## Related open source projects
  * [Apache Metron](http://http://metron.apache.org/)
