@@ -35,11 +35,11 @@ The creation of the CSOC Operational Playbook will include guidance and template
 Online training resources seeks to improve the adoption of proper cybersecurity hygiene within an organization
 
 ## Plans
-This project is being rolled out over three phases. We are currently focused on Phase 1. Details of our plans are available at [Current Phasing Plans](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
+This project is being rolled out over three phases. We are currently focused on Phase 1. Details of our plans are available [here](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
 
 
 ## Screenshots  
-The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), the linux terminal of GCRDionaea within the GCR Canary Honeypot, and a screen capture of the GCR CSOC User Guide. 
+The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), terminal output of a GCR Canary honeypot, and a screen capture of the GCR CSOC Playbook. 
 ![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/GCRCSOC-ScreenshotCollage3.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 ## Installation
