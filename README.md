@@ -128,10 +128,8 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 ----
 
 ## Open source licensing info
-Some components in GCR Canary are under GPL license [LICENSE](LICENSE)
-
-
-
+Some components in GCR Canary are licensed under GPL [LICENSE](LICENSE)
+Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/metron/blob/master/LICENSE)
 
 ## Related open source projects
  * [Apache Metron](http://http://metron.apache.org/)
