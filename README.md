@@ -155,7 +155,6 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [Naveen Narayanasamy - Cybersecurity Software Developer](mailto:naveennarayanasamy@cmail.carleton.ca) 
  * [Frank Horsfall - Cybersecurity Architecture](mailto:frankhorsfall@cunet.carleton.ca)
  * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
- * [Anthony Ani - CSOC SME Customer Engagement]
+ * Anthony Ani - CSOC SME Customer Engagement
  * [Brandon Hurley - Cybersecurity Software Developer](http://brandonhurley.com)
  * [Mahmoud Gad - Cybersecurity Specialist](https://www.linkedin.com/in/mahmoudgad/)
- * [Tommy Nguyen]
