@@ -1,17 +1,15 @@
+#!/usr/bin/env bash
 #
 # openvas install
 # Reference: https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
-#
+# v0.1
 
 # install dependencies
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 sudo apt-get -y install curl
 sudo apt-get -y install cmake
-
-# sudo apt-get -y install redis-server
-# sudo sed -i "s#^\# unixsocket .*#unixsocket /tmp/redis.sock#g" /etc/redis/redis.conf
-# sudo systemctl restart redis-server.service
-# sudo systemctl enable /lib/systemd/system/redis-server.service
 
 # Reference: https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32/mingw32_4.2.1.dfsg-2ubuntu1_amd64.deb
@@ -22,11 +20,36 @@ sudo apt-get install -f
 sudo dpkg -i *.deb
 rm *.deb
 
-# https://www.rosehosting.com/blog/how-to-install-configure-and-use-redis-on-ubuntu-16-04/
-# to be added
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04
+# Add Creative Commons note here
+# Install Redis from source
+sudo apt-get -y update
+sudo apt-get -y install build-essential tcl
+cd /tmp
+curl -O http://download.redis.io/redis-stable.tar.gz
+tar xzvf redis-stable.tar.gz
+cd redis-stable
 
-# wget https://raw.githubusercontent.com/leonov-av/openvas-commander/master/openvas_commander.sh
-# Use the GCR clone copy of the script, periodically check original respository for script updates
+make
+make test
+sudo make install
+
+sudo mkdir /etc/redis
+cd /etc/redis
+wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/redis.conf
+cd /etc/systemd/system/
+wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/redis.service
+
+sudo adduser --system --group --no-create-home redis
+sudo mkdir /var/lib/redis
+sudo chown redis:redis /var/lib/redis
+sudo chmod 770 /var/lib/redis
+
+sudo systemctl start redis
+
+sudo systemctl enable redis
+
+cd $DIR
 wget https://raw.githubusercontent.com/LTW-GCR-CSOC/openvas-commander/master/openvas_commander.sh
 chmod +x openvas_commander.sh
 
@@ -69,17 +92,18 @@ ls openvas
 
 # Install the components:
 
-./openvas_commander.sh --install-all
+#./openvas_commander.sh --install-all
 
 # NB: If you are afraid that something might go wrong, you can start separately:
 
 # ./openvas_commander.sh --install-component "openvas-smb"
-# ./openvas_commander.sh --install-component "openvas-libraries"
-# ./openvas_commander.sh --install-component "openvas-scanner"
-# ./openvas_commander.sh --install-component "openvas-manager"
-# ./openvas_commander.sh --install-component "openvas-cli"
-# ./openvas_commander.sh --install-component "greenbone-security-assistant"
+ ./openvas_commander.sh --install-component "openvas-libraries"
+ ./openvas_commander.sh --install-component "openvas-scanner"
+ ./openvas_commander.sh --install-component "openvas-manager"
+ ./openvas_commander.sh --install-component "openvas-cli"
+ ./openvas_commander.sh --install-component "greenbone-security-assistant"
 
+#The rest of the install script goes here
 # Create certificates and a user:
 
 ./openvas_commander.sh --configure-all
@@ -87,13 +111,19 @@ ls openvas
 # Update and rebuild content:
 
 ./openvas_commander.sh --update-content
-./openvas_commander.sh --rebuild-content
+
+./openvas_commander.sh --kill-all
+sudo ./openvas_commander.sh --start-all
+echo "Waiting for 10 minutes to allow the NVTs to generate..."
+sleep 10m
+
+#Wait 10 min to allow the NVTs to generate
+sudo ./openvas_commander.sh --rebuild-content
 
 #Launch the OpenVAS processes:
 
-./openvas_commander.sh --kill-all
-./openvas_commander.sh --start-all
-
+sudo ./openvas_commander.sh --kill-all
+sudo ./openvas_commander.sh --start-all
 
 # Check, that everything is started, wait for openvassd:
 
@@ -105,7 +135,9 @@ ls openvas
 # root 10426 0.0 0.3 28452 3424 pts/0 Sl 18:17 0:00 /usr/local/sbin/gsad
 # root 10439 0.0 0.2 4556 2184 pts/0 S+ 18:17 0:00 grep -E (openvas.d|gsad)
 
-# in a few minutes all NVTs are reloaded:
+# Sleep for 3 min
+echo "Sleeping for 3 minutes. Will check the status of the processes after that"
+sleep 180
 
 ./openvas_commander.sh --check-proc
 # root 10404 0.8 7.2 142980 74724 pts/0 SL 18:17 0:00 openvasmd
