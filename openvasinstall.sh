@@ -55,11 +55,11 @@ chmod +x openvas_commander.sh
 
 # Install dependencies (the longest operation):
 
-./openvas_commander.sh --install-dependencies
+sudo ./openvas_commander.sh --install-dependencies
 
 # Available versions of OpenVAS:
 
-./openvas_commander.sh --show-releases
+sudo ./openvas_commander.sh --show-releases
 
 # Available source archives for OpenVAS 9:
 
@@ -75,8 +75,8 @@ chmod +x openvas_commander.sh
 
 # Download and unpack:
 
-./openvas_commander.sh --download-sources "OpenVAS-9"
-./openvas_commander.sh --create-folders
+sudo ./openvas_commander.sh --download-sources "OpenVAS-9"
+sudo ./openvas_commander.sh --create-folders
 
 # Everything is in place and we are ready for actual installation:
 
@@ -106,18 +106,18 @@ ls openvas
 #The rest of the install script goes here
 # Create certificates and a user:
 
-./openvas_commander.sh --configure-all
+sudo ./openvas_commander.sh --configure-all
 
 # Update and rebuild content:
 
-./openvas_commander.sh --update-content
+sudo ./openvas_commander.sh --update-content
 
 ./openvas_commander.sh --kill-all
 sudo ./openvas_commander.sh --start-all
-echo "Waiting for 10 minutes to allow the NVTs to generate..."
-sleep 10m
 
 #Wait 10 min to allow the NVTs to generate
+echo "Waiting for 10 minutes to allow the NVTs to generate..."
+sleep 10m
 sudo ./openvas_commander.sh --rebuild-content
 
 #Launch the OpenVAS processes:
