@@ -59,7 +59,7 @@ sudo ./openvas_commander.sh --install-dependencies
 
 # Available versions of OpenVAS:
 
-sudo ./openvas_commander.sh --show-releases
+./openvas_commander.sh --show-releases
 
 # Available source archives for OpenVAS 9:
 
@@ -97,11 +97,11 @@ ls openvas
 # NB: If you are afraid that something might go wrong, you can start separately:
 
 # ./openvas_commander.sh --install-component "openvas-smb"
- ./openvas_commander.sh --install-component "openvas-libraries"
- ./openvas_commander.sh --install-component "openvas-scanner"
- ./openvas_commander.sh --install-component "openvas-manager"
- ./openvas_commander.sh --install-component "openvas-cli"
- ./openvas_commander.sh --install-component "greenbone-security-assistant"
+sudo ./openvas_commander.sh --install-component "openvas-libraries"
+sudo ./openvas_commander.sh --install-component "openvas-scanner"
+sudo ./openvas_commander.sh --install-component "openvas-manager"
+sudo ./openvas_commander.sh --install-component "openvas-cli"
+sudo ./openvas_commander.sh --install-component "greenbone-security-assistant"
 
 #The rest of the install script goes here
 # Create certificates and a user:
@@ -112,7 +112,7 @@ sudo ./openvas_commander.sh --configure-all
 
 sudo ./openvas_commander.sh --update-content
 
-./openvas_commander.sh --kill-all
+sudo ./openvas_commander.sh --kill-all
 sudo ./openvas_commander.sh --start-all
 
 #Wait 10 min to allow the NVTs to generate
@@ -147,4 +147,4 @@ sleep 180
 # root 10463 0.0 0.2 4556 2204 pts/0 S+ 18:19 0:00 grep -E (openvas.d|gsad)
 
 # If something goes wrong, you can always find out what to do next with:
-./openvas_commander.sh --check-status v9
+sudo ./openvas_commander.sh --check-status v9
