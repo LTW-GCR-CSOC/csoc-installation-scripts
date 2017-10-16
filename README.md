@@ -151,12 +151,11 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [Carleton University TIM Program](http://http://timprogram.ca/)
 
 ## Contributors
- * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca) 
+ * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca)[, President of Global EPIC organization](http://globalepic.org)
  * [Brian Hurley - GCR CSOC Project Leader](https://www.linkedin.com/in/brianrhurley/)
  * [Ahmed Shah - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
  * [Naveen Narayanasamy - Cybersecurity Software Developer](mailto:naveennarayanasamy@cmail.carleton.ca) 
  * [Frank Horsfall - Cybersecurity Architecture](mailto:frankhorsfall@cunet.carleton.ca)
  * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
- * Anthony Ani - CSOC SME Customer Engagement
  * [Brandon Hurley - Cybersecurity Software Developer](http://brandonhurley.com)
  * [Mahmoud Gad - Cybersecurity Specialist](https://www.linkedin.com/in/mahmoudgad/)
