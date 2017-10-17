@@ -4,6 +4,11 @@
 # Reference: https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
 # v0.1
 
+if [[ "$EUID" -ne 0 ]]; then
+	echo "Sorry, you need to run this as root"
+	exit 2
+fi
+
 # install dependencies
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
