@@ -217,7 +217,7 @@ then
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
   # delay for a few minutes to let dionaea and system get ready... prob should add a check here rather than a timer
-  sleep 10m # 10 minutes for now
+  sleep 5m # 5 minutes for now
   sudo pip3 install schedule
   sudo pip3 install psutil
   wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
