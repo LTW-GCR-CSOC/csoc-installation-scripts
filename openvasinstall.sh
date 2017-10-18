@@ -62,7 +62,6 @@ chown redis:redis /var/lib/redis
 chmod 770 /var/lib/redis
 
 systemctl start redis
-
 systemctl enable redis
 
 cd $DIR
@@ -116,7 +115,7 @@ ls openvas
 ./openvas_commander.sh --start-all
 
 #Wait 10 min to allow the NVTs to generate
-echo "Waiting for 10 minutes to allow the NVTs to generate..."
+printf "**** ${GRN}Waiting for the NVTs to generate...${NC} ****\n"
 ./openvas_commander.sh --rebuild-content
 
 #Launch the OpenVAS processes:
@@ -129,7 +128,7 @@ echo "Waiting for 10 minutes to allow the NVTs to generate..."
 ./openvas_commander.sh --check-proc
 
 # Sleep for 3 min
-echo "Sleeping for 3 minutes. Will check the status of the processes after that"
+printf "**** ${GRN}Sleeping for 3 minutes. Will check the status of the processes after that${NC} ****\n"
 sleep 180
 
 ./openvas_commander.sh --check-proc
