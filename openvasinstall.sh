@@ -4,6 +4,18 @@
 # Reference: https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
 # v0.2
 
+# Variables
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+BOG='\e[30;48;5;82m'
+RED='\e[41m'
+GRN='\e[42m'
+NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RED}This is red text${NC}\n"
+ 
+if [[ "$EUID" -ne 0 ]]; then
+  printf "**** ${RED}Sorry, you need to run this as root${NC} ****\n"
+  exit 2
+fi
+  
 # Install dependencies
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
