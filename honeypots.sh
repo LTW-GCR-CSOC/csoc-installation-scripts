@@ -183,7 +183,7 @@ sudo apt-get install -y curl
 #---------------
 if [[  "$INSTALL_VNCSERVER" == "yes" ]]
 then
- ./vncserver.sh
+ ./vncsetup.sh
 fi
 
 # ---------------
