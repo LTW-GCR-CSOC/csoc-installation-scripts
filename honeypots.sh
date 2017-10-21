@@ -129,8 +129,10 @@ sudo timedatectl set-timezone UTC
 echo "-----@ SET HOSTNAME -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 # set hostname for testing
 sudo hostname ${HOSTNAME}
-sudo cat $HOSTNAME >/etc/hostname
+
 cd /etc
+sudo mv hostname hostname.bak
+sudo cat $HOSTNAME >/etc/hostname
 sudo mv hosts hosts.bak
 sudo wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/hosts
 sudo service hostname start
