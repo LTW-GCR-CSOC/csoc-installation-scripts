@@ -42,6 +42,7 @@ INSTALL_MENDER="no"
 INSTALL_RP="no"
 INSTALL_VNCSERVER="no"
 SETUP_SYSLOG="no"
+SETUP_HOSTNAME="no"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
 then
@@ -126,17 +127,19 @@ echo "-----@ SET TIMEZONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 # Change device time to UTC time as default for all Canary devices
 sudo timedatectl set-timezone UTC
 
-echo "-----@ SET HOSTNAME -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-# set hostname for testing
-sudo hostname ${HOSTNAME}
-
-cd /etc
-sudo mv hostname hostname.bak
-sudo cat $HOSTNAME >/etc/hostname
-sudo mv hosts hosts.bak
-sudo wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/hosts
-sudo service hostname start
-printf "${BOG}HOSTNAME=`hostname`${NC}\n"
+if [[ "$SETUP_HOSTNAME" == "yes" ]] 
+then
+ echo "-----@ SET HOSTNAME -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+ # set hostname for testing
+ sudo hostname ${HOSTNAME}
+ cd /etc
+ sudo mv hostname hostname.bak
+ sudo cat $HOSTNAME >/etc/hostname
+ sudo mv hosts hosts.bak
+ sudo wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/hosts
+ sudo service hostname start
+ printf "${BOG}HOSTNAME=`hostname`${NC}\n"
+fi
 
 #---------------
 #
