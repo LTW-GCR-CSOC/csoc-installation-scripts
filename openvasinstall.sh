@@ -28,6 +28,8 @@ sudo apt-get -y install cmake
 echo "Finished installing curl and CMake"
 
 # Reference: https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
+# installs for vmware testing instance x86 
+# TODO: detect RP and install correct target versions
 echo "Installing mingw32..."
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32/mingw32_4.2.1.dfsg-2ubuntu1_amd64.deb
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-binutils/mingw32-binutils_2.20-0.2ubuntu1_amd64.deb
