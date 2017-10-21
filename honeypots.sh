@@ -23,6 +23,7 @@ GRN='\e[42m'
 NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RED}This is red text${NC}\n"
 
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
+HOSTNAME="GCRCanaryTEST" #also see hosts file in Installfiles on github
 
 PREINSTALL_CLEANUP="yes"
 INSTALL_REFRESH="yes"
@@ -124,6 +125,16 @@ echo "-----@ SET TIMEZONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 # sudo cp /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 # Change device time to UTC time as default for all Canary devices
 sudo timedatectl set-timezone UTC
+
+echo "-----@ SET HOSTNAME -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+# set hostname for testing
+sudo hostname ${HOSTNAME}
+sudo cat $HOSTNAME >/etc/hostname
+cd /etc
+sudo mv hosts hosts.bak
+sudo wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/hosts
+sudo service hostname start
+printf "${BOG}HOSTNAME=`hostname`${NC}\n"
 
 #---------------
 #
