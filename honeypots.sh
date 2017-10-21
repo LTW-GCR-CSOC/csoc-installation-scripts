@@ -39,6 +39,7 @@ INSTALL_OPENVAS="no"
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
 INSTALL_RP="no"
+INSTALL_VNCSERVER="no"
 SETUP_SYSLOG="no"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
@@ -95,6 +96,13 @@ then
  printf "**** ${RED}WARNING${NC}: Syslog won't be setup ****\n"
 else
  printf "**** ${GRN}INSTALLING${NC}: Syslog will be setup  ****\n"
+fi
+
+if [[ "$INSTALL_VNCSERVER" == "no" ]] 
+then
+ printf "**** ${RED}WARNING${NC}: VNC server will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: VNC server  ****\n"
 fi
 
 # ---------------
@@ -167,6 +175,16 @@ sudo apt-get install -y autogen autoconf libtool
 sudo apt-get install -y make
 sudo apt-get install -y curl
 # sudo apt-get install -y ntop
+
+# ---------------
+#
+# Install VNC server
+#
+#---------------
+if [[  "$INSTALL_VNCSERVER" == "yes" ]]
+then
+ ./vncserver.sh
+fi
 
 # ---------------
 #
