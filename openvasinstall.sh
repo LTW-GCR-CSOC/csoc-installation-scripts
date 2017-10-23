@@ -2,7 +2,7 @@
 #
 # OpenVAS install
 # Reference: https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
-# v0.2
+# v0.3
 
 # Variables
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
@@ -26,19 +26,6 @@ echo "Installing curl and CMake..."
 sudo apt-get -y install curl
 sudo apt-get -y install cmake
 echo "Finished installing curl and CMake"
-
-# Reference: https://askubuntu.com/questions/689935/unable-to-locate-package-mingw32
-# installs for vmware testing instance x86 
-# TODO: detect RP and install correct target versions
-echo "Installing mingw32..."
-wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32/mingw32_4.2.1.dfsg-2ubuntu1_amd64.deb
-wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-binutils/mingw32-binutils_2.20-0.2ubuntu1_amd64.deb
-wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mingw32-runtime/mingw32-runtime_3.15.2-0ubuntu1_all.deb
-sudo dpkg -i *.deb
-sudo apt-get install -f
-sudo dpkg -i *.deb
-rm *.deb
-echo "Finished installing mingw32"
 
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04
 # Add Creative Commons note here
@@ -104,19 +91,23 @@ echo "Finished downloading and unpacking the source files"
 ls openvas
 
 # Install the components:
-
-#./openvas_commander.sh --install-all
+echo "Installing the OpenVAS components..."
+sudo ./openvas_commander.sh --install-all
 
 # NB: If you are afraid that something might go wrong, you can start separately:
 
-echo "Installing the OpenVAS components..."
 # ./openvas_commander.sh --install-component "openvas-smb"
-sudo ./openvas_commander.sh --install-component "openvas-libraries"
-sudo ./openvas_commander.sh --install-component "openvas-scanner"
-sudo ./openvas_commander.sh --install-component "openvas-manager"
-sudo ./openvas_commander.sh --install-component "openvas-cli"
-sudo ./openvas_commander.sh --install-component "greenbone-security-assistant"
+#sudo ./openvas_commander.sh --install-component "openvas-libraries"
+#sudo ./openvas_commander.sh --install-component "openvas-scanner"
+#sudo ./openvas_commander.sh --install-component "openvas-manager"
+#sudo ./openvas_commander.sh --install-component "openvas-cli"
+#sudo ./openvas_commander.sh --install-component "greenbone-security-assistant"
 echo "Finished installing the OpenVAS components"
+
+echo "Cleaning up leftover files..."
+sudo apt-get autoremove
+sudo apt-get clean
+echo "Finished cleaning up leftover files..."
 
 # Create certificates and a user:
 
@@ -134,7 +125,7 @@ echo "Rebuilding content..."
 sudo ./openvas_commander.sh --rebuild-content
 echo "Finished rebuilding content"
 
-# Check, that everything is started, wait for openvassd:
+# Check, that everything is started:
 
 ./openvas_commander.sh --check-proc
 
@@ -156,4 +147,3 @@ sudo update-rc.d openvas_start defaults
 
 cd $DIR
 echo 'OpenVAS is now ready to use! Open a web browser and go to "localhost" to access the web interface.'
-
