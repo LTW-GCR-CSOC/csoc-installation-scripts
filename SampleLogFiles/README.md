@@ -1,23 +1,22 @@
-This document contains sample log alert information from different types of sensors and information on a custom script intended to generate enhanced logs for Apache Metron consumption. 
+This document contains sample log alert information from different types of sensors along with the GROK parser patterns for use with Apache Metron.  
 
-This document also includes grok parser statements for use with Apache Metron associated with the generated logs.  
+See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result for GROK related tools (i.e. pattern verifier).
 
-See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result for grok related tools.
 
-<h3>GCRdionaeaAlerts.py</h3>
-./var/log/GCRDionaea.log (a.k.a. dionaea.log)<br />
+<h3>Log/Alert Generator: GCRdionaeaAlerts.py</h3>
+Location: ./var/log/GCRDionaea.log (a.k.a. dionaea.log)<br />
 <br />
-<h5>*What it means:*</h5>
+<h5>*What each column means:*</h5>
 <table><tr><td>
 UnixTime | alert_type | hostname | event | connection_id | ip_dst_add | dst_port | ip_src_addr | src_port | payload |
 </td></tr></table>
 
-<h5>GROCK</h5>
+<h5>GROK STATEMENT</h5>
 <table><tr><td>
 %{NUMBER:timestamp}\|%{GREEDYDATA:alert_type}\|%{GREEDYDATA:hostname}\|%{GREEDYDATA:event}\|%{NUMBER:connection_id}\|%{IP:ip_dst_addr}\|%{NUMBER:dst_port}\|%{IP:ip_src_addr}\|%{NUMBER:src_port}\|%{GREEDYDATA:payload}\|
 </td></tr></table>
 
-<h5>SAMPLE LOG:</h5>
+<h5>SAMPLE OF LOG:</h5>
 <table><tr><td>
 1505872111|GCRCanary-Device|gcrtech-desktop|Connection(accept,tcp,Blackhole)-Alert(connections)|141208|10.2.1.110|23|10.2.1.46|47394|[CONNECTIONS:(connection       connection_type connection_transport    connection_protocol     connection_timestamp    connection_root connection_parent       local_host      local_port      remote_host     remote_hostname remote_port     )(141208        accept  tcp     Blackhole       1505872111.5190728      141208  None    10.2.1.110      23      10.2.1.46               47394)]|<br />
 1505872112|GCRCanary-Device|gcrtech-desktop|Connection(accept,tcp,httpd)-Alert(connections)|141211|10.2.1.110|80|10.2.1.46|42915|[CONNECTIONS:(connection    connection_type connection_transport    connection_protocol     connection_timestamp    connection_root connection_parent       local_host      local_port      remote_host     remote_hostname remote_port     )(141211        accept  tcp     httpd   1505872111.947919       141211  None    10.2.1.110      80      10.2.1.46               42915)]|<br />
