@@ -4,7 +4,7 @@ See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/d
 
 
 <h3>Log/Alert Generator: GCRdionaeaAlerts.py</h3>
-Location: ./var/log/GCRDionaea.log (a.k.a. dionaea.log)<br />
+Location of log file: ./var/log/GCRDionaea.log (a.k.a. dionaea.log)<br />
 <br />
 <h5>*What each column means:*</h5>
 <table><tr><td>
