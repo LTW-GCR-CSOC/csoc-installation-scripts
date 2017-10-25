@@ -59,7 +59,7 @@ In the alert collection server Apache Nifi was used to channel Syslog alert info
 
 ### GCR Canary
 The installation procedure below was tested on [Ubuntu Mate](https://ubuntu-mate.org/) LTS 16.04 with [Raspberry Pi](https://www.raspberrypi.org) 3.
-* UPDATE Oct, 2017: Simple alerts from Dionaea can be reported to a remote server using syslog(unencrypted). Alerts are GROK formatted with and ingested by Apache Metron.
+* UPDATE Oct, 2017: Simple alerts from Dionaea can be reported to a remote server using syslog(unencrypted). Alerts are GROK formatted and ingested by Apache Metron.
 * Project is currently under active development and testing. 
 
 To install all of the GCR Canary software, run the following script on Ubuntu Mate:
