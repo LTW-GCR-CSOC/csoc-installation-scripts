@@ -136,7 +136,7 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
 
 ## Related open source projects
  * [Apache Metron](http://http://metron.apache.org/)
- * [Dionaea](http://https://github.com/DinoTools/dionaea)
+ * [Dionaea](https://github.com/DinoTools/dionaea)
  * [Dionaea Log Viewer](https://github.com/mindphluxnet/cowrie-logviewer)
  * [Cowrie](https://github.com/micheloosterhof/cowrie)
  * [Cowrie Log Viewer](https://github.com/mindphluxnet/cowrie-logviewer)
