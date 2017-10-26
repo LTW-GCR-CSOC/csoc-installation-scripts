@@ -135,7 +135,7 @@ Some components in GCR Canary are licensed under GPL [LICENSE](LICENSE).
 Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/metron/blob/master/LICENSE).
 
 ## Related open source projects
- * [Apache Metron](http://http://metron.apache.org/)
+ * [Apache Metron](http://metron.apache.org/)
  * [Dionaea](http://https://github.com/DinoTools/dionaea)
  * [Dionaea Log Viewer](https://github.com/mindphluxnet/cowrie-logviewer)
  * [Cowrie](https://github.com/micheloosterhof/cowrie)
@@ -149,7 +149,7 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [Lead to Win](http://leadtowin.ca)
  * [Ottawa - Cyber](http://lce.ltw-global.com)
  * [Hacker Alerting Service](http://globalcybersecurityresource.com)
- * [Carleton University TIM Program](http://http://timprogram.ca/)
+ * [Carleton University TIM Program](http://timprogram.ca/)
 
 ## Contributors
  * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca)[, President of Global EPIC organization](http://globalepic.org)
