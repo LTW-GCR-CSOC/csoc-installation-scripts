@@ -2,14 +2,6 @@
 
 # Carleton University - GCR Cybersecurity Operations Center Project
 
----
-title: "Habits"
-output:
-  github_document:
-    toc: true
-    toc_depth: 2
----
-
   * [Description](#description)
   * [Plans](#plans)
   * [Screenshots](#screenshots)
