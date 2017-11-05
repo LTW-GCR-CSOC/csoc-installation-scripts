@@ -25,7 +25,7 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 HOSTNAME="GCRCanaryTEST" #also see hosts file in Installfiles on github
 
-PREINSTALL_CLEANUP="yes"
+PREINSTALL_CLEANUP="no"
 INSTALL_REFRESH="yes"
 INSTALL_CLEANUP="no"
 
