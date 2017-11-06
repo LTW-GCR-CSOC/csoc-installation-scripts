@@ -182,6 +182,7 @@ then
  sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
  sudo apt-get -qq -y update --fix-missing 
  pip -q install --upgrade pip
+ pip3 -q install --upgrade pip setuptools
 fi
 
 # ---------------
@@ -193,6 +194,7 @@ sudo apt-get -qq install -y git
 sudo apt-get -qq install -y autogen autoconf libtool
 sudo apt-get -qq install -y make
 sudo apt-get -qq install -y curl
+sudo apt-get -qq install python3-pip
 # sudo apt-get -qq install -y ntop
 
 # ---------------
