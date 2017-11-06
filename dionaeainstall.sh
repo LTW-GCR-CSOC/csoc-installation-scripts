@@ -13,22 +13,22 @@ if [ -d "/opt/dionaea" ]; then
   sudo rm -rf /opt/dionaea
 fi
 echo "-----@ LATEST SOFTWARE UPDATES -----"
-sudo pip3 install --upgrade pip
-sudo pip3 install schedule
-sudo pip3 install psutil
-sudo apt-get install -y pkg-config
-sudo apt-get install -y libglib2.0-dev
-sudo apt-get install -y python3-pip
-sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
-sudo apt install -y python-pip
-sudo -H pip install Cython
-sudo apt-get install -y udns-utils
-sudo apt-get install -y libcurl4-openssl-dev
-sudo apt-get install -y aptitude
-sudo apt-get install -y libemu-dev
-sudo apt-get install -y libudns-dev
-sudo apt-get install -y libev-dev
-sudo apt-get install -y \
+sudo pip3 -q install --upgrade pip
+sudo pip3 -q install schedule
+sudo pip3 -q install psutil
+sudo apt-get -qq install -y pkg-config
+sudo apt-get -qq install -y libglib2.0-dev
+sudo apt-get -qq install -y python3-pip
+sudo apt-get -qq install -y build-essential libssl-dev libffi-dev python-dev
+sudo apt -qq  install -y python-pip
+sudo -H pip -q install Cython
+sudo apt-get -qq install -y udns-utils
+sudo apt-get -qq install -y libcurl4-openssl-dev
+sudo apt-get -qq install -y aptitude
+sudo apt-get -qq install -y libemu-dev
+sudo apt-get -qq install -y libudns-dev
+sudo apt-get -qq install -y libev-dev
+sudo apt-get -qq install -y \
     autoconf \
     automake \
     build-essential \
