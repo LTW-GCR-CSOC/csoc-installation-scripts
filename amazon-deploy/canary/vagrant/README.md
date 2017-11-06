@@ -38,7 +38,9 @@ SETUP_HOSTNAME="no"
 ```
 
 ### AWS Prep
-Setup the VPC, Security Policy, iGW and Elastic IP using the AWS Console.   Update the Vagrantfile to add in your associated configuration, e.g.
+Select Canonical's LTS 16 Ubuntu AMI appropriate to the region you plan to deploy in. 
+
+Setup the VPC, Subnet, Security Group, Internet Gateway, Region and Elastic IP using the AWS Console.   Update the Vagrantfile to add in your associated configuration, e.g.
 
 ```
    aws.ami = "ami-b3cf71d7"
