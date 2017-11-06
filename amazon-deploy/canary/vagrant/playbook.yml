@@ -1,0 +1,9 @@
+---
+# for testing ansible; should do full ansible install for all components - start with dinotools ansible for dionaea?
+- hosts: default
+  become: yes
+  
+  pre-tasks:
+  
+  
+  tasks:
