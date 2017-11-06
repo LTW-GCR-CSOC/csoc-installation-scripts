@@ -38,7 +38,7 @@ Vagrant.configure(2) do |config|
      echo "127.0.0.1 $(hostname)" >> /etc/hosts
      export DEBIAN_FRONTEND=noninteractive
      apt-get -qq install -y python-minimal
-     pip install --upgrade pip
+     pip -q install --upgrade pip
      rm /usr/bin/python
      ln -s /usr/bin/python2.7 /usr/bin/python
      pip install ansible
