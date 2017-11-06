@@ -181,6 +181,7 @@ then
  sudo ucf --purge /boot/grub/menu.lst
  sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
  sudo apt-get -qq -y update --fix-missing 
+ pip install --upgrade pip
 fi
 
 # ---------------
