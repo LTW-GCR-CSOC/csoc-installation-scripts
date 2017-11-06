@@ -43,12 +43,12 @@ Select Canonical's LTS 16 Ubuntu AMI appropriate to the region you plan to deplo
 Setup the VPC, Subnet, Security Group, Internet Gateway, Region and Elastic IP using the AWS Console.   Update the Vagrantfile to add in your associated configuration, e.g.
 
 ```
-   aws.ami = "ami-b3cf71d7"
-   aws.region = "ca-central-1"
-   aws.instance_type = "t2.micro"
-   aws.security_groups = ["sg-ddd616b5"]
-   aws.subnet_id = "subnet-3bcbb040"
-   aws.elastic_ip = "35.182.85.71"
+aws.ami = "ami-b3cf71d7"
+aws.region = "ca-central-1"
+aws.instance_type = "t2.micro"
+aws.security_groups = ["sg-ddd616b5"]
+aws.subnet_id = "subnet-3bcbb040"
+aws.elastic_ip = "35.182.85.71"
 ```
 
 ### GCR Canary
