@@ -181,7 +181,7 @@ then
  sudo ucf --purge /boot/grub/menu.lst
  sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
  sudo apt-get -qq -y update --fix-missing 
- pip install --upgrade pip
+ pip -q install --upgrade pip
 fi
 
 # ---------------
@@ -259,8 +259,8 @@ then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY - 2 minute delay -----${NC}\n"
   # delay for a few minutes to let dionaea and system get ready... prob should add a check here rather than a timer
   sleep 2m # 2 minutes for now
-  sudo pip3 install schedule
-  sudo pip3 install psutil
+  sudo pip3 -q install schedule
+  sudo pip3 -q install psutil
   wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
