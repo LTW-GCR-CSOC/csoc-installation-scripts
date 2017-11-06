@@ -227,17 +227,19 @@ sudo $SCRIPTSDIR/dionaeainstall.sh
 
 #populate Dionaea with content
 printf "${BOG}---------------------------------- INSTALLING DIONAEA DUMMY CONTENT -----${NC}\n"
+# TODO - need to dynamically create realistic randomized set of files and directories
+# TODO - files should have a call-home URL ping to identify where it was viewed
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/A.pdf'
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/B.pdf'
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/C.xls'
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/ftp/D.xls'
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/tftp/E.xls'
 
-echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
-echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
-echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/C.xls
-echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/ftp/D.xls
-echo "[]" | sudo tee --append /opt/dionaea/var/dionaea/roots/tftp/E.xls
+echo "[A.pdf]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
+echo "[B.pdf]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
+echo "[C.xls]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/C.xls
+echo "[D.xls]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/ftp/D.xls
+echo "[E.xls]" | sudo tee --append /opt/dionaea/var/dionaea/roots/tftp/E.xls
 
 
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
