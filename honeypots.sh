@@ -176,8 +176,9 @@ fi
 #---------------
 if [[  "$INSTALL_REFRESH" == "yes" ]]
 then
+ export DEBIAN_FRONTEND=noninteractive
  sudo apt-get -y update
- sudo apt-get -y dist-upgrade
+ sudo apt-get -yq dist-upgrade
  sudo apt-get -y update --fix-missing 
 fi
 
