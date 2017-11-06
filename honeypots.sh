@@ -449,7 +449,7 @@ then
 
   cd $SCRIPTSDIR
   #00-GCRdionaeaHP.conf
-  wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
+  wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
   sudo mv $SCRIPTSDIR/00-GCRdionaeaHP.conf /etc/rsyslog.d
   sudo chmod 0755 /etc/rsyslog.d/00-GCRdionaeaHP.conf
   sudo chown root:root /etc/rsyslog.d/00-GCRdionaeaHP.conf
@@ -464,7 +464,7 @@ then
   #rsyslog.conf
   sudo mv /etc/rsyslog.conf /etc/rsyslog.backup
   cd $SCRIPTSDIR
-  wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
+  wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
   sudo mv $SCRIPTSDIR/rsyslog.conf /etc/rsyslog.conf
   sudo chmod 0755 /etc/rsyslog.conf
   sudo chown root:root /etc/rsyslog.conf
