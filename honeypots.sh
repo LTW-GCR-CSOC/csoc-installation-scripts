@@ -149,7 +149,7 @@ fi
 if [[ "$PREINSTALL_CLEANUP" == "yes" ]]
 then
 printf "${BOG}---------------------------------- PRE INSTALL CLEANUP -----${NC}\n"
-sudo apt-get remove --purge -y youtube-dl* \
+sudo apt-get -qq remove --purge -y youtube-dl* \
 firefox \
 rhythmbox \
 brasero \
@@ -177,10 +177,10 @@ fi
 if [[  "$INSTALL_REFRESH" == "yes" ]]
 then
  export DEBIAN_FRONTEND=noninteractive
- sudo apt-get -y update
+ sudo apt-get -qq -y update
  sudo ucf --purge /boot/grub/menu.lst
  sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
- sudo apt-get -y update --fix-missing 
+ sudo apt-get -qq -y update --fix-missing 
 fi
 
 # ---------------
@@ -188,11 +188,11 @@ fi
 # Install Tools 
 #
 #----------------
-sudo apt-get install -y git
-sudo apt-get install -y autogen autoconf libtool
-sudo apt-get install -y make
-sudo apt-get install -y curl
-# sudo apt-get install -y ntop
+sudo apt-get -qq install -y git
+sudo apt-get -qq install -y autogen autoconf libtool
+sudo apt-get -qq install -y make
+sudo apt-get -qq install -y curl
+# sudo apt-get -qq install -y ntop
 
 # ---------------
 #
