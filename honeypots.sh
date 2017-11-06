@@ -178,7 +178,8 @@ if [[  "$INSTALL_REFRESH" == "yes" ]]
 then
  export DEBIAN_FRONTEND=noninteractive
  sudo apt-get -y update
- sudo apt-get -yq dist-upgrade
+ sudo ucf --purge /boot/grub/menu.lst
+ sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
  sudo apt-get -y update --fix-missing 
 fi
 
