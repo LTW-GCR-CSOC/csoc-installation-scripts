@@ -136,7 +136,7 @@ then
  sudo mv hostname hostname.bak
  sudo cat $HOSTNAME >/etc/hostname
  sudo mv hosts hosts.bak
- sudo wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/hosts
+ sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/InstallerFiles/hosts
  sudo service hostname start
  printf "${BOG}HOSTNAME=`hostname`${NC}\n"
 fi
@@ -258,7 +258,7 @@ then
   sleep 5m # 5 minutes for now
   sudo pip3 install schedule
   sudo pip3 install psutil
-  wget https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
+  wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
   sudo chown nobody:nogroup /opt/dionaea/bin/GCRdionaeaAlerts.py
