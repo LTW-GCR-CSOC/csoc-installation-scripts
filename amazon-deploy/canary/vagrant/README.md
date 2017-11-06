@@ -12,6 +12,28 @@ This script installs an instance of the GCR Canary onto an EC2 instance.
  * Add Vagrant configuration for VPC, Security Policy, iGW, and Elastic IP
   
 ## Installation
+### Honeypots.sh Prep
+Configure Honeypots.sh as follows:
+```
+PREINSTALL_CLEANUP="no"
+INSTALL_REFRESH="yes"
+INSTALL_CLEANUP="no"
+
+INSTALL_DIONAEA="yes"  
+INSTALL_DIONAEALOGVIEWER="no"  
+
+INSTALL_COWRIE="no"  
+INSTALL_COWRIELOGVIEWER="no"  
+
+INSTALL_OSSEC="no"  
+INSTALL_OPENVAS="no" 
+INSTALL_AWSIOT="no" 
+INSTALL_MENDER="no" 
+INSTALL_RP="no"
+INSTALL_VNCSERVER="no"
+SETUP_SYSLOG="no"
+SETUP_HOSTNAME="no"```
+```
 
 ### AWS Prep
 Setup the VPC, Security Policy, iGW and Elastic IP using the AWS Console.   Update the Vagrantfile to add in your associated configuration, e.g.
