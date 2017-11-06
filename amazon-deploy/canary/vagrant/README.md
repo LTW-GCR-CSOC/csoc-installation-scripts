@@ -2,6 +2,7 @@
 
   * [Description](#description)
   * [Plans](#plans)
+  * [Installation](#installation)
   
 ## Description 
 This script installs an instance of the GCR Canary onto an EC2 instance.
@@ -38,7 +39,7 @@ wget -q https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master
 unzip master.zip && \
 cd csoc-installation-scripts-master/ && \
 chmod +x *.sh && \
-cd i./amazon-deploy/canary/vagrant
+cd ./amazon-deploy/canary/vagrant
 ```
 
 #### Configuration
