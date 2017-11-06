@@ -48,7 +48,7 @@ sudo apt-get -qq install -y \
     python3 \
     python3-dev \
     python3-yaml 
-sudo  git clone https://github.com/LTW-GCR-CSOC/dionaea.git /opt/dionaea
+sudo  git clone --quiet https://github.com/LTW-GCR-CSOC/dionaea.git /opt/dionaea
 cd /opt/dionaea
 sudo autoreconf -vi
 sudo ./configure \
