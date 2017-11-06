@@ -55,7 +55,6 @@ Setup the VPC, Subnet, Security Group, Internet Gateway, Region and Elastic IP u
 The following scripts have been tested on AWS EC2.
 
 To install all of the GCR Canary software on AWS, run the following commands on Mac OSX to download the files needed to your computer:
-
 ```
 mkdir ~/awscanary && \
 cd ~/awscanary && \
@@ -67,8 +66,7 @@ cd ./amazon-deploy/canary/vagrant
 ```
 
 #### Configuration
-You must configure the aws keys in the "aws-credentials" file.
-
+You must configure the aws keys in the "aws-credentials" file,
 ```
 export AWS_KEY='xxxxxxxxxxxxxxx'
 export AWS_SECRET='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -85,7 +83,6 @@ export AWS_KEYPATH='/Users/gcruser/awscanary/aws-canary.pem'
 ```
 
 Once you have updated the aws-credentials file, run the following commands:
-
 ```
 source aws-credentials && \
 vagrant up 
