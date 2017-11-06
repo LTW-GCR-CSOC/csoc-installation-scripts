@@ -20,7 +20,7 @@ sudo apt-get -qq install -y pkg-config
 sudo apt-get -qq install -y libglib2.0-dev
 sudo apt-get -qq install -y python3-pip
 sudo apt-get -qq install -y build-essential libssl-dev libffi-dev python-dev
-sudo apt -qq  install -y python-pip
+sudo apt-get -qq  install -y python-pip
 sudo -H pip -q install Cython
 sudo apt-get -qq install -y udns-utils
 sudo apt-get -qq install -y libcurl4-openssl-dev
