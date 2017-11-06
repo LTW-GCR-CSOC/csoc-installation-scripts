@@ -13,7 +13,9 @@ This script installs an instance of the GCR Canary onto an EC2 instance.
   
 ## Installation
 ### Honeypots.sh Prep
-Configure Honeypots.sh as follows:
+See [GCR Configuration](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts) for details related to honeypots.sh configuration.
+
+For the AWS Canary install, update honeypots.sh settings as follows:
 ```
 PREINSTALL_CLEANUP="no"
 INSTALL_REFRESH="yes"
