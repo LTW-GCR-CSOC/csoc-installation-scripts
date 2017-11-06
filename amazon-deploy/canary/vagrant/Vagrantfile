@@ -33,17 +33,17 @@ Vagrant.configure(2) do |config|
   # config.vm.provision :shell, path: "bootstrap.sh"
 
   config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get install -y python-pip libssl-dev
+     apt-get -qq update
+     apt-get -qq install -y python-pip libssl-dev
      echo "127.0.0.1 $(hostname)" >> /etc/hosts
      export DEBIAN_FRONTEND=noninteractive
-     apt-get install -y python-minimal
+     apt-get -qq install -y python-minimal
      pip install --upgrade pip
      rm /usr/bin/python
      ln -s /usr/bin/python2.7 /usr/bin/python
      pip install ansible
      # install canary software
-     apt-get install -y unzip
+     apt-get -qq install -y unzip
      cd ~ 
      wget -q https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip >/dev/null 2>/dev/null
      unzip master.zip >/dev/null 2>/dev/null
