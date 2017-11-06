@@ -59,7 +59,7 @@ cd ~ && \
 mkdir awscanary && \
 cd awscanary && \
 wget -q https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
-unzip master.zip && \
+unzip -qq master.zip && \
 cd csoc-installation-scripts-master/ && \
 chmod +x *.sh && \
 cd ./amazon-deploy/canary/vagrant
