@@ -55,9 +55,8 @@ The following scripts have been tested on AWS EC2.
 To install all of the GCR Canary software on AWS, run the following commands on Mac OSX to download the files needed to your computer:
 
 ```
-cd ~ && \
-mkdir awscanary && \
-cd awscanary && \
+mkdir ~/awscanary && \
+cd ~/awscanary && \
 wget -q https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
 unzip -qq master.zip && \
 cd csoc-installation-scripts-master/ && \
