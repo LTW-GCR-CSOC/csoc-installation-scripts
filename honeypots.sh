@@ -224,6 +224,7 @@ sudo $SCRIPTSDIR/dionaeainstall.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
+printf "${BOG}---------------------------------- INSTALLING DIONAEA DUMMY CONTENT -----${NC}\n"
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/A.pdf'
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/B.pdf'
 sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/C.xls'
@@ -250,6 +251,7 @@ then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY -----${NC}\n"
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   cd $SCRIPTSDIR
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY - 5 minute delay -----${NC}\n"
   # delay for a few minutes to let dionaea and system get ready... prob should add a check here rather than a timer
   sleep 5m # 5 minutes for now
   sudo pip3 install schedule
