@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Reference: https://avleonov.com/2017/04/10/installing-openvas-9-from-the-sources/
+
+function start() {
+	mkdir /usr/local/var/run 2>/dev/null; 
+	mkdir /usr/local/var/run/openvasmd 2>/dev/null; 
+	touch /usr/local/var/run/openvasmd/openvasmd.pid;
+
+	/usr/local/sbin/openvasmd
+	/usr/local/sbin/openvassd
+	/usr/local/sbin/gsad
+}
+
+function stop() {
+	killall openvasmd
+	killall openvassd
+	killall gsad
+}
+
+if [ "$1" = "--start" ]
+then
+	start
+elif [ "$1" = "--stop" ]
+then
+	stop
+else
+	echo 'Use "--start" or "--stop" to start or stop OpenVAS-related components'
+fi
