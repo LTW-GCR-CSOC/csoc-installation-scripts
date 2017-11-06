@@ -29,7 +29,8 @@ Vagrant.configure(2) do |config|
    end
   end
 
- # config.vm.provision :shell, path: "bootstrap.sh"
+  # get rid of the inline SHELL below and keep the echo, convert rest to an ansible playbook
+  # config.vm.provision :shell, path: "bootstrap.sh"
 
   config.vm.provision "shell", inline: <<-SHELL
      apt-get update
