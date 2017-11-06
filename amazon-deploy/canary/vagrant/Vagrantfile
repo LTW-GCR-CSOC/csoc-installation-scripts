@@ -1,0 +1,60 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile
+Vagrant.configure(2) do |config|
+ config.vm.provider :aws do |aws, override|
+   aws.access_key_id = ENV['AWS_KEY']
+   aws.secret_access_key = ENV['AWS_SECRET']
+   aws.keypair_name = ENV['AWS_KEYNAME']
+   aws.ami = "ami-b3cf71d7"
+   aws.region = "ca-central-1"
+   aws.instance_type = "t2.micro"
+   aws.security_groups = ["sg-ddd616b5"]
+   aws.subnet_id = "subnet-3bcbb040"
+   aws.elastic_ip = "35.182.85.71"
+
+   override.nfs.functional = false
+   override.vm.box = "dummy"
+   override.ssh.username = "ubuntu"
+   override.ssh.private_key_path = ENV['AWS_KEYPATH']
+   config.vm.provider "aws" do |aws|
+
+   aws.tags = {
+          'Name' => 'Brian Canary TEST',
+	  'Organization' => 'GCR',
+          'Developer' => 'Brian Hurley',
+	  'Function' => 'Canary'
+    }  
+   end
+  end
+
+ # config.vm.provision :shell, path: "bootstrap.sh"
+
+  config.vm.provision "shell", inline: <<-SHELL
+     apt-get update
+     apt-get install -y python-pip libssl-dev
+     echo "127.0.0.1 $(hostname)" >> /etc/hosts
+     export DEBIAN_FRONTEND=noninteractive
+     apt-get install -y python-minimal
+     pip install --upgrade pip
+     rm /usr/bin/python
+     ln -s /usr/bin/python2.7 /usr/bin/python
+     pip install ansible
+     # install canary software
+     apt-get install -y unzip
+     cd ~ 
+     wget -q https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip >/dev/null 2>/dev/null
+     unzip master.zip >/dev/null 2>/dev/null
+     cd ~/csoc-installation-scripts-master/ 
+     chmod +x *.sh 
+     ./honeypots.sh
+  SHELL
+
+
+#  config.vm.provision "ansible" do |ansible|
+#        ansible.sudo = true
+#  	ansible.playbook = "playbook.yml"
+#  end
+
+end
