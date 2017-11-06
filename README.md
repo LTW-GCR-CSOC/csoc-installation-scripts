@@ -149,7 +149,7 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [Lead to Win](http://leadtowin.ca)
  * [Ottawa - Cyber](http://lce.ltw-global.com)
  * [Hacker Alerting Service](http://globalcybersecurityresource.com)
- * [Carleton University TIM Program](http://http://timprogram.ca/)
+ * [Carleton University TIM Program](http://timprogram.ca/)
 
 ## Contributors
  * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca)[, President of Global EPIC organization](http://globalepic.org)
