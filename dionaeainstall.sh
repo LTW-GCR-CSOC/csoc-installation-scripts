@@ -63,8 +63,8 @@ sudo ./configure \
  --with-nl-include=/usr/include/libnl3 \
  --with-nl-lib=/usr/lib \
  --with-curl-dir=/usr/bin/curl 
-sudo make
-sudo make install
+sudo make --silent
+sudo make --silent install
 
 sudo ldconfig
 
