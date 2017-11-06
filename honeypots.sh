@@ -168,6 +168,17 @@ libreoffice*
 #libmateweather* \
 fi
 
+# ---------------
+#
+# Install Tools 
+#
+#----------------
+sudo apt-get -qq install -y git
+sudo apt-get -qq install -y autogen autoconf libtool
+sudo apt-get -qq install -y make
+sudo apt-get -qq install -y curl
+sudo apt-get -qq install python3-pip
+# sudo apt-get -qq install -y ntop
 
 # ---------------
 #
@@ -185,17 +196,7 @@ then
  pip3 -q install --upgrade pip setuptools
 fi
 
-# ---------------
-#
-# Install Tools 
-#
-#----------------
-sudo apt-get -qq install -y git
-sudo apt-get -qq install -y autogen autoconf libtool
-sudo apt-get -qq install -y make
-sudo apt-get -qq install -y curl
-sudo apt-get -qq install python3-pip
-# sudo apt-get -qq install -y ntop
+
 
 # ---------------
 #
