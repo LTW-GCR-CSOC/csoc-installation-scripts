@@ -4,20 +4,43 @@
   * [Plans](#plans)
   
 ## Description 
+This script installs an instance of the GCR Canary onto an EC2 instance.
   
 ## Plans
+ * Convert the inline shell script in Vagrantfile to Ansible, look at the Dinotools Ansible playbook they have done for Dionaea.
+ * Add Vagrant configuration for VPC, Security Policy, iGW, and Elastic IP
   
 ## Installation
+
+### AWS Prep
+Setup the VPC, Security Policy, iGW and Elastic IP using the AWS Console.   Update the Vagrantfile to add in your associated configuration, e.g.
+
+```
+   aws.ami = "ami-b3cf71d7"
+   aws.region = "ca-central-1"
+   aws.instance_type = "t2.micro"
+   aws.security_groups = ["sg-ddd616b5"]
+   aws.subnet_id = "subnet-3bcbb040"
+   aws.elastic_ip = "35.182.85.71"
+
+```
 
 ### GCR Canary
 The following scripts have been tested on AWS EC2.
 
-To install all of the GCR Canary software on AWS, run the following script on Mac OSX:
+To install all of the GCR Canary software on AWS, run the following commands on Mac OSX to download the files needed to your computer:
 
 ```
-source aws-credentials
-vagrant up
+cd ~ && \
+mkdir awscanary && \
+cd awscanary && \
+wget -q https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
+unzip master.zip && \
+cd csoc-installation-scripts-master/ && \
+chmod +x *.sh && \
+cd i./amazon-deploy/canary/vagrant
 ```
+
 #### Configuration
 You must configure the aws keys in the "aws-credentials" file.
 
@@ -35,3 +58,13 @@ export AWS_SECRET='TILjXpa8BznwnNKIqkqDTMcK4ELmnzqjkN1FsxPL'
 export AWS_KEYNAME='aws-canary'
 export AWS_KEYPATH='/Users/gcruser/awscanary/aws-canary.pem'
 ```
+
+Once you have updated the aws-credentials file, run the following commands:
+
+```
+source aws-credentials && \
+vagrant up 
+```
+
+## FAQ
+To be added
