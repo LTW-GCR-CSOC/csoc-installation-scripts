@@ -9,7 +9,7 @@ This script installs an instance of the GCR Canary onto an EC2 instance.
   
 ## Plans
  * Convert the inline shell script in Vagrantfile to Ansible, look at the Dinotools Ansible playbook they have done for Dionaea.
- * Add Vagrant configuration for VPC, Security Policy, iGW, and Elastic IP
+ * Add Vagrant configuration for VPC, Security Policy, iGW, and Elastic IP, look at Metron Ansible playbook for associated example tasks
   
 ## Installation
 ### Honeypots.sh Prep
@@ -45,7 +45,6 @@ Setup the VPC, Security Policy, iGW and Elastic IP using the AWS Console.   Upda
    aws.security_groups = ["sg-ddd616b5"]
    aws.subnet_id = "subnet-3bcbb040"
    aws.elastic_ip = "35.182.85.71"
-
 ```
 
 ### GCR Canary
