@@ -21,7 +21,7 @@
 
 ## Description 
 
-The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC(**C**yber**s**ecurity **O**perations **C**enter) initiative seeks to provide small to medium size enterprises with openly available cybersecurity resources to self-manage their own security or enable companies to offer cybersecurity services to others as part their business. 
+The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC (**C**yber**s**ecurity **O**perations **C**enter) initiative seeks to provide small to medium size enterprises with openly available cybersecurity resources to self-manage their own security or enable companies to offer cybersecurity services to others as part their business. 
 
 The development of this project is primarily divided into three focus areas: i) Developing open source software to compliment SOC services ii) Developing SOC operation guides and templates as a means to manage security iii) Creating SOC "Pathway Training" material for online learning. 
 
