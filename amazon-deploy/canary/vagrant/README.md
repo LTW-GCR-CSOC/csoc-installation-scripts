@@ -95,3 +95,8 @@ vagrant up
 
 ## FAQ
 To be added
+
+## References
+Some good books relevant to these scripts:
+ * [Vagrant](https://www.amazon.com/Vagrant-Running-Virtualized-Development-Environments/dp/1449335837)
+ * [Ansible](https://www.amazon.com/Ansible-DevOps-Server-configuration-management-ebook/dp/B016G55NOU)
