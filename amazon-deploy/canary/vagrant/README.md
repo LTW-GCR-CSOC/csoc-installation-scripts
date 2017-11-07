@@ -12,6 +12,11 @@ This script installs an instance of the GCR Canary onto an EC2 instance.
  * Add Vagrant configuration for VPC, Security Policy, iGW, and Elastic IP, look at Metron Ansible playbook for associated example tasks
   
 ## Installation
+
+### AWS and Vagrant Dependencies
+You will need an AWS account.  
+
+You will need Vagrant with AWS provider plug-in configured.
 ### Honeypots.sh Prep
 See [GCR Configuration](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts) for details related to honeypots.sh configuration.
 
