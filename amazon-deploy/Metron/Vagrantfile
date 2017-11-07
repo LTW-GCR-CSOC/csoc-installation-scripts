@@ -1,6 +1,7 @@
 #Global Cybersecurity Resource, 2017
 
-#
+
+
 #  Licensed to the Apache Software Foundation (ASF) under one or more
 #  contributor license agreements.  See the NOTICE file distributed with
 #  this work for additional information regarding copyright ownership.
@@ -16,24 +17,45 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+#ABOUT:
+#This deployment script will deploy a single node instance (node1) to AWS. 
 
-#GCR Metron Note: 2017-11-06
-#This Vagrant file should replace/overwrite the Vagrant file in the following directory
-#/.../.../metron-master/metron-deployment/vagrant/full-dev-platform/Vagrantfile
+#LOCATION OF FILE
+#file should be located in the following directory: 
+#/../metron-deployment/vagrant/full-dev-platform
+
+#REQUIREMENTS
+#What is needed to run this file:
+#install: vagrant plugin install vagrant-aws
+#vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+#pip install --upgrade setuptools --user python
+
+#BEFORE RUNNING:
+#Recommeded steps before running file:
+#clearing vagrant, docker, ext.. 
+#vagrant halt node1 -f
+#vagrant halt default -f
+#vagrant destroy node1 -f
+#vagrant destroy default -f
+#for i in `vagrant global-status | grep virtualbox | awk '{print $1 }'` ; do vagrant destroy $i  ; done
+#vagrant global-status --prune
+#docker rm $(docker ps -aq)
+#osascript -e 'quit app "Docker"'
+#open -a Docker
+#rm -rf /Users/csocadmin/.m2/repository/*
+#rm -rf /Users/csocadmin/.vagrant.d/boxes/*
+#vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+
+#HOW TO EXECUTE FILE: 
+#vagrant up --provider=aws
 
 
-
-#distroy all vagrant vms
-# for i in `vagrant global-status | grep virtualbox | awk '{print $1 }'` ; do vagrant destroy $i  ; done
-
+#OTHER:
 #find ami ids for canada
 #pip install awscli
 #aws --region ca-central-1 ec2 describe-images --owners aws-marketplace --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce
 #imageIDs: ami-28823e4c, ami-af62d0cb, ami-cbd069af
-#
 
-#vagrant plugin install vagrant-aws
-#vagrant up --provider=aws
 
 require 'getoptlong'
 require 'vagrant-aws'
@@ -66,17 +88,18 @@ puts " Running with ansible-skip-tags: " + ansibleSkipTags.split(",").to_s if an
 
 hosts = [{
     hostname: "node1",
-    ip: "<elasticIPthatIsDefinedInAWS",
+    #hostname: "35.182.76.64",
+    #ip: "192.168.66.121",
+    #ip: "172.31.15.100",
+    #ip: "35.182.187.87",
+    ip: "35.182.68.214",
     memory: "6000",
     cpus: 4,
     promisc: 2  # enables promisc on the 'Nth' network interface
 }]
 
 
-#installed: vagrant plugin install vagrant-aws
-#ran command: vagrant box add aws-dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
-#vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
-#pip install --upgrade setuptools --user python
+
 
 Vagrant.configure(2) do |config|
  config.vm.provider :aws do |aws, override|
@@ -89,7 +112,7 @@ Vagrant.configure(2) do |config|
    aws.instance_type = "t2.2xlarge"
    aws.security_groups = ["sg-11935579"]
    aws.subnet_id = "subnet-fbc3e392"
-   aws.elastic_ip = "35.182.76.64"
+   aws.elastic_ip = "35.182.68.214"
    #aws.block_device_mapping = [{'DeviceName' =>'/dev/xvda1', 'Ebs.VolumeSize' => 100}]
    override.vm.box = "dummy"
    override.ssh.username = "centos"
@@ -105,12 +128,21 @@ Vagrant.configure(2) do |config|
    }
   # provisioning
    #aws.block_device_mapping = [{'DeviceName' =>'/dev/xvda', 'Ebs.VolumeSize' => 100}]
-   aws.block_device_mapping = [{'DeviceName' =>'/dev/sda1', 'VirtualName'=>"ephemeral0",'Ebs.VolumeSize' => 100, 'Ebs.DeleteOnTermination' => true}] 
+   aws.block_device_mapping = [{'DeviceName' =>'/dev/sda1', 'Ebs.VolumeSize' => 100, 'Ebs.DeleteOnTermination' => true}] 
  end 
 
+
+ config.vm.provision "shell", inline: <<-SHELL
+   hostname node1
+   (echo u s; echo d 1; echo n; echo p; echo 1; echo 2048 ; echo ;echo a; echo 1; echo w) | fdisk {{ vol_src_1 }} || true
+   #shutdown -r now
+ SHELL
+
  config.vm.provision :ansible do |ansible|
+  #/Users/csocadmin/metron-master/metron-deployment/vagrant/full-dev-platform 
+  #ansible.playbook = "../../amazon-ec2/tasks/expand-volume.yml"
    ansible.playbook = "../../playbooks/metron_full_install.yml"
-   ansible.verbose ="v"
+   #ansible.verbose ="n"
    ansible.host_key_checking = false
    ansible.limit = 'all'
    ansible.sudo = true
@@ -118,5 +150,5 @@ Vagrant.configure(2) do |config|
    ansible.skip_tags = ansibleSkipTags.split(",") if ansibleSkipTags != ''
    ansible.inventory_path = "../../inventory/full-dev-platform"
  end
-
 end
+
