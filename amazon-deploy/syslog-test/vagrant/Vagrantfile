@@ -45,7 +45,15 @@ Vagrant.configure(2) do |config|
      # install canary software
      apt-get -qq install -y unzip
  # add in syslog setup
- 
+ # Reference: https://www.howtoforge.com/centralized-rsyslog-server-monitoring
+     apt-get -qq -y install rsyslog rsyslog-mysql unzip zip binutils cpp fetchmail flex gcc libarchive-zip-perl libc6-dev libcompress-zlib-perl libpcre3 libpopt-dev lynx m4 make ncftp nmap openssl perl perl-modules zlib1g-dev autoconf automake1.9 libtool bison autotools-dev g++ mysql-server mysql-client libmysqlclient15-dev apache2 apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert libdb4.6-dev libapache2-mod-php5 php5 php5-common php5-curl php5-dev php5-gd php5-idn php-pear php5-imagick php5-imap php5-json php5-mcrypt php5-memcache php5-mhash php5-ming php5-mysql php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
+     apt-get -qq -y install linux-kernel-headers
+/etc/init.d/rsyslog restart
+/etc/init.d/mysql restart
+/etc/init.d/apache2 restart
+netstat -tapn
+# mysqladmin -u root -p create rsyslog
+# mysql -u root -p root     
   SHELL
 
 
