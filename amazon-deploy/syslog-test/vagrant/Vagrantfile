@@ -56,3 +56,5 @@ Vagrant.configure(2) do |config|
 #        ansible.sudo = true
 #  	ansible.playbook = "playbook.yml"
 #  end
+
+end
