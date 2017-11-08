@@ -27,7 +27,7 @@ sudo apt-get -y install curl
 sudo apt-get -y install cmake
 echo "Finished installing curl and CMake"
 
-cd $DIR
+#cd $DIR
 wget https://raw.githubusercontent.com/LTW-GCR-CSOC/openvas-commander/master/openvas_commander.sh
 chmod +x openvas_commander.sh
 
@@ -112,5 +112,5 @@ sudo ./openvas_commander.sh --check-status v9
 echo "Setting up OpenVAS for autostart on boot..."
 sudo ./openvas_commander.sh --install-service
 
-cd $DIR
+#cd $DIR
 echo 'OpenVAS is now ready to use! Open a web browser and go to "localhost" to access the web interface.'
