@@ -20,6 +20,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   
 # Install dependencies
 echo "Starting the OpenVAS install. It will take between 1-3 hours to install"
+echo "(4-6 hours on a Raspberry Pi 3)"
 
 echo "Installing curl and CMake..."
 sudo apt-get -y install curl
