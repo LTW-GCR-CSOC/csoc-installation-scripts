@@ -358,7 +358,7 @@ if [[ "$INSTALL_OPENVAS" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING OPENVAS -----${NC}\n"
   echo "-----@ OPENVAS CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
-  sudo $SCRIPTSDIR/openvasinstall.sh
+  sudo $SCRIPTSDIR/openvas/openvasinstall.sh
   echo "-----@ OPENVAS CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
