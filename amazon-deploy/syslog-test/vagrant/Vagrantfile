@@ -1,0 +1,58 @@
+Skip to content
+This repository
+Search
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile
+Vagrant.configure(2) do |config|
+ config.vm.provider :aws do |aws, override|
+   aws.access_key_id = ENV['AWS_KEY']
+   aws.secret_access_key = ENV['AWS_SECRET']
+   aws.keypair_name = ENV['AWS_KEYNAME']
+   aws.ami = "ami-b3cf71d7"
+   aws.region = "ca-central-1" 
+   aws.instance_type = "t2.micro"
+   aws.security_groups = ["sg-ddd616b5"]
+   aws.subnet_id = "subnet-3bcbb040"
+   aws.elastic_ip = "35.182.85.71"
+
+   override.nfs.functional = false
+   override.vm.box = "dummy"
+   override.ssh.username = "ubuntu"
+   override.ssh.private_key_path = ENV['AWS_KEYPATH']
+   config.vm.provider "aws" do |aws|
+
+   aws.tags = {
+    'Name' => 'Phase1-Syslog-Server-TESTING',
+	  'Organization' => 'GCR',
+    'Developer' => 'GCR Script',
+	  'Function' => 'Syslog Server TESTING'
+    }  
+   end
+  end
+
+  # get rid of the inline SHELL below and keep the echo, convert rest to an ansible playbook
+  # config.vm.provision :shell, path: "bootstrap.sh"
+
+  config.vm.provision "shell", inline: <<-SHELL
+     apt-get -qq update
+     apt-get -qq install -y python-pip libssl-dev
+     echo "127.0.0.1 $(hostname)" >> /etc/hosts
+     export DEBIAN_FRONTEND=noninteractive
+     apt-get -qq install -y python-minimal
+     pip -q install --upgrade pip
+     rm /usr/bin/python
+     ln -s /usr/bin/python2.7 /usr/bin/python
+     pip install ansible
+     # install canary software
+     apt-get -qq install -y unzip
+ # add in syslog setup
+ 
+  SHELL
+
+
+#  config.vm.provision "ansible" do |ansible|
+#        ansible.sudo = true
+#  	ansible.playbook = "playbook.yml"
+#  end
