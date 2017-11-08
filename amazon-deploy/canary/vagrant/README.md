@@ -71,7 +71,7 @@ cd ./amazon-deploy/canary/vagrant
 ```
 
 #### Configuration
-You must configure the aws keys in the "aws-credentials" file,
+You must configure the aws keys in the "aws-credentials" file in ~/csoc-installation-scripts-master/amazon-deploy/canary/vagrant
 ```
 export AWS_KEY='xxxxxxxxxxxxxxx'
 export AWS_SECRET='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
