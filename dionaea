@@ -1,7 +1,7 @@
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides: dionaea
-# Required-Start: $network $syslog cron
+# Required-Start: $network $syslog lightdm
 # Required-Stop:  $network $syslog
 # Default-Start:  2 3 4 5
 # Default-Stop:
