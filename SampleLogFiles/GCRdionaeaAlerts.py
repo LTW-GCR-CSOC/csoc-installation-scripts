@@ -49,6 +49,10 @@ def checkSystemStatus(hostname):
                         except:
                                         print("WARNING: Dionaea might not be running")
                                         dionaeaHTTPcheck=0
+        else:
+                        localIP="0.0.0.0"
+                        publicIP="0.0.0.0"
+                        
         p = psutil.Process(1)
         cpuCount = psutil.cpu_count()
         timeOfAlert=int(str(datetime.datetime.now().timestamp() * 1000)[0:10] )
@@ -62,7 +66,7 @@ def checkSystemStatus(hostname):
         machineStatusOut=machineStatusOut+"    PUBLIC_IP("+str(publicIP)+")    LOCAL_IP("+str(localIP)+")"
         machineStatusOut=machineStatusOut+"    DIONAEA_HTTP_CHECK:"+str(dionaeaHTTPcheck)
 
-        alert =  str(int(timeOfAlert))+".000|"+"GCRCanary-Device|"+ hostname +"|"+ "HeartBeat|"+"0"+"|"+str(localIP)+"|"+"0"+"|"+str(localIP)+"|"+"0"+"|"+machineStatusOut +"|\n"
+        alert =  str(int(timeOfAlert))+".000|"+"GCRCanary-Device|"+ hostname +"|"+ "HeartBeat|"+"0"+"|"+str(publicIP)+"|"+"0"+"|"+str(localIP)+"|"+"0"+"|"+machineStatusOut +"|\n"
         print(alert)
         file = open("/var/log/GCRDionaea.log", "a+")
         syslog.syslog(alert) 
