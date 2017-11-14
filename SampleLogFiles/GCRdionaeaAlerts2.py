@@ -32,13 +32,15 @@ def collectBistreamsPreviousDay(hostname):
      d = datetime.datetime.today() - datetime.timedelta(days=1)
      previousDayPath = "../var/dionaea/bistreams/" + d.strftime("%Y-%m-%d")
      pathCheck = Path(previousDayPath)
-
+     mstrPayload=""
      payloadBistreams=""
+     
      if pathCheck.is_dir():
+        if os.listdir(previousDayPath) !=[]:
           pathContent = os.listdir(previousDayPath)
           #print(str(len(pathContent)))
           mstrPayload=""
-
+       
           for x in range (0, len(pathContent) ):
                subFile = previousDayPath +"/"+ pathContent[x]
                mstrPayload=mstrPayload + " CONTENT: [[[" + subFile + "]]],[[["
