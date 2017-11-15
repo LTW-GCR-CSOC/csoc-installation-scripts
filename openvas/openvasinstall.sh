@@ -61,16 +61,16 @@ ls openvas
 
 # Install the components:
 echo "Installing the OpenVAS components..."
-sudo ./openvas_commander.sh --install-all
+#sudo ./openvas_commander.sh --install-all
 
 # NB: If you are afraid that something might go wrong, you can start separately:
 
 #sudo ./openvas_commander.sh --install-component "openvas-smb"
-#sudo ./openvas_commander.sh --install-component "openvas-libraries"
-#sudo ./openvas_commander.sh --install-component "openvas-scanner"
-#sudo ./openvas_commander.sh --install-component "openvas-manager"
-#sudo ./openvas_commander.sh --install-component "openvas-cli"
-#sudo ./openvas_commander.sh --install-component "greenbone-security-assistant"
+sudo ./openvas_commander.sh --install-component "openvas-libraries"
+sudo ./openvas_commander.sh --install-component "openvas-scanner"
+sudo ./openvas_commander.sh --install-component "openvas-manager"
+sudo ./openvas_commander.sh --install-component "openvas-cli"
+sudo ./openvas_commander.sh --install-component "greenbone-security-assistant"
 echo "Finished installing the OpenVAS components"
 
 # Cleanup needs further testing
