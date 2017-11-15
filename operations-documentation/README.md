@@ -1,4 +1,4 @@
-# Cybersecurity Operations Center Operations Manuals
+# Cybersecurity Operations Center (CSOC) Operations Manuals
 This folder provides the following:
  - CSOC Operations Manual
  - CSOC Incident Reporting Template
