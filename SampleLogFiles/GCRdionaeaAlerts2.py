@@ -222,6 +222,7 @@ if int(str(fileSizeCheck.st_size)) == 0:
         sys.exit()
 
 schedule.every().day.at(scheduledTimeToCheckStatus).do(checkSystemStatus,hostname)
+#schedule.every().day.do(checkSystemStatus,hostname)
 
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
