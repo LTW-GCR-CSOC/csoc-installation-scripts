@@ -41,6 +41,11 @@ echo 'blacklist brcmutil' | sudo tee --append /etc/modprobe.d/raspi-blacklist.co
 echo '#disable bluetooth' | sudo tee --append /etc/modprobe.d/raspi-blacklist.conf
 echo 'blacklist btbcm' | sudo tee --append /etc/modprobe.d/raspi-blacklist.conf
 echo 'blacklist hci_uart' | sudo tee --append /etc/modprobe.d/raspi-blacklist.conf
+
+#enable ssh
+sudo systemctl enable ssh
+sudo service ssh restart
+
 #device should be rebooted for changes to take effect
 
 
