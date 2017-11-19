@@ -24,6 +24,9 @@ echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
 #Application to enable changing of mac address
 sudo apt-get install -y macchanger
 
+#Application to enable saving of iptables
+sudo apt-get install -y iptables-persistent
+
 #Change MAC address - this is for rpi
 #ifconfig enxb827eb9e5b73 down
 #sudo macchanger -m 94:2e:17:9E:5B:73 enxb827eb9e5b73
@@ -42,11 +45,40 @@ echo '#disable bluetooth' | sudo tee --append /etc/modprobe.d/raspi-blacklist.co
 echo 'blacklist btbcm' | sudo tee --append /etc/modprobe.d/raspi-blacklist.conf
 echo 'blacklist hci_uart' | sudo tee --append /etc/modprobe.d/raspi-blacklist.conf
 
+
 #enable ssh
 sudo systemctl enable ssh
 sudo service ssh restart
 
+
+#setup firewall
+#First delete all existing rules
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+
+
+
+#Set the INPUT policy to DROP All:
+sudo iptables -P INPUT DROP
+
+# Allow packets from connections related to established ones, packets
+# from established ones, and packets from localhost:
+sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A INPUT -i lo -j ACCEPT
+
+# Allow new connections to TCP ports:
+sudo iptables -A INPUT -p TCP -m multiport --dports 2202,23,22,25,8080,80,443,5060,5061,1900,69,139,445 \
+-m state --state NEW -j ACCEPT
+
+# Allow new connections to TCP ports:
+sudo iptables -A INPUT -p UDP -m multiport --dports 22,1434,443,5060,5061,1900,69,139,44 \
+-m state --state NEW -j ACCEPT
+
+sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+sudo iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+#Save rules and make them persistant
+sudo netfilter-persistent save
 #device should be rebooted for changes to take effect
-
-
 
