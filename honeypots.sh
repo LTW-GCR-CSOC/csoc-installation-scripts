@@ -277,7 +277,7 @@ then
   sleep 2m # 2 minutes for now
   sudo pip3 -q install schedule
   sudo pip3 -q install psutil
-  wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
+  sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
   sudo chown nobody:nogroup /opt/dionaea/bin/GCRdionaeaAlerts.py
