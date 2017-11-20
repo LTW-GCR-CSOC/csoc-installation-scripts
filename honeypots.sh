@@ -25,12 +25,24 @@ NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RE
 SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
 HOSTNAME="GCRCanaryTEST" #also see hosts file in Installfiles on github
 
-PREINSTALL_CLEANUP="no"
+#Unused Ubuntu Mate programs will be uninstalled before core applications are installed
+PREINSTALL_CLEANUP="yes"
+
+#Configure and install device
+INSTALL_RP="yes"
+
+
+#Update existing applications
 INSTALL_REFRESH="yes"
+
+
+#Post install cleanup (remove not nessiary applications after core applications are installed)
 INSTALL_CLEANUP="no"
 
+#Install Dionaea
 INSTALL_DIONAEA="yes" # yes or no.
 INSTALL_DIONAEALOGVIEWER="no"  
+
 
 INSTALL_COWRIE="no"  
 INSTALL_COWRIELOGVIEWER="no"  
@@ -39,7 +51,8 @@ INSTALL_OSSEC="no"
 INSTALL_OPENVAS="no" 
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
-INSTALL_RP="no"
+
+
 INSTALL_VNCSERVER="no"
 SETUP_SYSLOG="no"
 SETUP_HOSTNAME="no"
@@ -346,6 +359,12 @@ then
   echo "-----@ OSSEC CONFIGURATION STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   #sudo $SCRIPTSDIR/ossecinstall.sh
   echo "-----@ OSSEC CONFIGURATION DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+
+if [[ "$INSTALL_RP" == "yes" ]]
+then
+  printf "${BOG}---------------------------------- INSTALLING and Configuring RP -----${NC}\n"
+  sudo $SCRIPTSDIR/rpinstall.sh
 fi
 
 # ---------------
