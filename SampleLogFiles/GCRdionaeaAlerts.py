@@ -44,6 +44,9 @@ def macChecker(ipaddress):
      nic=""
      returnVal = ""
      
+     #ToDo Check mac vendor
+     #grep <first three chars. i.e. 080069> -i /usr/share/nmap/nmap-mac-prefixes
+     
      cmdConstruction ="arp -a " + ip + " "
      cmdOutput = subprocess.check_output(cmdConstruction, shell=True)
      macAddr=str(re.findall(r'\w+\:\w+\:\w+\:\w+\:\w+\:\w+', str(cmdOutput)))
