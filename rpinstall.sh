@@ -80,5 +80,17 @@ sudo iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 #Save rules and make them persistant
 sudo netfilter-persistent save
+
+
+#update crontab 
+#write out current crontab
+#sudo crontab -l > mycron
+#echo new cron into cron file
+#sudo echo "0 3 * * * service rsyslog restart" >> mycron
+
+#install new cron file
+#sudo crontab mycron
+#sudo rm mycron
+
 #device should be rebooted for changes to take effect
 
