@@ -31,17 +31,19 @@ PREINSTALL_CLEANUP="yes"
 #Configure and install device
 INSTALL_RP="yes"
 
-
 #Update existing applications
 INSTALL_REFRESH="yes"
-
 
 #Post install cleanup (remove not nessiary applications after core applications are installed)
 INSTALL_CLEANUP="no"
 
+#install Syslog configuration files
+SETUP_SYSLOG="yes"
+
 #Install Dionaea
 INSTALL_DIONAEA="yes" # yes or no.
 INSTALL_DIONAEALOGVIEWER="no"  
+
 
 
 INSTALL_COWRIE="no"  
@@ -54,7 +56,7 @@ INSTALL_MENDER="no"
 
 
 INSTALL_VNCSERVER="no"
-SETUP_SYSLOG="no"
+
 SETUP_HOSTNAME="no"
 
 if [[ "$INSTALL_DIONAEA" == "no" ]] 
@@ -112,6 +114,14 @@ then
 else
  printf "**** ${GRN}INSTALLING${NC}: Syslog will be setup  ****\n"
 fi
+
+if [[ "$SETUP_SYSLOG" == "no" ]] 
+then
+ printf "**** ${RED}WARNING${NC}: Syslog won't be setup ****\n"
+else
+ printf "**** ${GRN}INSTALLING${NC}: Syslog will be setup  ****\n"
+fi
+
 
 if [[ "$INSTALL_VNCSERVER" == "no" ]] 
 then
@@ -469,14 +479,14 @@ then
 
   cd $SCRIPTSDIR
   #00-GCRdionaeaHP.conf
-  wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
+  sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/00-GCRdionaeaHP.conf
   sudo mv $SCRIPTSDIR/00-GCRdionaeaHP.conf /etc/rsyslog.d
   sudo chmod 0755 /etc/rsyslog.d/00-GCRdionaeaHP.conf
   sudo chown root:root /etc/rsyslog.d/00-GCRdionaeaHP.conf
   
   #50-default.conf
   sudo mv /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/50-default.backup
-  https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/50-default.conf
+  sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/50-default.conf
   sudo mv $SCRIPTSDIR/50-default.conf /etc/rsyslog.d
   sudo chmod 0755 /etc/rsyslog.d/50-default.conf
   sudo chown root:root /etc/rsyslog.d/50-default.conf
@@ -484,7 +494,7 @@ then
   #rsyslog.conf
   sudo mv /etc/rsyslog.conf /etc/rsyslog.backup
   cd $SCRIPTSDIR
-  wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
+  sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/configForHP-notEnc/rsyslog.conf
   sudo mv $SCRIPTSDIR/rsyslog.conf /etc/rsyslog.conf
   sudo chmod 0755 /etc/rsyslog.conf
   sudo chown root:root /etc/rsyslog.conf
