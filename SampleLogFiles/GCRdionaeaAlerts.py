@@ -26,6 +26,38 @@ from requests import get
 #from datetime import datetime, timedelta
 from pathlib import Path
 
+import subprocess
+
+def removeListChars(inputString):
+     inputString=inputString.replace("'","")
+     inputString=inputString.replace('"',"")
+     inputString=inputString.replace('[',"")
+     inputString=inputString.replace(']',"")     
+     returnVal2 = inputString
+     return returnVal2
+
+
+def macChecker(ipaddress):
+     macAddr=""
+     ip=ipaddress
+     ether=""
+     nic=""
+     returnVal = ""
+     
+     cmdConstruction ="arp -a " + ip + " "
+     cmdOutput = subprocess.check_output(cmdConstruction, shell=True)
+     macAddr=str(re.findall(r'\w+\:\w+\:\w+\:\w+\:\w+\:\w+', str(cmdOutput)))
+     macAddr=removeListChars(macAddr)
+     ether=str(re.findall(r'\[.*\]', str(cmdOutput)))
+     ether=removeListChars(ether)
+     
+     nic=str(re.findall(r'on\s(.*)\\n', str(cmdOutput)))
+     nic=removeListChars(nic)
+
+     returnVal = " " + macAddr + " " + ether + " " + nic + " "
+     return returnVal
+     
+     
 
 #this function collects the bistreams content of the previous day
 def collectBistreamsPreviousDay(hostname):
@@ -222,7 +254,7 @@ if int(str(fileSizeCheck.st_size)) == 0:
         sys.exit()
 
 schedule.every().day.at(scheduledTimeToCheckStatus).do(checkSystemStatus,hostname)
-#schedule.every().day.do(checkSystemStatus,hostname)
+schedule.every().day.do(checkSystemStatus,hostname)
 
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
@@ -274,7 +306,7 @@ while True:
                         pastConnectionID=connectionID
                         msgAlertsTriggered=""
                         msgPayload = ""
-
+                        msgPayload = "[ip_src_addr DETAILS" + macChecker(str(connectionMetaData[7])) + "]"
                         for tableWithConnection in tablesWithConnection:
                                 #for number of tables, check if a connectionID exists
                                 sql = "SELECT EXISTS(SELECT 1 FROM "+ tableWithConnection +" WHERE connection=" + str(connectionID) + " LIMIT 1);"
