@@ -76,9 +76,12 @@ chmod +x *.sh
 Configuration settings (such as disabling the install of OpenVAS, OSSEC, ext..) is in honeypots.sh. 
 Within honeypots.sh change the INSTALL_* parameters as needed. The following is an example of enabling Dionaea for install and disabling Cowrie for install. 
 ```
-INSTALL_DIONAEA="yes"
-
-INSTALL_COWRIE="no"  
+PREINSTALL_CLEANUP="yes"   
+INSTALL_RP="yes"   
+INSTALL_REFRESH="yes"   
+INSTALL_CLEANUP="no"   
+SETUP_SYSLOG="yes"   
+INSTALL_DIONAEA="yes"   
 ```
 After the updates have been made run honeypots.sh
 ```
