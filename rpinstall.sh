@@ -1,3 +1,4 @@
+#!/bin/bash
 #---------------
 # This install script installs Raspberry Pi specific capabilities
 #
