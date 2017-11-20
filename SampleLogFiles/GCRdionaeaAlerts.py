@@ -54,10 +54,9 @@ def macChecker(ipaddress):
      nic=str(re.findall(r'on\s(.*)\\n', str(cmdOutput)))
      nic=removeListChars(nic)
 
-     returnVal = " " + macAddr + " " + ether + " " + nic + " "
+     #returnVal = " " + macAddr + " " + ether + " " + nic + " "
+     returnVal = " " + macAddr +  " "
      return returnVal
-     
-     
 
 #this function collects the bistreams content of the previous day
 def collectBistreamsPreviousDay(hostname):
