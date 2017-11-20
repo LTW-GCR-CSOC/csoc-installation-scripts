@@ -115,14 +115,6 @@ else
  printf "**** ${GRN}INSTALLING${NC}: Syslog will be setup  ****\n"
 fi
 
-if [[ "$SETUP_SYSLOG" == "no" ]] 
-then
- printf "**** ${RED}WARNING${NC}: Syslog won't be setup ****\n"
-else
- printf "**** ${GRN}INSTALLING${NC}: Syslog will be setup  ****\n"
-fi
-
-
 if [[ "$INSTALL_VNCSERVER" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: VNC server will not be installed ****\n"
