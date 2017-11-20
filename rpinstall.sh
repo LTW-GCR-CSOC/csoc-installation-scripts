@@ -25,6 +25,9 @@ echo "-----@ INSTALL WATCHDOG FOR CANARY -----" >>~/SETUP-RUN.TXT
 #Application to enable changing of mac address
 sudo apt-get install -y macchanger
 
+#Application to check mac vendor 
+sudo apt-get install -y nmap
+
 #Application to enable saving of iptables
 sudo apt-get install -y iptables-persistent
 
