@@ -22,7 +22,7 @@ RED='\e[41m'
 GRN='\e[42m'
 NC='\033[0m' # e.g. printf "\033[1;31mThis is red text\033[0m\n" or printf "$(RED}This is red text${NC}\n"
 
-SCRIPTSDIR=$HOME/csoc-installation-scripts-master/
+SCRIPTSDIR=$HOME/csoc-installation-scripts-master
 HOSTNAME="GCRCanaryTEST" #also see hosts file in Installfiles on github
 
 #Unused Ubuntu Mate programs will be uninstalled before core applications are installed
