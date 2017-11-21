@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=GCRDiagnosis
+Comment=Diagnose Canary connection failure
+Keywords=GCR;canary;port;
+Exec=csoc-installation-scripts-master/DeploymentDiagnostics.py
+Terminal=true
+Type=Application
+Icon=dconf-editor
+StartupNotify=true
