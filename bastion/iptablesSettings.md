@@ -21,3 +21,5 @@ sysctl -p /etc/sysctl.conf
 iptables -t nat -A PREROUTING -p tcp --dport <syslog port> -j DNAT --to-destination <central alert server private ip>:<syslog port>
 iptables -t nat -A POSTROUTING -s <bastian server private ip> -j MASQUERADE
 ```
+
+#another approach https://spin.atomicobject.com/2012/10/01/useful-iptables-port-forwarding-patterns/
