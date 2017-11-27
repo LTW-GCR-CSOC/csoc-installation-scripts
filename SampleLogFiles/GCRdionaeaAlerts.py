@@ -234,7 +234,12 @@ print("        __\\////////////_____________\\/////////_____\\///________\\///__
 
 pastConnectionID=0
 delay=10
-scheduledTimeToCheckStatus="13:00"
+#scheduledTimeToCheckStatus="13:00"
+
+startH = 13
+startM = 50
+start_time = "{0:02d}:{1:02d}".format(startH, startM)
+
 #get hostname
 hostname = socket.gethostname()
 
@@ -255,7 +260,8 @@ if int(str(fileSizeCheck.st_size)) == 0:
         print ("ERROR: dionaea.sqlite is not populated. dionaea possibly not init. properly. Issue might be due to dionaea not givin permissions to write to file or multiple pids of .//dionaea are running. Ending program")
         sys.exit()
 
-schedule.every().day.at(scheduledTimeToCheckStatus).do(checkSystemStatus,hostname)
+#schedule.every().day.at(scheduledTimeToCheckStatus).do(checkSystemStatus,hostname)
+schedule.every().day.at(start_time).do(checkSystemStatus,hostname)
 schedule.every().day.do(checkSystemStatus,hostname)
 
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
