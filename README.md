@@ -16,6 +16,7 @@
   * [Getting involved](#getting-involved)
   * [Open source licensing info](#open-source-licensing-info)
   * [Related open source projects](#related-open-source-projects)
+  * [Related cloud services](#related-cloud-services)
   * [Credits and references](#credits-and-references)
   * [Contributors](#contributors)
 
