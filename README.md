@@ -155,6 +155,8 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
 ## Related cloud services
  * [AWS](http://aws.amazon.com)
  * [AWS IoT](https://aws.amazon.com/iot-platform/?nc2=h_iot)
+ * [Amazon Quicksight](https://quicksight.aws/)
+ * [Google Data Studio](https://www.google.com/analytics/data-studio/)
 
 ## Credits and references
  * [Global Epic](http://globalepic.org)
