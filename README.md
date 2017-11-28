@@ -148,6 +148,10 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [Mender.io](http://mender.io)
  * [RTIR](https://bestpractical.com/rtir/)
  * [SuiteCRM](https://suitecrm.com/)
+ 
+## Related cloud services
+ * [AWS](http://aws.amazon.com)
+ * [AWS IoT](https://aws.amazon.com/iot-platform/?nc2=h_iot)
 
 ## Credits and references
  * [Global Epic](http://globalepic.org)
