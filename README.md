@@ -146,6 +146,8 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [OSSEC](https://ossec.github.io/)
  * [OpenVAS](http://www.openvas.org/)
  * [Mender.io](http://mender.io)
+ * [RTIR](https://bestpractical.com/rtir/)
+ * [SuiteCRM](https://suitecrm.com/)
 
 ## Credits and references
  * [Global Epic](http://globalepic.org)
