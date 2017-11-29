@@ -193,6 +193,7 @@ sudo apt-get -qq install -y autogen autoconf libtool
 sudo apt-get -qq install -y make
 sudo apt-get -qq install -y curl
 sudo apt-get -qq install python3-pip
+sudo easy_install pip
 # sudo apt-get -qq install -y ntop
 
 # ---------------
