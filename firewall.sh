@@ -22,7 +22,7 @@ sudo iptables -A INPUT -i lo -j ACCEPT
 sudo iptables -A INPUT -p TCP -m multiport --dports 2202,23,22,25,8080,80,443,5060,5061,1900,69,139,445 \
 -m state --state NEW -j ACCEPT
 
-# Allow new connections to TCP ports:
+# Allow new connections to UDP ports:
 sudo iptables -A INPUT -p UDP -m multiport --dports 22,1434,443,5060,5061,1900,69,139,44 \
 -m state --state NEW -j ACCEPT
 
