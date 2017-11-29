@@ -5,7 +5,7 @@
 #
 #----------------
 
-SCRIPTSDIR="$HOME/csoc-installation-scripts-master/"
+SCRIPTSDIR="$HOME/csoc-installation-scripts-master"
 echo "SCRIPTSDIR = " $SCRIPTSDIR  >>$SCRIPTSDIR/SETUP-RUN.TXT
 
 # remove old directories to do a clean install
@@ -113,7 +113,7 @@ ls -l /opt/dionaea/var/dionaea/dionaea.log >>$SCRIPTSDIR/SETUP-RUN.TXT
 #
 #----------------
 echo "-----@ DIONAEA REBOOT CONFIGURATION -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
-sudo mv $SCRIPTSDIR/dionaea-aws /etc/init.d/dionaea
+sudo mv $SCRIPTSDIR/dionaea-cloud /etc/init.d/dionaea
 sudo chmod 0755 /etc/init.d/dionaea
 sudo chown root:root /etc/init.d/dionaea
 sudo update-rc.d dionaea defaults
