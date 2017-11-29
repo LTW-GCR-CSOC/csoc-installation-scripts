@@ -24,10 +24,10 @@ SCRIPTSDIR=$HOME/csoc-installation-scripts-master
 HOSTNAME="GCRCanaryTEST" #also see hosts file in Installfiles on github
 
 #Unused Ubuntu Mate programs will be uninstalled before core applications are installed
-PREINSTALL_CLEANUP="yes"
+PREINSTALL_CLEANUP="no"
 
 #Configure and install device
-INSTALL_RP="yes"
+INSTALL_RP="no"
 
 #Update existing applications
 INSTALL_REFRESH="yes"
@@ -39,8 +39,8 @@ INSTALL_CLEANUP="no"
 SETUP_SYSLOG="yes"
 
 #Install Dionaea
-INSTALL_DIONAEA-RP="yes" # specify for Raspberry Pi 3 OR AWS Ubuntu 16 Cloud
-INSTALL_DIONAEA-CLOUD="no"
+INSTALL_DIONAEA-RP="no" # specify for Raspberry Pi 3 OR AWS Ubuntu 16 Cloud
+INSTALL_DIONAEA-CLOUD="yes"
 INSTALL_DIONAEALOGVIEWER="no"  
 
 INSTALL_COWRIE="no"  
