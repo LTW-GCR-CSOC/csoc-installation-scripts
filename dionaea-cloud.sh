@@ -106,6 +106,9 @@ sudo ps -ef | grep dionaea >>$SCRIPTSDIR/SETUP-RUN.TXT
 # Check Dionaea logs exist
 ls -l /opt/dionaea/var/dionaea/dionaea.log >>$SCRIPTSDIR/SETUP-RUN.TXT
 
+# Setup firewall
+sudo $SCRIPTSDIR/firewall.sh
+
 # ---------------
 #
 # Configure Dionaea to restart on reboot
