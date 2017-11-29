@@ -289,7 +289,7 @@ dionaea
 
 
 !
-sudo $SCRIPTSDIR/dionaeainstall-cloud.sh
+sudo $SCRIPTSDIR/dionaea-cloud.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
