@@ -1,4 +1,9 @@
 #setup firewall
+
+sudo apt-get install iptables-persistent
+sudo service netfilter-persistent start
+sudo invoke-rc.d netfilter-persistent save
+
 #First delete all existing rules
 sudo iptables -P INPUT ACCEPT
 sudo iptables -P FORWARD ACCEPT
@@ -25,3 +30,6 @@ sudo iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 #Save rules and make them persistant
 sudo netfilter-persistent save
+
+# show iptables setup
+sudo iptables -S
