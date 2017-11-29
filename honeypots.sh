@@ -41,7 +41,8 @@ INSTALL_CLEANUP="no"
 SETUP_SYSLOG="yes"
 
 #Install Dionaea
-INSTALL_DIONAEA="yes" # yes or no.
+INSTALL_DIONAEA-RP="yes" # yes or no. 
+INSTALL_DIONAEA-CLOUD="no"
 INSTALL_DIONAEALOGVIEWER="no"  
 
 
@@ -59,11 +60,19 @@ INSTALL_VNCSERVER="no"
 
 SETUP_HOSTNAME="no"
 
-if [[ "$INSTALL_DIONAEA" == "no" ]] 
+if [[ "$INSTALL_DIONAEA-RP" == "no" ]] 
 then
- printf "**** ${RED}WARNING${NC}: Dionaea will not be installed ****\n"
+ printf "**** ${RED}WARNING${NC}: Dionaea for RP will not be installed ****\n"
 else
-  printf "**** ${GRN}INSTALLING${NC}: Dionaea  ****\n"
+  printf "**** ${GRN}INSTALLING${NC}: Dionaea for RP  ****\n"
+fi
+
+
+if [[ "$INSTALL_DIONAEA-CLOUD" == "no" ]] 
+then
+ printf "**** ${RED}WARNING${NC}: Dionaea for Cloud will not be installed ****\n"
+else
+  printf "**** ${GRN}INSTALLING${NC}: Dionaea for Cloud  ****\n"
 fi
 
 if [[ "$INSTALL_COWRIE" == "no" ]] 
@@ -226,12 +235,12 @@ fi
 
 # ---------------
 #
-# Install Dionaea 
+# Install Dionaea for RP
 #
 #----------------
-if [[ "$INSTALL_DIONAEA" == "yes" ]]
+if [[ "$INSTALL_DIONAEA-RP" == "yes" ]]
 then
-  printf "${BOG}---------------------------------- INSTALLING DIONAEA -----${NC}\n"
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA FOR RP -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
   # don't delete the spaces between "<<!" and "!" below
   sudo adduser --disabled-password dionaea <<!
@@ -243,6 +252,46 @@ dionaea
 
 !
 sudo $SCRIPTSDIR/dionaeainstall.sh
+# sudo $SCRIPTSDIR/dionaeainstall2.sh
+
+#populate Dionaea with content
+printf "${BOG}---------------------------------- INSTALLING DIONAEA DUMMY CONTENT -----${NC}\n"
+# TODO - need to dynamically create realistic randomized set of files and directories
+# TODO - files should have a call-home URL ping to identify where it was viewed
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/A.pdf'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/B.pdf'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/www/C.xls'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/ftp/D.xls'
+sudo bash -c 'echo "" >  /opt/dionaea/var/dionaea/roots/tftp/E.xls'
+
+echo "[A.pdf]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/A.pdf
+echo "[B.pdf]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/B.pdf
+echo "[C.xls]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/C.xls
+echo "[D.xls]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/ftp/D.xls
+echo "[E.xls]" | sudo tee --append /opt/dionaea/var/dionaea/roots/tftp/E.xls
+
+
+  echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
+fi
+# ---------------
+#
+# Install Dionaea for RP
+#
+#----------------
+if [[ "$INSTALL_DIONAEA-CLOUD" == "yes" ]]
+then
+  printf "${BOG}---------------------------------- INSTALLING DIONAEA FOR CLOUD -----${NC}\n"
+  echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
+  # don't delete the spaces between "<<!" and "!" below
+  sudo adduser --disabled-password dionaea <<!
+dionaea
+
+
+
+
+
+!
+sudo $SCRIPTSDIR/dionaeainstall-cloud.sh
 # sudo $SCRIPTSDIR/dionaeainstall2.sh
 
 #populate Dionaea with content
