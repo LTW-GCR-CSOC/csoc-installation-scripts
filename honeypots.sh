@@ -4,10 +4,8 @@
 # - add pre-install checks for baseline versions required, e.g. Ubuntu version supported 
 # - add in CLI options to specify "development" or "production" installations, with tools such as DionaeaFR, VNC being for development use only
 # - add IPTABLES configuration for "development" and "production" installations
-# - configure remote syslog software
 # - add in OSSEC installation script
 # - add post-install sanity check to ensure all core functions are operating
-# - add in watchdog timer configuration for Raspberry Pi deployments
 # - add in scheduled therapudic reset?
 # - add in AWS IoT libraries and configuration
 # - add in scripts to remove all files not required in production environment (e.g. source files)
@@ -41,11 +39,9 @@ INSTALL_CLEANUP="no"
 SETUP_SYSLOG="yes"
 
 #Install Dionaea
-INSTALL_DIONAEA-RP="yes" # yes or no. 
+INSTALL_DIONAEA-RP="yes" # specify for Raspberry Pi 3 OR AWS Ubuntu 16 Cloud
 INSTALL_DIONAEA-CLOUD="no"
 INSTALL_DIONAEALOGVIEWER="no"  
-
-
 
 INSTALL_COWRIE="no"  
 INSTALL_COWRIELOGVIEWER="no"  
@@ -54,7 +50,6 @@ INSTALL_OSSEC="no"
 INSTALL_OPENVAS="no" 
 INSTALL_AWSIOT="no" 
 INSTALL_MENDER="no" 
-
 
 INSTALL_VNCSERVER="no"
 
@@ -202,7 +197,8 @@ sudo apt-get -qq install -y autogen autoconf libtool
 sudo apt-get -qq install -y make
 sudo apt-get -qq install -y curl
 sudo apt-get -qq install python3-pip
-sudo easy_install pip
+#sudo easy_install pip
+sudo apt-get install python-setuptools
 # sudo apt-get -qq install -y ntop
 
 # ---------------
