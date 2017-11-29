@@ -39,8 +39,8 @@ INSTALL_CLEANUP="no"
 SETUP_SYSLOG="yes"
 
 #Install Dionaea
-INSTALL_DIONAEA-RP="no" # specify for Raspberry Pi 3 OR AWS Ubuntu 16 Cloud
-INSTALL_DIONAEA-CLOUD="yes"
+INSTALL_DIONAEA_RP="no" # specify for Raspberry Pi 3 OR AWS Ubuntu 16 Cloud
+INSTALL_DIONAEA_CLOUD="yes"
 INSTALL_DIONAEALOGVIEWER="no"  
 
 INSTALL_COWRIE="no"  
@@ -55,7 +55,7 @@ INSTALL_VNCSERVER="no"
 
 SETUP_HOSTNAME="no"
 
-if [[ "$INSTALL_DIONAEA-RP" == "no" ]] 
+if [[ "$INSTALL_DIONAEA_RP" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea for RP will not be installed ****\n"
 else
@@ -63,7 +63,7 @@ else
 fi
 
 
-if [[ "$INSTALL_DIONAEA-CLOUD" == "no" ]] 
+if [[ "$INSTALL_DIONAEA_CLOUD" == "no" ]] 
 then
  printf "**** ${RED}WARNING${NC}: Dionaea for Cloud will not be installed ****\n"
 else
@@ -234,7 +234,7 @@ fi
 # Install Dionaea for RP
 #
 #----------------
-if [[ "$INSTALL_DIONAEA-RP" == "yes" ]]
+if [[ "$INSTALL_DIONAEA_RP" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA FOR RP -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -276,7 +276,7 @@ fi
 # Install Dionaea for Cloud (AWS Ubuntu 16)
 #
 #----------------
-if [[ "$INSTALL_DIONAEA-CLOUD" == "yes" ]]
+if [[ "$INSTALL_DIONAEA_CLOUD" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA FOR CLOUD -----${NC}\n"
   echo "-----@ DIONAEA INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
@@ -317,7 +317,7 @@ fi
 # Install Dionaea GCR enhanced dionaea log utility
 #
 #----------------
-if [[ "$INSTALL_DIONAEA" == "yes" ]]
+if [[ "$INSTALL_DIONAEA_CLOUD" == "yes" || "$INSTALL_DIONAEA_RP" == "yes" ]]
 then
   printf "${BOG}---------------------------------- INSTALLING DIONAEA ENHANCED LOG UTILITY -----${NC}\n"
   echo "-----@ DIONAEA GCR ENHANCED LOG INSTALL STARTS -----"  >>$SCRIPTSDIR/SETUP-RUN.TXT
