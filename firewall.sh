@@ -1,6 +1,7 @@
 #setup firewall
 
-sudo apt-get install iptables-persistent
+# setup iptables-persistent
+sudo apt-get -y install iptables-persistent
 sudo service netfilter-persistent start
 sudo invoke-rc.d netfilter-persistent save
 
