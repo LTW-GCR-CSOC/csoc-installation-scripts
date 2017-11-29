@@ -67,6 +67,7 @@ To install all of the GCR Canary software, run the following script on Ubuntu Ma
 
 ```
 cd ~ && \
+sudo apt-get -y install unzip && \
 wget https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/archive/master.zip && \
 unzip master.zip && \
 cd csoc-installation-scripts-master/ && \
