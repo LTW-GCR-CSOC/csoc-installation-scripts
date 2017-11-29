@@ -1,0 +1,66 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: dionaea
+# Required-Start: $network $syslog cron
+# Required-Stop:  $network $syslog
+# Default-Start:  2 3 4 5
+# Default-Stop:
+# Short-Description:	Dionaea honeypot
+### END INIT INFO
+
+# after placing file into init.d, must run:
+#    sudo update-rc.d dionaea defaults
+
+
+. /lib/lsb/init-functions
+
+BASEDIR="/opt/dionaea"
+PIDFOLDER="/opt/dionaea/var"
+PIDFILE=$PIDFOLDER/dionaea.pid
+LOGFILE="/opt/dionaea/var/log/dionaea.log"
+CONFIG="/opt/dionaea/etc/dionaea/dionaea.cfg"
+NAME="dionaea"
+DAEMON="$BASEDIR/bin/dionaea -c $CONFIG -w $BASEDIR -D"
+USER="nobody"
+GROUP="nogroup"
+
+if [ ! -d "$PIDFOLDER" ]; then
+  mkdir $PIDFOLDER
+fi
+
+case $1 in
+  start)
+    cd $BASEDIR
+    #start-stop-daemon --start --quiet -u $USER -g $GROUP --make-pidfile --pidfile $PIDFILE --exec ${DAEMON}  > $LOGFILE 2>> $LOGFILE &
+    /opt/dionaea/bin/dionaea -u $USER -g $GROUP -c $CONFIG -w $BASEDIR -p $PIDFILE -D > $LOGFILE 2>> $LOGFILE &
+    log_daemon_msg "$DAEMON started ..."
+    log_end_msg 0
+  ;;
+  stop)
+    if [ -e $PIDFILE ]; then
+        kill `cat $PIDFILE`
+        rm $PIDFILE
+        log_daemon_msg "$DAEMON stopped ..."
+        log_end_msg 0
+    else
+        log_daemon_msg "$DAEMON is *NOT* running"
+        log_end_msg 1
+    fi
+  ;;
+  logs)
+    cat $LOGFILE
+  ;;
+  status)
+    if [ -e $PIDFILE ]; then
+        status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
+    else
+        log_daemon_msg "$DAEMON is not running ..."
+        log_end_msg 0
+    fi
+  ;;
+  *)
+  # For invalid arguments, print the usage message.
+  echo "Usage: $0 {start|stop|logs|status}"
+  exit 2
+  ;;    
+esac
