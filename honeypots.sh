@@ -273,9 +273,11 @@ echo "[E.xls]" | sudo tee --append /opt/dionaea/var/dionaea/roots/tftp/E.xls
 
   echo "-----@ DIONAEA INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
+
+
 # ---------------
 #
-# Install Dionaea for RP
+# Install Dionaea for Cloud (AWS Ubuntu 16)
 #
 #----------------
 if [[ "$INSTALL_DIONAEA-CLOUD" == "yes" ]]
