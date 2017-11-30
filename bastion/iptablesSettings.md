@@ -1,14 +1,19 @@
 
 The following are to configure a bastion for port forwarding.   
 
-To persit iptables update the following to "yes"
+Allow saving/persistance of iptable settings
 ```
-vi /etc/sysconfig/iptables-config
-```
-```
-IPTABLES_SAVE_ON_STOP="yes"
+chkconfig iptables on
+yum install -y iptables-services 
+
 ```
 
+```
+in /etc/sysconfig/iptables-config
+IPTABLES_SAVE_ON_RESTART="yes"
+IPTABLES_SAVE_ON_STOP="yes"
+
+```
 Flush/delete all existing rules. 
 ```
 iptables -P INPUT ACCEPT
@@ -22,7 +27,6 @@ iptables -X
 ```
 
 Create new rules for port forwarding.
-
 ```
 sysctl net.ipv4.ip_forward=1
 
@@ -32,6 +36,9 @@ DEST=<Metron private ip>
 
 iptables -t nat -A PREROUTING -p tcp --dport $PORT_FROM -j DNAT --to $DEST:$PORT_TO
 iptables -A FORWARD -d $DEST -p tcp --dport $PORT_TO -j ACCEPT
+
+service iptables save
+/usr/libexec/iptables/iptables.init save
 ```
 
 Another Approach
