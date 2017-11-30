@@ -106,8 +106,29 @@ sudo ps -ef | grep dionaea >>$SCRIPTSDIR/SETUP-RUN.TXT
 # Check Dionaea logs exist
 ls -l /opt/dionaea/var/dionaea/dionaea.log >>$SCRIPTSDIR/SETUP-RUN.TXT
 
+# Configure rsyslog rotation
+# add in per checklist
+
+# Setup CRON jobs
+sudo crontab -l > mycron
+sudo echo "0 24 * * * service rsyslog restart" >> mycron
+sudo echo "0 6 * * * service rsyslog restart" >> mycron
+sudo echo "45 12 * * * service rsyslog restart" >> mycron
+sudo echo "0 18 * * * service rsyslog restart" >> mycron
+sudo crontab mycron
+sudo rm mycron
+sudo service cron restart
+
+# Setup dummy files
+# Change this to be automatically generated based on a template system to be developed
+sudo echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/vendor-contracts-2017.pdf
+sudo echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/capital-budget-2017.xls
+sudo echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/customers-list-2017.xls
+sudo echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/www/staff-performance-reviews-2017.xls
+sudo echo "[]" | sudo tee --append  /opt/dionaea/var/dionaea/roots/ftp/2018-budget-WORKINGDRAFT-2018.xls
+
 # Setup firewall
-sudo $SCRIPTSDIR/firewall.sh
+# sudo $SCRIPTSDIR/firewall.sh
 
 # ---------------
 #
