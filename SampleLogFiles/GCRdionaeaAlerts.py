@@ -64,7 +64,7 @@ def macChecker(ipaddress):
 #this function collects the bistreams content of the previous day
 def collectBistreamsPreviousDay(hostname):
      d = datetime.datetime.today() - datetime.timedelta(days=1)
-     previousDayPath = "../var/dionaea/bistreams/" + d.strftime("%Y-%m-%d")
+     previousDayPath = "/opt/dionaea/var/dionaea/bistreams/" + d.strftime("%Y-%m-%d")
      pathCheck = Path(previousDayPath)
      mstrPayload=""
      payloadBistreams=""
