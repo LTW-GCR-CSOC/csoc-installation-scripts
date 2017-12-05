@@ -237,7 +237,7 @@ delay=10
 #scheduledTimeToCheckStatus="13:00"
 
 startH = 13
-startM = 50
+startM = 10
 start_time = "{0:02d}:{1:02d}".format(startH, startM)
 
 #get hostname
@@ -262,7 +262,7 @@ if int(str(fileSizeCheck.st_size)) == 0:
 
 #schedule.every().day.at(scheduledTimeToCheckStatus).do(checkSystemStatus,hostname)
 schedule.every().day.at(start_time).do(checkSystemStatus,hostname)
-schedule.every().day.do(checkSystemStatus,hostname)
+#schedule.every().day.do(checkSystemStatus,hostname)
 
 cur = sqlite3.connect(dionaeaDatabaseFile).cursor()
 
