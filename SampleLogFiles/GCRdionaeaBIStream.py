@@ -5,7 +5,7 @@
 #This file requires watchdog. Use the following command to download watchdog
 #sudo pip3 install watchdog
 
-#TODO: get private ip, public ip, and hostname only once instead of every time handler is called. 
+#To Do get private ip, public ip, and hostname only once instead of every time handler is called. 
 
 import time
 import os
