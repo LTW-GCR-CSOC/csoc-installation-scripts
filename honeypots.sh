@@ -327,18 +327,43 @@ then
   sleep 2m # 2 minutes for now
   sudo pip3 -q install schedule
   sudo pip3 -q install psutil
+  sudo pip3 -q install watchdog
+  
   sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
+  sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaBIStream.py
+  
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
+  sudo mv $SCRIPTSDIR/GCRdionaeaBIStream.py /opt/dionaea/bin
+  
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
+  sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaBIStream.py
+  
   sudo chown nobody:nogroup /opt/dionaea/bin/GCRdionaeaAlerts.py
+  sudo chown nobody:nogroup /opt/dionaea/bin/GCRdionaeaBIStream.py
+  
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts /etc/init.d
+  sudo mv $SCRIPTSDIR/GCRdionaeaBIStream /etc/init.d
+  
   sudo chmod 0755 /etc/init.d/GCRdionaeaAlerts
+  sudo chmod 0755 /etc/init.d/GCRdionaeaBIStream
+  
   sudo chown root:root /etc/init.d/GCRdionaeaAlerts
+  sudo chown root:root /etc/init.d/GCRdionaeaBIStream
+  
   sudo systemctl daemon-reload
+  
   sudo update-rc.d GCRdionaeaAlerts defaults
+  sudo update-rc.d GCRdionaeaBIStream defaults
+  
   sudo update-rc.d GCRdionaeaAlerts enable
+  sudo update-rc.d GCRdionaeaBIStream enable
+  
   sudo /etc/init.d/GCRdionaeaAlerts start
+  sudo /etc/init.d/GCRdionaeaBIStream start
+  
   sudo systemctl GCRdionaeaAlerts status >>$SCRIPTSDIR/SETUP-RUN.TXT
+  sudo systemctl GCRdionaeaBIStream status >>$SCRIPTSDIR/SETUP-RUN.TXT
+  
   echo "-----@ DIONAEA GCR ENHANCED LOG UTILITY INSTALL DONE -----" >>$SCRIPTSDIR/SETUP-RUN.TXT
 fi
 
