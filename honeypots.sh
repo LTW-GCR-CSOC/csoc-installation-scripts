@@ -331,8 +331,13 @@ then
   
   sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaAlerts.py
   sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/SampleLogFiles/GCRdionaeaBIStream.py
+  #sudo wget -q https://raw.githubusercontent.com/LTW-GCR-CSOC/csoc-installation-scripts/master/GCRdionaeaBIStream
   
+
+  #sudo mv $SCRIPTSDIR/SampleLogFiles/GCRdionaeaAlerts.py /opt/dionaea/bin
   sudo mv $SCRIPTSDIR/GCRdionaeaAlerts.py /opt/dionaea/bin
+  
+    #sudo mv $SCRIPTSDIR/SampleLogFiles/GCRdionaeaBIStream.py /opt/dionaea/bin
   sudo mv $SCRIPTSDIR/GCRdionaeaBIStream.py /opt/dionaea/bin
   
   sudo chmod 0755 /opt/dionaea/bin/GCRdionaeaAlerts.py
