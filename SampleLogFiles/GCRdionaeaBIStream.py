@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 #Global Cybersecurity Resource, 2017
 #
+#This file monitors the /bistream/ folder (/opt/dionaea/var/dionaea/bistreams/) to see if any new events are generated (some events might not appear in the dionaea sql lite database). The content of the bistream file can give addtional context into an alert.
+#This file requires watchdog. Use the following command to download watchdog
+#sudo pip3 install watchdog
+
+#TODO: get private ip, public ip, and hostname only once instead of every time handler is called. 
+
 import time
 import os
 from watchdog.observers import Observer
@@ -13,10 +19,7 @@ import socket
 import subprocess
 from requests import get
 
-#This file monitors the /bistream/ (/opt/dionaea/var/dionaea/bistreams/) to see if any new events are generated (some events might not appear in the dionaea sql lite database). The content of the bistream file can give addtional context into an alert.
 
-#This file requires watchdog. Use the following command to download watchdog
-#sudo pip install watchdog
 
 class Filter:
     @staticmethod
