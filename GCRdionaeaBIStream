@@ -1,0 +1,92 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: GCRdionaeaBIStream
+# Required-Start: dionaea
+# Required-Stop:  
+# Default-Start:  2 3 4 5
+# Default-Stop:
+# Short-Description:	GCRdionaeaBIStream
+### END INIT INFO
+
+DEBUGME="no"
+
+if [[ $DEBUGME == "yes" ]]; then
+
+  # Close STDOUT
+  exec 1<&-
+  # Close STDERR
+  exec 2<&-
+
+  LOG_FILE=/opt/dionaea/var/GCRdebug.log
+
+  # Open STDOUT as $LOG_FILE file for read and write.
+  exec 1<>$LOG_FILE
+
+  # Redirect STDERR to STDOUT
+  exec 2>&1
+
+  # Display shell commands with expanded args
+  #set -x
+
+fi
+
+# after placing file into init.d, must run:
+#    sudo update-rc.d dionaea defaults
+
+. /lib/lsb/init-functions
+
+BASEDIR="/opt/dionaea"
+PIDFOLDER="/opt/dionaea/var/"
+PIDFILE="/opt/dionaea/var/GCRdionaeaBIStream.pid"
+LOGFILE="/opt/dionaea/var/log/GCRdionaeaBIStream.log"
+NAME="GCRdionaeaAlerts"
+DAEMON="/usr/bin/python3 /opt/dionaea/bin/GCRdionaeaBIStream.py"
+USER="dionaea"
+GROUP="dionaea"
+
+if [[ $DEBUGME == "yes" ]]; then
+   printf "PIDFILE =  $PIDFILE\n"
+   printf "LOGFILE =  $LOGFILE\n"
+   printf "DAEMON =  $DAEMON\n"
+fi
+
+if [ ! -d "$PIDFOLDER" ]; then
+  mkdir $PIDFOLDER
+fi
+
+case $1 in
+  start)
+    cd $BASEDIR
+    # $DAEMON > $LOGFILE 2>> $LOGFILE &
+    start-stop-daemon --start --quiet -u $USER -g $GROUP --remove-pidfile --make-pidfile --pidfile $PIDFILE --exec $DAEMON  > $LOGFILE 2>> $LOGFILE &
+    log_daemon_msg "$DAEMON started ..."
+    log_end_msg 0
+  ;;
+  stop)
+    if [ -e $PIDFILE ]; then
+        kill `cat $PIDFILE`
+        rm $PIDFILE
+        log_daemon_msg "$DAEMON stopped ..."
+        log_end_msg 0
+    else
+        log_daemon_msg "$DAEMON is *NOT* running"
+        log_end_msg 1
+    fi
+  ;;
+  logs)
+    cat $LOGFILE
+  ;;
+  status)
+    if [ -e $PIDFILE ]; then
+        status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
+    else
+        log_daemon_msg "$DAEMON is not running ..."
+        log_end_msg 0
+    fi
+  ;;
+  *)
+  # For invalid arguments, print the usage message.
+  echo "Usage: $0 {start|stop|logs|status}"
+  exit 2
+  ;;    
+esac
