@@ -74,8 +74,8 @@ class Find:
             parsedMacAddress=fullMacAddress
             parsedMacAddress=str(parsedMacAddress.replace(":",""))
             #grep <first six chars. i.e. 080069> -i /usr/share/nmap/nmap-mac-prefixes
-            print(parsedMacAddress[0:6])
-            cmdConstruction ="grep " + parsedMacAddress[0:6] + " -i /usr/share/nmap/nmap-mac-prefixes"
+            print(parsedMacAddress[1:7])
+            cmdConstruction ="grep " + parsedMacAddress[1:7] + " -i /usr/share/nmap/nmap-mac-prefixes"
             cmdOutput = str(subprocess.check_output(cmdConstruction, shell=True))
             cmdOutput = cmdOutput[2:]
             cmdOutput = cmdOutput[:-3]
