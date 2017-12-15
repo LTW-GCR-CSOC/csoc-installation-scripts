@@ -4,13 +4,25 @@ chkconfig iptables on
 yum install -y iptables-services 
 
 export NIC=<i.e. eth1>
+
+#setting for iptables
 export ALLOW_TCP_PORTS=2202,23,22,25,8080,80,443,5060,5061,1900,69,139,445
 export ALLOW_UDP_PORTS=22,1434,443,5060,5061,1900,69,139,44
+
+#settings for thottling
 export NICTHROTTLE1=683bps
 export NICTHROTTLE2=1000kbps
 export NICTHROTTLE3=1000kbps
 export MESSAGEPORT1=<port to sent to metron>
 export MESSAGEPORT2=<port to sent to metron>
+
+#settings for defining static ip
+export STATICIP=<>
+export NETMASK=<>
+export GATEWAY=<>
+export DNS1=<>
+export DNS2=<>
+
 
 
 # setup iptables-persistent
@@ -55,9 +67,9 @@ sudo tc qdisc del dev $NIC root
 sudo tc qdisc add dev $NIC root handle 1:0 htb default 10
 sudo tc class add dev $NIC parent 1:0 classid 1:10 htb rate $NICTHROTTLE1 ceil $NICTHROTTLE1
 
+#The following attempts to make throttle higher for certain ports. This does not work yet
 #clear settings
 #sudo tc qdisc del dev $NIC root
-
 #define throttling
 #sudo tc qdisc add dev $NIC root handle 1: htb
 #sudo tc class add dev $NIC parent 1: classid 1:1 htb rate $NICTHROTTLE1
@@ -67,9 +79,22 @@ sudo tc class add dev $NIC parent 1:0 classid 1:10 htb rate $NICTHROTTLE1 ceil $
 #sudo tc filter add dev $NIC parent 1:0 prio 0 protocol ip handle 6 fw flowid 1:6
 #sudo iptables -A OUTPUT -t mangle -p tcp --sport $MESSAGEPORT1 -j MARK --set-mark 5
 #sudo iptables -A OUTPUT -t mangle -p tcp --sport $MESSAGEPORT2  -j MARK --set-mark 6
-
 #show results 
 #sudo tc qdisc show
+
+
+##change nic settings
+##appending to file /etc/network/interfaces
+#iface <nic> inet static
+#address <>
+#netmask <>
+#gateway <>
+#dns-nameservers <> <> 
+#
+#sudo /etc/init.d/networking restart
+
+
+
 
 #Save rules and make them persistant
 sudo netfilter-persistent save
