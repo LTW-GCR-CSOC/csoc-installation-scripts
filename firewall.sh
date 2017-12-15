@@ -1,3 +1,4 @@
+#!/bin/bash
 ##setup firewall and data throttle
 chkconfig iptables on
 yum install -y iptables-services 
