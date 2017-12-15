@@ -39,6 +39,12 @@ export NICTHROTTLE3=1000kbps
 export MESSAGEPORT1=<port to sent to metron>
 export MESSAGEPORT2=<port to sent to metron>
 
+
+#clear settings
+#sudo tc qdisc del dev $NIC root
+#sudo tc qdisc add dev $NIC root handle 1:0 htb default 10
+#sudo tc class add dev $NIC parent 1:0 classid 1:10 htb rate $NICTHROTTLE1 ceil $NICTHROTTLE1
+
 #clear settings
 sudo tc qdisc del dev $NIC root
 
