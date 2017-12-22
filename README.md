@@ -121,7 +121,8 @@ To be provided - (Information on how to run automated tests on the software)
 See this repository's issue tracker.
 
 ## GCR Canary Case
-GCR is providing a custom designed case for the GCR Canary device, more details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case).
+GCR is working with [Made Mill](http://mademill.com/) at [Bayview Yards](http://thebayviewyards.com/).
+to create a custom designed case for the GCR Canary. The case is composed of PLA plastic and manufactured using 3D printing. More details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case).
 
 ![Global Cybersecurity Resource - Canary Case](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/gcrcase/v1/Render1.jpg?raw=true "Global Cybersecurity Resource - Canary Case")   
 
