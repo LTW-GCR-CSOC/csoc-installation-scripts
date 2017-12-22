@@ -123,7 +123,7 @@ See this repository's issue tracker.
 ## GCR Canary Case
 GCR is providing a custom designed case for the GCR Canary device, more details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case).
 
-![Global Cybersecurity Resource - Canary Case](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/gcrcase/v1/Render1.jpg?raw=true "Global Cybersecurity Resource - Canary Case")   
+![Global Cybersecurity Resource - Canary Case](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/gcrcase/v1/Render1.jpg?raw=true "Global Cybersecurity Resource - Canary Case")   
 
 ## GCR CSOC Playbook
 Operational documentation for use of the CSOC is provided [here](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/tree/master/operations-documentation).  The documentation includes: organization structure and roles, workflows and usecases, incident report templates, shift report templates.
