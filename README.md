@@ -172,7 +172,8 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
 
 ## Contributors
  * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca)[, President of Global EPIC organization](http://globalepic.org)
- * [Brian Hurley - GCR CSOC Project Leader](https://www.linkedin.com/in/brianrhurley/)
+ * [pending announcement - GCR CSOC Project Leader]
+ * [Brian Hurley - GCR Advisor](https://www.linkedin.com/in/brianrhurley/)
  * [Ahmed Shah - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
  * [Eddie Villarta - CSOC Deployment and Operations](https://www.linkedin.com/in/eddievillarta/)
  * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
