@@ -1,8 +1,5 @@
 #Global Cybersecurity Resource 2017-2018 (cugcr.ca) 
 #
-#This file was adapted from the Metron - Single Node Install
-#https://cwiki.apache.org/confluence/display/METRON/Dev+VM+Install
-#https://github.com/apache/metron/blob/master/metron-deployment/vagrant/full-dev-platform/Vagrantfile
 ##########################################################################
 #  Licensed to the Apache Software Foundation (ASF) under one or more
 #  contributor license agreements.  See the NOTICE file distributed with
@@ -21,7 +18,11 @@
 ##########################################################################
 #ABOUT:
 #-------------------
-#This Vagrant file will deploy a single node instance (node1) to AWS. 
+#This Vagrant file will deploy Apache Metron as a single node instance (node1) to AWS EC2. 
+#
+#This file was originally adapted from the Metron Single Node Install Vagrant file located here:
+#https://cwiki.apache.org/confluence/display/METRON/Dev+VM+Install
+#https://github.com/apache/metron/blob/master/metron-deployment/vagrant/full-dev-platform/Vagrantfile
 ##########################################################################
 #LOCATION OF FILE:
 #-------------------
@@ -60,7 +61,7 @@
 ##########################################################################
 #OTHER NOTES:
 #-------------------
-#How to find centos7 ami ids for Canada: 
+#How to find Canadian Centos7 AMI ids: 
 #run: pip install awscli
 #run: aws --region ca-central-1 ec2 describe-images --owners aws-marketplace --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce
 #imageIDs: ami-28823e4c, ami-af62d0cb, ami-cbd069af
@@ -114,11 +115,11 @@ Vagrant.configure(2) do |config|
    aws.region = "ca-central-1"
    aws.instance_type = "t2.2xlarge"
     
-   #sg-1193xxxx
-   aws.security_groups = ["<AWS Security Group like above"]
+   #Example of a Security Group id: sg-1193xxxx
+   aws.security_groups = ["<AWS Security Group id"]
     
-   #subnet-fbc3exxxx
-   aws.subnet_id = "<AWS Subnet ID like above>"
+   #Example of Subnet id: subnet-fbc3exxxx
+   aws.subnet_id = "<AWS Subnet id>"
    aws.elastic_ip = "<AWS Elastic IP Address>"
    override.vm.box = "dummy"
    override.ssh.username = "centos"
@@ -144,6 +145,7 @@ Vagrant.configure(2) do |config|
    hostname node1
    sed -i "s/^HOSTNAME=.*/HOSTNAME=node1/g" /etc/sysconfig/network
    (echo u s; echo d 1; echo n; echo p; echo 1; echo 2048 ; echo ;echo a; echo 1; echo w) | fdisk {{ vol_src_1 }} || true
+   #
    #INSTALL NIFI (the following has not been tested)
    #-------------------
    #sudo -i
