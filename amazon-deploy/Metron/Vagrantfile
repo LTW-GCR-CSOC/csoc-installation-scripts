@@ -57,6 +57,17 @@
 ##########################################################################
 #HOW TO EXECUTE THIS FILE: 
 #-------------------
+#Set Environment Variables & Run Vagrant
+#-------------------
+#export AWS_KEY=''
+#export AWS_SECRET=''
+#export AWS_KEYNAME=''
+#export AWS_KEYPATH='../..*.pem'
+#
+#export AWS_ELASTICIP=""
+#export AWS_SECURITYGROUPID=""
+#export AWS_SUBNETID=""
+#
 #vagrant up --provider=aws
 ##########################################################################
 #OTHER NOTES:
@@ -135,7 +146,8 @@ Vagrant.configure(2) do |config|
    }
    aws.block_device_mapping = [{'DeviceName' =>'/dev/sda1', 'Ebs.VolumeSize' => 100, 'Ebs.DeleteOnTermination' => true}] 
  end 
-
+ 
+ #The following will install rsyslog, change hostname to node1, resize the disk partition, and reboot
  config.vm.provision "shell", inline: <<-SHELL
    yum install -y wget
    wget http://rpms.adiscon.com/v8-stable/rsyslog.repo
