@@ -156,19 +156,22 @@ Vagrant.configure(2) do |config|
    yum install -y rsyslog
    hostname node1
    sed -i "s/^HOSTNAME=.*/HOSTNAME=node1/g" /etc/sysconfig/network
-   (echo u s; echo d 1; echo n; echo p; echo 1; echo 2048 ; echo ;echo a; echo 1; echo w) | fdisk {{ vol_src_1 }} || true
+   echo -e "u s\nd 1\nn\np\n1\n2048\n\na\n1\nw\n" | fdisk /dev/xvda
+   ip link set eth0 promisc on
+   ipconfig eth0 promisc
+   #(echo u s; echo d 1; echo n; echo p; echo 1; echo 2048 ; echo ;echo a; echo 1; echo w) | fdisk {{ vol_src_1 }} || true
    #
-   #INSTALL NIFI (the following has not been tested)
+   #INSTALL NIFI
    #-------------------
    #sudo -i
-   # cd /opt
-   # wget https://archive.apache.org/dist/nifi/1.2.0/nifi-1.2.0-bin.tar.gz
-   # tar xf nifi-1.2.0-bin.tar.gz
-   #note: modify nifi-1.1.2/conf/nifi.properties
-   #vi /opt/nifi-1.2.0/conf/nifi.properties
-   #note: change to "nifi.web.http.port=8089" 
-   # /opt/nifi-1.2.0/bin/nifi.sh install
-   # /opt/nifi-1.2.0/bin/nifi.sh start
+   cd /opt
+   wget https://archive.apache.org/dist/nifi/1.2.0/nifi-1.2.0-bin.tar.gz
+   tar xf nifi-1.2.0-bin.tar.gz
+   #note: modify nifi-1.1.2/conf/nifi.properties to change "nifi.web.http.port" to port 8089
+   sed -i "s/^nifi\.web\.http\.port=.*/nifi\.web\.http\.port=8089/g" /opt/nifi-1.2.0/conf/nifi.properties   
+   /opt/nifi-1.2.0/bin/nifi.sh install
+   /opt/nifi-1.2.0/bin/nifi.sh stop
+   #/opt/nifi-1.2.0/bin/nifi.sh start
    shutdown -r now
  SHELL
 
