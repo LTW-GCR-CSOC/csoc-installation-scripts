@@ -36,7 +36,7 @@
 #install: vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
 #install: pip install --upgrade setuptools --user python
 #
-#You will also need to reserve an AWS Elastic IP and have a Subnet id and Security Group id
+#You will also need to reserve an AWS Elastic IP, a Subnet id, Security Group id, and a key pair (key pair name & *.pem file).
 #In the code below you will see "<_comment_>" letting you know where to place the ids
 ##########################################################################
 #BEFORE RUNNING:
