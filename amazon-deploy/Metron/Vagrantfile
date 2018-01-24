@@ -16,32 +16,32 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 ##########################################################################
-#ABOUT:
+#1) ABOUT:
 #-------------------
-#This Vagrant file will deploy Apache Metron as a single node instance (node1) to AWS EC2. 
+#This Vagrant file will deploy Apache Metron as a single node (node1) to AWS EC2. 
 #
-#This file was originally adapted from the Metron Single Node Install Vagrant file located here:
+#This file was originally adapted from the Metron Single Node Install file located here:
 #https://cwiki.apache.org/confluence/display/METRON/Dev+VM+Install
 #https://github.com/apache/metron/blob/master/metron-deployment/vagrant/full-dev-platform/Vagrantfile
 ##########################################################################
-#LOCATION OF FILE:
+#2) LOCATION OF FILE(Where it should be placed):
 #-------------------
 #This file should be located in the following directory: 
 #/../metron-deployment/vagrant/full-dev-platform
 ##########################################################################
-#REQUIREMENTS(What is needed to run this file):
+#3) REQUIREMENTS (What is needed to run this file):
 #-------------------
 #install: vagrant plugin install vagrant-aws
 #install: vagrant plugin install vagrant-reload
-#install: vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
 #install: pip install --upgrade setuptools --user python
 #
 #You will also need to reserve an AWS Elastic IP, a Subnet id, Security Group id, and a key pair (key pair name & *.pem file[remember to set permissions to chmod 400]).
+#
 ##########################################################################
-#BEFORE RUNNING:
-#Recommended steps before running file
+#4) BEFORE RUNNING:
+#Recommended steps before running the vagrant file
 #-------------------
-#Clearing Vagrant, Docker, Maven. Creating new AWS Vagrant box 
+#4.1) Clear Vagrant, Docker & Maven. Create new AWS Vagrant box:
 #WARNING - THESE STEPS WILL DISTROY ALL LOCAL DOCKER CONTAINERS AND VAGRANT BOXES
 #-------------------
 #vagrant halt node1 -f
@@ -58,10 +58,11 @@
 #vagrant box add dummy --force https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
 #
 #-------------------
-#Set Environment Variables
+#4.2) Set Environment Variables
 #-------------------
 #export AWS_ACCESS_KEY_ID=''
 #export AWS_SECRET_ACCESS_KEY=''
+#
 #export AWS_KEYNAME=''
 #export AWS_KEYPATH='../..*.pem'
 #
@@ -70,19 +71,21 @@
 #export AWS_SUBNET_ID=""
 #
 #-------------------
-#Update /etc/hosts file to include AWS_ELASTIC_IP tied to "node1" (do only once)
+#4.3) Update /etc/hosts file to include AWS_ELASTIC_IP which will be tied to "node1" (do only once)
 #-------------------
 #sed -i "$AWS_ELASTIC_IP  node1" /etc/hosts
 ##########################################################################
-#HOW TO EXECUTE/RUN THIS FILE: 
-#
+#5) HOW TO EXECUTE/RUN THIS VAGRANT FILE: 
+#-------------------
 #vagrant up --provider=aws
 ##########################################################################
-#OTHER NOTES:
+#6) OTHER NOTES:
 #-------------------
-#How to find Canadian Centos7 AMI ids: 
-#run: pip install awscli
-#run: aws --region ca-central-1 ec2 describe-images --owners aws-marketplace --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce
+#How to find Canadian Centos7 AMI ids
+#-------------------
+#pip install awscli
+#aws --region ca-central-1 ec2 describe-images --owners aws-marketplace --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce
+#
 #imageIDs: ami-28823e4c, ami-af62d0cb, ami-cbd069af
 
 require 'getoptlong'
@@ -129,22 +132,17 @@ Vagrant.configure(2) do |config|
    aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
    aws.keypair_name = ENV['AWS_KEYNAME']
     
-   #Below is a CentOS ami id available in Canada
+   #Below is a CentOS AMI available in Canada
    aws.ami = "ami-00e45864"
    aws.region = "ca-central-1"
-   aws.instance_type = "t2.2xlarge"
-    
-   #Example of a Security Group id: sg-1193xxxx
+   aws.instance_type = "t2.2xlarge"   
    aws.security_groups = ENV['AWS_SECURITYGROUP_ID']
-    
-   #Example of Subnet id: subnet-fbc3exxxx
    aws.subnet_id = ENV['AWS_SUBNET_ID']
    aws.elastic_ip = ENV['AWS_ELASTIC_IP']
    override.vm.box = "dummy"
    override.ssh.username = "centos"
    override.ssh.private_key_path = ENV['AWS_KEYPATH']
 
-  #config.vm.provider "aws" do |aws, override|
    override.nfs.functional = false
    aws.tags = {
          'Name' => 'Phase1-MetronA',
@@ -172,13 +170,13 @@ Vagrant.configure(2) do |config|
    #INSTALL NIFI
    #-------------------
    #sudo -i
-   cd /opt
-   wget https://archive.apache.org/dist/nifi/1.2.0/nifi-1.2.0-bin.tar.gz
-   tar xf nifi-1.2.0-bin.tar.gz
+   #cd /opt
+   #wget https://archive.apache.org/dist/nifi/1.2.0/nifi-1.2.0-bin.tar.gz
+   #tar xf nifi-1.2.0-bin.tar.gz
    #note: modify nifi-1.1.2/conf/nifi.properties to change "nifi.web.http.port" to port 8089
-   sed -i "s/^nifi\.web\.http\.port=.*/nifi\.web\.http\.port=8089/g" /opt/nifi-1.2.0/conf/nifi.properties   
-   /opt/nifi-1.2.0/bin/nifi.sh install
-   /opt/nifi-1.2.0/bin/nifi.sh stop
+   #sed -i "s/^nifi\.web\.http\.port=.*/nifi\.web\.http\.port=8089/g" /opt/nifi-1.2.0/conf/nifi.properties   
+   #/opt/nifi-1.2.0/bin/nifi.sh install
+   #/opt/nifi-1.2.0/bin/nifi.sh stop
    #/opt/nifi-1.2.0/bin/nifi.sh start
    shutdown -r now
  SHELL
