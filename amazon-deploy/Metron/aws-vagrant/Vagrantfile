@@ -1,4 +1,4 @@
-#Global Cybersecurity Resource 2017-2018 (cugcr.ca)
+#Global Cybersecurity Resource 2017-2018 (cugcr.ca) 
 #
 ##########################################################################
 #  Licensed to the Apache Software Foundation (ASF) under one or more
@@ -16,30 +16,33 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 ##########################################################################
-#ABOUT:
+#1) ABOUT:
 #-------------------
-#This Vagrant file will deploy Apache Metron as a single node instance (node1) to AWS EC2.
+#This Vagrant file will deploy Apache Metron as a single node (node1) to AWS EC2. 
 #
-#This file was originally adapted from the Metron Single Node Install Vagrant file located here:
+#This file was originally adapted from the Metron Single Node Install file located here:
 #https://cwiki.apache.org/confluence/display/METRON/Dev+VM+Install
 #https://github.com/apache/metron/blob/master/metron-deployment/vagrant/full-dev-platform/Vagrantfile
 ##########################################################################
-#LOCATION OF FILE:
+#2) LOCATION OF FILE(Where it should be placed):
 #-------------------
-#This file should be located in the following directory:
+#This file should be located in the following directory: 
 #/../metron-deployment/vagrant/full-dev-platform
 ##########################################################################
-#REQUIREMENTS(What is needed to run this file):
+#3) REQUIREMENTS (What is needed to run this file):
 #-------------------
 #install: vagrant plugin install vagrant-aws
 #install: vagrant plugin install vagrant-reload
-#install: vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
 #install: pip install --upgrade setuptools --user python
 #
-#You will also need to reserve an AWS Elastic IP and have a Subnet id and Security Group id
+#You will also need to reserve an AWS Elastic IP, a Subnet id, Security Group id, and a key pair (key pair name & *.pem file[remember to set permissions to chmod 400]).
+#
 ##########################################################################
-#BEFORE RUNNING:
-#Recommended steps before running file (clearing vagrant, docker, ext..):
+#4) BEFORE RUNNING:
+#Recommended steps before running the vagrant file
+#-------------------
+#4.1) Clear Vagrant, Docker & Maven. Create new AWS Vagrant box:
+#WARNING - THESE STEPS WILL DISTROY ALL LOCAL DOCKER CONTAINERS AND VAGRANT BOXES
 #-------------------
 #vagrant halt node1 -f
 #vagrant halt default -f
@@ -52,28 +55,37 @@
 #open -a Docker
 #rm -rf /../.m2/repository/*
 #rm -rf /../.vagrant.d/boxes/*
-#vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
-##########################################################################
-#HOW TO EXECUTE THIS FILE:
+#vagrant box add dummy --force https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+#
 #-------------------
-#Set Environment Variables & Run Vagrant
+#4.2) Set Environment Variables
 #-------------------
 #export AWS_ACCESS_KEY_ID=''
 #export AWS_SECRET_ACCESS_KEY=''
+#
 #export AWS_KEYNAME=''
 #export AWS_KEYPATH='../..*.pem'
 #
-#export AWS_ELASTICIP=""
-#export AWS_SECURITYGROUPID=""
-#export AWS_SUBNETID=""
+#export AWS_ELASTIC_IP=""
+#export AWS_SECURITYGROUP_ID=""
+#export AWS_SUBNET_ID=""
 #
+#-------------------
+#4.3) Update /etc/hosts file to include AWS_ELASTIC_IP which will be tied to "node1" (do only once)
+#-------------------
+#sed -i "$AWS_ELASTIC_IP  node1" /etc/hosts
+##########################################################################
+#5) HOW TO EXECUTE/RUN THIS VAGRANT FILE: 
+#-------------------
 #vagrant up --provider=aws
 ##########################################################################
-#OTHER NOTES:
+#6) OTHER NOTES:
 #-------------------
-#How to find Canadian Centos7 AMI ids:
-#run: pip install awscli
-#run: aws --region ca-central-1 ec2 describe-images --owners aws-marketplace --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce
+#How to find Canadian Centos7 AMI ids
+#-------------------
+#pip install awscli
+#aws --region ca-central-1 ec2 describe-images --owners aws-marketplace --filters Name=product-code,Values=aw0evgkw8e5c1q413zgy5pjce
+#
 #imageIDs: ami-28823e4c, ami-af62d0cb, ami-cbd069af
 
 require 'getoptlong'
