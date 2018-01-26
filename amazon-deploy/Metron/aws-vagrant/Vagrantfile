@@ -34,6 +34,7 @@
 #install: vagrant plugin install vagrant-aws
 #install: vagrant plugin install vagrant-reload
 #install: pip install --upgrade setuptools --user python
+#vagrant plugin install vagrant-hostmanager
 #
 #You will also need to reserve an AWS Elastic IP, a Subnet id, Security Group id, and a key pair (key pair name & *.pem file[remember to set permissions to chmod 400]).
 #
