@@ -1,5 +1,5 @@
 
-The following commands will allow you to configure a bastion server on a AWS t2.micro machine. 
+The following commands will allow you to configure a bastion server on a AWS Centos7 t2.micro machine. 
 In this configuration the Canary will send messages to the basion IP to the PORT_FROM. 
 The bastion will then redirect the messages to the DEST IP address on PORT_TO. The DEST IP contains the SIEM. 
 
