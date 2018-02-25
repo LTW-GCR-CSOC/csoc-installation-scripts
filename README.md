@@ -24,23 +24,23 @@
 
 The [GCR](https://cugcr.com/tiki/lce/index.php) - CSOC (**C**yber**s**ecurity **O**perations **C**enter) initiative seeks to provide small to medium size enterprises with openly available cybersecurity resources to self-manage their own security or enable companies to offer cybersecurity services to others as part their business. 
 
-The development of this project is primarily divided into three focus areas: i) Developing open source software to compliment SOC services ii) Developing SOC operation guides and templates as a means to manage security iii) Creating SOC "Pathway Training" material for online learning. 
+The development of this project is primarily divided into three focus areas: i) Developing open source software to compliment CSOC services ii) Developing CSOC operation guides and templates as a means to manage security iii) Creating CSOC "Pathway Training" material for online learning. 
 
-**Open Source Software Development:**   
+**i) Open Source Software Development:**   
 Open source software development activities for this project seeks to configure, integrate and enhance existing open source projects (such as [Dionaea](https://github.com/LTW-GCR-CSOC/dionaea), [Cowrie](https://github.com/LTW-GCR-CSOC/cowrie), [OSSEC](https://github.com/LTW-GCR-CSOC/ossec-hids), [OpenVAS](https://github.com/LTW-GCR-CSOC/openvas-commander) and others) to report to a central alert collector (such as [Apache Metron](http://metron.apache.org)). The central alert collector will be used for alert aggregation and analytics. Development also includes the creation of "GCR Canary" honeypots. The honeypots are physically and virtually deployable. As the GCR Canary project evolves it will include the various sensors mentioned above. The GCR Canary honeypot can be used for intrusion detection in SME environments. 
  
-**CSOC Operation Guide Creation:**   
+**ii) CSOC Operation Guide Creation:**   
 The creation of the GCR CSOC Playbook will include guidance and templates for managing cybersecurity in an organization.
 
-**CSOC Pathway Training Material:**   
+**iii) CSOC Pathway Training Material:**   
 Online training resources seeks to improve the adoption of proper cybersecurity hygiene within an organization
 
 ## Plans
-This project is being rolled out over three phases. We are currently focused on Phase 1. Details of our plans are available [here](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/projects/3).
+This project is being rolled out over three phases. We are currently focused on Phase 1. 
 
 
 ## Screenshots  
-The following screenshots (from left to right) are of Apache Metron (used for centralized alert collection), a terminal output of a GCR Canary honeypot, and a screen capture of the GCR CSOC Playbook. 
+The following screenshots (from left to right) are of Apache Metron (used for central alert collection), a terminal output of a GCR Canary honeypot, and a screen capture of the GCR CSOC Playbook. 
 ![Global Cybersecurity Resource - Collage of screenshots](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/GCRCSOC-ScreenshotCollage3.png?raw=true "Global Cybersecurity Resource - Collage of screenshots")   
 
 The following screenshot shows a customized dashboard in Apache Metron that presents alert information from a GCR Canary honeypot.
