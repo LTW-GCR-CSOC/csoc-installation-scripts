@@ -124,7 +124,7 @@ See this repository's issue tracker.
 GCR is working with [Made Mill](http://mademill.com/) at [Bayview Yards](http://thebayviewyards.com/).
 to create a custom designed case for the GCR Canary. The case is composed of PLA plastic and manufactured using 3D printing. More details are available in this [repository](https://github.com/LTW-GCR-CSOC/canary-case).
 
-![Global Cybersecurity Resource - Canary Case](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/gcrcase/v1/Render1.jpg?raw=true "Global Cybersecurity Resource - Canary Case")   
+![Global Cybersecurity Resource - Canary Case](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/blob/master/images/pi3andv1gcrcase.png?raw=true "Global Cybersecurity Resource - Canary Case")   
 
 ## GCR CSOC Playbook
 Operational documentation for use of the CSOC is provided [here](https://github.com/LTW-GCR-CSOC/csoc-installation-scripts/tree/master/operations-documentation).  The documentation includes: organization structure and roles, workflows and usecases, incident report templates, shift report templates.
@@ -163,19 +163,19 @@ Apache Metron is licensed under Apache v2.0 [LICENSE](https://github.com/apache/
  * [Google Data Studio](https://www.google.com/analytics/data-studio/)
 
 ## Credits and references
+ * [Global Cybersecurity Resource](https://cugcr.ca)
  * [Global Epic](http://globalepic.org)
- * [Lead to Win](http://leadtowin.ca)
- * [Ottawa - Cyber](http://lce.ltw-global.com)
- * [Hacker Alerting Service](http://globalcybersecurityresource.com)
+ * [Hacker Alerting Service](https://csoc.cugcr.ca)
  * [Carleton University TIM Program](http://timprogram.ca/)
  * [Technology Innovation Management Review](http://timreview.ca/)
 
 ## Contributors
  * [Daniel Craigen - GCR Project Leader](mailto:danielcraigen@cunet.carleton.ca)[, President of Global EPIC organization](http://globalepic.org)
- * [pending announcement - GCR CSOC Project Leader]
- * [Brian Hurley - GCR Advisor](https://www.linkedin.com/in/brianrhurley/)
  * [Ahmed Shah - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
- * [Eddie Villarta - CSOC Deployment and Operations](https://www.linkedin.com/in/eddievillarta/)
- * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
+ * [Naveen Narayanasamy - Cybersecurity Analyst and Software Developer](mailto:ahmed.shah@carleton.ca)
  * [Brandon Hurley - Cybersecurity Software Developer](http://brandonhurley.com)
- * [Mahmoud Gad - Cybersecurity Specialist](https://www.linkedin.com/in/mahmoudgad/)
+ * [Adefemi "Femi" Debo-Omidokun - CSOC Operations](https://www.linkedin.com/in/adefemi-debo-omidokun-bb19273/)
+ * [Brian Hurley - Former GCR CSOC Lead and Developer](https://www.linkedin.com/in/brianrhurley/)
+ * [Eddie Villarta - GCR CSOC Advisor](https://www.linkedin.com/in/eddievillarta/)
+ * [David Hudson - GCR CSOC Advisor]
+ * [Mahmoud Gad - GCR CSOC Advisor](https://www.linkedin.com/in/mahmoudgad/)
