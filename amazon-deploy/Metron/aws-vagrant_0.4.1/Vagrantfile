@@ -150,10 +150,17 @@ Vagrant.configure(2) do |config|
  #The following will install rsyslog, change hostname to node1, resize the disk partition, and reboot
  config.vm.provision "shell", inline: <<-SHELL
    yum install -y wget
-   wget http://rpms.adiscon.com/v8-stable/rsyslog.repo
-   mv rsyslog.repo /etc/yum.repos.d/rsyslog.repo
-   yum info rsyslog --skip-broken
-   yum install -y rsyslog
+   yum install yum-utils
+   #wget http://rpms.adiscon.com/v8-stable/rsyslog.repo
+   #mv rsyslog.repo /etc/yum.repos.d/rsyslog.repo
+   #yum info rsyslog --skip-broken
+   #yum install -y rsyslog
+
+   yum-config-manager --add-repo http://rpms.adiscon.com/v8-stable/epel-6/x86_64
+   yum install --nogpg -y rsyslog rsyslog-kafka
+   rm /etc/rsyslog.d/listen.conf
+   rsyslogd -N1 && rsyslogd
+
    hostname node1
    sed -i "s/^HOSTNAME=.*/HOSTNAME=node1/g" /etc/sysconfig/network
    echo -e "u s\nd 1\nn\np\n1\n2048\n\na\n1\nw\n" | fdisk /dev/xvda
