@@ -58,15 +58,16 @@ sudo service ssh restart
 #setup firewall
 sudo $SCRIPTSDIR/firewall.sh
 
+
+###Do hardware reset once a week. 
 #update crontab 
 #write out current crontab
-#sudo crontab -l > mycron
+sudo crontab -l > mycron
 #echo new cron into cron file
-#sudo echo "0 3 * * * service rsyslog restart" >> mycron
+sudo echo "5 8 * * 0 shutdown -r now" >> mycron
 
 #install new cron file
-#sudo crontab mycron
-#sudo rm mycron
+sudo crontab mycron
+sudo rm mycron
 
 #device should be rebooted for changes to take effect
-
