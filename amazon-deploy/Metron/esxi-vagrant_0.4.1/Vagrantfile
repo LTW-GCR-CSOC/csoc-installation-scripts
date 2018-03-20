@@ -116,10 +116,9 @@ hosts = [{
 
 Vagrant.configure(2) do |config|
  config.vm.provider :vmware_esxi do |esxi, override|
-
+   esxi.esxi_hostname = '<esxi server ip or hostname>'
    esxi.esxi_hostport = 22
-   esxi.esxi_hostname = 'node1'
-   esxi.esxi_username = 'root'
+   esxi.esxi_username = '<user>'
    esxi.esxi_password = 'prompt:'
    esxi.guest_name = 'Metron410-to-ESXi' 
    esxi.guest_numvcpus = '8'
