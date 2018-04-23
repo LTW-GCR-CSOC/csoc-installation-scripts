@@ -1,6 +1,6 @@
-This document contains sample log alert information from different types of sensors along with the GROK parser patterns for use with Apache Metron.  
+This document contains how Canary log information is structured along with sample data and GROK parser patterns for use with Apache Metron.  
 
-See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result for GROK related tools (i.e. pattern verifier).
+See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result for GROK related tools (i.e. pattern verifier) to verirfy GROK statements that are used to parse the log information.
 
 
 <h3>Log/Alert Generator: GCRdionaeaAlerts.py</h3>
