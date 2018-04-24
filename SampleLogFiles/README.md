@@ -1,12 +1,12 @@
-This document contains how Canary log information is structured along with sample data and GROK parser patterns for use with Apache Metron.  
+This document contains how the GCR Canary log message is structured, sample log data, and a GROK parser pattern that can be used to parse the log information to be ingested by Apache Metron.  
 
-See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result for GROK related tools (i.e. pattern verifier) to verirfy GROK statements that are used to parse the log information.
+You can use http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result to verirfy the GROK pattern.
 
 
-<h3>File Used to Generate Log/Alerts: GCRdionaeaAlerts.py</h3>
+<h3>File Used to Generate GCR Log/Alerts: GCRdionaeaAlerts.py</h3>
 Location of log file: ./var/log/dionaea/GCRDionaea.log<br />
 <br />
-<h5>*What each column means:*</h5>
+<h5>*What each column means in log message:*</h5>
 <table><tr><td>
 UnixTime | alert_type | hostname | event | connection_id | ip_dst_add | dst_port | ip_src_addr | src_port | payload |
 </td></tr></table>
