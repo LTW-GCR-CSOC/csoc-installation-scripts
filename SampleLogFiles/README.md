@@ -3,7 +3,7 @@ This document contains how Canary log information is structured along with sampl
 See http://grokconstructor.appspot.com/ and http://grokconstructor.appspot.com/do/match#result for GROK related tools (i.e. pattern verifier) to verirfy GROK statements that are used to parse the log information.
 
 
-<h3>Log/Alert Generator: GCRdionaeaAlerts.py</h3>
+<h3>File Used to Generate Log/Alerts: GCRdionaeaAlerts.py</h3>
 Location of log file: ./var/log/dionaea/GCRDionaea.log<br />
 <br />
 <h5>*What each column means:*</h5>
@@ -12,6 +12,7 @@ UnixTime | alert_type | hostname | event | connection_id | ip_dst_add | dst_port
 </td></tr></table>
 
 <h5>GROK STATEMENT</h5>
+Fields are "|" bar seperated. 
 <table><tr><td>
 %{NUMBER:timestamp}\|%{GREEDYDATA:alert_type}\|%{GREEDYDATA:hostname}\|%{GREEDYDATA:event}\|%{NUMBER:connection_id}\|%{IP:ip_dst_addr}\|%{NUMBER:dst_port}\|%{IP:ip_src_addr}\|%{NUMBER:src_port}\|%{GREEDYDATA:payload}\|
 </td></tr></table>
