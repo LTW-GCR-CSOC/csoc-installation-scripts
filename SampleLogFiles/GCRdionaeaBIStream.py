@@ -69,6 +69,44 @@ class Find:
          return returnVal
 
     @staticmethod
+    def getRemoteHostName(localIPaddress):
+         filter = Filter()
+         ip=localIPaddress
+         cmdConstruction = "nmblookup -A " + ip + " "
+         try:
+             cmdOutput = subprocess.check_output(cmdConstruction, shell=True)
+         except:
+             cmdOutput = ""
+             print("Hostname not found")
+
+
+
+
+
+
+
+
+         hostname=str(re.findall(r"[\\t](.*?)[ ]", str(cmdOutput))) 
+         hostname=filter.removeListChars(hostname)
+
+
+         hostname=str(re.findall(r"[\\t](.*?)[(, )]", str(hostname)))[11:]
+         hostname=re.findall(r"(.*?)[']", str(hostname))
+         try:
+         #if len(hostname) >= 0 :
+             hostname=str(hostname[0])
+         #else:
+         except IndexError:
+             hostname=""
+
+         print("getremoteHostName - ip      :" + ip)
+         print("getRmoteHostName - cmdOutput:" + str(cmdOutput))
+         print("getRemoteHostName - hostname: " + hostname)  
+         return hostname
+
+ 
+
+    @staticmethod
     def macVendor(fullMacAddress):
          if (fullMacAddress != ""):
             parsedMacAddress=fullMacAddress
@@ -76,9 +114,20 @@ class Find:
             #grep <first six chars. i.e. 080069> -i /usr/share/nmap/nmap-mac-prefixes
             print(parsedMacAddress[1:7])
             cmdConstruction ="grep " + parsedMacAddress[1:7] + " -i /usr/share/nmap/nmap-mac-prefixes"
-            cmdOutput = str(subprocess.check_output(cmdConstruction, shell=True))
-            cmdOutput = cmdOutput[2:]
-            cmdOutput = cmdOutput[:-3]
+            try: 
+
+                cmdOutput = str(subprocess.check_output(cmdConstruction, shell=True))
+
+            except subprocess.CalledProcessError as e:
+
+               cmdOutput = ""
+ 
+            if not cmdOutput:
+                 cmdOutput = ""
+            else:
+
+                 cmdOutput = cmdOutput[2:]
+                 cmdOutput = cmdOutput[:-3]
          else:
             cmdOutput =""
          return str(cmdOutput)
@@ -123,6 +172,7 @@ class Watcher:
         self.observer.start()
         try:
             while True:
+                #print("Sleeping")
                 time.sleep(5)
         except:
             self.observer.stop()
@@ -200,6 +250,8 @@ class Handler(FileSystemEventHandler):
                  localIP="0.0.0.0"
             macAddress = find.macAddress( ip )
             macVendor = find.macVendor( macAddress )
+            remoteHostname = find.getRemoteHostName( ip ) 
+
             #contentStr=f.read()
             print("++>" + content + "<++")
             compareSrcDst = "0"
@@ -208,7 +260,8 @@ class Handler(FileSystemEventHandler):
             else:
                  compareSrcDst = "0"
             if (str(eventPath)[-3:] !="swp") and ( str(eventPath)[-1:] !="~"):
-                 content = "[[[ CONTENT: [cmp ip_dst_addr & ip_src_addr: " + compareSrcDst + "],[file:("+eventPath+")], [ip_src_addr details: (MAC:" + macAddress + "), (VENDOR: "+ macVendor +")], [ " + filter.removeListChars(content) + "] ]]]"
+
+                 content = "[[[ CONTENT: [cmp ip_dst_addr & ip_src_addr: " + compareSrcDst + "],[file:("+eventPath+")], [ip_src_addr details: (MAC:" + macAddress + "), (VENDOR: "+ macVendor +"), (HOSTNAME: " +  remoteHostname +")], [ " + filter.removeListChars(content) + "] ]]]"
                  alert =  str(int(timeOfAlert))+".000|"+"GCRCanary-Device|"+ hostname +"|"+ "Dionaea-BIStream("+service+")|"+"0"+"|"+str(localIP)+"|"+port+"|"+str(ip)+"|"+"0"+"|"+ content  +"|\n"
                  syslog.syslog(alert)
 
@@ -224,5 +277,6 @@ if __name__ == '__main__':
     #print(macAddress)
     #macVendor = find.macVendor(macAddress)
     #print(macVendor)
+    time.sleep(30)
     w = Watcher()
     w.run()
