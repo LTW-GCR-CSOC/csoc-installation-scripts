@@ -1,0 +1,17 @@
+{
+   "elasticsearch": {
+      "index": "gcrdionaeaone",
+      "batchSize": 1,
+      "enabled": true
+      },
+   "hdfs": {
+      "index": "gcrdionaeaone",
+      "batchSize": 1,
+      "enabled" : true
+   },
+   "solr": {
+      "index": "gcrdionaeaone",
+      "batchSize": 1,
+      "enabled" : false
+   }
+}
