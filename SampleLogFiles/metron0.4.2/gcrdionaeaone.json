@@ -1,0 +1,9 @@
+{
+ "parserClassName": "org.apache.metron.parsers.GrokParser",
+ "sensorTopic": "gcrdionaeaone",
+ "parserConfig": {
+ "grokPath": "/apps/metron/patterns/gcrdionaeaone",
+ "patternLabel": "GCRDIONAEONE",
+ "timestampField": "timestamp"
+ }
+}
