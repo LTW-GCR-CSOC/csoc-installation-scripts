@@ -1,4 +1,6 @@
-# Glo
+#Global Cybersecurity Resource, 2018
+#This file configures GCR Mender production server
+#
 # https://docs.docker.com/compose/compose-file/ for details on syntax and usage
 #
 # Notes:
