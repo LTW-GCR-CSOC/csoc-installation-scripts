@@ -130,9 +130,9 @@ class Cowrie:
                     sourceip = new_alert['src_ip']
                     find = Find()
                     macAddress = find.macAddress( sourceip )
-                    print(macAddress)
+                    #print(macAddress)
                     macVendor = find.macVendor( macAddress )
-                    print(macVendor)
+                    #print(macVendor)
                     sourceport = new_alert['src_port']                    
                     hostname = new_alert['sensor']
                     destinationip = new_alert['dst_ip']
@@ -144,7 +144,7 @@ class Cowrie:
                     timestamp=calendar.timegm(d.utctimetuple())
                     alert = str(timestamp) + ".000|" + "GCRCanary-Device|" + \
                     hostname + "|" + "CowrieConnection(NoLoginAttempt)|" + "0" + "|" + str(destinationip) + "|" + str(destinationport) + "|" + str(sourceip) + "|" + str(sourceport) + "|" + str(payload) + "|"
-                    print(alert)
+                    #print(alert)
                     file = open("/var/log/GCRCowrie.log", "a+")
                     syslog.syslog(alert)
                     file.write(alert+"\n")
@@ -164,9 +164,9 @@ class Cowrie:
                         sourceip = new_alert['src_ip']
                         find = Find()
                         macAddress = find.macAddress( sourceip )
-                        print(macAddress)
+                        #print(macAddress)
                         macVendor = find.macVendor( macAddress )
-                        print(macVendor)
+                        #print(macVendor)
                         hostname = new_alert['sensor']
                         payload = str(new_alert).replace("}u{","")  
                         payload += "MACADDRESS: "+ macAddress
@@ -175,7 +175,7 @@ class Cowrie:
                         timestamp=calendar.timegm(d.utctimetuple())
                         alert = str(timestamp) + ".000|" + "GCRCanary-Device|" + \
                             hostname + "|" + "CowrieConnection(" + message + ")|" + "0" + "|" + "0.0.0.0" + "|" + "0" + "|" + str(sourceip) + "|" + "0" + "|" + str(payload) + "|"
-                        print(alert)
+                        #print(alert)
                         file = open("/var/log/GCRCowrie.log", "a+")
                         syslog.syslog(alert)
                         file.write(alert+"\n")
